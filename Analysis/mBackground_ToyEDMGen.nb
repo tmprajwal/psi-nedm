@@ -1,0 +1,206 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7154,        196]
+NotebookOptionsPosition[      6701,        175]
+NotebookOutlinePosition[      7035,        190]
+CellTagsIndexPosition[      6992,        187]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"OS", "=", "\"\<linux\>\""}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"or", " ", "linux"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<EDA`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<PhysicalConstants`\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"OS", "\[Equal]", "\"\<win\>\""}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Working Directory: \>\"", ",", 
+       RowBox[{"curDir", "=", 
+        RowBox[{
+        "SetDirectory", "[", 
+         "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\nedm-analysis\\\\\
+analysis\>\"", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(ASCII) Rawdata Directory: \>\"", ",", 
+       RowBox[{
+       "AscDir", "=", 
+        "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\rawdata\>\""}]}], 
+      "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"OS", "\[Equal]", "\"\<linux\>\""}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Working Directory:\>\"", ",", 
+       RowBox[{"curDir", "=", 
+        RowBox[{
+        "SetDirectory", "[", 
+         "\"\</home/prajwal/Dropbox/nEDM/nedm-analysis/analysis\>\"", 
+         "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(ASCII) Rawdata Directory:\>\"", ",", 
+       RowBox[{
+       "AscDir", "=", "\"\</home/prajwal/Dropbox/nEDM/rawdata\>\""}]}], "]"}],
+      ";"}]}], "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"runNum", "=", "10288"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"maxCy", "=", "231"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"posCycles", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"k", ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "9", ",", "56"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"zeroCycles", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{"k", ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", "8"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{"k", ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "57", ",", "64"}], "}"}]}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"negCycles", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"k", ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "65", ",", "112"}], "}"}]}], "]"}]}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.654339512468444*^9, 3.6543396129676247`*^9}, {
+   3.654339647136958*^9, 3.654339733055709*^9}, {3.6543397840328827`*^9, 
+   3.654339817606957*^9}, {3.654339865983542*^9, 3.6543398955659122`*^9}, {
+   3.6544131314631195`*^9, 3.654413139007783*^9}, {3.654413173750848*^9, 
+   3.6544131785611753`*^9}, {3.6544132418080482`*^9, 
+   3.6544133063849163`*^9}, {3.654413348980295*^9, 3.654413533425085*^9}, {
+   3.6544135709724855`*^9, 3.6544135733228235`*^9}, {3.6544136045372643`*^9, 
+   3.6544136052833004`*^9}, {3.654413638916109*^9, 3.6544136486038423`*^9}, {
+   3.6544137466518683`*^9, 3.6544137489034667`*^9}, {3.654413827951024*^9, 
+   3.65441382840193*^9}, {3.6544141091671257`*^9, 3.654414134326572*^9}, {
+   3.6544744019044347`*^9, 3.654474454201499*^9}, {3.654474543245737*^9, 
+   3.654474636248149*^9}, {3.6544750279094515`*^9, 3.654475029196368*^9}, {
+   3.6544751462740965`*^9, 3.654475158322981*^9}, {3.6544751904593706`*^9, 
+   3.6544751927690077`*^9}, {3.6544760840515704`*^9, 3.6544760875670614`*^9}, 
+   3.654514607251031*^9, {3.6545165447021675`*^9, 3.6545165459397974`*^9}, {
+   3.6545166860656967`*^9, 3.654516696380381*^9}, {3.655547815423847*^9, 
+   3.655547821041394*^9}, {3.6555479312195272`*^9, 3.655547959349824*^9}, {
+   3.655548023549777*^9, 3.655548065933044*^9}, {3.6585564163054743`*^9, 
+   3.6585564165590687`*^9}, {3.658557027629983*^9, 3.6585570279612722`*^9}, {
+   3.658659573134512*^9, 3.6586595763129053`*^9}, {3.6586597837405453`*^9, 
+   3.658659792575426*^9}, {3.6587461381338873`*^9, 3.658746153990532*^9}, {
+   3.65874630650175*^9, 3.658746330550634*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "obspkg"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"PhysicalConstants`\\\"\\)\[NoBreak] is \
+now obsolete. The legacy version being loaded may conflict with current \
+functionality. See the Compatibility Guide for updating information.\"\>"}]], \
+"Message", "MSG",
+ CellChangeTimes->{3.6587463327580347`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working Directory:\"\>", 
+   "\[InvisibleSpace]", \
+"\<\"/home/prajwal/Dropbox/nEDM/nedm-analysis/analysis\"\>"}],
+  SequenceForm[
+  "Working Directory:", "/home/prajwal/Dropbox/nEDM/nedm-analysis/analysis"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.658746332932089*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(ASCII) Rawdata Directory:\"\>", 
+   "\[InvisibleSpace]", "\<\"/home/prajwal/Dropbox/nEDM/rawdata\"\>"}],
+  SequenceForm[
+  "(ASCII) Rawdata Directory:", "/home/prajwal/Dropbox/nEDM/rawdata"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.658746332934157*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", " ", "=", " ", 
+   RowBox[{"ReadList", "[", 
+    RowBox[{
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"AscDir", ",", "\"\</\>\"", ",", 
+       RowBox[{"IntegerString", "[", 
+        RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", "\"\</\>\"", ",", 
+       RowBox[{"IntegerString", "[", 
+        RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
+       "\"\<_UCNdet_\>\"", ",", 
+       RowBox[{"IntegerString", "[", 
+        RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
+       "\"\<_0001.fast.ascii\>\""}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "Real", ",", "Word", ",", "Real", ",", "Real", ",", "Real", ",", "Real",
+        ",", "Real"}], "}"}]}], "]"}]}], ";"}]], "Input"]
+},
+WindowSize->{1855, 1176},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"10.2 for Linux x86 (64-bit) (July 29, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4271, 97, 363, "Input"],
+Cell[4854, 121, 399, 9, 23, "Message"],
+Cell[CellGroupData[{
+Cell[5278, 134, 329, 8, 23, "Print"],
+Cell[5610, 144, 313, 7, 23, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[5950, 155, 747, 18, 55, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
