@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    500127,      10232]
-NotebookOptionsPosition[    499090,      10193]
-NotebookOutlinePosition[    499434,      10208]
-CellTagsIndexPosition[    499391,      10205]
+NotebookDataLength[    500261,      10236]
+NotebookOptionsPosition[    499224,      10197]
+NotebookOutlinePosition[    499569,      10212]
+CellTagsIndexPosition[    499526,      10209]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1609,7 +1609,7 @@ Cell[BoxData[{
    RowBox[{"FrameLabel", "\[Rule]", 
     RowBox[{"{", 
      RowBox[{
-     "\"\<Neutron Count Asymmetry (\[Times]1/2)\>\"", ",", 
+     "\"\<Neutron Count Asymmetry (-.8)\>\"", ",", 
       "\"\<Time (Cycles, RF Frequency)\>\""}], "}"}]}], ",", 
    RowBox[{"TicksStyle", "\[Rule]", 
     RowBox[{"Directive", "[", 
@@ -1690,7 +1690,7 @@ Cell[BoxData[{
    3.6593004589039497`*^9}, {3.6593005052192535`*^9, 
    3.6593005084755306`*^9}, {3.659434415378707*^9, 3.659434443807452*^9}, {
    3.659434501228166*^9, 3.6594346098115*^9}, {3.659434730836645*^9, 
-   3.6594347390278664`*^9}}],
+   3.6594347390278664`*^9}, {3.6701588812215724`*^9, 3.6701588844426875`*^9}}],
 
 Cell[BoxData[
  TemplateBox[{GraphicsBox[{{
@@ -7537,8 +7537,9 @@ kfptvYN4Fz6E/8M9Yi/A4/E6XCTOGvxfnItSW78r7qseq5dMzuFf4zyVKfpL
                     0.4731986666666667], FrameTicks -> None, PlotRangePadding -> 
                     None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                     "RGBColor[0.368417, 0.506779, 0.709798]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -7581,8 +7582,9 @@ kfptvYN4Fz6E/8M9Yi/A4/E6XCTOGvxfnItSW78r7qseq5dMzuFf4zyVKfpL
                     0.587148, 0.40736066666666665`, 0.09470066666666668], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                     "RGBColor[0.880722, 0.611041, 0.142051]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -7625,8 +7627,9 @@ kfptvYN4Fz6E/8M9Yi/A4/E6XCTOGvxfnItSW78r7qseq5dMzuFf4zyVKfpL
                     0.37345400000000006`, 0.461046, 0.12992333333333334`], 
                     FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                     "RGBColor[0.560181, 0.691569, 0.194885]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -7670,8 +7673,9 @@ kfptvYN4Fz6E/8M9Yi/A4/E6XCTOGvxfnItSW78r7qseq5dMzuFf4zyVKfpL
                     0.13945266666666667`], FrameTicks -> None, 
                     PlotRangePadding -> None, ImageSize -> 
                     Dynamic[{
-                    Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                    AbsoluteCurrentValue[Magnification]}]], 
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                     "RGBColor[0.922526, 0.385626, 0.209179]"], Appearance -> 
                     None, BaseStyle -> {}, BaselinePosition -> Baseline, 
                     DefaultBaseStyle -> {}, ButtonFunction :> 
@@ -10191,7 +10195,7 @@ XdueuOKPLY/899Et/7x34KlD0zI7Fw==
 Cell["", "PageBreak",
  PageBreakBelow->True]
 },
-WindowSize->{1600, 817},
+WindowSize->{1920, 1117},
 WindowMargins->{{-8, Automatic}, {Automatic, -8}},
 FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
 StyleDefinitions->"Default.nb"
@@ -10216,23 +10220,23 @@ Cell[CellGroupData[{
 Cell[1029, 37, 6592, 167, 291, "Input"],
 Cell[7624, 206, 34190, 624, 643, "Output"]
 }, Open  ]],
-Cell[41829, 833, 44, 1, 1, "PageBreak",
+Cell[41829, 833, 44, 1, 4, "PageBreak",
  PageBreakBelow->True],
 Cell[CellGroupData[{
-Cell[41898, 838, 30314, 854, 712, "Input"],
-Cell[72215, 1694, 178143, 4053, 689, "Output"]
+Cell[41898, 838, 30356, 854, 692, "Input"],
+Cell[72257, 1694, 178143, 4053, 689, "Output"]
 }, Open  ]],
-Cell[250373, 5750, 44, 1, 1, "PageBreak",
+Cell[250415, 5750, 44, 1, 4, "PageBreak",
  PageBreakBelow->True],
 Cell[CellGroupData[{
-Cell[250442, 5755, 3551, 88, 118, "Input"],
-Cell[253996, 5845, 108566, 1877, 640, "Output"]
+Cell[250484, 5755, 3551, 88, 98, "Input"],
+Cell[254038, 5845, 108658, 1881, 640, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[362599, 7727, 9214, 248, 343, "Input"],
-Cell[371816, 7977, 127211, 2210, 635, "Output"]
+Cell[362733, 7731, 9214, 248, 303, "Input"],
+Cell[371950, 7981, 127211, 2210, 635, "Output"]
 }, Open  ]],
-Cell[499042, 10190, 44, 1, 1, "PageBreak",
+Cell[499176, 10194, 44, 1, 4, "PageBreak",
  PageBreakBelow->True]
 }
 ]

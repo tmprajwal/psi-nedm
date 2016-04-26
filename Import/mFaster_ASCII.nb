@@ -10,16 +10,21 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9022,        219]
-NotebookOptionsPosition[      8495,        195]
-NotebookOutlinePosition[      8832,        210]
-CellTagsIndexPosition[      8789,        207]
+NotebookDataLength[     15061,        347]
+NotebookOptionsPosition[     14372,        318]
+NotebookOutlinePosition[     14709,        333]
+CellTagsIndexPosition[     14666,        330]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
+Cell["Version 1: For rawdata", "Subsection",
+ CellChangeTimes->{{3.670681688431744*^9, 3.670681693673326*^9}}],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"Print", "[", 
@@ -27,8 +32,8 @@ Cell[BoxData[{
     RowBox[{"curDir", "=", 
      RowBox[{
      "SetDirectory", "[", 
-      "\"\</home/prajwal/Dropbox/nEDM/nedm-analysis/analysis/Prajwal\>\"", 
-      "]"}]}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+      "\"\</home/prajwal/Dropbox/nEDM/psi-nedm/Import\>\"", "]"}]}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Print", "[", 
    RowBox[{"\"\<(faster) Rawdata Directory:\>\"", ",", 
@@ -42,13 +47,13 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"year", "=", "2015"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"month", "=", "8"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"month", "=", "12"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"day", "=", "8"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"day", "=", "10"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"runNum", "=", "10094"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"runNum", "=", "10497"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"maxCy", "=", "376"}], ";"}]}], "Input",
+  RowBox[{"maxCy", "=", "541"}], ";"}]}], "Input",
  CellChangeTimes->{{3.654339512468444*^9, 3.6543396129676247`*^9}, {
    3.654339647136958*^9, 3.654339733055709*^9}, {3.6543397840328827`*^9, 
    3.654339817606957*^9}, {3.654339865983542*^9, 3.6543398955659122`*^9}, {
@@ -58,24 +63,25 @@ Cell[BoxData[{
    3.654341776907261*^9, 3.654341777243021*^9}, 3.654342291320033*^9, 
    3.654342323063249*^9, {3.654351055386818*^9, 3.6543510559917917`*^9}, {
    3.654351134047698*^9, 3.654351168272854*^9}, {3.654351745724968*^9, 
-   3.654351746133171*^9}}],
+   3.654351746133171*^9}, {3.6706733549892263`*^9, 3.670673379168075*^9}, {
+   3.670674049940732*^9, 3.670674054666457*^9}, {3.670674227415819*^9, 
+   3.6706742394328613`*^9}, {3.670677682435088*^9, 3.670677703024296*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Working Directory:\"\>", 
-   "\[InvisibleSpace]", \
-"\<\"/home/prajwal/Dropbox/nEDM/nedm-analysis/analysis/Prajwal\"\>"}],
+   "\[InvisibleSpace]", "\<\"/home/prajwal/Dropbox/nEDM/psi-nedm/Import\"\>"}],
   SequenceForm[
-  "Working Directory:", 
-   "/home/prajwal/Dropbox/nEDM/nedm-analysis/analysis/Prajwal"],
+  "Working Directory:", "/home/prajwal/Dropbox/nEDM/psi-nedm/Import"],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.654339698277976*^9, 3.654339734107295*^9, 3.654339818639048*^9, 
    3.654340803059239*^9, 3.654340837239299*^9, 3.65434187047143*^9, 
    3.654342165285177*^9, 3.654342293912889*^9, {3.654344990341608*^9, 
-   3.654345003995574*^9}, 3.654351400085425*^9, 3.654351748816588*^9}],
+   3.654345003995574*^9}, 3.654351400085425*^9, 3.654351748816588*^9, 
+   3.670674785613666*^9, 3.670677710025951*^9, 3.670679094725322*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -87,7 +93,8 @@ Cell[BoxData[
   3.654339698277976*^9, 3.654339734107295*^9, 3.654339818639048*^9, 
    3.654340803059239*^9, 3.654340837239299*^9, 3.65434187047143*^9, 
    3.654342165285177*^9, 3.654342293912889*^9, {3.654344990341608*^9, 
-   3.654345003995574*^9}, 3.654351400085425*^9, 3.654351748818942*^9}],
+   3.654345003995574*^9}, 3.654351400085425*^9, 3.654351748816588*^9, 
+   3.670674785613666*^9, 3.670677710025951*^9, 3.6706790947282553`*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -100,11 +107,10 @@ Cell[BoxData[
   3.654339698277976*^9, 3.654339734107295*^9, 3.654339818639048*^9, 
    3.654340803059239*^9, 3.654340837239299*^9, 3.65434187047143*^9, 
    3.654342165285177*^9, 3.654342293912889*^9, {3.654344990341608*^9, 
-   3.654345003995574*^9}, 3.654351400085425*^9, 3.6543517488202972`*^9}]
+   3.654345003995574*^9}, 3.654351400085425*^9, 3.654351748816588*^9, 
+   3.670674785613666*^9, 3.670677710025951*^9, 3.670679094731628*^9}]
 }, Open  ]]
 }, Open  ]],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -153,7 +159,12 @@ Cell[BoxData[{
         "\"\<_UCNdet_\>\"", ",", 
         RowBox[{"IntegerString", "[", 
          RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
-        "\"\<_0001.fast.ascii\>\""}], "]"}], "]"}], ";"}]}], 
+        "\"\<_0001.fast.ascii\>\""}], "]"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Run #\>\"", ",", "runNum", ",", "\"\<with \>\"", ",", "i", ",", 
+       "\"\< cycles, completed.\\n\>\""}], "]"}], ";"}]}], 
    "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Print", "[", 
@@ -181,20 +192,132 @@ Cell[BoxData[{
    3.654350270874296*^9, 3.654350293572638*^9}, {3.654351038141608*^9, 
    3.654351040755061*^9}, 3.654351502929008*^9, {3.654351537482691*^9, 
    3.6543515680800753`*^9}, 3.654351922421379*^9, {3.6543519949613037`*^9, 
-   3.654352012437015*^9}}],
+   3.654352012437015*^9}, {3.670674883419606*^9, 3.670674887982534*^9}}]
+}, Open  ]],
 
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10094", 
-   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "376", 
-   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
-  SequenceForm["Run #", 10094, "with ", 376, " cycles, completed.\n"],
-  Editable->False]], "Print",
- CellChangeTimes->{3.654353984488275*^9}]
+Cell[CellGroupData[{
+
+Cell["Version 2: For rawdatap", "Subsection",
+ CellChangeTimes->{{3.670681688431744*^9, 3.670681703046418*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Working Directory:\>\"", ",", 
+    RowBox[{"curDir", "=", 
+     RowBox[{
+     "SetDirectory", "[", 
+      "\"\</home/prajwal/Dropbox/nEDM/psi-nedm/Import\>\"", "]"}]}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<(faster) Rawdata Directory:\>\"", ",", 
+    RowBox[{"fasDir", "=", "\"\</home/prajwal/nEDM/rawdatap\>\""}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<(ASCII) Rawdata Directory:\>\"", ",", 
+    RowBox[{"AscDir", "=", "\"\</home/prajwal/Dropbox/nEDM/rawdata\>\""}]}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"year", "=", "2015"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"month", "=", "12"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"day", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"runNum", "=", "10497"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"maxCy", "=", "541"}], ";"}]}], "Input",
+ CellChangeTimes->{3.670681735580714*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "\[LessEqual]", "maxCy"}], ",", 
+    RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Run", "[", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{
+       "\"\<faster_disfast \>\"", ",", "fasDir", ",", "\"\</\>\"", ",", 
+        RowBox[{"ToString", "[", "year", "]"}], ",", "\"\</\>\"", ",", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{"month", ",", "10", ",", "2"}], "]"}], ",", "\"\</\>\"", ",", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{"day", ",", "10", ",", "2"}], "]"}], ",", "\"\</\>\"", ",", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
+        "\"\<_UCNdet_\>\"", ",", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
+        "\"\<_0001.fast.p1e1 -t 43 > \>\"", ",", "AscDir", ",", "\"\</\>\"", 
+        ",", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", "\"\</\>\"", 
+        ",", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
+        "\"\<_UCNdet_\>\"", ",", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
+        "\"\<_0001.fast.ascii\>\""}], "]"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Run", "[", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{
+       "\"\<sed -i -e '1,3d' -e 's/ns//' -e 's/q1=//' -e 's/q2=//' -e \
+'s/q3=//' -e 's/mV.ns//' -e 's/mV.ns//' -e 's/mV.ns//' \>\"", ",", "AscDir", 
+        ",", "\"\</\>\"", ",", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", "\"\</\>\"", 
+        ",", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
+        "\"\<_UCNdet_\>\"", ",", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
+        "\"\<_0001.fast.ascii\>\""}], "]"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Run #\>\"", ",", "runNum", ",", "\"\<with \>\"", ",", "i", ",", 
+       "\"\< cycles, completed.\\n\>\""}], "]"}], ";"}]}], 
+   "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Run #\>\"", ",", "runNum", ",", "\"\<with \>\"", ",", 
+    RowBox[{"i", "-", "1"}], ",", "\"\< cycles, completed.\\n\>\""}], "]"}], 
+  RowBox[{"(*", ";", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.654341510692518*^9, 3.654341515242917*^9}, {
+   3.654341562498486*^9, 3.654341682740683*^9}, {3.6543418393919783`*^9, 
+   3.6543418513055477`*^9}, {3.65434190466638*^9, 3.654342104455798*^9}, {
+   3.654342158826174*^9, 3.6543421785256767`*^9}, {3.6543422187543793`*^9, 
+   3.654342220332953*^9}, {3.654342570371086*^9, 3.654342591340991*^9}, {
+   3.654342829356928*^9, 3.654342866932816*^9}, {3.654342908387184*^9, 
+   3.6543429096189127`*^9}, {3.65434314580928*^9, 3.654343180430583*^9}, {
+   3.654343211874558*^9, 3.654343216573696*^9}, {3.65434361215292*^9, 
+   3.654343612417747*^9}, {3.654343646660079*^9, 3.654343654390009*^9}, {
+   3.654343903004698*^9, 3.654343903874448*^9}, {3.654343942762686*^9, 
+   3.654344028282387*^9}, {3.654344100901821*^9, 3.654344196966308*^9}, {
+   3.654344313319663*^9, 3.6543443228632097`*^9}, {3.654344369032496*^9, 
+   3.654344378248804*^9}, {3.6543444175437937`*^9, 3.654344424723856*^9}, {
+   3.654345263235566*^9, 3.654345435928359*^9}, {3.6543455116404963`*^9, 
+   3.654345513566546*^9}, 3.6543457927709837`*^9, {3.654345843967759*^9, 
+   3.654345847158517*^9}, {3.6543467018321953`*^9, 3.654346867314088*^9}, {
+   3.654346957203477*^9, 3.6543469589913282`*^9}, {3.65434709913549*^9, 
+   3.654347187235614*^9}, {3.654347411405217*^9, 3.6543474405396852`*^9}, {
+   3.654350270874296*^9, 3.654350293572638*^9}, {3.654351038141608*^9, 
+   3.654351040755061*^9}, 3.654351502929008*^9, {3.654351537482691*^9, 
+   3.6543515680800753`*^9}, 3.654351922421379*^9, {3.6543519949613037`*^9, 
+   3.654352012437015*^9}, {3.670674883419606*^9, 3.670674887982534*^9}, {
+   3.670681941454884*^9, 3.670681942985189*^9}}]
 }, Open  ]]
 },
-WindowSize->{927, 1148},
-WindowMargins->{{Automatic, 918}, {Automatic, -10}},
+WindowSize->{927, 1028},
+WindowMargins->{{145, Automatic}, {Automatic, -10}},
 FrontEndVersion->"10.2 for Linux x86 (64-bit) (July 29, 2015)",
 StyleDefinitions->"Default.nb"
 ]
@@ -210,16 +333,21 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 1744, 38, 209, "Input"],
+Cell[580, 22, 110, 1, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[2349, 64, 607, 13, 23, "Print"],
-Cell[2959, 79, 554, 10, 23, "Print"],
-Cell[3516, 91, 573, 11, 23, "Print"]
+Cell[715, 27, 1923, 40, 209, "Input"],
+Cell[CellGroupData[{
+Cell[2663, 71, 641, 12, 23, "Print"],
+Cell[3307, 85, 626, 11, 23, "Print"],
+Cell[3936, 98, 641, 12, 23, "Print"]
 }, Open  ]]
 }, Open  ]],
+Cell[4604, 114, 4224, 80, 385, "Input"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[4138, 108, 3974, 75, 396, "Input"],
-Cell[8115, 185, 364, 7, 43, "Print"]
+Cell[8865, 199, 111, 1, 45, "Subsection"],
+Cell[8979, 202, 1086, 29, 209, "Input"],
+Cell[10068, 233, 4288, 82, 385, "Input"]
 }, Open  ]]
 }
 ]
