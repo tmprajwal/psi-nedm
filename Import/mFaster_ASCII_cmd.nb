@@ -1,0 +1,138 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4771,        129]
+NotebookOptionsPosition[      4527,        116]
+NotebookOutlinePosition[      4873,        131]
+CellTagsIndexPosition[      4830,        128]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Working Directory:\>\"", ",", 
+    RowBox[{"curDir", "=", 
+     RowBox[{
+     "SetDirectory", "[", 
+      "\"\</home/prajwal/Dropbox/nEDM/psi-nedm/Import\>\"", "]"}]}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<(faster) Rawdata Directory:\>\"", ",", 
+    RowBox[{"fasDir", "=", "\"\</home/prajwal/nEDM/rawdatap\>\""}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<(ASCII) Rawdata Directory:\>\"", ",", 
+    RowBox[{"AscDir", "=", "\"\</home/prajwal/Dropbox/nEDM/rawdata\>\""}]}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"year", "=", "2015"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"month", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"day", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"runNum", "=", "10281"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"maxCy", "=", "288"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Parallelize", "[", 
+  RowBox[{
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"i", "=", "62"}], ",", 
+     RowBox[{"i", "\[LessEqual]", "maxCy"}], ",", 
+     RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Run", "[", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "\"\<faster_disfast \>\"", ",", "fasDir", ",", "\"\</\>\"", ",", 
+         RowBox[{"ToString", "[", "year", "]"}], ",", "\"\</\>\"", ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"month", ",", "10", ",", "2"}], "]"}], ",", "\"\</\>\"", 
+         ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"day", ",", "10", ",", "2"}], "]"}], ",", "\"\</\>\"", ",", 
+         
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
+         "\"\<_UCNdet_\>\"", ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
+         "\"\<_0001.fast.p1e1 -t 43 > \>\"", ",", "AscDir", ",", "\"\</\>\"", 
+         ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", "\"\</\>\"", 
+         ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
+         "\"\<_UCNdet_\>\"", ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
+         "\"\<_0001.fast.ascii\>\""}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Run", "[", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "\"\<sed -i -e '1,3d' -e 's/ns//' -e 's/q1=//' -e 's/q2=//' -e \
+'s/q3=//' -e 's/mV.ns//' -e 's/mV.ns//' -e 's/mV.ns//' \>\"", ",", "AscDir", 
+         ",", "\"\</\>\"", ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", "\"\</\>\"", 
+         ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
+         "\"\<_UCNdet_\>\"", ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
+         "\"\<_0001.fast.ascii\>\""}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+       "\"\<Run #\>\"", ",", "runNum", ",", "\"\<with \>\"", ",", "i", ",", 
+        "\"\< cycles, completed.\\n\>\""}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<Run #\>\"", ",", "runNum", ",", "\"\<with \>\"", ",", 
+     RowBox[{"i", "-", "1"}], ",", "\"\< cycles, completed.\\n\>\""}], 
+    "]"}]}], 
+  RowBox[{"(*", ";", "*)"}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.670681735580714*^9, {3.670682802723509*^9, 3.6706828179357023`*^9}, {
+   3.6709148542550592`*^9, 3.6709148547294874`*^9}, {3.670914970572343*^9, 
+   3.670914993176974*^9}}]
+},
+WindowSize->{927, 1028},
+WindowMargins->{{145, Automatic}, {Automatic, -10}},
+FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3965, 94, 432, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

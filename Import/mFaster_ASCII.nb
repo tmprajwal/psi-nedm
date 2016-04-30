@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     15061,        347]
-NotebookOptionsPosition[     14372,        318]
-NotebookOutlinePosition[     14709,        333]
-CellTagsIndexPosition[     14666,        330]
+NotebookDataLength[     52936,       1251]
+NotebookOptionsPosition[     48670,       1126]
+NotebookOutlinePosition[     49007,       1141]
+CellTagsIndexPosition[     48964,       1138]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -200,6 +200,8 @@ Cell[CellGroupData[{
 Cell["Version 2: For rawdatap", "Subsection",
  CellChangeTimes->{{3.670681688431744*^9, 3.670681703046418*^9}}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"Print", "[", 
@@ -229,68 +231,104 @@ Cell[BoxData[{
   RowBox[{"runNum", "=", "10497"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"maxCy", "=", "541"}], ";"}]}], "Input",
- CellChangeTimes->{3.670681735580714*^9}],
+ CellChangeTimes->{
+  3.670681735580714*^9, {3.670682802723509*^9, 3.6706828179357023`*^9}}],
 
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"For", "[", 
-   RowBox[{
-    RowBox[{"i", "=", "1"}], ",", 
-    RowBox[{"i", "\[LessEqual]", "maxCy"}], ",", 
-    RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working Directory:\"\>", 
+   "\[InvisibleSpace]", "\<\"/home/prajwal/Dropbox/nEDM/psi-nedm/Import\"\>"}],
+  SequenceForm[
+  "Working Directory:", "/home/prajwal/Dropbox/nEDM/psi-nedm/Import"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.67068198963552*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(faster) Rawdata Directory:\"\>", 
+   "\[InvisibleSpace]", "\<\"/home/prajwal/nEDM/rawdatap\"\>"}],
+  SequenceForm["(faster) Rawdata Directory:", "/home/prajwal/nEDM/rawdatap"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670681989638277*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(ASCII) Rawdata Directory:\"\>", 
+   "\[InvisibleSpace]", "\<\"/home/prajwal/Dropbox/nEDM/rawdata\"\>"}],
+  SequenceForm[
+  "(ASCII) Rawdata Directory:", "/home/prajwal/Dropbox/nEDM/rawdata"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670681989658729*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Parallelize", "[", 
+  RowBox[{
+   RowBox[{"For", "[", 
     RowBox[{
-     RowBox[{"Run", "[", 
-      RowBox[{"StringJoin", "[", 
-       RowBox[{
-       "\"\<faster_disfast \>\"", ",", "fasDir", ",", "\"\</\>\"", ",", 
-        RowBox[{"ToString", "[", "year", "]"}], ",", "\"\</\>\"", ",", 
-        RowBox[{"IntegerString", "[", 
-         RowBox[{"month", ",", "10", ",", "2"}], "]"}], ",", "\"\</\>\"", ",", 
-        RowBox[{"IntegerString", "[", 
-         RowBox[{"day", ",", "10", ",", "2"}], "]"}], ",", "\"\</\>\"", ",", 
-        RowBox[{"IntegerString", "[", 
-         RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
-        "\"\<_UCNdet_\>\"", ",", 
-        RowBox[{"IntegerString", "[", 
-         RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
-        "\"\<_0001.fast.p1e1 -t 43 > \>\"", ",", "AscDir", ",", "\"\</\>\"", 
-        ",", 
-        RowBox[{"IntegerString", "[", 
-         RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", "\"\</\>\"", 
-        ",", 
-        RowBox[{"IntegerString", "[", 
-         RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
-        "\"\<_UCNdet_\>\"", ",", 
-        RowBox[{"IntegerString", "[", 
-         RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
-        "\"\<_0001.fast.ascii\>\""}], "]"}], "]"}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"Run", "[", 
-      RowBox[{"StringJoin", "[", 
-       RowBox[{
-       "\"\<sed -i -e '1,3d' -e 's/ns//' -e 's/q1=//' -e 's/q2=//' -e \
+     RowBox[{"i", "=", "62"}], ",", 
+     RowBox[{"i", "\[LessEqual]", "maxCy"}], ",", 
+     RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Run", "[", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "\"\<faster_disfast \>\"", ",", "fasDir", ",", "\"\</\>\"", ",", 
+         RowBox[{"ToString", "[", "year", "]"}], ",", "\"\</\>\"", ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"month", ",", "10", ",", "2"}], "]"}], ",", "\"\</\>\"", 
+         ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"day", ",", "10", ",", "2"}], "]"}], ",", "\"\</\>\"", ",", 
+         
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
+         "\"\<_UCNdet_\>\"", ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
+         "\"\<_0001.fast.p1e1 -t 43 > \>\"", ",", "AscDir", ",", "\"\</\>\"", 
+         ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", "\"\</\>\"", 
+         ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
+         "\"\<_UCNdet_\>\"", ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
+         "\"\<_0001.fast.ascii\>\""}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Run", "[", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "\"\<sed -i -e '1,3d' -e 's/ns//' -e 's/q1=//' -e 's/q2=//' -e \
 's/q3=//' -e 's/mV.ns//' -e 's/mV.ns//' -e 's/mV.ns//' \>\"", ",", "AscDir", 
-        ",", "\"\</\>\"", ",", 
-        RowBox[{"IntegerString", "[", 
-         RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", "\"\</\>\"", 
-        ",", 
-        RowBox[{"IntegerString", "[", 
-         RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
-        "\"\<_UCNdet_\>\"", ",", 
-        RowBox[{"IntegerString", "[", 
-         RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
-        "\"\<_0001.fast.ascii\>\""}], "]"}], "]"}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"Print", "[", 
-      RowBox[{
-      "\"\<Run #\>\"", ",", "runNum", ",", "\"\<with \>\"", ",", "i", ",", 
-       "\"\< cycles, completed.\\n\>\""}], "]"}], ";"}]}], 
-   "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Print", "[", 
-   RowBox[{"\"\<Run #\>\"", ",", "runNum", ",", "\"\<with \>\"", ",", 
-    RowBox[{"i", "-", "1"}], ",", "\"\< cycles, completed.\\n\>\""}], "]"}], 
-  RowBox[{"(*", ";", "*)"}]}]}], "Input",
+         ",", "\"\</\>\"", ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", "\"\</\>\"", 
+         ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"runNum", ",", "10", ",", "6"}], "]"}], ",", 
+         "\"\<_UCNdet_\>\"", ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"i", ",", "10", ",", "3"}], "]"}], ",", 
+         "\"\<_0001.fast.ascii\>\""}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+       "\"\<Run #\>\"", ",", "runNum", ",", "\"\<with \>\"", ",", "i", ",", 
+        "\"\< cycles, completed.\\n\>\""}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<Run #\>\"", ",", "runNum", ",", "\"\<with \>\"", ",", 
+     RowBox[{"i", "-", "1"}], ",", "\"\< cycles, completed.\\n\>\""}], 
+    "]"}]}], 
+  RowBox[{"(*", ";", "*)"}], "]"}]], "Input",
  CellChangeTimes->{{3.654341510692518*^9, 3.654341515242917*^9}, {
    3.654341562498486*^9, 3.654341682740683*^9}, {3.6543418393919783`*^9, 
    3.6543418513055477`*^9}, {3.65434190466638*^9, 3.654342104455798*^9}, {
@@ -313,7 +351,777 @@ Cell[BoxData[{
    3.654351040755061*^9}, 3.654351502929008*^9, {3.654351537482691*^9, 
    3.6543515680800753`*^9}, 3.654351922421379*^9, {3.6543519949613037`*^9, 
    3.654352012437015*^9}, {3.670674883419606*^9, 3.670674887982534*^9}, {
-   3.670681941454884*^9, 3.670681942985189*^9}}]
+   3.670681941454884*^9, 3.670681942985189*^9}, {3.670682820255788*^9, 
+   3.670682834522212*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "62", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 62, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670682851097884*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "63", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 63, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.67068286123558*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "64", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 64, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670682870948144*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "65", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 65, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.67068288081629*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "66", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 66, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706828891202707`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "67", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 67, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670682899148541*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "68", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 68, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670682909057488*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "69", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 69, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706829184175262`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "70", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 70, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706829281134167`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "71", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 71, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670682938532921*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "72", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 72, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706829498513002`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "73", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 73, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670682959344081*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "74", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 74, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670682969078292*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "75", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 75, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.67068297765543*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "76", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 76, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706829872635517`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "77", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 77, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670682997497192*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "78", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 78, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683009386372*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "79", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 79, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706830186289043`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "80", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 80, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706830286355047`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "81", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 81, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683039816421*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "82", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 82, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706830499021797`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "83", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 83, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683060475911*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "84", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 84, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683071871256*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "85", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 85, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683083978207*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "86", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 86, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683096175622*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "87", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 87, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683107258286*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "88", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 88, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683118200286*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "89", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 89, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706831301111107`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "90", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 90, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683141149428*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "91", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 91, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683153375533*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "92", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 92, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683165426653*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "93", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 93, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683176666465*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "94", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 94, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683186515501*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "95", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 95, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683199278348*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "96", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 96, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683211685137*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "97", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 97, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683222749564*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "98", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 98, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683233093502*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "99", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 99, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683242179549*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "100", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 100, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706832532794456`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "101", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 101, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706832639207277`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "102", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 102, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683274234828*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "103", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 103, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706832832783747`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "104", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 104, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683292116617*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "105", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 105, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706833005040073`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "106", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 106, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683311328245*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "107", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 107, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706833235474987`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "108", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 108, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706833412060537`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "109", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 109, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683356013343*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "110", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 110, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683371061496*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "111", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 111, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683384102865*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "112", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 112, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706833922495813`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "113", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 113, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683401993938*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "114", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 114, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683413781437*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "115", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 115, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683424126807*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "116", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 116, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683434415167*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "117", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 117, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683443834448*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "118", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 118, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683454687769*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "119", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 119, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683466064151*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "120", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 120, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683476407124*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "121", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 121, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683487725162*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "122", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 122, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706834984882298`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "123", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 123, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706835083589363`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "124", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 124, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683516492908*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "125", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 125, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.67068352365767*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "126", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 126, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683535893881*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "127", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 127, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.67068354443019*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "128", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 128, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683554081908*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "129", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 129, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706835631529827`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "130", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 130, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683570786417*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "131", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 131, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683579811645*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "132", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 132, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.67068358964087*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "133", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 133, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683600772562*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "134", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 134, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706836111277437`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "135", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 135, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.67068362371307*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "136", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 136, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683635301944*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "137", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 137, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.67068364646559*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "138", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 138, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683660269105*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "139", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 139, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683672012226*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "140", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 140, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683686219344*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "141", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 141, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683695214411*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "142", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 142, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.67068370637328*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "143", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 143, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706837146939573`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "144", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 144, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683723807797*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "145", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 145, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.6706837341530247`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Run #\"\>", "\[InvisibleSpace]", "10497", 
+   "\[InvisibleSpace]", "\<\"with \"\>", "\[InvisibleSpace]", "146", 
+   "\[InvisibleSpace]", "\<\" cycles, completed.\\n\"\>"}],
+  SequenceForm["Run #", 10497, "with ", 146, " cycles, completed.\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.670682042395874*^9, 3.670683744070965*^9}]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{927, 1028},
@@ -346,8 +1154,104 @@ Cell[4604, 114, 4224, 80, 385, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[8865, 199, 111, 1, 45, "Subsection"],
-Cell[8979, 202, 1086, 29, 209, "Input"],
-Cell[10068, 233, 4288, 82, 385, "Input"]
+Cell[CellGroupData[{
+Cell[9001, 204, 1137, 30, 209, "Input"],
+Cell[CellGroupData[{
+Cell[10163, 238, 312, 7, 23, "Print"],
+Cell[10478, 247, 298, 6, 23, "Print"],
+Cell[10779, 255, 313, 7, 23, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11141, 268, 4443, 86, 363, "Input"],
+Cell[CellGroupData[{
+Cell[15609, 358, 384, 7, 43, "Print"],
+Cell[15996, 367, 383, 7, 43, "Print"],
+Cell[16382, 376, 384, 7, 43, "Print"],
+Cell[16769, 385, 383, 7, 43, "Print"],
+Cell[17155, 394, 386, 7, 43, "Print"],
+Cell[17544, 403, 384, 7, 43, "Print"],
+Cell[17931, 412, 384, 7, 43, "Print"],
+Cell[18318, 421, 386, 7, 43, "Print"],
+Cell[18707, 430, 386, 7, 43, "Print"],
+Cell[19096, 439, 384, 7, 43, "Print"],
+Cell[19483, 448, 386, 7, 43, "Print"],
+Cell[19872, 457, 384, 7, 43, "Print"],
+Cell[20259, 466, 384, 7, 43, "Print"],
+Cell[20646, 475, 383, 7, 43, "Print"],
+Cell[21032, 484, 386, 7, 43, "Print"],
+Cell[21421, 493, 384, 7, 43, "Print"],
+Cell[21808, 502, 384, 7, 43, "Print"],
+Cell[22195, 511, 386, 7, 43, "Print"],
+Cell[22584, 520, 386, 7, 43, "Print"],
+Cell[22973, 529, 384, 7, 43, "Print"],
+Cell[23360, 538, 386, 7, 43, "Print"],
+Cell[23749, 547, 384, 7, 43, "Print"],
+Cell[24136, 556, 384, 7, 43, "Print"],
+Cell[24523, 565, 384, 7, 43, "Print"],
+Cell[24910, 574, 384, 7, 43, "Print"],
+Cell[25297, 583, 384, 7, 43, "Print"],
+Cell[25684, 592, 384, 7, 43, "Print"],
+Cell[26071, 601, 386, 7, 43, "Print"],
+Cell[26460, 610, 384, 7, 43, "Print"],
+Cell[26847, 619, 384, 7, 43, "Print"],
+Cell[27234, 628, 384, 7, 43, "Print"],
+Cell[27621, 637, 384, 7, 43, "Print"],
+Cell[28008, 646, 384, 7, 43, "Print"],
+Cell[28395, 655, 384, 7, 43, "Print"],
+Cell[28782, 664, 384, 7, 43, "Print"],
+Cell[29169, 673, 384, 7, 43, "Print"],
+Cell[29556, 682, 384, 7, 43, "Print"],
+Cell[29943, 691, 384, 7, 43, "Print"],
+Cell[30330, 700, 388, 7, 43, "Print"],
+Cell[30721, 709, 388, 7, 43, "Print"],
+Cell[31112, 718, 386, 7, 43, "Print"],
+Cell[31501, 727, 388, 7, 43, "Print"],
+Cell[31892, 736, 386, 7, 43, "Print"],
+Cell[32281, 745, 388, 7, 43, "Print"],
+Cell[32672, 754, 386, 7, 43, "Print"],
+Cell[33061, 763, 388, 7, 43, "Print"],
+Cell[33452, 772, 388, 7, 43, "Print"],
+Cell[33843, 781, 386, 7, 43, "Print"],
+Cell[34232, 790, 386, 7, 43, "Print"],
+Cell[34621, 799, 386, 7, 43, "Print"],
+Cell[35010, 808, 388, 7, 43, "Print"],
+Cell[35401, 817, 386, 7, 43, "Print"],
+Cell[35790, 826, 386, 7, 43, "Print"],
+Cell[36179, 835, 386, 7, 43, "Print"],
+Cell[36568, 844, 386, 7, 43, "Print"],
+Cell[36957, 853, 386, 7, 43, "Print"],
+Cell[37346, 862, 386, 7, 43, "Print"],
+Cell[37735, 871, 386, 7, 43, "Print"],
+Cell[38124, 880, 386, 7, 43, "Print"],
+Cell[38513, 889, 386, 7, 43, "Print"],
+Cell[38902, 898, 388, 7, 43, "Print"],
+Cell[39293, 907, 388, 7, 43, "Print"],
+Cell[39684, 916, 386, 7, 43, "Print"],
+Cell[40073, 925, 385, 7, 43, "Print"],
+Cell[40461, 934, 386, 7, 43, "Print"],
+Cell[40850, 943, 385, 7, 43, "Print"],
+Cell[41238, 952, 386, 7, 43, "Print"],
+Cell[41627, 961, 388, 7, 43, "Print"],
+Cell[42018, 970, 386, 7, 43, "Print"],
+Cell[42407, 979, 386, 7, 43, "Print"],
+Cell[42796, 988, 385, 7, 43, "Print"],
+Cell[43184, 997, 386, 7, 43, "Print"],
+Cell[43573, 1006, 388, 7, 43, "Print"],
+Cell[43964, 1015, 385, 7, 43, "Print"],
+Cell[44352, 1024, 386, 7, 43, "Print"],
+Cell[44741, 1033, 385, 7, 43, "Print"],
+Cell[45129, 1042, 386, 7, 43, "Print"],
+Cell[45518, 1051, 386, 7, 43, "Print"],
+Cell[45907, 1060, 386, 7, 43, "Print"],
+Cell[46296, 1069, 386, 7, 43, "Print"],
+Cell[46685, 1078, 385, 7, 43, "Print"],
+Cell[47073, 1087, 388, 7, 43, "Print"],
+Cell[47464, 1096, 386, 7, 43, "Print"],
+Cell[47853, 1105, 388, 7, 43, "Print"],
+Cell[48244, 1114, 386, 7, 43, "Print"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }
 ]
