@@ -23,14 +23,13 @@ Run[StringJoin["chmod +rw ",AscDir,"/",IntegerString[runNum,10,6],"/",IntegerStr
 Run[StringJoin["sed '1,5d' < ",AscDir,"/",IntegerString[runNum,10,6],"/",IntegerString[runNum,10,6],"_Meta.edm > ",AscDir,"/",IntegerString[runNum,10,6],"/",IntegerString[runNum,10,6],"_Meta3.edm"]];
 ];
 maxCy=ReadList[StringJoin[AscDir,"/",IntegerString[runNum,10,6],"/",IntegerString[runNum,10,6],"_Meta3.edm"],metaStructure][[-1]][[2]];
-(*
 (*Creating ASCII faster files*)
 For[i=1,i<=maxCy,i++,
 Run[StringJoin["faster_disfast ",fasDir,"/",mmddyy,"/",IntegerString[runNum,10,6],"_UCNdet_",IntegerString[i,10,3],"_0001.fast -t 43 > ",AscDir,"/",IntegerString[runNum,10,6],"/",IntegerString[runNum,10,6],"_UCNdet_",IntegerString[i,10,3],"_0001.fast.ascii"]];
 Run[StringJoin["sed -i -e '1,3d' -e 's/ns//' -e 's/q1=//' -e 's/q2=//' -e 's/q3=//' -e 's/mV.ns//' -e 's/mV.ns//' -e 's/mV.ns//' ",AscDir,"/",IntegerString[runNum,10,6],"/",IntegerString[runNum,10,6],"_UCNdet_",IntegerString[i,10,3],"_0001.fast.ascii"]];
 Print["Run #",runNum," with ",i," cycles, completed.\n"];
 ];
-*)
+
 Print[N[ToExpression[$ScriptCommandLine[[2]]]+1]];
 Print[$ScriptCommandLine];
 Print["Run #",runNum," with ",i-1," cycles, completed.\n"]
