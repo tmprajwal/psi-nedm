@@ -1,7 +1,8 @@
-#<6Digit-Run#>_t.dat
-#<6Digit-Run#>_qdc.dat
-#start_time	cycle_num	\Delta_Burst	\Delta_bkg	SF_Efficiency	{Time_Spectra}
-#start_time	cycle_num	\Delta_Burst	\Delta_bkg	SF_Efficiency	{QDC_Spectra}
+#<6Digit-Run#>.info: All this desc. and if the cycle was OK, if nt with quick reason.
+#<6Digit-Run#>_t.dat: {Time_Spectra}
+#<6Digit-Run#>_qdc1.dat: {QDC1_Spectra}
+#<6Digit-Run#>_qdc2.dat: {QDC2_Spectra}
+#<6Digit-Run#>_bkg.dat: start_time	cycle_num	HV	SF1	SF2	\Delta_Burst_A	\Delta_Burst_B	\Delta_bkg_A	\Delta_bkg_B	SF_Efficiency	\alpha	montitor/U+D
 #GNUPlot: Plot time spectra [or QDC] for all cycles
 $plot "test.txt" matrix every 1::6 with linespoint
 #... 1::6, here 1 indicates interval and 1 implies all values get read, if 2 is used every other value is plotted
