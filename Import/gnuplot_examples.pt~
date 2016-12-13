@@ -11,5 +11,4 @@ $plot "test.txt" matrix every 1::6 with linespoint
 $plot "test.txt" matrix every :3:2 with linespoint
 #...:3:2, here 3 indicates starting column, i.e. only the (1,2) 3rd cycle and beyond will be plotted
 #...:3:2, here 2 indicates that the array (time spectra or QDC spectra) begins at position (0,1) 2.
-#With more combinations, you can select any cycle or start point as per your wish.
-   
+#With more combinations, you can select any cycle or start point, as you wish.

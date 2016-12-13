@@ -1,0 +1,133 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4150,        124]
+NotebookOptionsPosition[      3701,        104]
+NotebookOutlinePosition[      4043,        119]
+CellTagsIndexPosition[      4000,        116]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "x_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x0", "=", "x"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Monitor", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", "x0"}], ",", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Pause", "[", "2", "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Print", "[", 
+            RowBox[{
+             RowBox[{"2", "i"}], "-", "1"}], "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"ProgressIndicator", "[", 
+        RowBox[{
+         RowBox[{"i", "/", "x0"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"1000", ",", "100"}], "}"}]}]}], "]"}]}], "]"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f2", "[", "x_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x0", "=", "x"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Monitor", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", "x0"}], ",", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Pause", "[", "2", "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Print", "[", 
+            RowBox[{"2", "i"}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+        ";"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"ProgressIndicator", "[", 
+        RowBox[{
+         RowBox[{"i", "/", "x0"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"1000", ",", "100"}], "}"}]}]}], "]"}]}], "]"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6891027893908587`*^9, 3.6891028185735664`*^9}, {
+   3.689102855617055*^9, 3.6891029002902517`*^9}, {3.68910377461782*^9, 
+   3.6891038026833806`*^9}, {3.6891054393112264`*^9, 3.689105443329259*^9}, {
+   3.6891054736750364`*^9, 3.689105532547758*^9}, 3.6891055627408113`*^9, {
+   3.689105669155261*^9, 3.6891056741873965`*^9}, {3.689105929087533*^9, 
+   3.689105929717414*^9}, {3.689106169553181*^9, 3.6891061898030453`*^9}, {
+   3.6891062489780145`*^9, 3.689106324810853*^9}, {3.689106621818166*^9, 
+   3.6891066582270613`*^9}}],
+
+Cell["", "PageBreak",
+ PageBreakBelow->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$ProcessorCount"], "Input",
+ CellChangeTimes->{{3.6891078448898015`*^9, 3.689107844896806*^9}}],
+
+Cell[BoxData["4"], "Output",
+ CellChangeTimes->{3.6891078467654977`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Make a list, and just use Run[] to devide them to $ProcessorCount/2 trenches \
+and feed the ./m*.m <run#> & ./m*.m <run#2>\
+\>", "Chapter",
+ CellChangeTimes->{{3.689108184018983*^9, 3.6891082384096384`*^9}, {
+  3.6891087046154413`*^9, 3.6891087131039286`*^9}}]
+},
+WindowSize->{798, 808},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2598, 63, 292, "Input"],
+Cell[3159, 85, 44, 1, 4, "PageBreak",
+ PageBreakBelow->True],
+Cell[CellGroupData[{
+Cell[3228, 90, 109, 1, 31, "Input"],
+Cell[3340, 93, 72, 1, 31, "Output"]
+}, Open  ]],
+Cell[3427, 97, 270, 5, 174, "Chapter"]
+}
+]
+*)
+
+(* End of internal cache information *)
