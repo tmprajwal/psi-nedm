@@ -1,0 +1,4581 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    148069,       4572]
+NotebookOptionsPosition[     93317,       3059]
+NotebookOutlinePosition[    125311,       3864]
+CellTagsIndexPosition[    123789,       3824]
+WindowFrame->Normal
+ContainsDynamic->False*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Chapter 1\nIntroduction to ",
+ StyleBox["Experimental Data Analyst",
+  FontSlant->"Italic"]
+}], "Title",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[TextData[{
+ StyleBox["Experimental Data Analyst ",
+  FontSlant->"Italic"],
+ "(",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ ") is a collection of tools and tutorials designed specifically for the \
+needs of physical scientists, engineers, and students of science and \
+engineering. Included are over 30 functions, tutorials in using the \
+functions, tutorials in using ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " built-in commands and standard ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " packages, and discussions of the underlying theory of data analysis at a \
+variety of levels from beginning undergraduate to practicing researcher. The \
+tutorials make use of a variety of real experimental data drawn from many \
+different fields, and the data is also included in the package."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[TextData[{
+ "The material is divided into eight chapters, beginning with this chapter, \
+which provides an overview of the contents. The chapters can be accessed as a \
+hard-copy version or read online as ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " notebooks. The notebooks can be read with the front end included with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " or with the free ",
+ StyleBox["MathReader",
+  FontSlant->"Italic"],
+ " program available from www.wolfram.com/products/mathreader; in the former \
+case, the notebooks can be interactive, and the reader is encouraged to \
+experiment with the commands and supplied data sets."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell["\<\
+The chapters do not all have to be read in order. In general, we recommend \
+that you look over this chapter in its entirety before going on to the \
+others. Section 1.1.1 gives further recommendations of which chapters and \
+sections are probably prerequisites for succeeding ones.\
+\>", "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.1 Summary and Use of ",
+ StyleBox["EDA",
+  FontSlant->"Italic"]
+}], "Section",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.1.1 Summary of the Chapters of ",
+ StyleBox["EDA",
+  FontSlant->"Italic"]
+}], "Subsection",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"Summary of Chapters"],
+
+Cell[TextData[{
+ "Chapter 2 deals with methods of getting data into ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " so that it may be analyzed. This chapter is independent of all other \
+chapters included with ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ ". It discusses techniques to read and write files containing data sets and \
+also introduces the ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " programs ",
+ StyleBox["ImportData", "MR"],
+ " and ",
+ StyleBox["ExportData", "MR"],
+ "."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"Summary of Chapters"],
+
+Cell[TextData[{
+ "Chapter 3 discusses a topic which pervades data analysis in the physical \
+sciences and engineering: error analysis. Here a tutorial is supplied. \
+Although the level is suitable for an undergraduate student in the sciences, \
+we are also aware of many professional researchers whose education and \
+training have managed to miss some of the material discussed here. In \
+addition, ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " supplies programs and constructs to simplify error analysis, and they are \
+introduced in this chapter. The ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " functions discussed are ",
+ StyleBox["AdjustSignificantFigures", "MR"],
+ ", ",
+ StyleBox["CombineWithError", "MR"],
+ ", ",
+ StyleBox["DivideWithError", "MR"],
+ ", ",
+ StyleBox["PlusWithError", "MR"],
+ ", ",
+ StyleBox["PowerWithError", "MR"],
+ ", ",
+ StyleBox["Quadrature", "MR"],
+ ", ",
+ StyleBox["SubtractWithError", "MR"],
+ ", and ",
+ StyleBox["TimesWithError", "MR"],
+ ". Also, ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " defines ",
+ StyleBox["Data", "MR"],
+ " and ",
+ StyleBox["Datum", "MR"],
+ " constructs for doing propagation of errors; these constructs are \
+introduced in this chapter. The functions and constructs discussed here are \
+used in later chapters."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Summary of Chapters"],
+
+Cell[TextData[{
+ "Chapters 4 through 8 are the \[OpenCurlyDoubleQuote]heart\
+\[CloseCurlyDoubleQuote] of the analysis tools provided by ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ "."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Summary of Chapters"],
+
+Cell[TextData[{
+ "Chapter 4 introduces one of the most commonly performed tasks in data \
+analysis: fitting data to linear models, especially straight lines and \
+curves. Section 4.1 provides background discussions of a linear fit, \
+least-squares techniques, evaluation of the quality of the fit, etc.; some \
+familiarity with this material is assumed in all later sections. The \
+remainder of Chapter 4 discusses the ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " function ",
+ StyleBox["LinearFit", "MR"],
+ ", which performs linear least-squares fits to data. Included is a \
+discussion of the related ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " functions ",
+ StyleBox["ShowLinearFit", "MR"],
+ " and ",
+ StyleBox["ToLinearFunction", "MR"],
+ ". The ",
+ StyleBox["LinearFit", "MR"],
+ " function is used in all subsequent chapters. Also, many other ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " functions have similar syntax. Thus, some familiarity with its syntax and \
+options is recommended."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Summary of Chapters"],
+
+Cell[TextData[{
+ "Chapter 5 extends the materials of Chapter 4 to arbitrary models. It \
+introduces the ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " function ",
+ StyleBox["EDAFindFit",
+  FontFamily->"Courier New"],
+ " and the related functions ",
+ StyleBox["ShowFitFunction", "MR"],
+ " and ",
+ StyleBox["ToFitFunction", "MR"],
+ ". Also discussed are some convenience functions that define peak shapes; \
+these are ",
+ StyleBox["BreitWigner", "MR"],
+ ", ",
+ StyleBox["Galatry", "MR"],
+ ", ",
+ StyleBox["Gaussian", "MR"],
+ ", ",
+ StyleBox["Lorentzian", "MR"],
+ ", ",
+ StyleBox["PearsonVII", "MR"],
+ ", ",
+ StyleBox["RelativisticBrietWigner", "MR"],
+ ", and ",
+ StyleBox["Voigt", "MR"],
+ ". Most of the information in this chapter is not used in later discussions, \
+although the ",
+ StyleBox["FindPeaks", "MR"],
+ " function discussed in Chapter 8 is primarily intended as a companion to ",
+ StyleBox["EDAFindFit",
+  FontFamily->"Courier New"],
+ "."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ PageBreakBelow->False,
+ AspectRatioFixed->True,
+ CellTags->"Summary of Chapters"],
+
+Cell[TextData[{
+ "Chapter 6 discusses techniques to eliminate noise in data and to fill in \
+missing values. It also discusses the related topic of fitting data when a \
+model is not available or appropriate. The chapter introduces the ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " functions ",
+ StyleBox["SmoothData", "MR"],
+ ", ",
+ StyleBox["LoessFit", "MR"],
+ ", and ",
+ StyleBox["FillData", "MR"],
+ ". There is also a tutorial on using built-in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " functions to smooth data, and the algorithm used by the ",
+ StyleBox["FindPeaks", "MR"],
+ " program discussed in Chapter 8 is introduced here. With the exception of \
+the algorithm of ",
+ StyleBox["FindPeaks", "MR"],
+ ", nothing in later chapters depends on anything appearing here. "
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"Summary of Chapters"],
+
+Cell[TextData[{
+ "Chapter 7 discusses techniques to fit data to lines and curves when one or \
+more of the data points may be \[OpenCurlyDoubleQuote]wild\
+\[CloseCurlyDoubleQuote], that is",
+ StyleBox[" ",
+  FontSlant->"Italic"],
+ "the data contains \[OpenCurlyDoubleQuote]outliers.\[CloseCurlyDoubleQuote]  \
+Alternatives to least-squares techniques should be considered in this case \
+since an outlier can have a significant effect on the least-squares fit. The \
+chapter introduces the ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " functions ",
+ StyleBox["RobustCurveFit", "MR"],
+ " and ",
+ StyleBox["RobustLineFit", "MR"],
+ ". Nothing in the chapter is required for Chapter 8."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"Summary of Chapters"],
+
+Cell[TextData[{
+ "Chapter 8 discusses what to do when the relations in a data set are not \
+known. Graphical techniques are explored in Section 8.1. The discussion \
+includes the ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " function ",
+ StyleBox["EDAListPlot", "MR"],
+ ", which is briefly introduced in Section 1.3,  the ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " function  ",
+ StyleBox["BoxPlot", "MR"],
+ " is also discussed. Section 8.2 is a tutorial on using ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " built-in functions to transform the data; the discussion is one of the \
+more advanced in ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ ". Nonetheless, Section 8.2 only \[OpenCurlyDoubleQuote]scratches the \
+surface\[CloseCurlyDoubleQuote] of this topic. Finally, Section 8.3 gives a \
+full discussion of the ",
+ StyleBox["FindPeaks", "MR"],
+ " function; this function was briefly introduced in Chapter 5, and its \
+algorithm is discussed in Section 6.1.5."
+}], "Text",
+ Evaluatable->False,
+ CellChangeTimes->{{3.45217155421875*^9, 3.4521715725625*^9}},
+ AspectRatioFixed->True,
+ CellTags->"Summary of Chapters"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.1.2 Using ",
+ StyleBox["EDA",
+  FontSlant->"Italic"]
+}], "Subsection",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[TextData[{
+ "Although ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " notebooks include general purpose tutorials, ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " is also a collection of software tools, and this subsection discusses \
+using the software. The software consists of 12 ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " packages, written in the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " language, that define ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ "'s functions, options, etc."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[TextData[{
+ "The easiest way to access an ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " function is to execute the following. "
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA`Master` file", "Master file"}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<EDA`\>\"", "]"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA`Master` file", "Master file"},
+ CellLabel->"In[1]:="],
+
+Cell["\<\
+If the command is executed and produces error messages, you should consult \
+your installation document for the package.\
+\>", "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True],
+
+Cell[TextData[{
+ "Once ",
+ StyleBox["EDA", "MR"],
+ " has successfully loaded, you can use ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " just as if all the packages of ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " were loaded, except for a two differences."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA`Master` file", "Master file"}],
+
+Cell[TextData[{
+ "First, since all of the packages are loaded only when needed, the size of \
+the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " kernel is over a megabyte smaller than if they were actually loaded."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA`Master` file", "Master file"}],
+
+Cell[TextData[{
+ "Second, the first time you invoke an ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " function, the package containing the function has to be loaded. Often, \
+other packages are used by the package containing the definition of the \
+function you have invoked and they must be loaded, too. For example, the \
+package containing the definition of ",
+ StyleBox["LinearFit", "MR"],
+ " loads six other packages; some of these load yet other packages. For this \
+example, invoking ",
+ StyleBox["LinearFit", "MR"],
+ " loads 10 other packages besides the one containing the definition for ",
+ StyleBox["LinearFit", "MR"],
+ " itself. Therefore, the first time you invoke some ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " functions, it may take a few moments before everything is loaded and the \
+program begins its work. Second and subsequent invocations will begin working \
+almost immediately."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA`Master` file", "Master file"}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.2 The ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " Data Format"
+}], "Section",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " programs expect the data to be in a particular format, and confusing and \
+nonsensical results can occur by not using this standard format."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[TextData[{
+ "The \[OpenCurlyDoubleQuote]dependent\[CloseCurlyDoubleQuote] variable is \
+usually graphed on the vertical or ",
+ StyleBox["y",
+  FontSlant->"Italic"],
+ " axis, while the \[OpenCurlyDoubleQuote]independent\[CloseCurlyDoubleQuote] \
+variable is usually graphed on the horizontal or ",
+ StyleBox["x",
+  FontSlant->"Italic"],
+ " axis."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["\<\
+If the data contains values only of the dependent variable, then the format \
+must be a list.\
+\>", "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["{y1,y2,...,yN}", "DisplayFormula",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[TextData[{
+ "Here ",
+ StyleBox["y",
+  FontSlant->"Italic"],
+ StyleBox["1", "TR"],
+ " is the value of the first data point, ",
+ StyleBox["y",
+  FontSlant->"Italic"],
+ StyleBox["2", "TR"],
+ " the second, and ",
+ StyleBox["yN",
+  FontSlant->"Italic"],
+ " the ",
+ StyleBox["N",
+  FontSlant->"Italic"],
+ "th data point. The notation used implies that there are exactly ",
+ StyleBox["N",
+  FontSlant->"Italic"],
+ " data points in the data set. ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " will assume that the corresponding values of the independent variable are \
+just the integers from 1 through ",
+ StyleBox["N",
+  FontSlant->"Italic"],
+ "."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["{1,2,...,N}", "DisplayFormula",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[TextData[{
+ "If the data contain values for both the independent and dependent \
+variables, then the format is in ",
+ StyleBox["x, y ",
+  FontSlant->"Italic"],
+ "pairs."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["{ {x1,y1},{x2,y2},...,{xN,yN} }", "DisplayFormula",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[TextData[{
+ "Here ",
+ StyleBox["xi",
+  FontSlant->"Italic"],
+ " is the value of the ",
+ StyleBox["i",
+  FontSlant->"Italic"],
+ "th independent variable and ",
+ StyleBox["yi",
+  FontSlant->"Italic"],
+ " the value of the ",
+ StyleBox["i",
+  FontSlant->"Italic"],
+ "th dependent variable."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["\<\
+If there is an experimental error associated with one of the variables in the \
+data set, by definition that variable is the dependent one.\
+\>", "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["{ {x1,{y1,erry1}},{x2,{y2,erry2}},...,{xN,{yN,erryN}} }", \
+"DisplayFormula",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[TextData[{
+ "Here ",
+ StyleBox["erryi", "MO"],
+ " is the experimental error in the ",
+ StyleBox["yi",
+  FontSlant->"Italic"],
+ " value."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["\<\
+Note that if there are errors associated with the dependent variable, then \
+the values of the independent variable must be explicitly given in the data \
+set.\
+\>", "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["{ {y1,erry1},{y2,erry2},...,{yN,erryN} } (*WRONG!*)", "DisplayFormula",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["\<\
+The above list is wrong because its format is identical with the list that \
+specifies only independent-dependent variable pairs.\
+\>", "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["\<\
+If there are experimental errors associated with both variables, the format \
+contains both errors.\
+\>", "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["\<\
+{ {{x1,errx1},{y1,erry1}},{{x2,errx2},{y2,erry2}},...,{{xN,errxN},{yN,erryN}} \
+}\
+\>", "DisplayFormula",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[TextData[{
+ "In this example, ",
+ StyleBox["errxi", "MO"],
+ " is the experimental error in the ",
+ StyleBox["xi", "MO"],
+ " value. Note that in this case the distinction between the independent and \
+dependent variables is somewhat arbitrary. Often the choice is made by the \
+experimenter on a case by case basis."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[TextData[{
+ "Once the data is in this standard ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " format, all software programs supplied by the package can make automatic \
+choices about which coordinates have associated errors. This ability is \
+crucial in order for many of the package functions to return reasonable \
+results."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[TextData[{
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " provides utilities for describing a data set that is in this standard \
+format; these utilities are described in the next section. Here we briefly \
+point out techniques used to put data into this format."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell["\<\
+Sometimes the values of the independent and dependent variables are in \
+separate lists.\
+\>", "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"xvalues", "=", 
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4", ",", "x5", ",", "x6"}], 
+    "}"}]}], ";", 
+  RowBox[{"yvalues", "=", 
+   RowBox[{"{", 
+    RowBox[{"y1", ",", "y2", ",", "y3", ",", "y4", ",", "y5", ",", "y6"}], 
+    "}"}]}], ";"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[2]:="],
+
+Cell[TextData[{
+ "Here we designate the ",
+ StyleBox["xvalues", "MO"],
+ " as the independent variables and the ",
+ StyleBox["yvalues", "MO"],
+ " as the dependent ones. Then we can form a data set using ",
+ StyleBox["Transpose", "MR"],
+ "."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata2", "=", 
+  RowBox[{"Transpose", "[", 
+   RowBox[{"{", 
+    RowBox[{"xvalues", ",", "yvalues"}], "}"}], "]"}]}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[3]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "y1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x2", ",", "y2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x3", ",", "y3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x4", ",", "y4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x5", ",", "y5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x6", ",", "y6"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.450883225765625*^9, 3.45217163090625*^9, 
+  3.452260880328125*^9, 3.4522610569375*^9},
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"Out[3]="]
+}, Open  ]],
+
+Cell[TextData[{
+ "The \[OpenCurlyDoubleQuote]",
+ StyleBox["2\[CloseCurlyDoubleQuote]",
+  FontVariations->{"CompatibilityType"->0}],
+ " in ",
+ StyleBox["mydata2", "MO"],
+ " is a mnemonic signaling that there are two variables in the data set, in \
+this case ",
+ StyleBox["x", "MO"],
+ " and ",
+ StyleBox["y", "MO"],
+ ". Thus, a data set of only one variable, the ",
+ StyleBox["y", "MO"],
+ " coordinate, can be called ",
+ StyleBox["mydata1", "MO"],
+ "."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata1", "=", "yvalues"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[4]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"y1", ",", "y2", ",", "y3", ",", "y4", ",", "y5", ",", "y6"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.45088322578125*^9, 3.4521716309375*^9, 
+  3.452260882828125*^9, 3.452261056984375*^9},
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"Out[4]="]
+}, Open  ]],
+
+Cell[TextData[{
+ "These mnemonics are for our convenience; ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " does not pay attention to any such naming conventions."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[TextData[{
+ "Suppose there are errors associated with the ",
+ StyleBox["yvalues", "MO"],
+ " in a variable ",
+ StyleBox["erryvalues", "MO"],
+ StyleBox[".",
+  FontSlant->"Italic"]
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"erryvalues", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "erry1", ",", "erry2", ",", "erry3", ",", "erry4", ",", "erry5", ",", 
+     "erry6"}], "}"}]}], ";"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[5]:="],
+
+Cell[TextData[{
+ "Then the ",
+ StyleBox["{", "MR"],
+ StyleBox["yvalue", "MO"],
+ StyleBox[", ", "MR"],
+ StyleBox["erryvalue", "MO"],
+ StyleBox["}", "MR"],
+ " pairs are formed using ",
+ StyleBox["Transpose", "MR"],
+ "."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Transpose", "[", 
+  RowBox[{"{", 
+   RowBox[{"yvalues", ",", "erryvalues"}], "}"}], "]"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[6]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"y1", ",", "erry1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y2", ",", "erry2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y3", ",", "erry3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y4", ",", "erry4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y5", ",", "erry5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y6", ",", "erry6"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.450883225796875*^9, 3.452171630953125*^9, 
+  3.45226088871875*^9, 3.452261057*^9},
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"Out[6]="]
+}, Open  ]],
+
+Cell[TextData[{
+ "Thus, an ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ "-consistent data set is formed by combining the terms."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata3", "=", 
+  RowBox[{"Transpose", "[", 
+   RowBox[{"{", 
+    RowBox[{"xvalues", ",", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"yvalues", ",", "erryvalues"}], "}"}], "]"}]}], "}"}], 
+   "]"}]}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[7]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x1", ",", 
+     RowBox[{"{", 
+      RowBox[{"y1", ",", "erry1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x2", ",", 
+     RowBox[{"{", 
+      RowBox[{"y2", ",", "erry2"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x3", ",", 
+     RowBox[{"{", 
+      RowBox[{"y3", ",", "erry3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x4", ",", 
+     RowBox[{"{", 
+      RowBox[{"y4", ",", "erry4"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x5", ",", 
+     RowBox[{"{", 
+      RowBox[{"y5", ",", "erry5"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x6", ",", 
+     RowBox[{"{", 
+      RowBox[{"y6", ",", "erry6"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.4508832258125*^9, 3.45217163096875*^9, 
+  3.452260892296875*^9, 3.452261057015625*^9},
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"Out[7]="]
+}, Open  ]],
+
+Cell["\<\
+Suppose that in addition to explicit errors in the dependent variable, there \
+are errors associated with the independent variable.\
+\>", "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"errxvalues", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "errx1", ",", "errx2", ",", "errx3", ",", "errx4", ",", "errx5", ",", 
+     "errx6"}], "}"}]}], ";"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[8]:="],
+
+Cell[TextData[{
+ "Then we can form ",
+ StyleBox["{", "MR"],
+ StyleBox["xvalue", "MO"],
+ StyleBox[", ", "MR"],
+ StyleBox["errxvalue", "MO"],
+ StyleBox["}", "MR"],
+ " pairs."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Transpose", "[", 
+  RowBox[{"{", 
+   RowBox[{"xvalues", ",", "errxvalues"}], "}"}], "]"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[9]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "errx1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x2", ",", "errx2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x3", ",", "errx3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x4", ",", "errx4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x5", ",", "errx5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x6", ",", "errx6"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.450883225828125*^9, 3.452171630984375*^9, 
+  3.45226089840625*^9, 3.45226105703125*^9},
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"Out[9]="]
+}, Open  ]],
+
+Cell[TextData[{
+ "Finally, we can form an ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " data set with errors in both coordinates."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata4", "=", 
+  RowBox[{"Transpose", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"xvalues", ",", "errxvalues"}], "}"}], "]"}], ",", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"yvalues", ",", "erryvalues"}], "}"}], "]"}]}], "}"}], 
+   "]"}]}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellLabel->"In[10]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "errx1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y1", ",", "erry1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "errx2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y2", ",", "erry2"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "errx3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y3", ",", "erry3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "errx4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y4", ",", "erry4"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x5", ",", "errx5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y5", ",", "erry5"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x6", ",", "errx6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y6", ",", "erry6"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.45088322584375*^9, 3.452171631*^9, 3.45226090221875*^9, 
+  3.452261057046875*^9},
+ CellLabel->"Out[10]="]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.3 ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " Utilities and Supplied Data Sets"
+}], "Section",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Utilities and Supplied Data Sets"],
+
+Cell[TextData[{
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " supplies some general-purpose utilities, which are described here. This \
+section also discusses the sets of real data supplied with the package."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData"],
+
+Cell[TextData[{
+ "First we load ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ "."
+}], "Text"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<EDA`\>\"", "]"}]], "Input",
+ CellLabel->"In[11]:="],
+
+Cell["\<\
+In the previous section, we defined the following four data sets. We \
+re-define them here.\
+\>", "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"xvalues", "=", 
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4", ",", "x5", ",", "x6"}], 
+    "}"}]}], ";", 
+  RowBox[{"yvalues", "=", 
+   RowBox[{"{", 
+    RowBox[{"y1", ",", "y2", ",", "y3", ",", "y4", ",", "y5", ",", "y6"}], 
+    "}"}]}], ";"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[12]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata2", "=", 
+  RowBox[{"Transpose", "[", 
+   RowBox[{"{", 
+    RowBox[{"xvalues", ",", "yvalues"}], "}"}], "]"}]}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[13]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "y1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x2", ",", "y2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x3", ",", "y3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x4", ",", "y4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x5", ",", "y5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x6", ",", "y6"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.450883225859375*^9, 3.452171631015625*^9, 
+  3.4522609114375*^9, 3.452261057078125*^9},
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"Out[13]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata1", "=", "yvalues"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[14]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"y1", ",", "y2", ",", "y3", ",", "y4", ",", "y5", ",", "y6"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.450883225875*^9, 3.45217163103125*^9, 
+  3.452260917640625*^9, 3.45226105709375*^9},
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"Out[14]="]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"erryvalues", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "erry1", ",", "erry2", ",", "erry3", ",", "erry4", ",", "erry5", ",", 
+     "erry6"}], "}"}]}], ";"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[15]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata3", "=", 
+  RowBox[{"Transpose", "[", 
+   RowBox[{"{", 
+    RowBox[{"xvalues", ",", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"yvalues", ",", "erryvalues"}], "}"}], "]"}]}], "}"}], 
+   "]"}]}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[16]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x1", ",", 
+     RowBox[{"{", 
+      RowBox[{"y1", ",", "erry1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x2", ",", 
+     RowBox[{"{", 
+      RowBox[{"y2", ",", "erry2"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x3", ",", 
+     RowBox[{"{", 
+      RowBox[{"y3", ",", "erry3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x4", ",", 
+     RowBox[{"{", 
+      RowBox[{"y4", ",", "erry4"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x5", ",", 
+     RowBox[{"{", 
+      RowBox[{"y5", ",", "erry5"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x6", ",", 
+     RowBox[{"{", 
+      RowBox[{"y6", ",", "erry6"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.450883225890625*^9, 3.452171631046875*^9, 
+  3.452260922359375*^9, 3.452261057125*^9},
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"Out[16]="]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"errxvalues", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "errx1", ",", "errx2", ",", "errx3", ",", "errx4", ",", "errx5", ",", 
+     "errx6"}], "}"}]}], ";"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->{"EDA Data Format", "Data Format of EDA"},
+ CellLabel->"In[17]:="],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata4", "=", 
+  RowBox[{"Transpose", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"xvalues", ",", "errxvalues"}], "}"}], "]"}], ",", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"yvalues", ",", "erryvalues"}], "}"}], "]"}]}], "}"}], 
+   "]"}]}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellLabel->"In[18]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "errx1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y1", ",", "erry1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "errx2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y2", ",", "erry2"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "errx3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y3", ",", "erry3"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "errx4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y4", ",", "erry4"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x5", ",", "errx5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y5", ",", "erry5"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x6", ",", "errx6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y6", ",", "erry6"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.45088322590625*^9, 3.4521716310625*^9, 
+  3.45226092759375*^9, 3.452261057140625*^9},
+ CellLabel->"Out[18]="]
+}, Open  ]],
+
+Cell["\<\
+The number at the end of each name is the number of variables in the data \
+set.\
+\>", "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData"],
+
+Cell[TextData[{
+ "The utility ",
+ StyleBox["DataParameters", "MR"],
+ " returns the number of data points and the number of variables in a data \
+set."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->{"DataParameters", "UnpackData"}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DataParameters"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->{"DataParameters", "UnpackData"},
+ CellLabel->"In[19]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"DataParameters[data] determines the number of data points, \
+npoints,\\n\tand number of variables, nvars, in data and returns \
+{npoints,nvars}.\\n\tThe data is assumed to be in the format of Experimental \
+Data\\n\tAnalyst.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261058046875*^9},
+ CellTags->{"DataParameters", "Info3452246657-5914205", "UnpackData"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DataParameters", "[", "mydata1", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->{"DataParameters", "UnpackData"},
+ CellLabel->"In[20]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"6", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{3.450883226296875*^9, 3.452171632046875*^9, 
+  3.45226093440625*^9, 3.452261058140625*^9},
+ CellTags->{"DataParameters", "UnpackData"},
+ CellLabel->"Out[20]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DataParameters", "[", "mydata2", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->{"DataParameters", "UnpackData"},
+ CellLabel->"In[21]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"6", ",", "2"}], "}"}]], "Output",
+ CellChangeTimes->{3.4508832263125*^9, 3.4521716320625*^9, 
+  3.452260936703125*^9, 3.45226105815625*^9},
+ CellTags->{"DataParameters", "UnpackData"},
+ CellLabel->"Out[21]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DataParameters", "[", "mydata3", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->{"DataParameters", "UnpackData"},
+ CellLabel->"In[22]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"6", ",", "3"}], "}"}]], "Output",
+ CellChangeTimes->{3.450883226328125*^9, 3.452171632078125*^9, 
+  3.4522609391875*^9, 3.452261058171875*^9},
+ CellTags->{"DataParameters", "UnpackData"},
+ CellLabel->"Out[22]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DataParameters", "[", "mydata4", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->{"DataParameters", "UnpackData"},
+ CellLabel->"In[23]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"6", ",", "4"}], "}"}]], "Output",
+ CellChangeTimes->{3.45088322634375*^9, 3.45217163209375*^9, 3.45226094175*^9,
+   3.452261058171875*^9},
+ CellTags->{"DataParameters", "UnpackData"},
+ CellLabel->"Out[23]="]
+}, Open  ]],
+
+Cell[TextData[{
+ "The utility ",
+ StyleBox["UnpackData", "MR"],
+ " provides this information plus separate lists for the variables."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "UnpackData"}]], "Input",
+ CellLabel->"In[24]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"UnpackData[data] takes data formatted in the EDA standard\\n\t\
+and returns {npoints, nvars, x, errx, y, erry} in that order, where\\n\t\
+`npoints' is the number of data points, `nvars' the number of\\n\tvariables, \
+`x' the independent variable, `errx' the error in `x',\\n\t`y' the dependent \
+variable, and `erry' the error in `y'. If `nvars'\\n\tis 1, the `x' returned \
+is {1, 2, ... , npoints}. If no errors appear\\n\tin the data, the error \
+variables are filled in with a list of 1s whose\\n\tlength is equal to \
+`npoints'. In all cases, the data is returned sorted\\n\tby the value of the \
+independent variable.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261058296875*^9},
+ CellTags->"Info3452246658-4869567"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnpackData", "[", "mydata1", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData",
+ CellLabel->"In[25]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"6", ",", "1", ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.`", ",", "2.`", ",", "3.`", ",", "4.`", ",", "5.`", ",", "6.`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"y1", ",", "y2", ",", "y3", ",", "y4", ",", "y5", ",", "y6"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.4508832265*^9, 3.45217163225*^9, 3.452260947546875*^9, 
+  3.45226105834375*^9},
+ CellTags->"UnpackData",
+ CellLabel->"Out[25]="]
+}, Open  ]],
+
+Cell["\<\
+Note that the program has generated the values of the independent variable, \
+{1., 2., ... , 6.}, and has returned all 1s as the errors in dependent and \
+independent variables. We now unpack the other three data sets.\
+\>", "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnpackData", "[", "mydata2", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData",
+ CellLabel->"In[26]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"6", ",", "2", ",", 
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4", ",", "x5", ",", "x6"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"y1", ",", "y2", ",", "y3", ",", "y4", ",", "y5", ",", "y6"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.450883226515625*^9, 3.452171632265625*^9, 
+  3.452260952484375*^9, 3.452261058359375*^9},
+ CellTags->"UnpackData",
+ CellLabel->"Out[26]="]
+}, Open  ]],
+
+Cell["\<\
+This time the values for the independent variable are extracted from the data \
+set.\
+\>", "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnpackData", "[", "mydata3", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData",
+ CellLabel->"In[27]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"6", ",", "3", ",", 
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4", ",", "x5", ",", "x6"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"y1", ",", "y2", ",", "y3", ",", "y4", ",", "y5", ",", "y6"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "erry1", ",", "erry2", ",", "erry3", ",", "erry4", ",", "erry5", ",", 
+     "erry6"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.45088322653125*^9, 3.45217163228125*^9, 3.452260955*^9, 
+  3.452261058375*^9},
+ CellTags->"UnpackData",
+ CellLabel->"Out[27]="]
+}, Open  ]],
+
+Cell["\<\
+This adds the error in the dependent variable to the extracted lists.\
+\>", "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnpackData", "[", "mydata4", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData",
+ CellLabel->"In[28]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"6", ",", "4", ",", 
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4", ",", "x5", ",", "x6"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "errx1", ",", "errx2", ",", "errx3", ",", "errx4", ",", "errx5", ",", 
+     "errx6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y1", ",", "y2", ",", "y3", ",", "y4", ",", "y5", ",", "y6"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "erry1", ",", "erry2", ",", "erry3", ",", "erry4", ",", "erry5", ",", 
+     "erry6"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.450883226546875*^9, 3.452171632296875*^9, 
+  3.452260958109375*^9, 3.452261058390625*^9},
+ CellTags->"UnpackData",
+ CellLabel->"Out[28]="]
+}, Open  ]],
+
+Cell[TextData[{
+ "Now all the \[OpenCurlyDoubleQuote]slots\[CloseCurlyDoubleQuote] returned \
+by ",
+ StyleBox["UnpackData", "MR"],
+ " have been filled with the actual data."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"UnpackData"],
+
+Cell[TextData[{
+ "The built-in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " function ",
+ StyleBox["ListPlot", "MR"],
+ " is convenient for displaying data sets of one or two variables. ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " supplies a generalized version, ",
+ StyleBox["EDAListPlot", "MR"],
+ ", that recognizes the ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " data format and automatically displays error bars when the data contain \
+experimental errors. We then generate four data sets of numbers and \
+illustrate the following (note that we \"recycle\" the names ",
+ StyleBox["mydata1", "MO"],
+ ", ",
+ StyleBox["mydata2", "MO"],
+ ", ",
+ StyleBox["mydata3", "MO"],
+ ", and ",
+ StyleBox["mydata4", "MO"],
+ ")."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"EDAListPlot"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata1", "=", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"Prime", "[", "x", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "5"}], "}"}]}], "]"}]}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"EDAListPlot",
+ CellLabel->"In[29]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2", ",", "3", ",", "5", ",", "7", ",", "11"}], "}"}]], "Output",
+ CellChangeTimes->{3.4508832265625*^9, 3.4521714955*^9, 3.4521716323125*^9, 
+  3.45226096146875*^9, 3.45226105840625*^9},
+ CellTags->"EDAListPlot",
+ CellLabel->"Out[29]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EDAListPlot", "[", "mydata1", "]"}]], "Input",
+ PageBreakAbove->True,
+ CellChangeTimes->{3.4508831671875*^9},
+ AspectRatioFixed->True,
+ CellTags->"EDAListPlot",
+ CellLabel->"In[30]:="],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Hue[0.67, 0.6, 0.6], 
+   PointBox[{{1., 2.}, {2., 3.}, {3., 5.}, {4., 7.}, {5., 11.}}]},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesOrigin->{0, Automatic},
+  ImageMargins->0.,
+  ImageSize->Automatic,
+  PlotRange->Automatic,
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{3.4508832271875*^9, 3.452171498078125*^9, 
+  3.452171632390625*^9, 3.45226096421875*^9, 3.452261058484375*^9},
+ CellTags->"EDAListPlot",
+ CellLabel->"Out[30]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata2", "=", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      SuperscriptBox["x", "2"], ",", 
+      RowBox[{"Prime", "[", "x", "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "5"}], "}"}]}], "]"}]}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"EDAListPlot",
+ CellLabel->"In[31]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"16", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"25", ",", "11"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.450883227265625*^9, 3.452171503671875*^9, 
+  3.452171632390625*^9, 3.452260968796875*^9, 3.452261058484375*^9},
+ CellTags->"EDAListPlot",
+ CellLabel->"Out[31]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EDAListPlot", "[", "mydata2", "]"}]], "Input",
+ PageBreakAbove->False,
+ CellChangeTimes->{3.450883174984375*^9},
+ AspectRatioFixed->True,
+ CellTags->"EDAListPlot",
+ CellLabel->"In[32]:="],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Hue[0.67, 0.6, 0.6], 
+   PointBox[{{1., 2.}, {4., 3.}, {9., 5.}, {16., 7.}, {25., 11.}}]},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  ImageMargins->0.,
+  ImageSize->Automatic,
+  PlotRange->Automatic,
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{3.450883227296875*^9, 3.452171505984375*^9, 
+  3.452171632421875*^9, 3.452260971203125*^9, 3.452261058515625*^9},
+ CellTags->"EDAListPlot",
+ CellLabel->"Out[32]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata3", "=", 
+  RowBox[{"N", "[", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       SuperscriptBox["x", "2"], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Prime", "[", "x", "]"}], ",", 
+         SqrtBox["x"]}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "5"}], "}"}]}], "]"}], "]"}]}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"EDAListPlot",
+ CellLabel->"In[33]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"2.`", ",", "1.`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"3.`", ",", "1.4142135623730951`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"5.`", ",", "1.7320508075688772`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"16.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"7.`", ",", "2.`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"25.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"11.`", ",", "2.23606797749979`"}], "}"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.4508832273125*^9, 3.452171509640625*^9, 
+  3.452171632421875*^9, 3.452260975140625*^9, 3.452261058515625*^9},
+ CellTags->"EDAListPlot",
+ CellLabel->"Out[33]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EDAListPlot", "[", "mydata3", "]"}]], "Input",
+ PageBreakAbove->True,
+ CellChangeTimes->{3.4508831795*^9},
+ AspectRatioFixed->True,
+ CellTags->"EDAListPlot",
+ CellLabel->"In[34]:="],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Hue[0.67, 0.6, 0.6], 
+   PointBox[{{1., 2.}, {4., 3.}, {9., 5.}, {16., 7.}, {25., 
+    11.}}], {{LineBox[{{1., 3.}, {1., 1.}}], 
+     LineBox[{Offset[{1.5, 0}, {1., 3.}], Offset[{-1.5, 0}, {1., 3.}]}], 
+     LineBox[{Offset[{1.5, 0}, {1., 1.}], Offset[{-1.5, 0}, {1., 1.}]}]}, {
+     LineBox[{{4., 4.414213562373095}, {4., 1.5857864376269049`}}], 
+     LineBox[{Offset[{1.5, 0}, {4., 4.414213562373095}], 
+       Offset[{-1.5, 0}, {4., 4.414213562373095}]}], 
+     LineBox[{Offset[{1.5, 0}, {4., 1.5857864376269049`}], 
+       Offset[{-1.5, 0}, {4., 1.5857864376269049`}]}]}, {
+     LineBox[{{9., 6.732050807568877}, {9., 3.267949192431123}}], 
+     LineBox[{Offset[{1.5, 0}, {9., 6.732050807568877}], 
+       Offset[{-1.5, 0}, {9., 6.732050807568877}]}], 
+     LineBox[{Offset[{1.5, 0}, {9., 3.267949192431123}], 
+       Offset[{-1.5, 0}, {9., 3.267949192431123}]}]}, {
+     LineBox[{{16., 9.}, {16., 5.}}], 
+     LineBox[{Offset[{1.5, 0}, {16., 9.}], Offset[{-1.5, 0}, {16., 9.}]}], 
+     LineBox[{Offset[{1.5, 0}, {16., 5.}], Offset[{-1.5, 0}, {16., 5.}]}]}, {
+     LineBox[{{25., 13.23606797749979}, {25., 8.76393202250021}}], 
+     LineBox[{Offset[{1.5, 0}, {25., 13.23606797749979}], 
+       Offset[{-1.5, 0}, {25., 13.23606797749979}]}], 
+     LineBox[{Offset[{1.5, 0}, {25., 8.76393202250021}], 
+       Offset[{-1.5, 0}, {25., 8.76393202250021}]}]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  ImageMargins->0.,
+  ImageSize->Automatic,
+  PlotRange->Automatic,
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{3.45088322734375*^9, 3.452171512109375*^9, 
+  3.452171632453125*^9, 3.45226097746875*^9, 3.452261058546875*^9},
+ CellTags->"EDAListPlot",
+ CellLabel->"Out[34]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mydata4", "=", 
+  RowBox[{"N", "[", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["x", "2"], ",", "x"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Prime", "[", "x", "]"}], ",", 
+         SqrtBox["x"]}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "5"}], "}"}]}], "]"}], "]"}]}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"EDAListPlot",
+ CellLabel->"In[35]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1.`", ",", "1.`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2.`", ",", "1.`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"4.`", ",", "2.`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3.`", ",", "1.4142135623730951`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"9.`", ",", "3.`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"5.`", ",", "1.7320508075688772`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"16.`", ",", "4.`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"7.`", ",", "2.`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"25.`", ",", "5.`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"11.`", ",", "2.23606797749979`"}], "}"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.450883227359375*^9, 3.452171515375*^9, 
+  3.452171632453125*^9, 3.452260980875*^9, 3.4522610585625*^9},
+ CellTags->"EDAListPlot",
+ CellLabel->"Out[35]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EDAListPlot", "[", "mydata4", "]"}]], "Input",
+ PageBreakAbove->False,
+ CellChangeTimes->{3.450883183515625*^9},
+ AspectRatioFixed->True,
+ CellTags->"EDAListPlot",
+ CellLabel->"In[36]:="],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Hue[0.67, 0.6, 0.6], 
+   PointBox[{{1., 2.}, {4., 3.}, {9., 5.}, {16., 7.}, {25., 
+    11.}}], {{LineBox[{{2., 2.}, {0., 2.}}], 
+     LineBox[{Offset[{0, 1.5}, {2., 2.}], Offset[{0, -1.5}, {2., 2.}]}], 
+     LineBox[{Offset[{0, 1.5}, {0., 2.}], Offset[{0, -1.5}, {0., 2.}]}], 
+     LineBox[{{1., 3.}, {1., 1.}}], 
+     LineBox[{Offset[{1.5, 0}, {1., 3.}], Offset[{-1.5, 0}, {1., 3.}]}], 
+     LineBox[{Offset[{1.5, 0}, {1., 1.}], Offset[{-1.5, 0}, {1., 1.}]}]}, {
+     LineBox[{{6., 3.}, {2., 3.}}], 
+     LineBox[{Offset[{0, 1.5}, {6., 3.}], Offset[{0, -1.5}, {6., 3.}]}], 
+     LineBox[{Offset[{0, 1.5}, {2., 3.}], Offset[{0, -1.5}, {2., 3.}]}], 
+     LineBox[{{4., 4.414213562373095}, {4., 1.5857864376269049`}}], 
+     LineBox[{Offset[{1.5, 0}, {4., 4.414213562373095}], 
+       Offset[{-1.5, 0}, {4., 4.414213562373095}]}], 
+     LineBox[{Offset[{1.5, 0}, {4., 1.5857864376269049`}], 
+       Offset[{-1.5, 0}, {4., 1.5857864376269049`}]}]}, {
+     LineBox[{{12., 5.}, {6., 5.}}], 
+     LineBox[{Offset[{0, 1.5}, {12., 5.}], Offset[{0, -1.5}, {12., 5.}]}], 
+     LineBox[{Offset[{0, 1.5}, {6., 5.}], Offset[{0, -1.5}, {6., 5.}]}], 
+     LineBox[{{9., 6.732050807568877}, {9., 3.267949192431123}}], 
+     LineBox[{Offset[{1.5, 0}, {9., 6.732050807568877}], 
+       Offset[{-1.5, 0}, {9., 6.732050807568877}]}], 
+     LineBox[{Offset[{1.5, 0}, {9., 3.267949192431123}], 
+       Offset[{-1.5, 0}, {9., 3.267949192431123}]}]}, {
+     LineBox[{{20., 7.}, {12., 7.}}], 
+     LineBox[{Offset[{0, 1.5}, {20., 7.}], Offset[{0, -1.5}, {20., 7.}]}], 
+     LineBox[{Offset[{0, 1.5}, {12., 7.}], Offset[{0, -1.5}, {12., 7.}]}], 
+     LineBox[{{16., 9.}, {16., 5.}}], 
+     LineBox[{Offset[{1.5, 0}, {16., 9.}], Offset[{-1.5, 0}, {16., 9.}]}], 
+     LineBox[{Offset[{1.5, 0}, {16., 5.}], Offset[{-1.5, 0}, {16., 5.}]}]}, {
+     LineBox[{{30., 11.}, {20., 11.}}], 
+     LineBox[{Offset[{0, 1.5}, {30., 11.}], Offset[{0, -1.5}, {30., 11.}]}], 
+     LineBox[{Offset[{0, 1.5}, {20., 11.}], Offset[{0, -1.5}, {20., 11.}]}], 
+     LineBox[{{25., 13.23606797749979}, {25., 8.76393202250021}}], 
+     LineBox[{
+      Offset[{1.5, 0}, {25., 13.23606797749979}], 
+       Offset[{-1.5, 0}, {25., 13.23606797749979}]}], 
+     LineBox[{Offset[{1.5, 0}, {25., 8.76393202250021}], 
+       Offset[{-1.5, 0}, {25., 8.76393202250021}]}]}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  ImageMargins->0.,
+  ImageSize->Automatic,
+  PlotRange->Automatic,
+  PlotRangeClipping->True]], "Output",
+ CellChangeTimes->{3.450883227390625*^9, 3.452171517578125*^9, 
+  3.452171632484375*^9, 3.452260983484375*^9, 3.45226105859375*^9},
+ CellTags->"EDAListPlot",
+ CellLabel->"Out[36]="]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["EDAListPlot", "MR"],
+ " has many more capabilities than those illustrated here and the full \
+discussion of this function is found in Section 8.1.1."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"EDAListPlot"],
+
+Cell[TextData[{
+ "As already mentioned, ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " supplies a collection of real experimental data drawn from a variety of \
+fields of science. They are used for illustration and are located in the ",
+ StyleBox["EDA`Data`", "MR"],
+ " directory, which also contains a file named ",
+ StyleBox["Index.txt", "MR"],
+ " that correlates the data files with the notebooks that discuss them. "
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA"],
+
+Cell[TextData[{
+ "All of the data files are ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " packages with the exception of ",
+ StyleBox["Aptec.txt", "MR"],
+ " and ",
+ StyleBox["Cs137.dat", "MR"],
+ ", which are an ASCII data dump and a binary data file, respectively."
+}], "Text",
+ Evaluatable->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA"],
+
+Cell[TextData[{
+ "For the data files that are ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " packages, the data may be loaded with the ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ " function ",
+ StyleBox["LoadData", "MR"],
+ "."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"LoadData"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "LoadData"}]], "Input",
+ CellLabel->"In[37]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"LoadData[label] loads an EDA data set identified by label. \
+If\\n\tthe EDAShowProgress option is set to True (the default), the actual\\n\
+\tname(s) of the data set(s) being loaded are given as a Message,\\n\t\
+otherwise they are not. In many cases, but not all, the name of\\n\tthe data \
+set is the same as label, except that the name of the data\\n\tset has the \
+string \\\"Data\\\" appended. LoadData[], i.e., no input\\n\targument, lists \
+the legal values for label.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.45226105871875*^9},
+ CellTags->"Info3452246658-9503506"]
+}, Open  ]],
+
+Cell["\<\
+As indicated in the usage message, we can get a list of valid arguments to \
+the program by calling it with no arguments.\
+\>", "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"LoadData"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"LoadData",
+ CellLabel->"In[38]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"contents\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"The names that are valid arguments to LoadData are: \\!\\(\
+\\*GridBox[{{\\\"AbsoluteZero\\\"}, {\\\"Anscombe\\\"}, {\\\"Boyle\\\"}, \
+{\\\"Chwirut\\\"}, {\\\"CThDating\\\"}, {\\\"Cobalt60\\\"}, {\\\"Darwin\\\"}, \
+{\\\"FreeFall\\\"}, {\\\"Ganglion\\\"}, {\\\"Interneuron\\\"}, \
+{\\\"KPiPi\\\"}, {\\\"MassSpec\\\"}, {\\\"MassSpec2\\\"}, {\\\"Ozone\\\"}, \
+{\\\"PearsonYork\\\"}, {\\\"Population\\\"}, {\\\"EDAReactance\\\"}, \
+{\\\"Siegel\\\"}, {\\\"Thermocouple\\\"}, {\\\"Wampler\\\"}}, \
+ColumnAlignments -> Left, GridBaseline -> {Baseline, {1, 1}}]\\)\"\>"}]], \
+"Message",
+ CellChangeTimes->{3.45088322784375*^9, 3.4521716329375*^9, 
+  3.452260990703125*^9, 3.452261059046875*^9},
+ CellTags->"LoadData",
+ CellLabel->"During evaluation of In[38]:="]
+}, Open  ]],
+
+Cell[TextData[{
+ "As also indicated in its usage message, ",
+ StyleBox["LoadData", "MR"],
+ " has an option to control its behavior. Some functions, such as ",
+ StyleBox["UnpackData", "MR"],
+ ", do not have options."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"LoadData"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Options", "[", "UnpackData", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"LoadData",
+ CellLabel->"In[39]:="],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.450883227859375*^9, 3.4521716329375*^9, 
+  3.452260993375*^9, 3.4522610590625*^9},
+ CellTags->"LoadData",
+ CellLabel->"Out[39]="]
+}, Open  ]],
+
+Cell["Other functions have many options.", "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{"Options", "[", "EDAListPlot", "]"}], "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellLabel->"In[40]:="],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      RowBox[{"AlignmentPoint", "\[Rule]", "Center"}]},
+     {
+      RowBox[{"AspectRatio", "\[Rule]", 
+       FractionBox["1", "GoldenRatio"]}]},
+     {
+      RowBox[{"Axes", "\[Rule]", "True"}]},
+     {
+      RowBox[{"AxesLabel", "\[Rule]", "None"}]},
+     {
+      RowBox[{"AxesOrigin", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"AxesStyle", "\[Rule]", 
+       RowBox[{"{", "}"}]}]},
+     {
+      RowBox[{"Background", "\[Rule]", "None"}]},
+     {
+      RowBox[{"BaselinePosition", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"BaseStyle", "\[Rule]", 
+       RowBox[{"{", "}"}]}]},
+     {
+      RowBox[{"ClippingStyle", "\[Rule]", "None"}]},
+     {
+      RowBox[{"ColorFunction", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"ColorFunctionScaling", "\[Rule]", "True"}]},
+     {
+      RowBox[{"ColorOutput", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"ContentSelectable", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"DataRange", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"Epilog", "\[Rule]", 
+       RowBox[{"{", "}"}]}]},
+     {
+      RowBox[{"ErrorBarFunction", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"Filling", "\[Rule]", "None"}]},
+     {
+      RowBox[{"FillingStyle", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"Frame", "\[Rule]", "False"}]},
+     {
+      RowBox[{"FrameLabel", "\[Rule]", "None"}]},
+     {
+      RowBox[{"FrameStyle", "\[Rule]", 
+       RowBox[{"{", "}"}]}]},
+     {
+      RowBox[{"FrameTicks", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"FrameTicksStyle", "\[Rule]", 
+       RowBox[{"{", "}"}]}]},
+     {
+      RowBox[{"GridLines", "\[Rule]", "None"}]},
+     {
+      RowBox[{"GridLinesStyle", "\[Rule]", 
+       RowBox[{"{", "}"}]}]},
+     {
+      RowBox[{"ImageMargins", "\[Rule]", "0.`"}]},
+     {
+      RowBox[{"ImagePadding", "\[Rule]", "All"}]},
+     {
+      RowBox[{"ImageSize", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"InterpolationOrder", "\[Rule]", "None"}]},
+     {
+      RowBox[{"Joined", "\[Rule]", "False"}]},
+     {
+      RowBox[{"Joined", "\[Rule]", "True"}]},
+     {
+      RowBox[{"LabelStyle", "\[Rule]", 
+       RowBox[{"{", "}"}]}]},
+     {
+      RowBox[{"MaxPlotPoints", "\[Rule]", "\[Infinity]"}]},
+     {
+      RowBox[{"Mesh", "\[Rule]", "None"}]},
+     {
+      RowBox[{"MeshFunctions", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"#1", "&"}], "}"}]}]},
+     {
+      RowBox[{"MeshShading", "\[Rule]", "None"}]},
+     {
+      RowBox[{"MeshStyle", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"Method", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"PlotLabel", "\[Rule]", "None"}]},
+     {
+      RowBox[{"PlotMarkers", "\[Rule]", "None"}]},
+     {
+      RowBox[{"PlotRange", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"PlotRangeClipping", "\[Rule]", "True"}]},
+     {
+      RowBox[{"PlotRangePadding", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"PlotRegion", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"PlotStyle", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"PreserveImageOptions", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"Prolog", "\[Rule]", 
+       RowBox[{"{", "}"}]}]},
+     {
+      RowBox[{"RotateLabel", "\[Rule]", "True"}]},
+     {
+      RowBox[{"Ticks", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"TicksStyle", "\[Rule]", 
+       RowBox[{"{", "}"}]}]},
+     {
+      RowBox[{"DisplayFunction", "\[RuleDelayed]", "$DisplayFunction"}]},
+     {
+      RowBox[{"FormatType", "\[RuleDelayed]", "TraditionalForm"}]},
+     {
+      RowBox[{"PerformanceGoal", "\[RuleDelayed]", "$PerformanceGoal"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.450883227921875*^9, 3.45217163296875*^9, 
+  3.452260996390625*^9, 3.452261059078125*^9},
+ CellLabel->"Out[40]//TableForm="]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["LoadData", "MR"],
+ " has a single option."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Options", "[", "LoadData", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellLabel->"In[41]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"EDAShowProgress", "\[Rule]", "True"}], "}"}]], "Output",
+ CellChangeTimes->{3.4508832279375*^9, 3.452171632984375*^9, 
+  3.4522609993125*^9, 3.452261059078125*^9},
+ CellLabel->"Out[41]="]
+}, Open  ]],
+
+Cell["The option has its own usage message.", "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "EDAShowProgress"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellLabel->"In[42]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"EDAShowProgress is an option for various routines. When set to \
+True, the\\n\troutine will print messages showing its progress in \
+performing\\n\tits tasks. If set to False, no such information is \
+printed.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261059234375*^9},
+ CellTags->"Info3452246659-3913124"]
+}, Open  ]],
+
+Cell[TextData[{
+ "As indicated, by default ",
+ StyleBox["LoadData", "MR"],
+ " names the data set(s) it is loading."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "Boyle", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellLabel->"In[43]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"name\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Loading: \
+\\!\\(\\*TagBox[TagBox[GridBox[{{\\\"\\\\\\\"BoyleData\\\\\\\"\\\"}}, \
+RowSpacings -> 1, ColumnAlignments -> Left], Column], Function[BoxForm`e$, \
+TableForm[BoxForm`e$]]]\\)\"\>"}]], "Message",
+ CellChangeTimes->{3.450883228375*^9, 3.4521716334375*^9, 3.45226100575*^9, 
+  3.45226105953125*^9},
+ CellLabel->"During evaluation of In[43]:="]
+}, Open  ]],
+
+Cell["The option can stop the naming of the data set.", "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True],
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", 
+  RowBox[{"Boyle", ",", 
+   RowBox[{"EDAShowProgress", "\[Rule]", "False"}]}], "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellLabel->"In[44]:="],
+
+Cell[TextData[{
+ "Note that in all programs in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ", options must be given last."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True],
+
+Cell[TextData[{
+ "The names of the data sets, such as ",
+ StyleBox["BoyleData", "MO"],
+ ", are known to the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " kernel through the initialization of ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ ". As discussed in Section 1.1.2, this means that you can load the data just \
+by naming it; you may append a semicolon to the command to keep the data from \
+being printed on your screen. You can also cause a data set to load by naming \
+the data set in a call to a program."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DataParameters", "[", "GanglionData", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellLabel->"In[45]:="],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"14", ",", "2"}], "}"}]], "Output",
+ CellChangeTimes->{3.450883228453125*^9, 3.452171633953125*^9, 
+  3.452261016703125*^9, 3.4522610595625*^9},
+ CellLabel->"Out[45]="]
+}, Open  ]],
+
+Cell[TextData[{
+ "You may prefer to use ",
+ StyleBox["LoadData", "MR"],
+ ", however, because it provides error checking."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "noSuchData", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellLabel->"In[46]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"noname\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Name \\!\\(noSuchData\\) is not known.  LoadData[] will \
+list all known names.\"\>"}]], "Message",
+ CellChangeTimes->{3.45088322875*^9, 3.45217163425*^9, 3.452261020578125*^9, 
+  3.452261059859375*^9},
+ CellLabel->"During evaluation of In[46]:="],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.45088322875*^9, 3.45217163425*^9, 3.452261020578125*^9, 
+  3.452261059859375*^9},
+ CellLabel->"Out[46]="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1.3.1  Contents of the ",
+ StyleBox["EDA",
+  FontSlant->"Italic"],
+ "`Data` Directory"
+}], "Subsection",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA"],
+
+Cell[TextData[{
+ "This listing does not include the files ",
+ StyleBox["Aptec.txt", "MR"],
+ " or ",
+ StyleBox["Cs137.da", "MR"],
+ StyleBox["t", "MR"],
+ ", an ASCII data file and a binary data file, respectively."
+}], "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "AbsoluteZero", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[47]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"name\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Loading: \
+\\!\\(\\*TagBox[TagBox[GridBox[{{\\\"\\\\\\\"AbsoluteZeroData\\\\\\\"\\\"}}, \
+RowSpacings -> 1, ColumnAlignments -> Left], Column], Function[BoxForm`e$, \
+TableForm[BoxForm`e$]]]\\)\"\>"}]], "Message",
+ CellChangeTimes->{3.450883228765625*^9, 3.45217163484375*^9, 
+  3.452261024609375*^9, 3.452261059875*^9},
+ CellTags->"Data supplied with EDA",
+ CellLabel->"During evaluation of In[47]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "AbsoluteZeroData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[48]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"AbsoluteZeroData is student-collected data on the pressure and\
+\\n\ttemperature of a fixed volume of gas, reported in John R.\\n\tTaylor, \\\
+\"An Introduction to Error Analysis: The Study of\\n\tUncertainties in \
+Physical Measurements\\\" (University Science\\n\tBooks, Mill Valley \
+California, 1982), pg 160. The format\\n\tof each data point is {p, t}, where \
+'p' is the pressure in\\n\tmm of mercury and 't' the temperature in degrees \
+Centigrade.\\n\tThe student judged that his measurements of p had neglible\\n\
+\tuncertainty and those of t were all equally uncertain, with\\n\tan \
+uncertainty of \\\"a few degrees\\\".\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261060015625*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246659-4031934"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "Anscombe", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[49]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"name\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Loading: \
+\\!\\(\\*TagBox[TagBox[GridBox[{{\\\"\\\\\\\"AnscombeData[[i]], for i = \
+1,2,3,4\\\\\\\"\\\"}}, RowSpacings -> 1, ColumnAlignments -> Left], Column], \
+Function[BoxForm`e$, TableForm[BoxForm`e$]]]\\)\"\>"}]], "Message",
+ CellChangeTimes->{
+  3.4508832289375*^9, 3.45217163503125*^9, {3.45226103021875*^9, 
+   3.452261060046875*^9}},
+ CellTags->"Data supplied with EDA",
+ CellLabel->"During evaluation of In[49]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", " ", "AnscombeData"}]], "Input",
+ PageBreakAbove->True,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[50]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"AnscombeData is a quartet of made-up data devised by F.J.\\n\t\
+Anscombe, American Statistician 27 (Feb. 1973), pg 17.\\n\tAll four data \
+sets, AnscombeData[[1]], AnscombeData[[2]],\\n\tAnscombeData[[3]], and \
+AnscombeData[[4]], have almost identical\\n\taverages and fit to almost \
+identical straight lines. The format\\n\tof each data set is {x, y}, where \
+neither coordinate has units.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261060171875*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246660-7789238"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "Boyle", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[51]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"name\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Loading: \
+\\!\\(\\*TagBox[TagBox[GridBox[{{\\\"\\\\\\\"BoyleData\\\\\\\"\\\"}}, \
+RowSpacings -> 1, ColumnAlignments -> Left], Column], Function[BoxForm`e$, \
+TableForm[BoxForm`e$]]]\\)\"\>"}]], "Message",
+ CellChangeTimes->{
+  3.450883229109375*^9, 3.4521716351875*^9, {3.45226103603125*^9, 
+   3.452261060234375*^9}},
+ CellTags->"Data supplied with EDA",
+ CellLabel->"During evaluation of In[51]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", " ", "BoyleData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[52]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"BoyleData is based on data for testing Boyle's law taken by a \
+\\n\tfirst-year student at the University of Toronto in the Department of\\n\t\
+Physics undergraduate laboratories in 1983. A fixed quantity of dry air\\n\t\
+at room temperature had its pressure and volume measured for a\\n\tnumber of \
+different values of the pressure. The format of each\\n\tdata point is { {p, \
+errp}, {v, errv} }, where p and errp are\\n\tthe value and error in the \
+pressure, measured in cm of Hg, and v\\n\tand errv are the value and error in \
+the volume, measured in cm^3.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261060359375*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246660-9540551"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "Chwirut", "]"}]], "Input",
+ CellLabel->"In[53]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"name\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Loading: \
+\\!\\(\\*TagBox[TagBox[GridBox[{{\\\"\\\\\\\"ChwirutData\\\\\\\"\\\"}}, \
+RowSpacings -> 1, ColumnAlignments -> Left], Column], Function[BoxForm`e$, \
+TableForm[BoxForm`e$]]]\\)\"\>"}]], "Message",
+ CellChangeTimes->{
+  3.45088322928125*^9, 3.452171635375*^9, {3.45226104071875*^9, 
+   3.45226106040625*^9}},
+ CellLabel->"During evaluation of In[53]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ChwirutData"}]], "Input",
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[54]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"ChwirutData is data on ultrasonic calibration, taken by Daniel \
+Chwirut\\n\tin the 1970s at the National Institutes of Standards and\\n\t\
+Technology (NIST) in the U.S.A. The data format is {d, r}, where d\\n\tis the \
+metal distance and r is the ultrasonic response. The dataset\\n\tis now part \
+of the Statistical Reference Datasets (StRD) maintained\\n\tby NIST at \
+www.nist.gov/itl/div898/strd, where it is identified\\n\tas \\\"chwirut2.\\\"\
+\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.45226106053125*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246660-7828117"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "CThDating", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[55]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"name\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Loading: \
+\\!\\(\\*TagBox[TagBox[GridBox[{{\\\"\\\\\\\"CThDatingData\\\\\\\"\\\"}}, \
+RowSpacings -> 1, ColumnAlignments -> Left], Column], Function[BoxForm`e$, \
+TableForm[BoxForm`e$]]]\\)\"\>"}]], "Message",
+ CellChangeTimes->{3.450883229484375*^9, 3.45217163553125*^9, 
+  3.4522610605625*^9},
+ CellTags->"Data supplied with EDA",
+ CellLabel->"During evaluation of In[55]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", " ", "CThDatingData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[56]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"CThDatingData compares the dating of samples of coral using \
+two\\n\tdifferent techniques: carbon-14 and thorium.  It can be viewed\\n\tas \
+a calibration of carbon-14 dating.  The data is from Edouard Bard,\\n\tBruno \
+Hamelin, Richard G. Fairbanks, and Alan Zindler, Nature 345,\\n\t(May, 1990), \
+pg 405. The format of the data is {C14 age,\\n\t{thorium age minus C14 age, \
+error in thorium age minus C14 age}}, where\\n\tall numbers are in years \
+before the present. The errors are one standard\\n\tdeviation, not the two \
+standard deviation errors given in the original\\n\tsource.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261060703125*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246660-3827625"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "Cobalt60", "]"}]], "Input",
+ PageBreakAbove->True,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[57]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"name\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Loading: \
+\\!\\(\\*TagBox[TagBox[GridBox[{{\\\"\\\\\\\"Cobalt60Data\\\\\\\"\\\"}}, \
+RowSpacings -> 1, ColumnAlignments -> Left], Column], Function[BoxForm`e$, \
+TableForm[BoxForm`e$]]]\\)\"\>"}]], "Message",
+ CellChangeTimes->{3.45088322965625*^9, 3.4521716356875*^9, 
+  3.452261060796875*^9},
+ CellTags->"Data supplied with EDA",
+ CellLabel->"During evaluation of In[57]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", " ", "Cobalt60Data"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[58]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"Cobalt60Data is part of a cobalt-60 nuclear spectrum. The\\n\t\
+format is: {channel, counts}. The data was collected in the second-year\\n\t\
+Lab of the Department of Physics, University of Toronto with a NaI \\n\t\
+scintillator and a PC-based multichannel analyzer running PC-MCA software \\n\
+\tby David Harrison (1990, unpublished).\"\>", "MSG"]], "Print", "PrintUsage",
+ 
+ CellChangeTimes->{3.452261060921875*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246660-7186737"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "Darwin", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[59]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"name\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Loading: \
+\\!\\(\\*TagBox[TagBox[GridBox[{{\\\"\\\\\\\"CrossFertilizedData\\\\\\\\nand \
+SelfFertilizedData\\\\\\\"\\\"}}, RowSpacings -> 1, ColumnAlignments -> \
+Left], Column], Function[BoxForm`e$, TableForm[BoxForm`e$]]]\\)\"\>"}]], \
+"Message",
+ CellChangeTimes->{3.450883229828125*^9, 3.452171635859375*^9, 
+  3.452261060984375*^9},
+ CellTags->"Data supplied with EDA",
+ CellLabel->"During evaluation of In[59]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "CrossFertilizedData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[60]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"CrossFertilizedData is the height of 15 Zea Mays plants that \
+were\\n\tcross-fertilized, measured in inches. The data was taken by \
+Darwin\\n\tin 1878.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.45226106115625*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246661-6722383"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "SelfFertilizedData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[61]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"SelFertilizedData is the height of 15 Zea Mays plants that \
+were\\n\tself-fertilized, measured in inches. The data was taken by Darwin\\n\
+\tin 1878.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261061296875*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246661-1042582"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadData", "[", "FreeFall", "]"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[62]:="],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadData", "::", "\<\"name\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"Loading: \
+\\!\\(\\*TagBox[TagBox[GridBox[{{\\\"\\\\\\\"FreeFallData\\\\\\\"\\\"}}, \
+RowSpacings -> 1, ColumnAlignments -> Left], Column], Function[BoxForm`e$, \
+TableForm[BoxForm`e$]]]\\)\"\>"}]], "Message",
+ CellChangeTimes->{3.45088323015625*^9, 3.45217163615625*^9, 
+  3.452261061359375*^9},
+ CellTags->"Data supplied with EDA",
+ CellLabel->"During evaluation of In[62]:="]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "FreeFallData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[63]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"FreeFallData is free-fall data taken by Professor A.W. Key,\\n\
+\tDepartment of Physics, University of Toronto using an apparatus from the\\n\
+\tundergraduate laboratory (1994, unpublished).  The dropped\\n\tobject was a \
+round plastic ball.  The data format is\\n\t{ {t, errt}, {s, errs}}, where t \
+is the time, errt is the\\n\terror in the time, both in ms, s is the \
+distance, and errs is the\\n\terror in the distance, both in meters.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261061484375*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246661-7381903"}]
+}, Open  ]],
+
+Cell[TextData[{
+ "So far, we have loaded the data sets and then used ",
+ StyleBox["?", "MR"],
+ " to display information on the data.  For the remainder of this section, we \
+use the fact that ",
+ StyleBox["?", "MR"],
+ " will load the data automatically, as discussed in Section 1.1.2. The \
+symbol ",
+ StyleBox["?", "MR"],
+ " is shorthand for ",
+ "Null",
+ StyleBox["Information[ ..., LongForm \[Rule] False]", "MR"],
+ "."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "GanglionData"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[64]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"GanglionData is data for the ratio of the central ganglion \
+cell density\\n\tto the peripheral density versus retinal area for 14 cat \
+fetuses.\\n\tThe fetuses ranged in age from 35 to 62 days, and the retinal \
+area\\n\tis approximately monotonic in the age of the fetus. The data is from\
+\\n\tBarry Lia, Robert W. Williams, and Leo M Chalupa, Science 236, (1987)\\n\
+\tpg 848. The format of the data is {area, CP}, where area is in mm^2\\n\tand \
+CP is dimensionless.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261061625*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246661-9112627"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "InterneuronData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[65]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"InterneuronData is data of oscillations of interneuron \
+networks\\n\tdriven by metabotopic glutamate receptor activation in slices of\
+\\n\trat hippocampus and neocortex. The data is from Miles A.\\n\t\
+Whittington, Roger D. Traub, and John G.R. Jefferys, Nature 373,\\n\t(1995) \
+pg 612. The format of the data is {ipscTau, frequency}, where\\n\t'ipscTau' \
+is the decay constant of the inhibitory postsynaptic currents\\n\tin ms and \
+'frequency' is the oscillation frequency of the network\\n\tin Hz.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.45226106178125*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246661-8637446"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "KPiPiData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[66]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"KPiPiData is data on the decay of the K*(1780) into (K0, Pi+, \
+Pi-).\\n\tThe format of each data point is { M(K0, Pi-)^2, M(Pi+, Pi-)^2 \
+},\\n\twhere M is the invariant mass in Gev/c^2. The data was collected by\\n\
+\tD. Aston et al. at the Stanford Linear Accelerator in 1986\\n\t\
+(SLAC-REP-298, May 1986), using an 11 GeV/c K- beam incident on\\n\tliquid \
+hydrogen.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261061953125*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246661-1382565"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "MassSpecData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[67]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"MassSpecData is mass spectrometer data for two isotopes,\\n\t\
+taken by Dr. Alex Young, Dept. of Chemistry, Univ. of Toronto\\n\t(1995, \
+unpublished). The format is {amu,ions}, where amu\\n\tis the mass, in atomic \
+mass units, and ions is the number of\\n\tions.\"\>", "MSG"]], "Print", \
+"PrintUsage",
+ CellChangeTimes->{3.452261062109375*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246661-5733602"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "MassSpec2Data"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[68]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"MassSpec2Data is ionization data for neon from a mass\\n\t\
+spectrometer. The data was collected by an apparatus in the\\n\tundergraduate \
+laboratories of the Dept. of Physics, Univ.\\n\tof Toronto, during the Winter \
+of 1993, by Mr. Youri Zabbal,\\n\twhen he was an undergraduate student. The \
+format is \\n\t{voltage, current}, where the voltage is in volts and the\\n\t\
+current is in mA.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.45226106225*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246662-6116060"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "OzoneData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[69]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"OzoneData is data on ozone levels in the atmosphere on \
+December 25,\\n\t1988. The data was taken by the Total Ozone Measurement \
+Spectrometer\\n\t(TOMS) aboard the Nimbus 7 satellite. The 60 rows of data \
+correspond\\n\tto latitudes 50 degrees south to 10 degrees north in one \
+degree bins.\\n\tThe 60 columns correspond to longitudes of 180 degrees west \
+to 105 degrees\\n\twest in 1.25 degree bins. The units of the data are Dobson \
+units.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.45226106240625*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246662-2510090"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "PopulationData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[70]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"PopulationData is the population of the 10 largest cities\\n\t\
+of 16 countries as reported by the 1967 \\\"World Almanac\\\".\\n\tThe \
+countries listed are, in order: Sweden, the Netherlands,\\n\tCanada, France, \
+Mexico, Argentina, Spain, England, Italy,\\n\tWest Germany, Brazil, the \
+Soviet Union, Japan, the United\\n\tStates, India, and China. Populations are \
+in 100,000s. The\\n\tcountries are sorted by the value of the median of the \
+population.\\n\tThe data for each individual country is available as, for \
+example,\\n\t\\\"SwedenData\\\".\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.4522610625625*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246662-1004534"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "PearsonYorkData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[71]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"PearsonYorkData is based on a data set of x, y pairs due to K.\
+\\n\tPearson, Philos, Mag 2, (1901) pg 2. It has been weighted by\\n\tDerek \
+York, Canadian Journal of Physics 44, (1966) pg 1079. The format\\n\tof the \
+data is { {x, errx}, {y, erry} }.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.45226106271875*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246662-9994660"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ReactanceData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[72]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"ReactanceData is data from an LRC circuit being driven by\\n\t\
+an AC voltage (V). The phase shift of the voltage (Vc) across\\n\tthe \
+capacitor, with respect to V, is theta, and y = Cot[theta].\\n\tThe variable \
+omega is the frequency of the supplied voltage,\\n\tin radians per second. \
+The format of the data is { {omega, erromega},\\n\t{y, erry} }. The data was \
+taken by Jay Orear, American Journal of \\n\tPhysics 50, (1982) pg 912.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261062859375*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246662-3200586"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "SiegelData"}]], "Input",
+ PageBreakAbove->False,
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[73]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"SiegelData is a made-up pathological set of data devised by\\n\
+\tAndrew F. Siegel, Biometrika 69, (1982) pg 242. The format\\n\tis {x,y}, \
+where neither coordinate has units.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261063015625*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246662-9538652"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ThermocoupleData"}]], "Input",
+ AspectRatioFixed->True,
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[74]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"ThermocoupleData is experimental data of a thermocouple \
+calibration\\n\tgiven by Philip R. Bevington's \\\"Data Reduction and Error \
+Analysis\\\"\\n\t(McGraw Hill, 1969), pg 138. The format of each data point \
+is\\n\t{T, {V, dV}}, where T is the temperature in degrees Celsius, V the\\n\t\
+voltage in mV, and dV the error in V in mV.\"\>", "MSG"]], "Print", \
+"PrintUsage",
+ CellChangeTimes->{3.45226106315625*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246663-1966995"}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "WamplerData"}]], "Input",
+ CellTags->"Data supplied with EDA",
+ CellLabel->"In[75]:="],
+
+Cell[BoxData[
+ StyleBox["\<\"WamplerData is a set of synthetic data devised to test \
+linear\\n\tleast-squares fitters. It was devised by R.H. Wampler (1970)\\n\t\
+and is discussed in the Journal of the American Statistical\\n\tAssociation, \
+65, pp. 549-565; in that reference it is the fifth\\n\tdata set presented. \
+The format of the data is {x, y} pairs.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.452261063296875*^9},
+ CellTags->{"Data supplied with EDA", "Info3452246663-1574209"}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+ScreenStyleEnvironment->"Working",
+WindowToolbars->{},
+WindowSize->{831, 616},
+WindowMargins->{{Automatic, 286}, {Automatic, 36}},
+ShowSelection->True,
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (February 7, 2008)",
+StyleDefinitions->"Manual.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Summary of Chapters"->{
+  Cell[2901, 94, 191, 7, 54, "Subsection",
+   Evaluatable->False,
+   CellTags->"Summary of Chapters"],
+  Cell[3095, 103, 587, 20, 47, "Text",
+   Evaluatable->False,
+   CellTags->"Summary of Chapters"],
+  Cell[3685, 125, 1390, 43, 119, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"Summary of Chapters"],
+  Cell[5078, 170, 300, 10, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"Summary of Chapters"],
+  Cell[5381, 182, 1114, 30, 101, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"Summary of Chapters"],
+  Cell[6498, 214, 1088, 39, 83, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   PageBreakBelow->False,
+   CellTags->"Summary of Chapters"],
+  Cell[7589, 255, 881, 24, 83, "Text",
+   Evaluatable->False,
+   CellTags->"Summary of Chapters"],
+  Cell[8473, 281, 774, 20, 65, "Text",
+   Evaluatable->False,
+   CellTags->"Summary of Chapters"],
+  Cell[9250, 303, 1134, 30, 101, "Text",
+   Evaluatable->False,
+   CellTags->"Summary of Chapters"]},
+ "EDA`Master` file"->{
+  Cell[11138, 368, 239, 8, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA`Master` file", "Master file"}],
+  Cell[11380, 378, 165, 4, 28, "Input",
+   CellTags->{"EDA`Master` file", "Master file"}],
+  Cell[11741, 391, 372, 13, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA`Master` file", "Master file"}],
+  Cell[12116, 406, 328, 9, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA`Master` file", "Master file"}],
+  Cell[12447, 417, 1011, 23, 101, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA`Master` file", "Master file"}]},
+ "Master file"->{
+  Cell[11138, 368, 239, 8, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA`Master` file", "Master file"}],
+  Cell[11380, 378, 165, 4, 28, "Input",
+   CellTags->{"EDA`Master` file", "Master file"}],
+  Cell[11741, 391, 372, 13, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA`Master` file", "Master file"}],
+  Cell[12116, 406, 328, 9, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA`Master` file", "Master file"}],
+  Cell[12447, 417, 1011, 23, 101, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA`Master` file", "Master file"}]},
+ "EDA Data Format"->{
+  Cell[13507, 446, 200, 8, 70, "Section",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[13710, 456, 321, 9, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[14034, 467, 462, 13, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[14499, 482, 217, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[14719, 490, 140, 3, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[14862, 495, 757, 29, 47, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[15622, 526, 137, 3, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[15762, 531, 286, 9, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[16051, 542, 157, 3, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[16211, 547, 403, 17, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[16617, 566, 263, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[16883, 574, 183, 4, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[17069, 580, 253, 10, 30, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[17325, 592, 283, 7, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[17611, 601, 177, 3, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[17791, 606, 253, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[18047, 614, 223, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[18273, 622, 215, 6, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[18491, 630, 432, 11, 48, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[18926, 643, 443, 11, 47, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[19372, 656, 377, 9, 47, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[19752, 667, 212, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[19967, 675, 414, 12, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[20384, 689, 351, 11, 30, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[20760, 704, 254, 7, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[21017, 713, 604, 18, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[21636, 734, 562, 19, 49, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[22223, 757, 163, 4, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[22389, 763, 307, 7, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[22711, 773, 273, 8, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[22987, 783, 294, 10, 30, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[23284, 795, 302, 9, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[23589, 806, 329, 13, 30, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[23943, 823, 226, 6, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[24172, 831, 618, 18, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[24805, 852, 240, 8, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[25070, 864, 361, 11, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[25434, 877, 946, 30, 47, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[26395, 910, 255, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[26653, 918, 302, 9, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[26958, 929, 284, 11, 30, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[27267, 944, 226, 6, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[27496, 952, 623, 18, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[30976, 1087, 415, 12, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[31416, 1103, 255, 7, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[31674, 1112, 606, 18, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[32317, 1135, 164, 4, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[32484, 1141, 306, 7, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[32805, 1151, 303, 9, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[33133, 1164, 362, 11, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[33498, 1177, 947, 30, 47, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[34460, 1210, 303, 9, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}]},
+ "Data Format of EDA"->{
+  Cell[13507, 446, 200, 8, 70, "Section",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[13710, 456, 321, 9, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[14034, 467, 462, 13, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[14499, 482, 217, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[14719, 490, 140, 3, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[14862, 495, 757, 29, 47, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[15622, 526, 137, 3, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[15762, 531, 286, 9, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[16051, 542, 157, 3, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[16211, 547, 403, 17, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[16617, 566, 263, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[16883, 574, 183, 4, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[17069, 580, 253, 10, 30, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[17325, 592, 283, 7, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[17611, 601, 177, 3, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[17791, 606, 253, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[18047, 614, 223, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[18273, 622, 215, 6, 29, "DisplayFormula",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[18491, 630, 432, 11, 48, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[18926, 643, 443, 11, 47, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[19372, 656, 377, 9, 47, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[19752, 667, 212, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[19967, 675, 414, 12, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[20384, 689, 351, 11, 30, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[20760, 704, 254, 7, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[21017, 713, 604, 18, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[21636, 734, 562, 19, 49, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[22223, 757, 163, 4, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[22389, 763, 307, 7, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[22711, 773, 273, 8, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[22987, 783, 294, 10, 30, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[23284, 795, 302, 9, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[23589, 806, 329, 13, 30, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[23943, 823, 226, 6, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[24172, 831, 618, 18, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[24805, 852, 240, 8, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[25070, 864, 361, 11, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[25434, 877, 946, 30, 47, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[26395, 910, 255, 6, 29, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[26653, 918, 302, 9, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[26958, 929, 284, 11, 30, "Text",
+   Evaluatable->False,
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[27267, 944, 226, 6, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[27496, 952, 623, 18, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[30976, 1087, 415, 12, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[31416, 1103, 255, 7, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[31674, 1112, 606, 18, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[32317, 1135, 164, 4, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[32484, 1141, 306, 7, 27, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[32805, 1151, 303, 9, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[33133, 1164, 362, 11, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[33498, 1177, 947, 30, 47, "Output",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}],
+  Cell[34460, 1210, 303, 9, 28, "Input",
+   CellTags->{"EDA Data Format", "Data Format of EDA"}]},
+ "Utilities and Supplied Data Sets"->{
+  Cell[30019, 1045, 234, 9, 70, "Section",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"Utilities and Supplied Data Sets"]},
+ "UnpackData"->{
+  Cell[30256, 1056, 313, 9, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[30763, 1078, 210, 7, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[36475, 1283, 199, 7, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[36677, 1292, 277, 9, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[36979, 1305, 175, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[37157, 1312, 404, 6, 92, "Print",
+   CellTags->{"DataParameters", "Info3452246657-5914205", "UnpackData"}],
+  Cell[37598, 1323, 191, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[37792, 1330, 252, 6, 27, "Output",
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[38081, 1341, 191, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[38275, 1348, 248, 6, 27, "Output",
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[38560, 1359, 191, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[38754, 1366, 251, 6, 27, "Output",
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[39042, 1377, 191, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[39236, 1384, 247, 6, 27, "Output",
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[39498, 1393, 239, 8, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[40648, 1425, 167, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[40818, 1432, 659, 19, 27, "Output",
+   CellTags->"UnpackData"],
+  Cell[41492, 1454, 337, 8, 47, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[41854, 1466, 167, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[42024, 1473, 658, 18, 27, "Output",
+   CellTags->"UnpackData"],
+  Cell[42697, 1494, 203, 7, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[42925, 1505, 167, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[43095, 1512, 679, 19, 47, "Output",
+   CellTags->"UnpackData"],
+  Cell[43789, 1534, 188, 6, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[44002, 1544, 167, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"UnpackData"],
+  Cell[44172, 1551, 721, 20, 47, "Output",
+   CellTags->"UnpackData"],
+  Cell[44908, 1574, 280, 9, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"UnpackData"]},
+ "DataParameters"->{
+  Cell[36677, 1292, 277, 9, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[36979, 1305, 175, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[37157, 1312, 404, 6, 92, "Print",
+   CellTags->{"DataParameters", "Info3452246657-5914205", "UnpackData"}],
+  Cell[37598, 1323, 191, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[37792, 1330, 252, 6, 27, "Output",
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[38081, 1341, 191, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[38275, 1348, 248, 6, 27, "Output",
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[38560, 1359, 191, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[38754, 1366, 251, 6, 27, "Output",
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[39042, 1377, 191, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->{"DataParameters", "UnpackData"}],
+  Cell[39236, 1384, 247, 6, 27, "Output",
+   CellTags->{"DataParameters", "UnpackData"}]},
+ "Info3452246657-5914205"->{
+  Cell[37157, 1312, 404, 6, 92, "Print",
+   CellTags->{"DataParameters", "Info3452246657-5914205", "UnpackData"}]},
+ "Info3452246658-4869567"->{
+  Cell[39842, 1409, 769, 11, 177, "Print",
+   CellTags->"Info3452246658-4869567"]},
+ "EDAListPlot"->{
+  Cell[45191, 1585, 837, 29, 66, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"EDAListPlot"],
+  Cell[46053, 1618, 295, 10, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"EDAListPlot"],
+  Cell[46351, 1630, 276, 6, 27, "Output",
+   CellTags->"EDAListPlot"],
+  Cell[46664, 1641, 208, 6, 28, "Input",
+   PageBreakAbove->True,
+   CellTags->"EDAListPlot"],
+  Cell[46875, 1649, 511, 14, 240, "Output",
+   CellTags->"EDAListPlot"],
+  Cell[47423, 1668, 376, 13, 30, "Input",
+   PageBreakAbove->False,
+   CellTags->"EDAListPlot"],
+  Cell[47802, 1683, 534, 16, 27, "Output",
+   CellTags->"EDAListPlot"],
+  Cell[48373, 1704, 211, 6, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"EDAListPlot"],
+  Cell[48587, 1712, 486, 13, 246, "Output",
+   CellTags->"EDAListPlot"],
+  Cell[49110, 1730, 490, 17, 36, "Input",
+   PageBreakAbove->False,
+   CellTags->"EDAListPlot"],
+  Cell[49603, 1749, 876, 27, 27, "Output",
+   CellTags->"EDAListPlot"],
+  Cell[50516, 1781, 205, 6, 28, "Input",
+   PageBreakAbove->True,
+   CellTags->"EDAListPlot"],
+  Cell[50724, 1789, 1753, 34, 240, "Output",
+   CellTags->"EDAListPlot"],
+  Cell[52514, 1828, 549, 19, 36, "Input",
+   PageBreakAbove->False,
+   CellTags->"EDAListPlot"],
+  Cell[53066, 1849, 1145, 37, 47, "Output",
+   CellTags->"EDAListPlot"],
+  Cell[54248, 1891, 211, 6, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"EDAListPlot"],
+  Cell[54462, 1899, 2707, 50, 240, "Output",
+   CellTags->"EDAListPlot"],
+  Cell[57184, 1952, 284, 8, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"EDAListPlot"]},
+ "Data supplied with EDA"->{
+  Cell[57471, 1962, 515, 13, 47, "Text",
+   Evaluatable->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[57989, 1977, 369, 12, 47, "Text",
+   Evaluatable->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[70559, 2415, 229, 9, 54, "Subsection",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[70791, 2426, 331, 11, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[71147, 2441, 182, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[71332, 2448, 503, 11, 24, "Message",
+   CellTags->"Data supplied with EDA"],
+  Cell[71872, 2464, 169, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[72044, 2471, 806, 11, 194, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246659-4031934"}],
+  Cell[72887, 2487, 178, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[73068, 2494, 527, 12, 24, "Message",
+   CellTags->"Data supplied with EDA"],
+  Cell[73632, 2511, 169, 5, 28, "Input",
+   PageBreakAbove->True,
+   CellTags->"Data supplied with EDA"],
+  Cell[73804, 2518, 566, 8, 126, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246660-7789238"}],
+  Cell[74407, 2531, 175, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[74585, 2538, 503, 12, 24, "Message",
+   CellTags->"Data supplied with EDA"],
+  Cell[75125, 2555, 167, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[75295, 2562, 737, 10, 160, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246660-9540551"}],
+  Cell[76665, 2597, 115, 3, 28, "Input",
+   CellTags->"Data supplied with EDA"],
+  Cell[76783, 2602, 624, 9, 143, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246660-7828117"}],
+  Cell[77444, 2616, 179, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[77626, 2623, 479, 11, 24, "Message",
+   CellTags->"Data supplied with EDA"],
+  Cell[78142, 2639, 171, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[78316, 2646, 767, 11, 177, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246660-3827625"}],
+  Cell[79120, 2662, 177, 5, 28, "Input",
+   PageBreakAbove->True,
+   CellTags->"Data supplied with EDA"],
+  Cell[79300, 2669, 478, 11, 24, "Message",
+   CellTags->"Data supplied with EDA"],
+  Cell[79815, 2685, 170, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[79988, 2692, 511, 8, 109, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246660-7186737"}],
+  Cell[80536, 2705, 176, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[80715, 2712, 521, 12, 47, "Message",
+   CellTags->"Data supplied with EDA"],
+  Cell[81273, 2729, 172, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[81448, 2736, 326, 5, 75, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-6722383"}],
+  Cell[81811, 2746, 171, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[81985, 2753, 324, 5, 75, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-1042582"}],
+  Cell[82346, 2763, 178, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[82527, 2770, 479, 11, 24, "Message",
+   CellTags->"Data supplied with EDA"],
+  Cell[83043, 2786, 165, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[83211, 2793, 618, 9, 143, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-7381903"}],
+  Cell[84302, 2822, 141, 4, 28, "Input",
+   CellTags->"Data supplied with EDA"],
+  Cell[84446, 2828, 643, 9, 143, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-9112627"}],
+  Cell[85126, 2842, 168, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[85297, 2849, 680, 10, 160, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-8637446"}],
+  Cell[86014, 2864, 162, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[86179, 2871, 545, 8, 126, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-1382565"}],
+  Cell[86761, 2884, 165, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[86929, 2891, 440, 7, 109, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-5733602"}],
+  Cell[87406, 2903, 166, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[87575, 2910, 564, 8, 143, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-6116060"}],
+  Cell[88176, 2923, 162, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[88341, 2930, 621, 9, 126, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-2510090"}],
+  Cell[88999, 2944, 167, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[89169, 2951, 728, 10, 177, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-1004534"}],
+  Cell[89934, 2966, 168, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[90105, 2973, 426, 6, 92, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-9994660"}],
+  Cell[90568, 2984, 166, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[90737, 2991, 619, 9, 143, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-3200586"}],
+  Cell[91393, 3005, 163, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"Data supplied with EDA"],
+  Cell[91559, 3012, 350, 5, 75, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-9538652"}],
+  Cell[91946, 3022, 145, 4, 28, "Input",
+   CellTags->"Data supplied with EDA"],
+  Cell[92094, 3028, 512, 8, 109, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246663-1966995"}],
+  Cell[92643, 3041, 115, 3, 28, "Input",
+   CellTags->"Data supplied with EDA"],
+  Cell[92761, 3046, 504, 7, 109, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246663-1574209"}]},
+ "LoadData"->{
+  Cell[58361, 1991, 340, 14, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"LoadData"],
+  Cell[59438, 2025, 238, 7, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"LoadData"],
+  Cell[59701, 2036, 152, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"LoadData"],
+  Cell[59856, 2043, 859, 16, 315, "Message",
+   CellTags->"LoadData"],
+  Cell[60730, 2062, 320, 10, 29, "Text",
+   Evaluatable->False,
+   PageBreakAbove->False,
+   CellTags->"LoadData"],
+  Cell[61075, 2076, 165, 5, 28, "Input",
+   PageBreakAbove->False,
+   CellTags->"LoadData"],
+  Cell[61243, 2083, 196, 5, 27, "Output",
+   CellTags->"LoadData"]},
+ "Info3452246658-9503506"->{
+  Cell[58804, 2013, 619, 9, 143, "Print",
+   CellTags->"Info3452246658-9503506"]},
+ "Info3452246659-3913124"->{
+  Cell[66865, 2284, 355, 6, 75, "Print",
+   CellTags->"Info3452246659-3913124"]},
+ "Info3452246659-4031934"->{
+  Cell[72044, 2471, 806, 11, 194, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246659-4031934"}]},
+ "Info3452246660-7789238"->{
+  Cell[73804, 2518, 566, 8, 126, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246660-7789238"}]},
+ "Info3452246660-9540551"->{
+  Cell[75295, 2562, 737, 10, 160, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246660-9540551"}]},
+ "Info3452246660-7828117"->{
+  Cell[76783, 2602, 624, 9, 143, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246660-7828117"}]},
+ "Info3452246660-3827625"->{
+  Cell[78316, 2646, 767, 11, 177, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246660-3827625"}]},
+ "Info3452246660-7186737"->{
+  Cell[79988, 2692, 511, 8, 109, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246660-7186737"}]},
+ "Info3452246661-6722383"->{
+  Cell[81448, 2736, 326, 5, 75, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-6722383"}]},
+ "Info3452246661-1042582"->{
+  Cell[81985, 2753, 324, 5, 75, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-1042582"}]},
+ "Info3452246661-7381903"->{
+  Cell[83211, 2793, 618, 9, 143, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-7381903"}]},
+ "Info3452246661-9112627"->{
+  Cell[84446, 2828, 643, 9, 143, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-9112627"}]},
+ "Info3452246661-8637446"->{
+  Cell[85297, 2849, 680, 10, 160, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-8637446"}]},
+ "Info3452246661-1382565"->{
+  Cell[86179, 2871, 545, 8, 126, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-1382565"}]},
+ "Info3452246661-5733602"->{
+  Cell[86929, 2891, 440, 7, 109, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246661-5733602"}]},
+ "Info3452246662-6116060"->{
+  Cell[87575, 2910, 564, 8, 143, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-6116060"}]},
+ "Info3452246662-2510090"->{
+  Cell[88341, 2930, 621, 9, 126, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-2510090"}]},
+ "Info3452246662-1004534"->{
+  Cell[89169, 2951, 728, 10, 177, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-1004534"}]},
+ "Info3452246662-9994660"->{
+  Cell[90105, 2973, 426, 6, 92, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-9994660"}]},
+ "Info3452246662-3200586"->{
+  Cell[90737, 2991, 619, 9, 143, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-3200586"}]},
+ "Info3452246662-9538652"->{
+  Cell[91559, 3012, 350, 5, 75, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246662-9538652"}]},
+ "Info3452246663-1966995"->{
+  Cell[92094, 3028, 512, 8, 109, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246663-1966995"}]},
+ "Info3452246663-1574209"->{
+  Cell[92761, 3046, 504, 7, 109, "Print",
+   CellTags->{"Data supplied with EDA", "Info3452246663-1574209"}]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Summary of Chapters", 93731, 3073},
+ {"EDA`Master` file", 94787, 3106},
+ {"Master file", 95353, 3121},
+ {"EDA Data Format", 95923, 3136},
+ {"Data Format of EDA", 101754, 3271},
+ {"Utilities and Supplied Data Sets", 107599, 3406},
+ {"UnpackData", 107759, 3411},
+ {"DataParameters", 110568, 3493},
+ {"Info3452246657-5914205", 111785, 3523},
+ {"Info3452246658-4869567", 111930, 3526},
+ {"EDAListPlot", 112032, 3529},
+ {"Data supplied with EDA", 113651, 3578},
+ {"LoadData", 119929, 3729},
+ {"Info3452246658-9503506", 120631, 3752},
+ {"Info3452246659-3913124", 120743, 3755},
+ {"Info3452246659-4031934", 120854, 3758},
+ {"Info3452246660-7789238", 120995, 3761},
+ {"Info3452246660-9540551", 121135, 3764},
+ {"Info3452246660-7828117", 121276, 3767},
+ {"Info3452246660-3827625", 121416, 3770},
+ {"Info3452246660-7186737", 121557, 3773},
+ {"Info3452246661-6722383", 121697, 3776},
+ {"Info3452246661-1042582", 121836, 3779},
+ {"Info3452246661-7381903", 121975, 3782},
+ {"Info3452246661-9112627", 122115, 3785},
+ {"Info3452246661-8637446", 122255, 3788},
+ {"Info3452246661-1382565", 122396, 3791},
+ {"Info3452246661-5733602", 122536, 3794},
+ {"Info3452246662-6116060", 122676, 3797},
+ {"Info3452246662-2510090", 122816, 3800},
+ {"Info3452246662-1004534", 122956, 3803},
+ {"Info3452246662-9994660", 123097, 3806},
+ {"Info3452246662-3200586", 123236, 3809},
+ {"Info3452246662-9538652", 123376, 3812},
+ {"Info3452246663-1966995", 123515, 3815},
+ {"Info3452246663-1574209", 123655, 3818}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 168, 6, 157, "Title",
+ Evaluatable->False],
+Cell[761, 31, 866, 21, 83, "Text",
+ Evaluatable->False],
+Cell[1630, 54, 722, 17, 83, "Text",
+ Evaluatable->False],
+Cell[2355, 73, 352, 7, 47, "Text",
+ Evaluatable->False],
+Cell[CellGroupData[{
+Cell[2732, 84, 144, 6, 70, "Section",
+ Evaluatable->False],
+Cell[CellGroupData[{
+Cell[2901, 94, 191, 7, 54, "Subsection",
+ Evaluatable->False,
+ CellTags->"Summary of Chapters"],
+Cell[3095, 103, 587, 20, 47, "Text",
+ Evaluatable->False,
+ CellTags->"Summary of Chapters"],
+Cell[3685, 125, 1390, 43, 119, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"Summary of Chapters"],
+Cell[5078, 170, 300, 10, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"Summary of Chapters"],
+Cell[5381, 182, 1114, 30, 101, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"Summary of Chapters"],
+Cell[6498, 214, 1088, 39, 83, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ PageBreakBelow->False,
+ CellTags->"Summary of Chapters"],
+Cell[7589, 255, 881, 24, 83, "Text",
+ Evaluatable->False,
+ CellTags->"Summary of Chapters"],
+Cell[8473, 281, 774, 20, 65, "Text",
+ Evaluatable->False,
+ CellTags->"Summary of Chapters"],
+Cell[9250, 303, 1134, 30, 101, "Text",
+ Evaluatable->False,
+ CellTags->"Summary of Chapters"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10421, 338, 136, 6, 54, "Subsection",
+ Evaluatable->False],
+Cell[10560, 346, 575, 20, 47, "Text",
+ Evaluatable->False],
+Cell[11138, 368, 239, 8, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA`Master` file", "Master file"}],
+Cell[11380, 378, 165, 4, 28, "Input",
+ CellTags->{"EDA`Master` file", "Master file"}],
+Cell[11548, 384, 190, 5, 29, "Text",
+ Evaluatable->False],
+Cell[11741, 391, 372, 13, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA`Master` file", "Master file"}],
+Cell[12116, 406, 328, 9, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA`Master` file", "Master file"}],
+Cell[12447, 417, 1011, 23, 101, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA`Master` file", "Master file"}]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13507, 446, 200, 8, 70, "Section",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[13710, 456, 321, 9, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[14034, 467, 462, 13, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[14499, 482, 217, 6, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[14719, 490, 140, 3, 29, "DisplayFormula",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[14862, 495, 757, 29, 47, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[15622, 526, 137, 3, 29, "DisplayFormula",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[15762, 531, 286, 9, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[16051, 542, 157, 3, 29, "DisplayFormula",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[16211, 547, 403, 17, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[16617, 566, 263, 6, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[16883, 574, 183, 4, 29, "DisplayFormula",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[17069, 580, 253, 10, 30, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[17325, 592, 283, 7, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[17611, 601, 177, 3, 29, "DisplayFormula",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[17791, 606, 253, 6, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[18047, 614, 223, 6, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[18273, 622, 215, 6, 29, "DisplayFormula",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[18491, 630, 432, 11, 48, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[18926, 643, 443, 11, 47, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[19372, 656, 377, 9, 47, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[19752, 667, 212, 6, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[19967, 675, 414, 12, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[20384, 689, 351, 11, 30, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[CellGroupData[{
+Cell[20760, 704, 254, 7, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[21017, 713, 604, 18, 27, "Output",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}]
+}, Open  ]],
+Cell[21636, 734, 562, 19, 49, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[CellGroupData[{
+Cell[22223, 757, 163, 4, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[22389, 763, 307, 7, 27, "Output",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}]
+}, Open  ]],
+Cell[22711, 773, 273, 8, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[22987, 783, 294, 10, 30, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[23284, 795, 302, 9, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[23589, 806, 329, 13, 30, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[CellGroupData[{
+Cell[23943, 823, 226, 6, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[24172, 831, 618, 18, 27, "Output",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}]
+}, Open  ]],
+Cell[24805, 852, 240, 8, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[CellGroupData[{
+Cell[25070, 864, 361, 11, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[25434, 877, 946, 30, 47, "Output",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}]
+}, Open  ]],
+Cell[26395, 910, 255, 6, 29, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[26653, 918, 302, 9, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[26958, 929, 284, 11, 30, "Text",
+ Evaluatable->False,
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[CellGroupData[{
+Cell[27267, 944, 226, 6, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[27496, 952, 623, 18, 27, "Output",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}]
+}, Open  ]],
+Cell[28134, 973, 143, 5, 29, "Text"],
+Cell[CellGroupData[{
+Cell[28302, 982, 435, 14, 28, "Input",
+ PageBreakAbove->False],
+Cell[28740, 998, 1230, 41, 47, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30019, 1045, 234, 9, 70, "Section",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"Utilities and Supplied Data Sets"],
+Cell[30256, 1056, 313, 9, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[30572, 1067, 92, 5, 29, "Text"],
+Cell[30667, 1074, 93, 2, 28, "Input"],
+Cell[30763, 1078, 210, 7, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[30976, 1087, 415, 12, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[CellGroupData[{
+Cell[31416, 1103, 255, 7, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[31674, 1112, 606, 18, 27, "Output",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32317, 1135, 164, 4, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[32484, 1141, 306, 7, 27, "Output",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}]
+}, Open  ]],
+Cell[32805, 1151, 303, 9, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[CellGroupData[{
+Cell[33133, 1164, 362, 11, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[33498, 1177, 947, 30, 47, "Output",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}]
+}, Open  ]],
+Cell[34460, 1210, 303, 9, 28, "Input",
+ CellTags->{"EDA Data Format", "Data Format of EDA"}],
+Cell[CellGroupData[{
+Cell[34788, 1223, 435, 14, 28, "Input",
+ PageBreakAbove->False],
+Cell[35226, 1239, 1234, 41, 47, "Output"]
+}, Open  ]],
+Cell[36475, 1283, 199, 7, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[36677, 1292, 277, 9, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->{"DataParameters", "UnpackData"}],
+Cell[CellGroupData[{
+Cell[36979, 1305, 175, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->{"DataParameters", "UnpackData"}],
+Cell[37157, 1312, 404, 6, 92, "Print",
+ CellTags->{"DataParameters", "Info3452246657-5914205", "UnpackData"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37598, 1323, 191, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->{"DataParameters", "UnpackData"}],
+Cell[37792, 1330, 252, 6, 27, "Output",
+ CellTags->{"DataParameters", "UnpackData"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38081, 1341, 191, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->{"DataParameters", "UnpackData"}],
+Cell[38275, 1348, 248, 6, 27, "Output",
+ CellTags->{"DataParameters", "UnpackData"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38560, 1359, 191, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->{"DataParameters", "UnpackData"}],
+Cell[38754, 1366, 251, 6, 27, "Output",
+ CellTags->{"DataParameters", "UnpackData"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39042, 1377, 191, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->{"DataParameters", "UnpackData"}],
+Cell[39236, 1384, 247, 6, 27, "Output",
+ CellTags->{"DataParameters", "UnpackData"}]
+}, Open  ]],
+Cell[39498, 1393, 239, 8, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[CellGroupData[{
+Cell[39762, 1405, 77, 2, 28, "Input"],
+Cell[39842, 1409, 769, 11, 177, "Print",
+ CellTags->"Info3452246658-4869567"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40648, 1425, 167, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[40818, 1432, 659, 19, 27, "Output",
+ CellTags->"UnpackData"]
+}, Open  ]],
+Cell[41492, 1454, 337, 8, 47, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[CellGroupData[{
+Cell[41854, 1466, 167, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[42024, 1473, 658, 18, 27, "Output",
+ CellTags->"UnpackData"]
+}, Open  ]],
+Cell[42697, 1494, 203, 7, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[CellGroupData[{
+Cell[42925, 1505, 167, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[43095, 1512, 679, 19, 47, "Output",
+ CellTags->"UnpackData"]
+}, Open  ]],
+Cell[43789, 1534, 188, 6, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[CellGroupData[{
+Cell[44002, 1544, 167, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[44172, 1551, 721, 20, 47, "Output",
+ CellTags->"UnpackData"]
+}, Open  ]],
+Cell[44908, 1574, 280, 9, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"UnpackData"],
+Cell[45191, 1585, 837, 29, 66, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"EDAListPlot"],
+Cell[CellGroupData[{
+Cell[46053, 1618, 295, 10, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"EDAListPlot"],
+Cell[46351, 1630, 276, 6, 27, "Output",
+ CellTags->"EDAListPlot"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46664, 1641, 208, 6, 28, "Input",
+ PageBreakAbove->True,
+ CellTags->"EDAListPlot"],
+Cell[46875, 1649, 511, 14, 240, "Output",
+ CellTags->"EDAListPlot"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47423, 1668, 376, 13, 30, "Input",
+ PageBreakAbove->False,
+ CellTags->"EDAListPlot"],
+Cell[47802, 1683, 534, 16, 27, "Output",
+ CellTags->"EDAListPlot"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48373, 1704, 211, 6, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"EDAListPlot"],
+Cell[48587, 1712, 486, 13, 246, "Output",
+ CellTags->"EDAListPlot"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49110, 1730, 490, 17, 36, "Input",
+ PageBreakAbove->False,
+ CellTags->"EDAListPlot"],
+Cell[49603, 1749, 876, 27, 27, "Output",
+ CellTags->"EDAListPlot"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50516, 1781, 205, 6, 28, "Input",
+ PageBreakAbove->True,
+ CellTags->"EDAListPlot"],
+Cell[50724, 1789, 1753, 34, 240, "Output",
+ CellTags->"EDAListPlot"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52514, 1828, 549, 19, 36, "Input",
+ PageBreakAbove->False,
+ CellTags->"EDAListPlot"],
+Cell[53066, 1849, 1145, 37, 47, "Output",
+ CellTags->"EDAListPlot"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54248, 1891, 211, 6, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"EDAListPlot"],
+Cell[54462, 1899, 2707, 50, 240, "Output",
+ CellTags->"EDAListPlot"]
+}, Open  ]],
+Cell[57184, 1952, 284, 8, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"EDAListPlot"],
+Cell[57471, 1962, 515, 13, 47, "Text",
+ Evaluatable->False,
+ CellTags->"Data supplied with EDA"],
+Cell[57989, 1977, 369, 12, 47, "Text",
+ Evaluatable->False,
+ CellTags->"Data supplied with EDA"],
+Cell[58361, 1991, 340, 14, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"LoadData"],
+Cell[CellGroupData[{
+Cell[58726, 2009, 75, 2, 28, "Input"],
+Cell[58804, 2013, 619, 9, 143, "Print",
+ CellTags->"Info3452246658-9503506"]
+}, Open  ]],
+Cell[59438, 2025, 238, 7, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"LoadData"],
+Cell[CellGroupData[{
+Cell[59701, 2036, 152, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"LoadData"],
+Cell[59856, 2043, 859, 16, 315, "Message",
+ CellTags->"LoadData"]
+}, Open  ]],
+Cell[60730, 2062, 320, 10, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"LoadData"],
+Cell[CellGroupData[{
+Cell[61075, 2076, 165, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"LoadData"],
+Cell[61243, 2083, 196, 5, 27, "Output",
+ CellTags->"LoadData"]
+}, Open  ]],
+Cell[61454, 2091, 120, 3, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False],
+Cell[CellGroupData[{
+Cell[61599, 2098, 179, 5, 28, "Input",
+ PageBreakAbove->False],
+Cell[61781, 2105, 4226, 139, 843, "Output"]
+}, Open  ]],
+Cell[66022, 2247, 151, 6, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False],
+Cell[CellGroupData[{
+Cell[66198, 2257, 140, 4, 28, "Input",
+ PageBreakAbove->False],
+Cell[66341, 2263, 227, 5, 27, "Output"]
+}, Open  ]],
+Cell[66583, 2271, 123, 3, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False],
+Cell[CellGroupData[{
+Cell[66731, 2278, 131, 4, 28, "Input",
+ PageBreakAbove->False],
+Cell[66865, 2284, 355, 6, 75, "Print",
+ CellTags->"Info3452246659-3913124"]
+}, Open  ]],
+Cell[67235, 2293, 197, 7, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False],
+Cell[CellGroupData[{
+Cell[67457, 2304, 138, 4, 28, "Input",
+ PageBreakAbove->False],
+Cell[67598, 2310, 453, 10, 24, "Message"]
+}, Open  ]],
+Cell[68066, 2323, 133, 3, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False],
+Cell[68202, 2328, 209, 6, 28, "Input",
+ PageBreakAbove->False],
+Cell[68414, 2336, 213, 8, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False],
+Cell[68630, 2346, 603, 16, 66, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False],
+Cell[CellGroupData[{
+Cell[69258, 2366, 151, 4, 28, "Input",
+ PageBreakAbove->False],
+Cell[69412, 2372, 207, 5, 27, "Output"]
+}, Open  ]],
+Cell[69634, 2380, 203, 7, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False],
+Cell[CellGroupData[{
+Cell[69862, 2391, 143, 4, 28, "Input",
+ PageBreakAbove->False],
+Cell[70008, 2397, 350, 8, 24, "Message"],
+Cell[70361, 2407, 161, 3, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70559, 2415, 229, 9, 54, "Subsection",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[70791, 2426, 331, 11, 29, "Text",
+ Evaluatable->False,
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[CellGroupData[{
+Cell[71147, 2441, 182, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[71332, 2448, 503, 11, 24, "Message",
+ CellTags->"Data supplied with EDA"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[71872, 2464, 169, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[72044, 2471, 806, 11, 194, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246659-4031934"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[72887, 2487, 178, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[73068, 2494, 527, 12, 24, "Message",
+ CellTags->"Data supplied with EDA"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[73632, 2511, 169, 5, 28, "Input",
+ PageBreakAbove->True,
+ CellTags->"Data supplied with EDA"],
+Cell[73804, 2518, 566, 8, 126, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246660-7789238"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[74407, 2531, 175, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[74585, 2538, 503, 12, 24, "Message",
+ CellTags->"Data supplied with EDA"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[75125, 2555, 167, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[75295, 2562, 737, 10, 160, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246660-9540551"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[76069, 2577, 91, 2, 28, "Input"],
+Cell[76163, 2581, 465, 11, 24, "Message"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[76665, 2597, 115, 3, 28, "Input",
+ CellTags->"Data supplied with EDA"],
+Cell[76783, 2602, 624, 9, 143, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246660-7828117"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[77444, 2616, 179, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[77626, 2623, 479, 11, 24, "Message",
+ CellTags->"Data supplied with EDA"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[78142, 2639, 171, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[78316, 2646, 767, 11, 177, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246660-3827625"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[79120, 2662, 177, 5, 28, "Input",
+ PageBreakAbove->True,
+ CellTags->"Data supplied with EDA"],
+Cell[79300, 2669, 478, 11, 24, "Message",
+ CellTags->"Data supplied with EDA"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[79815, 2685, 170, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[79988, 2692, 511, 8, 109, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246660-7186737"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[80536, 2705, 176, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[80715, 2712, 521, 12, 47, "Message",
+ CellTags->"Data supplied with EDA"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[81273, 2729, 172, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[81448, 2736, 326, 5, 75, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246661-6722383"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[81811, 2746, 171, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[81985, 2753, 324, 5, 75, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246661-1042582"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[82346, 2763, 178, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[82527, 2770, 479, 11, 24, "Message",
+ CellTags->"Data supplied with EDA"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[83043, 2786, 165, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[83211, 2793, 618, 9, 143, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246661-7381903"}]
+}, Open  ]],
+Cell[83844, 2805, 433, 13, 47, "Text"],
+Cell[CellGroupData[{
+Cell[84302, 2822, 141, 4, 28, "Input",
+ CellTags->"Data supplied with EDA"],
+Cell[84446, 2828, 643, 9, 143, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246661-9112627"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[85126, 2842, 168, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[85297, 2849, 680, 10, 160, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246661-8637446"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[86014, 2864, 162, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[86179, 2871, 545, 8, 126, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246661-1382565"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[86761, 2884, 165, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[86929, 2891, 440, 7, 109, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246661-5733602"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[87406, 2903, 166, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[87575, 2910, 564, 8, 143, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246662-6116060"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88176, 2923, 162, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[88341, 2930, 621, 9, 126, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246662-2510090"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88999, 2944, 167, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[89169, 2951, 728, 10, 177, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246662-1004534"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[89934, 2966, 168, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[90105, 2973, 426, 6, 92, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246662-9994660"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[90568, 2984, 166, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[90737, 2991, 619, 9, 143, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246662-3200586"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[91393, 3005, 163, 5, 28, "Input",
+ PageBreakAbove->False,
+ CellTags->"Data supplied with EDA"],
+Cell[91559, 3012, 350, 5, 75, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246662-9538652"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[91946, 3022, 145, 4, 28, "Input",
+ CellTags->"Data supplied with EDA"],
+Cell[92094, 3028, 512, 8, 109, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246663-1966995"}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[92643, 3041, 115, 3, 28, "Input",
+ CellTags->"Data supplied with EDA"],
+Cell[92761, 3046, 504, 7, 109, "Print",
+ CellTags->{"Data supplied with EDA", "Info3452246663-1574209"}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,1088 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     17499,        745]*)
+(*NotebookOutlinePosition[     18210,        769]*)
+(*  CellTagsIndexPosition[     18166,        765]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Table of Contents", "Title",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Chapter 1\nIntroduction to ",
+  StyleBox["Experimental Data Analyst",
+    FontSlant->"Italic"]
+}], "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "1.1 Summary and Use of ",
+  StyleBox["EDA",
+    FontSlant->"Italic"],
+  "        ",
+  StyleBox["                            ",
+    FontFamily->"Courier",
+    FontWeight->"Plain"]
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "1.1.1 Summary of the Chapters of ",
+  StyleBox["EDA",
+    FontSlant->"Italic"],
+  "        ",
+  StyleBox[" ",
+    FontFamily->"Palatino",
+    FontSize->8],
+  StyleBox["                                                ",
+    FontFamily->"Palatino",
+    FontSize->11]
+}], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "1.1.2 Using ",
+  StyleBox["EDA",
+    FontSlant->"Italic"],
+  "        ",
+  StyleBox[" ",
+    FontSlant->"Italic"],
+  StyleBox["                                                                  \
+                ",
+    FontFamily->"Palatino",
+    FontSize->11]
+}], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[{
+  "1.2 The ",
+  StyleBox["EDA",
+    FontSlant->"Italic"],
+  " Data Format        "
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "1.3 ",
+  StyleBox["EDA",
+    FontSlant->"Italic"],
+  " Utilities and Supplied Data Sets            "
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "1.3.1 Contents of the ",
+  StyleBox["EDA",
+    FontSlant->"Italic"],
+  " `Data` Directory         "
+}], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Chapter 2
+Importing and Exporting Data\
+\>", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["2.1 Importing Data from an ASCII File         ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["2.1.1 Introduction         ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["2.1.2 A Real-World Example        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["2.1.3 Summary of ImportData        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2.2 Exporting Data to an ASCII File         ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["2.2.1 Introduction        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["2.2.2 Summary of ExportData         ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell["2.3 Importing Data from a Binary File         ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["2.4 Getting Data from a Scanned Plot         ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Chapter 3
+Experimental Errors and Error Analysis\
+\>", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["3.1 Introduction        ", "Subsection",
+  Evaluatable->False,
+  PageBreakBelow->Automatic,
+  AspectRatioFixed->True],
+
+Cell["3.1.1 The Purpose of Error Analysis        ", "Subsubsection",
+  Evaluatable->False,
+  PageBreakBelow->Automatic,
+  AspectRatioFixed->True],
+
+Cell["3.1.2 Different Types of Errors        ", "Subsubsection",
+  Evaluatable->False,
+  PageBreakBelow->Automatic,
+  AspectRatioFixed->True],
+
+Cell["3.1.3 References        ", "Subsubsection",
+  Evaluatable->False,
+  PageBreakBelow->Automatic,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3.2 Determining the Precision        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["3.2.1 The Standard Deviation        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["3.2.2 The Reading Error        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["3.2.3 \"THE\" Error        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["3.2.4 Rejection of Measurements        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "3.3 Propagation of Errors of Precision",
+  StyleBox["        ",
+    FontFamily->"Futura",
+    FontSize->10,
+    FontWeight->"Plain"]
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["3.3.1 Discussion and Examples        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["3.3.2 Finding the Error in an Average        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[{
+  "3.4 Calibration, Accuracy, and Systematic Errors",
+  StyleBox["        ",
+    FontFamily->"Futura",
+    FontSize->10,
+    FontWeight->"Plain"]
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "3.5 Summary of the Error Propagation Routines",
+  StyleBox["       ",
+    FontFamily->"Futura",
+    FontSize->10,
+    FontWeight->"Plain"],
+  StyleBox[" ",
+    FontFamily->"Futura",
+    FontSize->10]
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Chapter 4
+Fitting Data to Linear Models
+by Least-Squares Techniques\
+\>", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "4.1 Background Discussion",
+  StyleBox["      ",
+    FontFamily->"Futura",
+    FontSize->10,
+    FontWeight->"Plain"],
+  StyleBox["  ",
+    FontFamily->"Futura",
+    FontSize->10]
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.1.1 Linear Fits        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.1.2 Least-Squares Techniques       ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.1.3 Fitting to Data with Experimental Errors        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.1.4 Evaluating the Goodness of a Fit        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.1.5 References       ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "4.2  Curve Fitting When the Data Have No Explicit Errors",
+  StyleBox["       ",
+    FontFamily->"Futura",
+    FontSize->10,
+    FontWeight->"Plain"],
+  StyleBox["  ",
+    FontFamily->"Helvetica",
+    FontSize->10]
+}], "Subsection",
+  CellMargins->{{Inherited, 125}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.2.1 Unwinding the Residual Calculation        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[TextData[{
+  "4.3 Curve Fitting When the Data Have Explicit Errors",
+  StyleBox["        ",
+    FontFamily->"Futura",
+    FontSize->10,
+    FontWeight->"Plain"]
+}], "Subsection",
+  CellMargins->{{Inherited, 137}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "4.4 Options, Utilities, and Details",
+  StyleBox["        ",
+    FontFamily->"Futura",
+    FontSize->10,
+    FontWeight->"Plain"]
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.4.1 Options to LinearFit        ", "Subsubsection",
+  CellMargins->{{Inherited, 151}, {Inherited, Inherited}},
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.4.2 Other Routines in the LinearFit Package        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "4.5 Summary of the LinearFit Package",
+  StyleBox["       ",
+    FontFamily->"Futura",
+    FontSize->10,
+    FontWeight->"Plain"],
+  StyleBox[" ",
+    FontFamily->"Futura",
+    FontSize->10]
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.5.1 The LinearFit Routine        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.5.2 The ShowLinearFit Routine        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["4.5.3 The ToLinearFunction Routine        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Chapter 5
+Fitting Data to Nonlinear Models\
+\>", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "5.1 Introduction",
+  StyleBox["      ",
+    FontFamily->"Futura",
+    FontSize->10,
+    FontWeight->"Plain"],
+  StyleBox["  ",
+    FontFamily->"Futura",
+    FontSize->10]
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["5.1.1 Overview of EDAFindFit        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+5.1.2 Providing Initial Parameter Values to EDAFindFit        \
+\
+\>", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["5.1.3 Comparing LinearFit and EDAFindFit        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["5.1.4 References        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "5.2 Examples",
+  StyleBox["      ",
+    FontFamily->"Futura",
+    FontSize->10,
+    FontWeight->"Plain"],
+  StyleBox["  ",
+    FontFamily->"Futura",
+    FontSize->10]
+}], "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["5.2.1 Fitting to a Single Peak with a Background        ", \
+"Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["5.2.2 Fitting to Three Peaks with No Background        ", \
+"Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["5.3 Options, Utilities, and Details        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["5.3.1 Options to EDAFindFit        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["5.3.2 Other Routines in the FindFit Package        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["5.3.3 Peak Shape Routines        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell["5.4 Summary of the FindFit Package        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Chapter 6
+Smoothing Data, Filling Missing Data,
+and Nonparametric Fitting\
+\>", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["6.1 Introduction        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["6.1.1 Smoothing with Averaging Techniques        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["6.1.2 Fourier Filters        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["6.1.3 Loess Fitting        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "6.1.4 Using ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " Built-in Functions        "
+}], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["6.1.5 Smoothing an Interpolation        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["6.1.6 Filling Missing Data        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["6.1.7 References        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["6.2 Details        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["6.2.1 Nonmonotonic Data and Related Assumptions        ", \
+"Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["6.2.2 Comparing Various Smoothing Methods        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["6.2.3 How LoessFit Works        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell["6.3 Summary of the SmoothData Package        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Chapter 7
+Robust Fitting\
+\>", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["7.1 Introduction        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["7.1.1 Using the Median        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["7.1.2 Using Weighting Techniques        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["7.2 Details        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["7.2.1 RobustCurveFit        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["7.2.2 RobustLineFit        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["7.2.3 Comparing RobustCurveFit and RobustLineFit        ", \
+"Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell["7.3 Summary of the RobustFit Package        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Chapter 8
+Exploration and Transformation of Data\
+\>", "Section",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{
+
+Cell["8.1 Graphical Exploration        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["8.1.1 EDAListPlot        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["8.1.2 EDAHistogram        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["8.1.3 BoxPlot        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["8.1.4 Log and Log-Log Plots", "Subsubsection"],
+
+Cell[TextData[{
+  "8.1.5 Summary of General Purpose ",
+  StyleBox["EDA",
+    FontSlant->"Italic"],
+  " Graphics Routines        "
+}], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.2 Transforming Data        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["8.2.1 The Data Itself Suggests a Transformation        ", \
+"Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["8.2.2 Transforming to Match a Model        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["8.2.3 Finding Hidden Features of the Data        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.3 Estimating Parameters for Peaks        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["8.3.1 Summary of FindPeaks        ", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.4 FitPeaks and FitExponent", "Subsection"],
+
+Cell["8.4.1 FitPeaks", "Subsubsection"],
+
+Cell["8.4.2 FitExponent", "Subsubsection"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8.5 References        ", "Subsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "8.5.1 References to ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "        "
+}], "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell["\<\
+8.5.2 References to Exploratory Data Analysis and Transformation        \
+\>", "Subsubsection",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 685}},
+ScreenStyleEnvironment->"Working",
+WindowSize->{579, 608},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+StyleDefinitions -> "Manual.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 82, 2, 115, "Title",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[1883, 59, 176, 6, 110, "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[2084, 69, 263, 10, 57, "Subsection",
+  Evaluatable->False],
+Cell[2350, 81, 352, 13, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[2705, 96, 347, 13, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+Cell[3067, 112, 164, 7, 56, "Subsection",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[3256, 123, 185, 7, 56, "Subsection",
+  Evaluatable->False],
+Cell[3444, 132, 187, 7, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3680, 145, 113, 5, 110, "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[3818, 154, 116, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[3937, 158, 100, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[4040, 162, 107, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[4150, 166, 108, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4295, 173, 114, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[4412, 177, 99, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[4514, 181, 109, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+Cell[4638, 186, 116, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[4757, 190, 115, 2, 56, "Subsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4909, 197, 123, 5, 110, "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[5057, 206, 123, 3, 56, "Subsection",
+  Evaluatable->False,
+  PageBreakBelow->Automatic],
+Cell[5183, 211, 145, 3, 49, "Subsubsection",
+  Evaluatable->False,
+  PageBreakBelow->Automatic],
+Cell[5331, 216, 141, 3, 49, "Subsubsection",
+  Evaluatable->False,
+  PageBreakBelow->Automatic],
+Cell[5475, 221, 126, 3, 49, "Subsubsection",
+  Evaluatable->False,
+  PageBreakBelow->Automatic]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5638, 229, 107, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[5748, 233, 109, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[5860, 237, 104, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[5967, 241, 100, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[6070, 245, 112, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6219, 252, 217, 8, 56, "Subsection",
+  Evaluatable->False],
+Cell[6439, 262, 110, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[6552, 266, 118, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+Cell[6685, 271, 227, 8, 56, "Subsection",
+  Evaluatable->False],
+Cell[6915, 281, 284, 11, 56, "Subsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7236, 297, 142, 6, 142, "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[7403, 307, 264, 11, 56, "Subsection",
+  Evaluatable->False],
+Cell[7670, 320, 98, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[7771, 324, 110, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[7884, 328, 127, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[8014, 332, 119, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[8136, 336, 96, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8269, 343, 358, 12, 70, "Subsection",
+  Evaluatable->False],
+Cell[8630, 357, 121, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+Cell[8766, 362, 290, 9, 56, "Subsection",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[9081, 375, 214, 8, 56, "Subsection",
+  Evaluatable->False],
+Cell[9298, 385, 166, 3, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[9467, 390, 126, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9630, 397, 275, 11, 56, "Subsection",
+  Evaluatable->False],
+Cell[9908, 410, 108, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[10019, 414, 112, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[10134, 418, 115, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10298, 426, 117, 5, 110, "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[10440, 435, 255, 11, 56, "Subsection",
+  Evaluatable->False],
+Cell[10698, 448, 109, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[10810, 452, 145, 5, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[10958, 459, 121, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[11082, 463, 97, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[11216, 470, 251, 11, 56, "Subsection",
+  Evaluatable->False],
+Cell[11470, 483, 131, 3, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[11604, 488, 130, 3, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[11771, 496, 113, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[11887, 500, 108, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[11998, 504, 124, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[12125, 508, 106, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+Cell[12246, 513, 112, 2, 56, "Subsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[12395, 520, 148, 6, 142, "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[12568, 530, 94, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[12665, 534, 122, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[12790, 538, 102, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[12895, 542, 100, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[12998, 546, 186, 7, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[13187, 555, 113, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[13303, 559, 107, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[13413, 563, 97, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[13547, 570, 89, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[13639, 574, 130, 3, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[13772, 579, 122, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[13897, 583, 105, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+Cell[14017, 588, 115, 2, 56, "Subsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[14169, 595, 99, 5, 110, "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[14293, 604, 94, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[14390, 608, 103, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[14496, 612, 113, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[14646, 619, 89, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[14738, 623, 101, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[14842, 627, 100, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[14945, 631, 131, 3, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+Cell[15091, 637, 114, 2, 56, "Subsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[15242, 644, 123, 5, 110, "Section",
+  Evaluatable->False],
+
+Cell[CellGroupData[{
+Cell[15390, 653, 103, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[15496, 657, 98, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[15597, 661, 99, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[15699, 665, 94, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[15796, 669, 52, 0, 49, "Subsubsection"],
+Cell[15851, 671, 198, 7, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[16086, 683, 99, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[16188, 687, 130, 3, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[16321, 692, 116, 2, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[16440, 696, 122, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[16599, 703, 113, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[16715, 707, 107, 2, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[16859, 714, 50, 0, 56, "Subsection"],
+Cell[16912, 716, 39, 0, 49, "Subsubsection"],
+Cell[16954, 718, 42, 0, 49, "Subsubsection"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[17033, 723, 92, 2, 56, "Subsection",
+  Evaluatable->False],
+Cell[17128, 727, 175, 7, 49, "Subsubsection",
+  Evaluatable->False],
+Cell[17306, 736, 153, 4, 49, "Subsubsection",
+  Evaluatable->False]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

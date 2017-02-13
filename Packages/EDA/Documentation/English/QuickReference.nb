@@ -1,0 +1,722 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.0'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     11806,        501]*)
+(*NotebookOutlinePosition[     12599,        528]*)
+(*  CellTagsIndexPosition[     12555,        524]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+  StyleBox["Experimental Data Analyst",
+    FontSlant->"Italic"],
+  "\[LongDash]Quick Reference"
+}], "Title"],
+
+Cell[TextData[{
+  "Using available options, ",
+  StyleBox["Experimental Data Analyst",
+    FontSlant->"Italic"],
+  " (",
+  StyleBox["EDA",
+    FontSlant->"Italic"],
+  ")",
+  StyleBox[" ",
+    FontSlant->"Italic"],
+  "is capable of very sophisticated analysis. This guide briefly reviews the \
+use of common ",
+  StyleBox["EDA",
+    FontSlant->"Italic"],
+  " routines for simple analysis tasks."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Data Formats", "Section"],
+
+Cell["Dependent variable only:", "Text"],
+
+Cell[BoxData[
+    \({y\_1, \ y\_2, \  ... \ , \ y\_N}\)], "Input",
+  Active->True],
+
+Cell["Independent and dependent variable:", "Text"],
+
+Cell[BoxData[
+    \({\ {x\_1, \ y\_1}, \ {x\_2, \ y\_2}, \  ... \ , \ {x\_N, \ 
+        y\_N}\ }\)], "Input"],
+
+Cell["Explicit errors in the dependent variable:", "Text"],
+
+Cell[BoxData[
+    \({\ {x\_1, \ {y\_1, \ \[CapitalDelta]y\_1}}, \ {x\_2, \ {y\_2, \ \
+\[CapitalDelta]y\_2}}, \  ... \ , \ {x\_N, \ {y\_N, \ \[CapitalDelta]y\_N}}\ \
+}\)], "Input"],
+
+Cell["Explicit errors in both coordinates:", "Text"],
+
+Cell[BoxData[
+    \({\ {{x\_1, \ \[CapitalDelta]x\_1}, \ {y\_1, \ \[CapitalDelta]y\_1}}, \ \
+{{x\_2, \ \[CapitalDelta]x\_2}, \ {y\_2, \ \[CapitalDelta]y\_2}}, \  ... \ , \
+\ {{x\_N, \ \[CapitalDelta]x\_N}, \ {y\_N, \ \[CapitalDelta]y\_N}}\ }\)], \
+"Input"],
+
+Cell["Further information: \[Section]1.2", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Importing and Exporting Data from/to an ASCII File", "Section"],
+
+Cell[BoxData[
+    \(\(myData\  = \ ImportData["\<file\>"];\)\)], "Input"],
+
+Cell[BoxData[
+    \(ExportData["\<file\>", \ myData]\)], "Input"],
+
+Cell["Further information: \[Section]2.1 and \[Section]2.2", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Propagation of Errors of Precision", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Using *WithError Functions", "Subsection"],
+
+Cell["For data of the form:", "Text"],
+
+Cell[BoxData[
+    \(x\  = \ {\ {x\_1, \ \[CapitalDelta]x\_1}, \ {x\_2, \ \
+\[CapitalDelta]x\_2}, \  ... \ }\)], "Input"],
+
+Cell[BoxData[
+    \(y\  = \ {\ {xy\_1, \ \[CapitalDelta]y\_1}, \ {y\_2, \ \
+\[CapitalDelta]y\_2}, \  ... \ }\)], "Input"],
+
+Cell["then use:", "Text"],
+
+Cell[BoxData[
+    \(x\  + \ y\  \[Rule] \ AddWithError[x, \ y]\)], "Input"],
+
+Cell[BoxData[
+    \(\(\(x\  - \ y\)\(\ \)\(\[Rule]\)\(\ \)\(SubtractWithError[x, \ 
+        y]\)\(\ \)\)\)], "Input"],
+
+Cell[BoxData[
+    \(x\ *\ y\  \[Rule] \ TimesWithError[x, \ y]\)], "Input"],
+
+Cell[BoxData[
+    \(x\ /y\  \[Rule] \ DivideWithError[x, \ y]\)], "Input"],
+
+Cell[BoxData[
+    \(x\^n\  \[Rule] \ PowerWithError[x, \ n]\)], "Input"],
+
+Cell["More generally, if the data are related by:", "Text"],
+
+Cell[BoxData[
+    \(f[x, \ y]\)], "Input"],
+
+Cell["then use:", "Text"],
+
+Cell[BoxData[
+    \(CombineWithError[\ f[x, y]\ ]\)], "Input"],
+
+Cell["Further information: \[Section]3.3.1", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+  "Using ",
+  StyleBox["Datum",
+    FontSlant->"Italic"],
+  " and ",
+  StyleBox["Data",
+    FontSlant->"Italic"],
+  " Constructs"
+}], "Subsection"],
+
+Cell["For data of the form:", "Text"],
+
+Cell[BoxData[
+    \(x\  = \ Datum[\ {x, \ \[CapitalDelta]x}\ ]\)], "Input"],
+
+Cell[BoxData[
+    \(y\  = \ Datum[\ {y, \ \[CapitalDelta]x}\ ]\)], "Input"],
+
+Cell["or:", "Text"],
+
+Cell[BoxData[
+    \(x\  = \ 
+      Data[\ {\ {x\_1, \ \[CapitalDelta]x\_1}\ , \ {x\_2, \ \
+\[CapitalDelta]x\_2}\ , \  ... \ }\ ]\)], "Input"],
+
+Cell[BoxData[
+    \(y\  = \ 
+      Data[\ {\ {y\_1, \ \[CapitalDelta]y\_1}\ , \ {xy\_2, \ \[CapitalDelta]y\
+\_2}\ , \  ... \ }\ ]\)], "Input"],
+
+Cell["then:", "Text"],
+
+Cell[BoxData[
+    \(x\  + \ y\)], "Input"],
+
+Cell[BoxData[
+    \(x\  - \ y\)], "Input"],
+
+Cell[BoxData[
+    \(x\ *\ y\)], "Input"],
+
+Cell[BoxData[
+    \(x\ /\ y\)], "Input"],
+
+Cell[BoxData[
+    \(c\ *\ x\)], "Input"],
+
+Cell[BoxData[
+    \(x\ ^\ n\)], "Input"],
+
+Cell[BoxData[
+    \(Log[x], \ Exp[x], \ Sin[x], \  ... \)], "Input"],
+
+Cell["Further information: \[Section]3.3.1.1", "Text"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fitting to a Straight Line", "Section"],
+
+Cell["Fit to:", "Text"],
+
+Cell[BoxData[
+    \(y\  = \ a[0]\  + \ a[1]\ \ x\)], "Input"],
+
+Cell["with:", "Text"],
+
+Cell[BoxData[
+    \(LinearFit[\ data, \ {0, 1}, \ a]\)], "Input"],
+
+Cell["Further information: \[Section]4.2", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fitting to a Polynomial", "Section"],
+
+Cell["Fit to:", "Text"],
+
+Cell[BoxData[
+    \(y\  = \ a[0]\  + \ a[1]\ \ x\  + \ a[2]\ \ x\^2\)], "Input"],
+
+Cell["with:", "Text"],
+
+Cell[BoxData[
+    \(LinearFit[\ data, \ {0, 1, \ 2}, \ a]\)], "Input"],
+
+Cell["Further information: \[Section]4.2", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fitting to an Exponential", "Section"],
+
+Cell["Fit to:", "Text"],
+
+Cell[BoxData[
+    \(y\  = \ A\ \[ExponentialE]\^\(B\ x\)\)], "Input"],
+
+Cell["with:", "Text"],
+
+Cell[BoxData[
+    \(FitExponent[data]\)], "Input"],
+
+Cell["Further information: \[Section]8.4.2", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fit to Gaussian Spectra", "Section"],
+
+Cell["Fit to:", "Text"],
+
+Cell[BoxData[
+    \(y\  = \ 
+      Bkgd[0]\  + \ Bkgd[1]\  + \ 
+          Ampl[1]\ \[ExponentialE]\^\(\(-\((x\  - \ Center[1])\)\^2\)/\((\ 2\ \
+Sigma[1]\^2)\)\)\  + \ 
+          Ampl[2]\ \[ExponentialE]\^\(\(-\((x\  - \ Center[2])\)\^2\)/\((\ 2\ \
+Sigma[2]\^2)\)\)\  + \  ... \)], "Input"],
+
+Cell["with:", "Text"],
+
+Cell[BoxData[
+    \(FitPeaks[data]\)], "Input"],
+
+Cell["Further information: \[Section]8.4.1", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fit to Lorentzian Spectra", "Section"],
+
+Cell["Fit to:", "Text"],
+
+Cell[BoxData[
+    \(y\  = \ 
+      Bkgd[0]\  + \ 
+          Bkgd[1]\  + \ \(FWHM[1]\ PeakArea[1]\)\/\(2  \[Pi] \((\ \((x\  - \ \
+Center[1])\)\^2\  + \ \((FWHM[1]/2)\)\^2)\)\)\  + \ \(FWHM[2]\ \
+PeakArea[2]\)\/\(2  \[Pi] \((\ \((x\  - \ Center[2])\)\^2\  + \ \((FWHM[2]/2)\
+\)\^2)\)\)\  + \  ... \)], "Input"],
+
+Cell["with:", "Text"],
+
+Cell[BoxData[
+    \(FitPeaks[data, \ PeakShape\  \[Rule] \ Lorentzian]\)], "Input"],
+
+Cell["Further information: \[Section]8.4.1", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fit to a General Model", "Section"],
+
+Cell["Fit to:", "Text"],
+
+Cell[BoxData[
+    \(y\  = \ Model[x, \ param\_1, param\_2, \  ... \ ]\)], "Input"],
+
+Cell[TextData[{
+  "where ",
+  StyleBox["x",
+    FontFamily->"Courier",
+    FontWeight->"Bold"],
+  " is the independent variable,",
+  StyleBox[" ",
+    FontWeight->"Bold"],
+  Cell[BoxData[
+      \(TraditionalForm\`\(\(param\_i\)\(\ \)\)\)],
+    FontFamily->"Courier",
+    FontVariations->{"CompatibilityType"->0}],
+  "is the ",
+  StyleBox["i",
+    FontSlant->"Italic"],
+  "-th parameter with initial value ",
+  Cell[BoxData[
+      \(TraditionalForm\`init\_i\)],
+    FontFamily->"Courier"],
+  " with:"
+}], "Text"],
+
+Cell[BoxData[
+    \(EDAFindFit[data, \ Model[x, \ param\_1, param\_2, \  ... \ ], \ 
+      x, \ {\ {param\_1, \ init\_1}, \ {param\_2, \ 
+          init\_2}, \  ... \ }]\)], "Input"],
+
+Cell["Further information: \[Section]5.1", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Data Massage", "Section"],
+
+Cell["To smooth out noise in a bivariate dataset:", "Text"],
+
+Cell[BoxData[
+    \(SmoothData[data]\)], "Input"],
+
+Cell["Further information: \[Section]6.1.1, \[Section]6.1.2", "Text"],
+
+Cell[TextData[{
+  "To do a nonparametric fit with a \[OpenCurlyDoubleQuote]loess\
+\[CloseCurlyDoubleQuote] technique using polynomials of order ",
+  StyleBox["order",
+    FontFamily->"Courier"],
+  ":"
+}], "Text"],
+
+Cell[BoxData[
+    \(LoessFit[data, \ order]\)], "Input"],
+
+Cell["Further information: \[Section]6.1.3", "Text"],
+
+Cell["To fill missing data points in multivariate data:", "Text"],
+
+Cell[BoxData[
+    \(FillData[data]\)], "Input"],
+
+Cell["Further information: \[Section]6.1.6", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Robust Fit to a Line", "Section"],
+
+Cell["Fit to:", "Text"],
+
+Cell[BoxData[
+    \(y\  = \ a[0]\  + \ a[1]\ x\)], "Input"],
+
+Cell["using robust techniques with:", "Text"],
+
+Cell[BoxData[
+    \(RobustLineFit[data, \ a]\)], "Input"],
+
+Cell["or:", "Text"],
+
+Cell[BoxData[
+    \(RobustCurveFit[data, \ {0, 1}, \ a]\)], "Input"],
+
+Cell["Further information: \[Section]7.1.1 and  \[Section]7.1.2", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Robust Fitting to a Polynomial", "Section"],
+
+Cell["Fit to:", "Text"],
+
+Cell[BoxData[
+    \(y\  = \ a[0]\  + \ a[1]\ \ x\  + \ a[2]\ \ x\^2\)], "Input"],
+
+Cell["using robust techniques with:", "Text"],
+
+Cell[BoxData[
+    \(RobustCurveFit[\ data, \ {0, 1, \ 2}, \ a]\)], "Input"],
+
+Cell["Further information: \[Section]7.1.2", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Miscellaneous Graphics", "Section"],
+
+Cell["Generalized ListPlot:", "Text"],
+
+Cell[BoxData[
+    \(EDAListPlot[data]\)], "Input"],
+
+Cell[BoxData[
+    \(EDAListPlot[data\_1, \ data\_\(\(2\)\(,\)\)\  ... \ ]\)], "Input"],
+
+Cell["Further information: \[Section]8.1.1", "Text"],
+
+Cell["Histogram:", "Text"],
+
+Cell[BoxData[
+    \(EDAHistogram[data, \ nbins, \ min, \ max]\)], "Input"],
+
+Cell[BoxData[
+    \(EDAHistogram[data, \ nbins]\)], "Input"],
+
+Cell[BoxData[
+    \(EDAHistogram[data]\)], "Input"],
+
+Cell["Further information: \[Section]8.1.2", "Text"],
+
+Cell["BoxPlot:", "Text"],
+
+Cell[BoxData[
+    \(BoxPlot[data]\)], "Input"],
+
+Cell[BoxData[
+    \(BoxPlot[{data\_1, \ data\_2, \  ... \ }]\)], "Input"],
+
+Cell["Further information: \[Section]8.1.3", "Text"],
+
+Cell["Log plot:", "Text"],
+
+Cell[BoxData[
+    \(EDALogListPlot[data]\)], "Input"],
+
+Cell["Further information: \[Section]8.1.4", "Text"],
+
+Cell["Log-log plot:", "Text"],
+
+Cell[BoxData[
+    \(EDALogLogListPlot[data]\)], "Input"],
+
+Cell["Further information: \[Section]8.1.4", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Miscellaneous", "Section"],
+
+Cell["To find peaks in a dataset:", "Text"],
+
+Cell[BoxData[
+    \(FindPeaks[data]\)], "Input"],
+
+Cell["Further information: \[Section]8.3", "Text"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"5.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1024}, {0, 685}},
+ScreenStyleEnvironment->"Working",
+WindowSize->{592, 584},
+WindowMargins->{{197, Automatic}, {Automatic, 4}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+Magnification->1,
+StyleDefinitions -> "Manual.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1776, 53, 125, 4, 168, "Title"],
+Cell[1904, 59, 406, 15, 52, "Text"],
+
+Cell[CellGroupData[{
+Cell[2335, 78, 31, 0, 78, "Section"],
+Cell[2369, 80, 40, 0, 33, "Text"],
+Cell[2412, 82, 82, 2, 30, "Input"],
+Cell[2497, 86, 51, 0, 33, "Text"],
+Cell[2551, 88, 109, 2, 30, "Input"],
+Cell[2663, 92, 58, 0, 33, "Text"],
+Cell[2724, 94, 179, 3, 30, "Input"],
+Cell[2906, 99, 52, 0, 33, "Text"],
+Cell[2961, 101, 256, 4, 50, "Input"],
+Cell[3220, 107, 50, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3307, 112, 69, 0, 78, "Section"],
+Cell[3379, 114, 73, 1, 30, "Input"],
+Cell[3455, 117, 65, 1, 30, "Input"],
+Cell[3523, 120, 68, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3628, 125, 53, 0, 78, "Section"],
+
+Cell[CellGroupData[{
+Cell[3706, 129, 48, 0, 56, "Subsection"],
+Cell[3757, 131, 37, 0, 33, "Text"],
+Cell[3797, 133, 120, 2, 30, "Input"],
+Cell[3920, 137, 121, 2, 30, "Input"],
+Cell[4044, 141, 25, 0, 33, "Text"],
+Cell[4072, 143, 75, 1, 30, "Input"],
+Cell[4150, 146, 117, 2, 30, "Input"],
+Cell[4270, 150, 75, 1, 30, "Input"],
+Cell[4348, 153, 74, 1, 30, "Input"],
+Cell[4425, 156, 72, 1, 30, "Input"],
+Cell[4500, 159, 59, 0, 33, "Text"],
+Cell[4562, 161, 42, 1, 30, "Input"],
+Cell[4607, 164, 25, 0, 33, "Text"],
+Cell[4635, 166, 62, 1, 30, "Input"],
+Cell[4700, 169, 52, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4789, 174, 163, 8, 56, "Subsection"],
+Cell[4955, 184, 37, 0, 33, "Text"],
+Cell[4995, 186, 75, 1, 30, "Input"],
+Cell[5073, 189, 75, 1, 30, "Input"],
+Cell[5151, 192, 19, 0, 33, "Text"],
+Cell[5173, 194, 141, 3, 30, "Input"],
+Cell[5317, 199, 142, 3, 30, "Input"],
+Cell[5462, 204, 21, 0, 33, "Text"],
+Cell[5486, 206, 42, 1, 30, "Input"],
+Cell[5531, 209, 42, 1, 30, "Input"],
+Cell[5576, 212, 40, 1, 30, "Input"],
+Cell[5619, 215, 40, 1, 30, "Input"],
+Cell[5662, 218, 40, 1, 30, "Input"],
+Cell[5705, 221, 40, 1, 30, "Input"],
+Cell[5748, 224, 68, 1, 30, "Input"],
+Cell[5819, 227, 54, 0, 33, "Text"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5922, 233, 45, 0, 78, "Section"],
+Cell[5970, 235, 23, 0, 33, "Text"],
+Cell[5996, 237, 61, 1, 30, "Input"],
+Cell[6060, 240, 21, 0, 33, "Text"],
+Cell[6084, 242, 65, 1, 30, "Input"],
+Cell[6152, 245, 50, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6239, 250, 42, 0, 78, "Section"],
+Cell[6284, 252, 23, 0, 33, "Text"],
+Cell[6310, 254, 80, 1, 30, "Input"],
+Cell[6393, 257, 21, 0, 33, "Text"],
+Cell[6417, 259, 70, 1, 30, "Input"],
+Cell[6490, 262, 50, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6577, 267, 44, 0, 78, "Section"],
+Cell[6624, 269, 23, 0, 33, "Text"],
+Cell[6650, 271, 69, 1, 30, "Input"],
+Cell[6722, 274, 21, 0, 33, "Text"],
+Cell[6746, 276, 50, 1, 30, "Input"],
+Cell[6799, 279, 52, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6888, 284, 42, 0, 78, "Section"],
+Cell[6933, 286, 23, 0, 33, "Text"],
+Cell[6959, 288, 289, 6, 56, "Input"],
+Cell[7251, 296, 21, 0, 33, "Text"],
+Cell[7275, 298, 47, 1, 30, "Input"],
+Cell[7325, 301, 52, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7414, 306, 44, 0, 78, "Section"],
+Cell[7461, 308, 23, 0, 33, "Text"],
+Cell[7487, 310, 308, 6, 80, "Input"],
+Cell[7798, 318, 21, 0, 33, "Text"],
+Cell[7822, 320, 83, 1, 30, "Input"],
+Cell[7908, 323, 52, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7997, 328, 41, 0, 78, "Section"],
+Cell[8041, 330, 23, 0, 33, "Text"],
+Cell[8067, 332, 82, 1, 30, "Input"],
+Cell[8152, 335, 511, 20, 34, "Text"],
+Cell[8666, 357, 182, 3, 50, "Input"],
+Cell[8851, 362, 50, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8938, 367, 31, 0, 78, "Section"],
+Cell[8972, 369, 59, 0, 33, "Text"],
+Cell[9034, 371, 49, 1, 30, "Input"],
+Cell[9086, 374, 69, 0, 33, "Text"],
+Cell[9158, 376, 212, 6, 33, "Text"],
+Cell[9373, 384, 56, 1, 30, "Input"],
+Cell[9432, 387, 52, 0, 33, "Text"],
+Cell[9487, 389, 65, 0, 33, "Text"],
+Cell[9555, 391, 47, 1, 30, "Input"],
+Cell[9605, 394, 52, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9694, 399, 39, 0, 78, "Section"],
+Cell[9736, 401, 23, 0, 33, "Text"],
+Cell[9762, 403, 59, 1, 30, "Input"],
+Cell[9824, 406, 45, 0, 33, "Text"],
+Cell[9872, 408, 57, 1, 30, "Input"],
+Cell[9932, 411, 19, 0, 33, "Text"],
+Cell[9954, 413, 68, 1, 30, "Input"],
+Cell[10025, 416, 73, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10135, 421, 49, 0, 78, "Section"],
+Cell[10187, 423, 23, 0, 33, "Text"],
+Cell[10213, 425, 80, 1, 30, "Input"],
+Cell[10296, 428, 45, 0, 33, "Text"],
+Cell[10344, 430, 75, 1, 30, "Input"],
+Cell[10422, 433, 52, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[10511, 438, 41, 0, 78, "Section"],
+Cell[10555, 440, 37, 0, 33, "Text"],
+Cell[10595, 442, 50, 1, 30, "Input"],
+Cell[10648, 445, 86, 1, 30, "Input"],
+Cell[10737, 448, 52, 0, 33, "Text"],
+Cell[10792, 450, 26, 0, 33, "Text"],
+Cell[10821, 452, 74, 1, 30, "Input"],
+Cell[10898, 455, 60, 1, 30, "Input"],
+Cell[10961, 458, 51, 1, 30, "Input"],
+Cell[11015, 461, 52, 0, 33, "Text"],
+Cell[11070, 463, 24, 0, 33, "Text"],
+Cell[11097, 465, 46, 1, 30, "Input"],
+Cell[11146, 468, 73, 1, 30, "Input"],
+Cell[11222, 471, 52, 0, 33, "Text"],
+Cell[11277, 473, 25, 0, 33, "Text"],
+Cell[11305, 475, 53, 1, 30, "Input"],
+Cell[11361, 478, 52, 0, 33, "Text"],
+Cell[11416, 480, 29, 0, 33, "Text"],
+Cell[11448, 482, 56, 1, 30, "Input"],
+Cell[11507, 485, 52, 0, 33, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[11596, 490, 32, 0, 78, "Section"],
+Cell[11631, 492, 43, 0, 33, "Text"],
+Cell[11677, 494, 48, 1, 30, "Input"],
+Cell[11728, 497, 50, 0, 33, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

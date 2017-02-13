@@ -1,0 +1,109 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      3212,        100]
+NotebookOptionsPosition[      2706,         79]
+NotebookOutlinePosition[      3050,         94]
+CellTagsIndexPosition[      3007,         91]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "Unzipping EDA.zip will result in a folder called EDA. Inside the folder, \
+there is a subfolder that is also called EDA. This is the folder that needs \
+to be placed in the main ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " directory. It can be placed either under $BaseDirectory or \
+$UserBaseDirectory. You can \ndo so by evaluating:"
+}], "Text",
+ CellChangeTimes->{{3.460821767453125*^9, 3.46082178371875*^9}, {
+  3.460821837015625*^9, 3.46082203828125*^9}, {3.460822112703125*^9, 
+  3.460822200109375*^9}, {3.460822263328125*^9, 3.46082227321875*^9}, {
+  3.461935518018921*^9, 3.4619355392211037`*^9}},
+ FontSize->14],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "[", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"$BaseDirectory", ",", "\"\<Applications\>\""}], "}"}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.460822207109375*^9, 3.46082227875*^9}}],
+
+Cell[TextData[{
+ "This opens the directory $BaseDirectory\\Applications. Place the EDA \n\
+folder under Applications, then re-launch ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ". You can then load \nthe EDA package:"
+}], "Text",
+ CellChangeTimes->{{3.46082229253125*^9, 3.460822305890625*^9}, {
+   3.4608223685625*^9, 3.460822453375*^9}, 3.461935551820633*^9},
+ FontSize->14],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<EDA`\>\"", "]"}]], "Input"],
+
+Cell[TextData[{
+ "If you would like to access the Documentation Center for EDA, please go to \
+the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " top-level menu Help -> Documentation Center. Click \"Add-Ons and \
+Packages\" at the bottom-left of the main Documentation Center page. \
+\"Experimental Data Analyst\" should be on the list of installed add-ons."
+}], "Text",
+ CellChangeTimes->{{3.460822495234375*^9, 3.46082266584375*^9}, {
+  3.4619355918206267`*^9, 3.461935599064966*^9}, {3.461935661781584*^9, 
+  3.461935679627014*^9}, {3.461937026755413*^9, 3.4619370300517817`*^9}},
+ FontSize->14],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$BaseDirectory"], "Input"],
+
+Cell[BoxData["\<\"C:\\\\ProgramData\\\\Mathematica\"\>"], "Output",
+ CellChangeTimes->{3.695987283470783*^9}]
+}, Open  ]]
+},
+WindowSize->{616, 529},
+WindowMargins->{{Automatic, 106}, {Automatic, 35}},
+FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 648, 13, 106, "Text"],
+Cell[1196, 35, 248, 6, 31, "Input"],
+Cell[1447, 43, 385, 9, 68, "Text"],
+Cell[1835, 54, 69, 1, 31, "Input"],
+Cell[1907, 57, 606, 12, 87, "Text"],
+Cell[CellGroupData[{
+Cell[2538, 73, 40, 0, 31, "Input"],
+Cell[2581, 75, 109, 1, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
