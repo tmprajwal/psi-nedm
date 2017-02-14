@@ -1,0 +1,652 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     27105,        644]
+NotebookOptionsPosition[     24505,        551]
+NotebookOutlinePosition[     25046,        570]
+CellTagsIndexPosition[     25003,        567]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\[OpenCurlyDoubleQuote]h5_crtgrpar18\[CloseCurlyDoubleQuote]", \
+"Subtitle",
+ CellChangeTimes->{{3.5192928170291147`*^9, 3.5192928285487733`*^9}, 
+   3.5192935097227345`*^9, 3.5192943555601134`*^9, 3.519297569739954*^9, 
+   3.5192996482954082`*^9, 3.5192998637117295`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Information", "Section",
+ CellChangeTimes->{{3.5192929670456953`*^9, 3.519292967780737*^9}}],
+
+Cell[TextData[{
+ "The example shown in this file is part of the tutorial: ",
+ ButtonBox["http://www.hdfgroup.org/HDF5/Tutor/introductory.html",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/HDF5/Tutor/introductory.html"], None},
+  ButtonNote->"http://www.hdfgroup.org/HDF5/Tutor/introductory.html"]
+}], "Text",
+ CellChangeTimes->{{3.519204574069906*^9, 3.5192046043556385`*^9}, {
+  3.5192048157717304`*^9, 3.519204834786818*^9}, {3.5192057745415688`*^9, 
+  3.5192057875533133`*^9}, {3.519220971218769*^9, 3.5192209824754133`*^9}, {
+  3.519292702541566*^9, 3.5192927154303036`*^9}, {3.5192928674960012`*^9, 
+  3.519292879400682*^9}, {3.677447775510281*^9, 3.6774478101833315`*^9}}],
+
+Cell[TextData[{
+ "The example shown in this file appears at: ",
+ ButtonBox["http://www.hdfgroup.org/HDF5/Tutor/crtgrpar.html",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/HDF5/Tutor/crtgrpar.html"], None},
+  ButtonNote->"http://www.hdfgroup.org/HDF5/Tutor/crtgrpar.html"],
+ " (accessed 10 July 2011)"
+}], "Text",
+ CellChangeTimes->{{3.519292751319356*^9, 3.5192928011712074`*^9}, {
+  3.5192928385653467`*^9, 3.5192928533341913`*^9}, {3.519293488863541*^9, 
+  3.5192934978050528`*^9}, {3.5192943687078657`*^9, 3.5192943692978992`*^9}, {
+  3.519294399419622*^9, 3.519294399420622*^9}, {3.519297581437623*^9, 
+  3.519297589704096*^9}, {3.5192996582149763`*^9, 3.519299666932474*^9}, {
+  3.519299875591409*^9, 3.5192998884281435`*^9}}],
+
+Cell[TextData[{
+ "Good references for the shown HDF5 functions include:\n",
+ ButtonBox["http://www.hdfgroup.org/HDF5/doc/RM/RM_H5Front.html\n",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/HDF5/doc/RM/RM_H5Front.html"], None},
+  ButtonNote->"http://www.hdfgroup.org/HDF5/doc/RM/RM_H5Front.html"],
+ ButtonBox["http://www.hdfgroup.org/HDF5/doc/RM/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/HDF5/doc/RM/"], None},
+  ButtonNote->"http://www.hdfgroup.org/HDF5/doc/RM/"]
+}], "Text",
+ CellChangeTimes->{{3.519292884540976*^9, 3.519292921736103*^9}}],
+
+Cell[TextData[{
+ "Originally prepared 10 July 2011 by Scot Martin for Windows 7, 64-bit, ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 8.0.1 for the HDF5 technology of a DLL. Updated 12 August 2016 by \
+Scot Martin for Windows 10, 64-bit, ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 11.0.0 using switching to the new HDF5 technology of P/Invoke (",
+ ButtonBox["https://www.hdfgroup.org/projects/hdf.net/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/ftp/HDF5/current/src/unpacked/src/"], None},
+  ButtonNote->"http://www.hdfgroup.org/ftp/HDF5/current/src/unpacked/src/"],
+ ")."
+}], "Text",
+ CellChangeTimes->{{3.5192900627995815`*^9, 3.519290073040167*^9}, {
+  3.519292549013785*^9, 3.519292559290373*^9}, {3.6774438037891655`*^9, 
+  3.677443805664311*^9}, {3.677447697079324*^9, 3.677447748711583*^9}, {
+  3.6796678876642103`*^9, 3.6796678891955757`*^9}, {3.679668168022353*^9, 
+  3.679668171616379*^9}, {3.6800430409579787`*^9, 3.6800430451614037`*^9}}],
+
+Cell["Email: scot_martin@harvard.edu.", "Text",
+ CellChangeTimes->{{3.6773363775442753`*^9, 3.6773363787317915`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[OpenCurlyDoubleQuote]c\[CloseCurlyDoubleQuote] code we seek to \
+replicate in this example", "Section",
+ CellChangeTimes->{{3.519293164569993*^9, 3.5192931737455177`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"/", 
+    RowBox[{
+    "*", "\n", " ", "*", "   ", "Creating", " ", "groups", " ", "using", " ", 
+     "absolute", " ", "and", " ", "relative", " ", 
+     RowBox[{"names", "."}]}]}], "\n", " ", 
+   RowBox[{"*", 
+    RowBox[{"/", "\n", "\n", "#"}], "include", " ", "\"\<hdf5.h\>\""}], "\n", 
+   RowBox[{"#", "define", " ", "FILE", " ", "\"\<groups.h5\>\""}], "\n", "\n", 
+   RowBox[{"int", " ", "main", 
+    RowBox[{"(", ")"}], " ", 
+    RowBox[{"{", "\n", "\n", "   ", 
+     RowBox[{
+      RowBox[{"hid_t", "       ", "file_id"}], ",", " ", "group1_id", ",", 
+      " ", "group2_id", ",", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"group3_id", ";"}], "  ", "/"}], "*", " ", 
+                    "identifiers", " ", "*", 
+                    RowBox[{"/", "\n", "   ", "herr_t"}], "      ", 
+                    "status"}], ";"}], "\n", "\n", "   ", "/"}], "*", " ", 
+                    "Create", " ", "a", " ", "new", " ", "file", " ", "using",
+                     " ", "default", " ", 
+                    RowBox[{"properties", "."}], " ", "*", 
+                    RowBox[{"/", "\n", "   ", "file_id"}]}], " ", "=", " ", 
+                    RowBox[{"H5Fcreate", 
+                    RowBox[{"(", 
+                    RowBox[{"FILE", ",", " ", 
+                    RowBox[{"H5F_ACC", "_TRUNC"}], ",", " ", "H5P_DEFAULT", 
+                    ",", " ", "H5P_DEFAULT"}], ")"}]}]}], ";"}], "\n", "\n", 
+                    "   ", "/"}], "*", " ", "Create", " ", "group", " ", 
+                    "\"\<MyGroup\>\"", " ", "in", " ", "the", " ", "root", 
+                    " ", "group", " ", "using", " ", "absolute", " ", 
+                    RowBox[{"name", "."}], " ", "*", 
+                    RowBox[{"/", "\n", "   ", "group1_id"}]}], " ", "=", " ", 
+                    RowBox[{"H5Gcreate", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    "file_id", ",", " ", "\"\</MyGroup\>\"", ",", " ", 
+                    "H5P_DEFAULT", ",", " ", "H5P_DEFAULT", ",", " ", 
+                    "H5P_DEFAULT"}], ")"}]}]}], ";"}], "\n", "\n", "   ", 
+                    "/"}], "*", " ", "Create", " ", "group", " ", 
+                    "\"\<Group_A\>\"", " ", "in", " ", "group", " ", 
+                    "\"\<MyGroup\>\"", " ", "using", " ", "absolute", " ", 
+                    RowBox[{"name", "."}], " ", "*", 
+                    RowBox[{"/", "\n", "   ", "group2_id"}]}], " ", "=", " ", 
+                    RowBox[{"H5Gcreate", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    "file_id", ",", " ", "\"\</MyGroup/Group_A\>\"", ",", " ",
+                     "H5P_DEFAULT", ",", " ", "H5P_DEFAULT", ",", " ", 
+                    "H5P_DEFAULT"}], ")"}]}]}], ";"}], "\n", "\n", "   ", 
+                  "/"}], "*", " ", "Create", " ", "group", " ", 
+                 "\"\<Group_B\>\"", " ", "in", " ", "group", " ", 
+                 "\"\<MyGroup\>\"", " ", "using", " ", "relative", " ", 
+                 RowBox[{"name", "."}], " ", "*", 
+                 RowBox[{"/", "\n", "   ", "group3_id"}]}], " ", "=", " ", 
+                RowBox[{"H5Gcreate", 
+                 RowBox[{"(", 
+                  RowBox[{
+                  "group1_id", ",", " ", "\"\<Group_B\>\"", ",", " ", 
+                   "H5P_DEFAULT", ",", " ", "H5P_DEFAULT", ",", " ", 
+                   "H5P_DEFAULT"}], ")"}]}]}], ";"}], "\n", "\n", "   ", 
+              "/"}], "*", " ", "Close", " ", 
+             RowBox[{"groups", "."}], " ", "*", 
+             RowBox[{"/", "\n", "   ", "status"}]}], " ", "=", " ", 
+            RowBox[{"H5Gclose", 
+             RowBox[{"(", "group1_id", ")"}]}]}], ";", "\n", "   ", 
+           RowBox[{"status", " ", "=", " ", 
+            RowBox[{"H5Gclose", 
+             RowBox[{"(", "group2_id", ")"}]}]}], ";", "\n", "   ", 
+           RowBox[{"status", " ", "=", " ", 
+            RowBox[{"H5Gclose", 
+             RowBox[{"(", "group3_id", ")"}]}]}], ";"}], "\n", "\n", "   ", 
+          "/"}], "*", " ", "Close", " ", "the", " ", 
+         RowBox[{"file", "."}], " ", "*", 
+         RowBox[{"/", "\n", "   ", "status"}]}], " ", "=", " ", 
+        RowBox[{"H5Fclose", 
+         RowBox[{"(", "file_id", ")"}]}]}], ";"}]}], "\n", "}"}]}], "\n", 
+   "\n"}], "}"}]], "Code",
+ Evaluatable->False,
+ InitializationCell->False,
+ CellChangeTimes->{
+  3.519293195844782*^9, {3.519293535018181*^9, 3.5192935371253014`*^9}, 
+   3.5192947363358927`*^9, {3.5192976111403217`*^9, 3.519297613493457*^9}, 
+   3.519299687043625*^9, 3.519299907039208*^9},
+ ShowAutoStyles->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Implementation in Mathematica", "Section",
+ CellChangeTimes->{{3.5192929340948105`*^9, 3.5192929346948442`*^9}, 
+   3.519313443658458*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Local Work Environment", "Subsection",
+ CellChangeTimes->{{3.608686190253518*^9, 3.608686195258805*^9}, {
+  3.6102776282052584`*^9, 3.6102776296092606`*^9}}],
+
+Cell["Code last run on:", "Text",
+ CellChangeTimes->{{3.6157256199256115`*^9, 3.6157256218132143`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DateString", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6157256131707993`*^9, 3.615725616852406*^9}}],
+
+Cell[BoxData["\<\"Sat 13 Aug 2016 18:31:20\"\>"], "Output",
+ CellChangeTimes->CompressedData["
+1:eJwVxWtIU2EYAOAzS4sQYQYyaVkmk0zTyFjaCvt0NdEcqzaVYTVSc2qymGgq
+KbkmRpRBaIJLHZUidtsP7Up0sUhL09mciWvTle1wTqm4WZFr631/PDyRJzVH
+CjkUReUAc6ogqHyRIVFD9GQFHHF5RHMOVmxXRetgdQmnAm91dtTibW8DpRfg
+zpmQ+3r45sDvbAvs+3o00gq/VrY7cbW1PXMKFuYxDXVLDLnedkDzB57a1dqE
+D2Vx1X9hu1BdF+NmSHvQAPcTnBg6lWyBa+qrbN/hLZXhW11w6k4mgYUtZUKD
+D37ltYWd9jDEpJqIxWdn5VfK4Ddx+qJu+NIXuhQXXg3tx/M3aC24R9bLHYCN
+twX697BOVDePL99K/7EI1xRrPXif/Uy0B34Qk7Sev8yQikZzCy4Szx3eCA+K
+N+XiGpNShe8QxXhSYLmrmZXAM7aPgw/h+Bcn3E9hcWaGMcjHEMFqJjcRDstL
+4GYGsCSDNu3DCz4vNuARxukPK/ks0Xppxa9CluzZb1jwwqu65Lx/sHdIWoYH
+30gfwd08f7EPpvamdePT/POx1CmWLBikWXiS0y7gwNQwtRt/OUEfx3vWaK7h
+fWML4/h8f5wfFzga+QGwVBc1ug1uSrlYGQtXS0KC4+DeJ2Mt+J25HCte/kzY
+cxAueHzsZxWcLH/ux+nge2erYduwN7seTg9tXTtaxJIZc0883uiQOczw3W/h
+KzScKluS8EpYYnR1HcLVzY8U+KBEOamGKztqAzeXsmTdeMC7NPg/9UR/9w==
+
+  "]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$Version"], "Input",
+ CellChangeTimes->{{3.6182424570853863`*^9, 3.618242467835346*^9}}],
+
+Cell[BoxData["\<\"11.0.0 for Microsoft Windows (64-bit) (July 28, \
+2016)\"\>"], "Output",
+ CellChangeTimes->{{3.618242465288475*^9, 3.618242468085305*^9}, 
+   3.618258780663247*^9, 3.618485830480062*^9, 3.618494363013088*^9, 
+   3.622843650334688*^9, 3.622935239329007*^9, 3.625080969489991*^9, 
+   3.6250813255433564`*^9, 3.625081903541416*^9, 3.6762988468783045`*^9, 
+   3.677336239280816*^9, 3.677349756867216*^9, 3.6773500826607685`*^9, 
+   3.677350762493409*^9, 3.6773515302690487`*^9, 3.677352783987422*^9, 
+   3.677353266179204*^9, 3.6773563800614214`*^9, 3.6773566505135994`*^9, 
+   3.6773583830415416`*^9, 3.6773585201354494`*^9, 3.677358839332588*^9, 
+   3.677359251483073*^9, 3.6773597675637374`*^9, 3.677360121463786*^9, 
+   3.6773603563965225`*^9, 3.677443705172161*^9, 3.6774450445702825`*^9, 
+   3.677446240539982*^9, 3.6774473426007957`*^9, 3.6774478588249164`*^9, 
+   3.677500737804139*^9, 3.6776036909998264`*^9, 3.6776038379790363`*^9, 
+   3.677604797532834*^9, 3.677620919946886*^9, 3.678304324783486*^9, 
+   3.678304629291246*^9, 3.678310138598412*^9, 3.6783574648560424`*^9, 
+   3.6795029116504407`*^9, 3.679502949247017*^9, 3.679503021799383*^9, 
+   3.6796678988212624`*^9, 3.680043051956846*^9, 3.6801162801662645`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Load Package", "Subsection",
+ CellChangeTimes->{{3.677444223131667*^9, 3.677444224459895*^9}}],
+
+Cell[BoxData[
+ RowBox[{"With", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{"packageFileName", "=", "\[IndentingNewLine]", 
+     RowBox[{"FileNameJoin", "[", "\[IndentingNewLine]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "@", 
+         RowBox[{"NotebookDirectory", "[", "]"}]}], ",", 
+        "\[IndentingNewLine]", "\"\<HDF5.Mathematica.Packages\>\"", ",", 
+        "\[IndentingNewLine]", "\"\<HDF5Basic.m\>\""}], "\[IndentingNewLine]",
+        "}"}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "}"}], 
+   ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"Needs", "[", 
+    RowBox[{"\"\<HDF5Basic`\>\"", ",", "packageFileName"}], "]"}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.6774438972651477`*^9, 3.6774439576891108`*^9}, {
+  3.6774440240379925`*^9, 3.6774440403653436`*^9}, {3.677444077790114*^9, 
+  3.6774441465766845`*^9}, {3.680116264303074*^9, 3.6801162688653574`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$HDF5packageVersion"], "Input"],
+
+Cell[BoxData["\<\"V2.0\"\>"], "Output",
+ CellChangeTimes->{3.6774451203579206`*^9, 3.677445263156946*^9, 
+  3.677446240915011*^9, 3.677446279324232*^9, 3.677447346460469*^9, 
+  3.677447859324955*^9, 3.6775007382729254`*^9, 3.677603691404214*^9, 
+  3.6776038384321966`*^9, 3.677604797548461*^9, 3.677620919962512*^9, 
+  3.678304325455413*^9, 3.6783046299944253`*^9, 3.678310139277689*^9, 
+  3.678357465324828*^9, 3.6795029121192255`*^9, 3.6795029496845627`*^9, 
+  3.679503022252531*^9, 3.679667899368185*^9, 3.680043052363142*^9, 
+  3.6801162806037793`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H5BasicGetLibVersion", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.677445323536618*^9, 3.677445323614748*^9}, {
+  3.6801161522100716`*^9, 3.680116155741265*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "8", ",", "17"}], "}"}]], "Output",
+ CellChangeTimes->{3.680116280619403*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Replicate \[OpenCurlyDoubleQuote]c\[CloseCurlyDoubleQuote] code", \
+"Subsection",
+ CellChangeTimes->{{3.677444233335582*^9, 3.677444243648879*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"outputFileName", "=", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<groups.h5\>\""}], 
+    "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5192932542341213`*^9, 3.5192932705320535`*^9}, 
+   3.6774441821575623`*^9, {3.6774442601657815`*^9, 3.677444263462912*^9}, 
+   3.677501329337429*^9, {3.677602525212963*^9, 3.6776025255402756`*^9}, 
+   3.6783046171340623`*^9}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\smartin\\\\Desktop\\\\\
+HDF5WrappersForMathematica  Ver 12 August 2016\\\\1 HDF5 Basic Tutorial \
+(start here)\\\\groups.h5\"\>"], "Output",
+ CellChangeTimes->{3.6776036914512587`*^9, 3.677603838494701*^9, 
+  3.67760479759534*^9, 3.677620919978137*^9, 3.6783043255022917`*^9, 
+  3.6783046300256767`*^9, 3.678310139312724*^9, 3.678357465371708*^9, 
+  3.6795029121504793`*^9, 3.679502949715851*^9, 3.679503022283798*^9, 
+  3.679667899399457*^9, 3.680043052410016*^9, 3.6801162806662626`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"fileID", "=", 
+  RowBox[{"H5Fcreate", "[", 
+   RowBox[{
+   "outputFileName", ",", "H5FuACCuTRUNC", ",", "H5PuDEFAULT", ",", 
+    "H5PuDEFAULT"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.519293284368845*^9, 3.5192933127534685`*^9}, {
+   3.51929517844018*^9, 3.51929519331003*^9}, {3.5192997040635986`*^9, 
+   3.519299719896504*^9}, 3.6776036632152357`*^9}],
+
+Cell[BoxData["16777216"], "Output",
+ CellChangeTimes->{{3.519293315496625*^9, 3.5192933417421265`*^9}, 
+   3.5192935917324247`*^9, 3.5192941453610907`*^9, 3.519294265022935*^9, 
+   3.519295201047473*^9, 3.5192956052665925`*^9, 3.519295876670116*^9, {
+   3.51929616276748*^9, 3.519296189973036*^9}, 3.5192964997407537`*^9, 
+   3.519296715224078*^9, 3.5192968295336165`*^9, {3.5192969870766277`*^9, 
+   3.519296998899304*^9}, 3.5192970675232286`*^9, {3.519297125100522*^9, 
+   3.5192971783905697`*^9}, 3.519297221207019*^9, 3.519297316401464*^9, 
+   3.51929838561862*^9, 3.5192985992418385`*^9, {3.5192986775683184`*^9, 
+   3.5192987040438323`*^9}, {3.5192990211625385`*^9, 3.519299059067707*^9}, 
+   3.519299150750951*^9, 3.519299358131812*^9, 3.519299803656295*^9, {
+   3.5192999743630586`*^9, 3.5192999908630023`*^9}, 3.51930002492395*^9, 
+   3.519662872352291*^9, 3.51985856587741*^9, 3.677603691466273*^9, 
+   3.677603838494701*^9, 3.6776047976109657`*^9, 3.67762092000939*^9, 
+   3.6783043255022917`*^9, 3.678304630041304*^9, 3.6783101393272433`*^9, 
+   3.678357465387335*^9, 3.6795029121661043`*^9, 3.679502949747055*^9, 
+   3.6795030222994165`*^9, 3.679667899399457*^9, 3.68004305242563*^9, 
+   3.6801162806819*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"group1ID", "=", 
+  RowBox[{"H5Gcreate", "[", 
+   RowBox[{
+   "fileID", ",", " ", "\"\</MyGroup\>\"", ",", " ", "H5PuDEFAULT", ",", 
+    "H5PuDEFAULT", ",", "H5PuDEFAULT"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.519295208255885*^9, 3.519295229725113*^9}, {
+   3.5192997260598564`*^9, 3.519299743166835*^9}, 3.5192999401070995`*^9, {
+   3.519299979934377*^9, 3.519299980939435*^9}}],
+
+Cell[BoxData["33554432"], "Output",
+ CellChangeTimes->{
+  3.519295230478156*^9, 3.519295605287594*^9, 3.519295876693117*^9, {
+   3.519296162791481*^9, 3.519296189995037*^9}, 3.5192965010508285`*^9, 
+   3.51929671525508*^9, 3.5192968295516176`*^9, {3.519296987098629*^9, 
+   3.5192969989233055`*^9}, 3.5192970675522304`*^9, {3.5192971251255236`*^9, 
+   3.5192971784155717`*^9}, 3.51929722122502*^9, 3.519297316419465*^9, 
+   3.5192983856416206`*^9, 3.519298599257839*^9, {3.519298677586319*^9, 
+   3.5192987040618334`*^9}, {3.51929902118754*^9, 3.5192990590947084`*^9}, 
+   3.519299150777952*^9, 3.519299358146813*^9, 3.519299743640862*^9, 
+   3.5192998036772957`*^9, {3.51929997439106*^9, 3.519299990890004*^9}, 
+   3.5193000249389515`*^9, 3.519662872372292*^9, 3.519858565894411*^9, 
+   3.6776036914792852`*^9, 3.6776038385103273`*^9, 3.6776047976265917`*^9, 
+   3.67762092000939*^9, 3.678304325517918*^9, 3.678304630041304*^9, 
+   3.6783101393432603`*^9, 3.6783574654030075`*^9, 3.679502912181718*^9, 
+   3.6795029497626815`*^9, 3.679503022315036*^9, 3.679667899399457*^9, 
+   3.68004305242563*^9, 3.680116280713147*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"group2ID", "=", 
+  RowBox[{"H5Gcreate", "[", 
+   RowBox[{
+   "fileID", ",", " ", "\"\</MyGroup/Group_A\>\"", ",", " ", "H5PuDEFAULT", 
+    ",", "H5PuDEFAULT", ",", "H5PuDEFAULT"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.519299946214449*^9, 3.5192999843626304`*^9}}],
+
+Cell[BoxData["33554433"], "Output",
+ CellChangeTimes->{{3.5192999744110613`*^9, 3.5192999909120054`*^9}, 
+   3.5193000249539523`*^9, 3.5196628723962936`*^9, 3.519858565910412*^9, 
+   3.6776036915023084`*^9, 3.6776038385259533`*^9, 3.6776047976422186`*^9, 
+   3.677620920025017*^9, 3.6783043255335445`*^9, 3.6783046300569296`*^9, 
+   3.67831013935425*^9, 3.6783574654030075`*^9, 3.6795029121973567`*^9, 
+   3.6795029497783213`*^9, 3.679503022330661*^9, 3.6796678994150567`*^9, 
+   3.6800430524412565`*^9, 3.680116280728774*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"group3ID", "=", 
+  RowBox[{"H5Gcreate", "[", 
+   RowBox[{
+   "group1ID", ",", " ", "\"\<Group_B\>\"", ",", " ", "H5PuDEFAULT", ",", 
+    "H5PuDEFAULT", ",", "H5PuDEFAULT"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5192999472275066`*^9, 3.5192999872937984`*^9}, 
+   3.6776038220217257`*^9}],
+
+Cell[BoxData["33554434"], "Output",
+ CellChangeTimes->{{3.5192999744310627`*^9, 3.5192999909340067`*^9}, 
+   3.5193000249699535`*^9, 3.519662872416294*^9, 3.5198585659264126`*^9, 
+   3.6776036915263305`*^9, 3.6776038385415792`*^9, 3.6776047976578445`*^9, 
+   3.677620920025017*^9, 3.67830432554917*^9, 3.678304630072556*^9, 
+   3.678310139369768*^9, 3.6783574654185863`*^9, 3.6795029122129707`*^9, 
+   3.67950294979395*^9, 3.6795030223463*^9, 3.6796678994150567`*^9, 
+   3.6800430524568825`*^9, 3.6801162807600284`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"H5Gclose", "[", "group1ID", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"H5Gclose", "[", "group2ID", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"H5Gclose", "[", "group3ID", "]"}]}], "Input",
+ CellChangeTimes->{{3.51929331872581*^9, 3.5192933323945913`*^9}, {
+  3.519294255857411*^9, 3.519294258239547*^9}, {3.5192976786471834`*^9, 
+  3.5192976970572357`*^9}, {3.5192978590565023`*^9, 3.519297865346862*^9}, {
+  3.519298947165306*^9, 3.5192989534256644`*^9}, {3.5192997733345604`*^9, 
+  3.5192997910195723`*^9}, {3.519299915975719*^9, 3.5192999227341056`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.519299791492599*^9, 3.519299803702297*^9}, {
+   3.519299974477065*^9, 3.5192999909570074`*^9}, 3.519300024987954*^9, 
+   3.519662872438296*^9, 3.5198585659444137`*^9, 3.677603691545349*^9, 
+   3.677603838557205*^9, 3.6776047977047243`*^9, 3.677620920040643*^9, 
+   3.67830432554917*^9, 3.678304630072556*^9, 3.6783101393862853`*^9, 
+   3.6783574654185863`*^9, 3.6795029122285976`*^9, 3.6795029498095713`*^9, 
+   3.679503022361926*^9, 3.6796678994306736`*^9, 3.6800430524725227`*^9, 
+   3.6801162807912617`*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.519299791492599*^9, 3.519299803702297*^9}, {
+   3.519299974477065*^9, 3.5192999909570074`*^9}, 3.519300024987954*^9, 
+   3.519662872438296*^9, 3.5198585659444137`*^9, 3.677603691545349*^9, 
+   3.677603838557205*^9, 3.6776047977047243`*^9, 3.677620920040643*^9, 
+   3.67830432554917*^9, 3.678304630072556*^9, 3.6783101393862853`*^9, 
+   3.6783574654185863`*^9, 3.6795029122285976`*^9, 3.6795029498095713`*^9, 
+   3.679503022361926*^9, 3.6796678994306736`*^9, 3.6800430524725227`*^9, 
+   3.6801162807912617`*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.519299791492599*^9, 3.519299803702297*^9}, {
+   3.519299974477065*^9, 3.5192999909570074`*^9}, 3.519300024987954*^9, 
+   3.519662872438296*^9, 3.5198585659444137`*^9, 3.677603691545349*^9, 
+   3.677603838557205*^9, 3.6776047977047243`*^9, 3.677620920040643*^9, 
+   3.67830432554917*^9, 3.678304630072556*^9, 3.6783101393862853`*^9, 
+   3.6783574654185863`*^9, 3.6795029122285976`*^9, 3.6795029498095713`*^9, 
+   3.679503022361926*^9, 3.6796678994306736`*^9, 3.6800430524725227`*^9, 
+   3.6801162807912617`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H5Fclose", "[", "fileID", "]"}]], "Input",
+ CellChangeTimes->{{3.51929331872581*^9, 3.5192933323945913`*^9}, {
+  3.519294255857411*^9, 3.519294258239547*^9}, {3.5192976786471834`*^9, 
+  3.5192976970572357`*^9}, {3.5192978590565023`*^9, 3.519297865346862*^9}, {
+  3.519298947165306*^9, 3.5192989534256644`*^9}, {3.5192997733345604`*^9, 
+  3.5192997739895983`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{
+  3.5192985031613426`*^9, 3.5192985994728518`*^9, {3.5192986776473227`*^9, 
+   3.5192987041208367`*^9}, {3.5192990212795453`*^9, 3.5192990593657236`*^9}, 
+   3.519299150862957*^9, 3.5192993582138166`*^9, {3.519299793242699*^9, 
+   3.5192998037192984`*^9}, {3.519299974508067*^9, 3.5192999909780087`*^9}, 
+   3.519300025006955*^9, 3.5196628724642973`*^9, 3.519858565963415*^9, 
+   3.6776036915653687`*^9, 3.677603838572832*^9, 3.6776047977203493`*^9, 
+   3.6776209200562687`*^9, 3.6783043255647964`*^9, 3.6783046300881815`*^9, 
+   3.678310139410225*^9, 3.678357465434212*^9, 3.6795029122442336`*^9, 
+   3.6795029498251963`*^9, 3.67950302237754*^9, 3.6796678994462996`*^9, 
+   3.6800430524881353`*^9, 3.6801162808225117`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1089, 841},
+WindowMargins->{{170, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 278, 4, 84, "Subtitle"],
+Cell[CellGroupData[{
+Cell[882, 30, 98, 1, 106, "Section"],
+Cell[983, 33, 709, 12, 74, "Text"],
+Cell[1695, 47, 762, 14, 74, "Text"],
+Cell[2460, 63, 607, 13, 102, "Text"],
+Cell[3070, 78, 1022, 20, 131, "Text"],
+Cell[4095, 100, 117, 1, 45, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4249, 106, 179, 2, 106, "Section"],
+Cell[4431, 110, 5266, 113, 977, "Code",
+ Evaluatable->False,
+ InitializationCell->False]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9734, 228, 144, 2, 106, "Section"],
+Cell[CellGroupData[{
+Cell[9903, 234, 163, 2, 72, "Subsection"],
+Cell[10069, 238, 103, 1, 45, "Text"],
+Cell[CellGroupData[{
+Cell[10197, 243, 126, 2, 45, "Input"],
+Cell[10326, 247, 896, 16, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11259, 268, 102, 1, 45, "Input"],
+Cell[11364, 271, 1244, 17, 45, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12657, 294, 100, 1, 72, "Subsection"],
+Cell[12760, 297, 1055, 19, 452, "Input"],
+Cell[CellGroupData[{
+Cell[13840, 320, 45, 0, 45, "Input"],
+Cell[13888, 322, 556, 8, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14481, 335, 185, 3, 45, "Input"],
+Cell[14669, 340, 126, 3, 45, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14844, 349, 153, 2, 72, "Subsection"],
+Cell[CellGroupData[{
+Cell[15022, 355, 461, 10, 45, "Input"],
+Cell[15486, 367, 522, 7, 75, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16045, 379, 380, 8, 45, "Input"],
+Cell[16428, 389, 1221, 17, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17686, 411, 407, 8, 45, "Input"],
+Cell[18096, 421, 1122, 16, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19255, 442, 291, 6, 75, "Input"],
+Cell[19549, 450, 526, 7, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20112, 462, 314, 7, 45, "Input"],
+Cell[20429, 471, 519, 7, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20985, 483, 577, 8, 104, "Input"],
+Cell[21565, 493, 561, 8, 45, "Output"],
+Cell[22129, 503, 561, 8, 45, "Output"],
+Cell[22693, 513, 561, 8, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23291, 526, 387, 6, 45, "Input"],
+Cell[23681, 534, 772, 11, 78, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,628 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     26191,        620]
+NotebookOptionsPosition[     23673,        529]
+NotebookOutlinePosition[     24214,        548]
+CellTagsIndexPosition[     24171,        545]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\[OpenCurlyDoubleQuote]h5_crtdat18\[CloseCurlyDoubleQuote]", "Subtitle",
+ CellChangeTimes->{{3.5192928170291147`*^9, 3.5192928285487733`*^9}, 
+   3.5192935097227345`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Information", "Section",
+ CellChangeTimes->{{3.5192929670456953`*^9, 3.519292967780737*^9}}],
+
+Cell[TextData[{
+ "The example shown in this file is part of the tutorial: ",
+ ButtonBox["http://www.hdfgroup.org/HDF5/Tutor/introductory.html",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/HDF5/Tutor/introductory.html"], None},
+  ButtonNote->"http://www.hdfgroup.org/HDF5/Tutor/introductory.html"]
+}], "Text",
+ CellChangeTimes->{{3.519204574069906*^9, 3.5192046043556385`*^9}, {
+  3.5192048157717304`*^9, 3.519204834786818*^9}, {3.5192057745415688`*^9, 
+  3.5192057875533133`*^9}, {3.519220971218769*^9, 3.5192209824754133`*^9}, {
+  3.519292702541566*^9, 3.5192927154303036`*^9}, {3.5192928674960012`*^9, 
+  3.519292879400682*^9}, {3.677447775510281*^9, 3.6774478101833315`*^9}}],
+
+Cell[TextData[{
+ "The specific example shown in this file appears at: ",
+ ButtonBox["http://www.hdfgroup.org/HDF5/Tutor/crtdat.html",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/HDF5/Tutor/crtdat.html"], None},
+  ButtonNote->"http://www.hdfgroup.org/HDF5/Tutor/crtdat.html"],
+ " (accessed 10 July 2011)"
+}], "Text",
+ CellChangeTimes->{{3.519292751319356*^9, 3.5192928011712074`*^9}, {
+  3.5192928385653467`*^9, 3.5192928533341913`*^9}, {3.677447813792985*^9, 
+  3.67744781508996*^9}, {3.677500801542514*^9, 3.6775008023394527`*^9}}],
+
+Cell[TextData[{
+ "Good references for the shown HDF5 functions include:\n",
+ ButtonBox["http://www.hdfgroup.org/HDF5/doc/RM/RM_H5Front.html\n",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/HDF5/doc/RM/RM_H5Front.html"], None},
+  ButtonNote->"http://www.hdfgroup.org/HDF5/doc/RM/RM_H5Front.html"],
+ ButtonBox["http://www.hdfgroup.org/HDF5/doc/RM/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/HDF5/doc/RM/"], None},
+  ButtonNote->"http://www.hdfgroup.org/HDF5/doc/RM/"]
+}], "Text",
+ CellChangeTimes->{{3.519292884540976*^9, 3.519292921736103*^9}}],
+
+Cell[TextData[{
+ "Originally prepared 10 July 2011 by Scot Martin for Windows 7, 64-bit, ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 8.0.1 for the HDF5 technology of a DLL. Updated 8 August 2016 by \
+Scot Martin for Windows 10, 64-bit, ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 10.4.0 using switching to the new HDF5 technology of P/Invoke (",
+ ButtonBox["https://www.hdfgroup.org/projects/hdf.net/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/ftp/HDF5/current/src/unpacked/src/"], None},
+  ButtonNote->"http://www.hdfgroup.org/ftp/HDF5/current/src/unpacked/src/"],
+ ")."
+}], "Text",
+ CellChangeTimes->{{3.5192900627995815`*^9, 3.519290073040167*^9}, {
+  3.519292549013785*^9, 3.519292559290373*^9}, {3.6774438037891655`*^9, 
+  3.677443805664311*^9}, {3.677447697079324*^9, 3.677447748711583*^9}, {
+  3.679667716166885*^9, 3.6796677170419507`*^9}, {3.6796681305820312`*^9, 
+  3.6796681335978823`*^9}}],
+
+Cell["Email: scot_martin@harvard.edu.", "Text",
+ CellChangeTimes->{{3.6773363775442753`*^9, 3.6773363787317915`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[OpenCurlyDoubleQuote]c\[CloseCurlyDoubleQuote] code we seek to \
+replicate in this example", "Section",
+ CellChangeTimes->{{3.519293164569993*^9, 3.5192931737455177`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"/", 
+  RowBox[{
+  "*", "\n", " ", "*", "   ", "Creating", " ", "and", " ", "closing", " ", 
+   "a", " ", 
+   RowBox[{"dataset", "."}]}]}], "\n", 
+ RowBox[{" ", 
+  RowBox[{"*", 
+   RowBox[{"/", "\n", "\n", "#"}], "include", " ", "\"\<hdf5.h\>\""}]}], "\n", 
+ RowBox[{
+  RowBox[{"#", "define", " ", "FILE", " ", "\"\<dset.h5\>\""}], "\n"}], "\n", 
+ RowBox[{"int", " ", "main", 
+  RowBox[{"(", ")"}], " ", 
+  RowBox[{"{", "\n", "\n", "   ", 
+   RowBox[{
+    RowBox[{"hid_t", "       ", "file_id"}], ",", " ", "dataset_id", ",", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"dataspace_id", ";"}], "  ", "/"}], "*", " ", 
+                    "identifiers", " ", "*", 
+                    RowBox[{"/", "\n", "   ", "hsize_t"}], "     ", 
+                    RowBox[{"dims", "[", "2", "]"}]}], ";", "\n", "   ", 
+                    RowBox[{"herr_t", "      ", "status"}], ";"}], "\n", "\n",
+                     "   ", "/"}], "*", " ", "Create", " ", "a", " ", "new", 
+                    " ", "file", " ", "using", " ", "default", " ", 
+                    RowBox[{"properties", "."}], " ", "*", 
+                    RowBox[{"/", "\n", "   ", "file_id"}]}], " ", "=", " ", 
+                    RowBox[{"H5Fcreate", 
+                    RowBox[{"(", 
+                    RowBox[{"FILE", ",", " ", 
+                    RowBox[{"H5F_ACC", "_TRUNC"}], ",", " ", "H5P_DEFAULT", 
+                    ",", " ", "H5P_DEFAULT"}], ")"}]}]}], ";"}], "\n", "\n", 
+                    "   ", "/"}], "*", " ", "Create", " ", "the", " ", "data",
+                     " ", "space", " ", "for", " ", "the", " ", 
+                    RowBox[{"dataset", "."}], " ", "*", 
+                    RowBox[{"/", "\n", "   ", 
+                    RowBox[{"dims", "[", "0", "]"}]}]}], " ", "=", " ", "4"}],
+                     ";", " ", "\n", "   ", 
+                    RowBox[{
+                    RowBox[{"dims", "[", "1", "]"}], " ", "=", " ", "6"}], 
+                    ";", " ", "\n", "   ", 
+                    RowBox[{"dataspace_id", " ", "=", " ", 
+                    RowBox[{"H5Screate_simple", 
+                    RowBox[{"(", 
+                    RowBox[{"2", ",", " ", "dims", ",", " ", "NULL"}], 
+                    ")"}]}]}], ";"}], "\n", "\n", "   ", "/"}], "*", " ", 
+                   "Create", " ", "the", " ", 
+                   RowBox[{"dataset", "."}], " ", "*", 
+                   RowBox[{"/", "\n", "   ", "dataset_id"}]}], " ", "=", " ", 
+                  RowBox[{"H5Dcreate", 
+                   RowBox[{"(", 
+                    RowBox[{"file_id", ",", " ", "\"\</dset\>\"", ",", " ", 
+                    RowBox[{"H5T_STD", "_I32BE"}], ",", " ", "dataspace_id", 
+                    ",", " ", "\n", "                          ", 
+                    "H5P_DEFAULT", ",", " ", "H5P_DEFAULT", ",", " ", 
+                    "H5P_DEFAULT"}], ")"}]}]}], ";"}], "\n", "\n", "   ", 
+                "/"}], "*", " ", "End", " ", "access", " ", "to", " ", "the", 
+               " ", "dataset", " ", "and", " ", "release", " ", "resources", 
+               " ", "used", " ", "by", " ", 
+               RowBox[{"it", "."}], " ", "*", 
+               RowBox[{"/", "\n", "   ", "status"}]}], " ", "=", " ", 
+              RowBox[{"H5Dclose", 
+               RowBox[{"(", "dataset_id", ")"}]}]}], ";"}], "\n", "\n", "   ",
+             "/"}], "*", " ", "Terminate", " ", "access", " ", "to", " ", 
+           "the", " ", "data", " ", 
+           RowBox[{"space", "."}], " ", "*", 
+           RowBox[{"/", " ", "\n", "   ", "status"}]}], " ", "=", " ", 
+          RowBox[{"H5Sclose", 
+           RowBox[{"(", "dataspace_id", ")"}]}]}], ";"}], "\n", "\n", "   ", 
+        "/"}], "*", " ", "Close", " ", "the", " ", 
+       RowBox[{"file", "."}], " ", "*", 
+       RowBox[{"/", "\n", "   ", "status"}]}], " ", "=", " ", 
+      RowBox[{"H5Fclose", 
+       RowBox[{"(", "file_id", ")"}]}]}], ";"}]}], "\n", "}"}]}]}], "Code",
+ Evaluatable->False,
+ InitializationCell->False,
+ CellChangeTimes->{
+  3.519293195844782*^9, {3.519293535018181*^9, 3.5192935371253014`*^9}},
+ ShowAutoStyles->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Implementation in Mathematica", "Section",
+ CellChangeTimes->{{3.5192929340948105`*^9, 3.5192929346948442`*^9}, 
+   3.519313422092225*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Local Work Environment", "Subsection",
+ CellChangeTimes->{{3.608686190253518*^9, 3.608686195258805*^9}, {
+  3.6102776282052584`*^9, 3.6102776296092606`*^9}}],
+
+Cell["Code last run on:", "Text",
+ CellChangeTimes->{{3.6157256199256115`*^9, 3.6157256218132143`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DateString", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6157256131707993`*^9, 3.615725616852406*^9}}],
+
+Cell[BoxData["\<\"Wed 17 Aug 2016 16:09:12\"\>"], "Output",
+ CellChangeTimes->CompressedData["
+1:eJwVzn8s1HEcx/HvKfrHzLFMc5E4JaSlXYobH66Y41YiZtQt6Q7dvg2nMt2i
+M60fbI0s59f6Yaatbg3r15YftUhCHbK7Lq7Jd9+vcXOnrK7T+/3Ha4+/Xtsz
+8AydXsCjKEoOm0wQupVaWRI0wsyoQf9bY3QlmBkhD6kGlUU8NdpkabuCNr9z
+lV0D2+c8nmjB+0O/TxpA548TgdPgYE6rBVVOt0pnQVEuW6NZZcnd5iP0Ojh7
+oKkOHUnjK/+AZpFSE2pjSavbEP8LGOU1e8gAVlRdMv0Ed5Zv270IJuxnIznQ
+oBLpnOCAw+Rz3s4SvXwqDJ2fz7itAt+GaxWd4I1vTDEqqvfqRfP9Sgyo/Vg3
+fwjseCjUfgCrYzTL6NqD5CUrWFFYYkd7zBdC7ODT0GhvwRpL1LWTjWiMZOH4
+dnBYEpCN0vocObovJtQeB2YsNnBJ4Jzp03AfuPfNadtLUCJN6XBzskS4mc2O
+An1yI/lSF46kMHoxevartQb17zCO/s3nSImDyfxVwJHD8boVB7jpUYbvP9Ax
+IlOh7i3JY6jNd6PQCVKxiZ2oUXA1jDrHkRWdLA2NtpiFPJD6SB1E+6eYU2jX
+FvoO2jOx8hld7g3fQIXfawUuoKw6aHwPWBd3vTwMvJzk4R4Odr+YaEQfL2RN
+o6WvRF1HQSLwLk7C32DfDNrmZ2JQduB9QTIYQcf60djDu9eMWm6mLF0Ed1CL
+kipQGyyemVRwxOqZKmLA3BCzGOUFCPNQF+qZFfXa1d4fpORIVfx85Shofd5Q
+qSrkSJaxbEBZxJF1pj7YBralt5jsYJmr1DOumCO618bxBFChMq0mgpqurXkM
++B+zPqJv
+  "]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$Version"], "Input",
+ CellChangeTimes->{{3.6182424570853863`*^9, 3.618242467835346*^9}}],
+
+Cell[BoxData["\<\"11.0.0 for Microsoft Windows (64-bit) (July 28, \
+2016)\"\>"], "Output",
+ CellChangeTimes->{{3.618242465288475*^9, 3.618242468085305*^9}, 
+   3.618258780663247*^9, 3.618485830480062*^9, 3.618494363013088*^9, 
+   3.622843650334688*^9, 3.622935239329007*^9, 3.625080969489991*^9, 
+   3.6250813255433564`*^9, 3.625081903541416*^9, 3.6762988468783045`*^9, 
+   3.677336239280816*^9, 3.677349756867216*^9, 3.6773500826607685`*^9, 
+   3.677350762493409*^9, 3.6773515302690487`*^9, 3.677352783987422*^9, 
+   3.677353266179204*^9, 3.6773563800614214`*^9, 3.6773566505135994`*^9, 
+   3.6773583830415416`*^9, 3.6773585201354494`*^9, 3.677358839332588*^9, 
+   3.677359251483073*^9, 3.6773597675637374`*^9, 3.677360121463786*^9, 
+   3.6773603563965225`*^9, 3.677443705172161*^9, 3.6774450445702825`*^9, 
+   3.677446240539982*^9, 3.6774473426007957`*^9, 3.6774478588249164`*^9, 
+   3.677500737804139*^9, 3.6775022966597033`*^9, 3.6775031657737226`*^9, 
+   3.677503303034633*^9, 3.677504302304926*^9, 3.6775835779979544`*^9, 
+   3.6775845969220343`*^9, 3.677601634376453*^9, 3.677620775296897*^9, 
+   3.678310073981286*^9, 3.6783558904395723`*^9, 3.6783559510046883`*^9, 
+   3.6783562011756616`*^9, 3.6783573816093793`*^9, 3.6784778290203977`*^9, 
+   3.678821351039124*^9, 3.679153124819474*^9, 3.679667723667411*^9, 
+   3.67995114056225*^9, 3.67995466094759*^9, 3.680106626391284*^9, 
+   3.6801143029136515`*^9, 3.680116630935218*^9, 3.6804533527237034`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Load Package", "Subsection",
+ CellChangeTimes->{{3.677444223131667*^9, 3.677444224459895*^9}}],
+
+Cell[BoxData[
+ RowBox[{"With", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{"packageFileName", "=", "\[IndentingNewLine]", 
+     RowBox[{"FileNameJoin", "[", "\[IndentingNewLine]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "@", 
+         RowBox[{"NotebookDirectory", "[", "]"}]}], ",", 
+        "\[IndentingNewLine]", "\"\<HDF5.Mathematica.Packages\>\"", ",", 
+        "\[IndentingNewLine]", "\"\<HDF5Basic.m\>\""}], "\[IndentingNewLine]",
+        "}"}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "}"}], 
+   ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"Needs", "[", 
+    RowBox[{"\"\<HDF5Basic`\>\"", ",", "packageFileName"}], "]"}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.6774438972651477`*^9, 3.6774439576891108`*^9}, {
+  3.6774440240379925`*^9, 3.6774440403653436`*^9}, {3.677444077790114*^9, 
+  3.6774441465766845`*^9}, {3.6801065875955663`*^9, 3.680106591767421*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$HDF5packageVersion"], "Input"],
+
+Cell[BoxData["\<\"V2.0\"\>"], "Output",
+ CellChangeTimes->{3.6774451203579206`*^9, 3.677445263156946*^9, 
+  3.677446240915011*^9, 3.677446279324232*^9, 3.677447346460469*^9, 
+  3.677447859324955*^9, 3.6775007382729254`*^9, 3.6775023004746237`*^9, 
+  3.677503169664649*^9, 3.677503303440914*^9, 3.6775043026955805`*^9, 
+  3.6775835785292454`*^9, 3.677584597297063*^9, 3.6776016348139873`*^9, 
+  3.6776207757344303`*^9, 3.678310074677809*^9, 3.678355890908358*^9, 
+  3.6783559514265947`*^9, 3.6783562017382045`*^9, 3.678357382062539*^9, 
+  3.678477829051651*^9, 3.678821351679799*^9, 3.679153124835085*^9, 
+  3.679667724214329*^9, 3.679951141349001*^9, 3.6799546613851223`*^9, 
+  3.68010662679753*^9, 3.6801143033355207`*^9, 3.6801166309821043`*^9, 
+  3.680453353161191*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H5BasicGetLibVersion", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.677445323536618*^9, 3.677445323614748*^9}, 
+   3.6800942592169223`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "8", ",", "17"}], "}"}]], "Output",
+ CellChangeTimes->{3.68010662679753*^9, 3.6801143033355207`*^9, 
+  3.680116631013358*^9, 3.680453353176815*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Replicate \[OpenCurlyDoubleQuote]c\[CloseCurlyDoubleQuote] code", \
+"Subsection",
+ CellChangeTimes->{{3.677444233335582*^9, 3.677444243648879*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"outputFileName", "=", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<dset.h5\>\""}], "}"}],
+    "]"}]}]], "Input",
+ CellChangeTimes->{{3.5192932542341213`*^9, 3.5192932705320535`*^9}, 
+   3.6774441821575623`*^9, {3.6774442601657815`*^9, 3.677444263462912*^9}, 
+   3.677501329337429*^9}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\smartin\\\\Desktop\\\\\
+HDF5WrappersForMathematica  Ver 14 August 2016\\\\1 HDF5 Basic Tutorial \
+(start here)\\\\dset.h5\"\>"], "Output",
+ CellChangeTimes->{3.6775023055218897`*^9, 3.677503173274304*^9, 
+  3.6775033034877944`*^9, 3.6775043027268333`*^9, 3.677583578607377*^9, 
+  3.677584597359568*^9, 3.677601634860866*^9, 3.677620775765683*^9, 
+  3.6783100747162433`*^9, 3.6783558909396114`*^9, 3.6783559514734735`*^9, 
+  3.678356201753831*^9, 3.678357382125045*^9, 3.6784778290829024`*^9, 
+  3.678821351711052*^9, 3.6791531248663445`*^9, 3.6796677242455826`*^9, 
+  3.6799511413770275`*^9, 3.679954661416385*^9, 3.6801066268287916`*^9, 
+  3.6801143033667707`*^9, 3.680116631028967*^9, 3.680453353208083*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"fileID", "=", 
+  RowBox[{"H5Fcreate", "[", 
+   RowBox[{
+   "outputFileName", ",", "H5FuACCuTRUNC", ",", "H5PuDEFAULT", ",", 
+    "H5PuDEFAULT"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.519293284368845*^9, 3.5192933127534685`*^9}, 
+   3.677444275026306*^9, {3.677447243146825*^9, 3.67744728548238*^9}, {
+   3.677447488617131*^9, 3.677447490320388*^9}, {3.677601495055396*^9, 
+   3.677601528278449*^9}, {3.6776015671365423`*^9, 3.677601577137316*^9}}],
+
+Cell[BoxData["16777216"], "Output",
+ CellChangeTimes->{3.6775023093034325`*^9, 3.677503176540182*^9, 
+  3.67750330350342*^9, 3.677504302758086*^9, 3.677583578607377*^9, 
+  3.677584597359568*^9, 3.677601634860866*^9, 3.677620775781309*^9, 
+  3.6783100747272224`*^9, 3.6783558909552383`*^9, 3.6783559514890995`*^9, 
+  3.678356201769457*^9, 3.6783573821406713`*^9, 3.678477829098529*^9, 
+  3.678821351711052*^9, 3.679153124881955*^9, 3.6796677242455826`*^9, 
+  3.6799511413950453`*^9, 3.679954661432017*^9, 3.6801066268444242`*^9, 
+  3.6801143033823957`*^9, 3.680116631060229*^9, 3.6804533532237015`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataSpaceID", "=", 
+  RowBox[{"H5ScreateUsimple", "[", 
+   RowBox[{"2", ",", 
+    RowBox[{"{", 
+     RowBox[{"4", ",", "6"}], "}"}], ",", "Null"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.519293567137018*^9, 3.519293579966752*^9}, {
+  3.519293627447468*^9, 3.51929365091481*^9}}],
+
+Cell[BoxData["67108866"], "Output",
+ CellChangeTimes->{
+  3.5192936515168447`*^9, 3.5192941467531705`*^9, 3.5192942650459366`*^9, {
+   3.5192972881838503`*^9, 3.5192972958952913`*^9}, 3.519297742019808*^9, 
+   3.5192989370837297`*^9, 3.5192992516767235`*^9, 3.5192993009155397`*^9, 
+   3.5192995509428406`*^9, 3.519315860867715*^9, 3.519317580795089*^9, 
+   3.519858541524017*^9, 3.6775023143752084`*^9, 3.6775031793462353`*^9, 
+   3.6775033035190477`*^9, 3.677504302773712*^9, 3.677583578638629*^9, 
+   3.6775845973908205`*^9, 3.6776016348764925`*^9, 3.677620775796936*^9, 
+   3.6783100747427397`*^9, 3.6783558909552383`*^9, 3.6783559515203533`*^9, 
+   3.6783562017850833`*^9, 3.6783573821562967`*^9, 3.678477829114156*^9, 
+   3.678821351742305*^9, 3.6791531249288454`*^9, 3.6796677242768216`*^9, 
+   3.679951141416065*^9, 3.6799546614476423`*^9, 3.6801066268756547`*^9, 
+   3.680114303413692*^9, 3.680116631075842*^9, 3.6804533532393146`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataSetID", "=", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"H5Dcreate", "[", "\[IndentingNewLine]", 
+   RowBox[{
+   "fileID", ",", "\[IndentingNewLine]", "\"\</dset\>\"", ",", 
+    "\[IndentingNewLine]", "HDF`PInvoke`H5T`STDUI32BE", ",", 
+    "\[IndentingNewLine]", "dataSpaceID", ",", "\[IndentingNewLine]", 
+    "H5PuDEFAULT", ",", "\[IndentingNewLine]", "H5PuDEFAULT", ",", 
+    "\[IndentingNewLine]", "H5PuDEFAULT"}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.519218583559203*^9, 3.5192186776015816`*^9}, 
+   3.5192187251753025`*^9, {3.519219006500394*^9, 3.5192190343469863`*^9}, {
+   3.519219139844021*^9, 3.519219205938801*^9}, {3.5192394497466803`*^9, 
+   3.5192394603722887`*^9}, {3.5192402536706624`*^9, 3.5192402758209295`*^9}, 
+   3.5192403881393538`*^9, {3.519250513762506*^9, 3.5192505185057774`*^9}, 
+   3.5192519173847885`*^9, {3.519293687744917*^9, 3.519293688518961*^9}, 
+   3.5192941721956253`*^9, {3.6775014656485453`*^9, 3.6775014971738353`*^9}, 
+   3.6775031052926197`*^9, {3.677601597616256*^9, 3.677601602963109*^9}}],
+
+Cell[BoxData["83886080"], "Output",
+ CellChangeTimes->{
+  3.5192942652719493`*^9, {3.5192972883548594`*^9, 3.5192972960693007`*^9}, 
+   3.519297742194818*^9, 3.5192989371087313`*^9, 3.5192992518597336`*^9, 
+   3.5192993011035504`*^9, 3.5192995509658413`*^9, 3.519315861012723*^9, 
+   3.519317580940097*^9, 3.5198585416730256`*^9, 3.6775031968640285`*^9, 
+   3.677503303534673*^9, 3.677504302789338*^9, 3.6775835786542554`*^9, 
+   3.6775845973908205`*^9, 3.6776016348921185`*^9, 3.677620775812562*^9, 
+   3.67831007475325*^9, 3.6783558909708633`*^9, 3.678355951535979*^9, 
+   3.6783562018007097`*^9, 3.6783573821562967`*^9, 3.6784778291454077`*^9, 
+   3.678821351742305*^9, 3.6791531249288454`*^9, 3.6796677242768216`*^9, 
+   3.6799511414250736`*^9, 3.6799546614632707`*^9, 3.6801066268756547`*^9, 
+   3.680114303413692*^9, 3.6801166311070914`*^9, 3.680453353270578*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H5Dclose", "[", "dataSetID", "]"}]], "Input",
+ CellChangeTimes->{{3.51929331872581*^9, 3.5192933323945913`*^9}, {
+   3.519294255857411*^9, 3.519294258239547*^9}, 3.5192989304753513`*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{
+  3.5192942653069515`*^9, {3.5192972883718605`*^9, 3.519297296089302*^9}, 
+   3.5192977422168193`*^9, 3.519298937125732*^9, 3.5192992518827353`*^9, 
+   3.5192993011225514`*^9, 3.519299550986843*^9, 3.519315861034724*^9, 
+   3.5193175809610987`*^9, 3.5198585416890264`*^9, 3.6775032003330464`*^9, 
+   3.6775033035502987`*^9, 3.677504302789338*^9, 3.6775835786542554`*^9, 
+   3.677584597406447*^9, 3.6776016349077444`*^9, 3.677620775812562*^9, 
+   3.678310074767766*^9, 3.6783558909864893`*^9, 3.678355951535979*^9, 
+   3.6783562018163357`*^9, 3.6783573821719227`*^9, 3.6784778291610336`*^9, 
+   3.6788213517579308`*^9, 3.67915312494447*^9, 3.6796677242924614`*^9, 
+   3.679951141433086*^9, 3.6799546614788804`*^9, 3.6801066268912945`*^9, 
+   3.68011430344491*^9, 3.6801166311383533`*^9, 3.6804533532862062`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H5Sclose", "[", "dataSpaceID", "]"}]], "Input",
+ CellChangeTimes->{{3.51929331872581*^9, 3.5192933323945913`*^9}, {
+   3.519294255857411*^9, 3.519294258239547*^9}, {3.519297733940346*^9, 
+   3.5192977368015094`*^9}, 3.5192989327334805`*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{
+  3.5192942653069515`*^9, {3.5192972883718605`*^9, 3.519297296089302*^9}, 
+   3.5192977422378206`*^9, 3.5192989371417327`*^9, 3.5192992519057364`*^9, 
+   3.519299301139552*^9, 3.519299551003844*^9, 3.5193158610537252`*^9, 
+   3.5193175809810996`*^9, 3.519858541705027*^9, 3.6775032055521994`*^9, 
+   3.6775033035659246`*^9, 3.677504302804964*^9, 3.677583578669881*^9, 
+   3.677584597422073*^9, 3.6776016349077444`*^9, 3.677620775828188*^9, 
+   3.678310074781782*^9, 3.6783558909864893`*^9, 3.6783559515516043`*^9, 
+   3.6783562018163357`*^9, 3.6783573821875486`*^9, 3.6784778291766596`*^9, 
+   3.6788213517579308`*^9, 3.67915312494447*^9, 3.6796677242924614`*^9, 
+   3.679951141441089*^9, 3.6799546614945235`*^9, 3.6801066269069195`*^9, 
+   3.680114303460538*^9, 3.6801166311539783`*^9, 3.6804533533018246`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H5Fclose", "[", "fileID", "]"}]], "Input",
+ CellChangeTimes->{{3.51929331872581*^9, 3.5192933323945913`*^9}, 
+   3.519298935150619*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.519293327980339*^9, 3.519293341758127*^9}, 
+   3.519294265323952*^9, {3.5192972883878613`*^9, 3.519297296106303*^9}, 
+   3.5192977422548213`*^9, 3.5192989371567335`*^9, 3.519299251924738*^9, 
+   3.519299301155553*^9, 3.519299551029845*^9, 3.5193158610687265`*^9, 
+   3.5193175809981003`*^9, 3.519858541720028*^9, 3.6775032082086563`*^9, 
+   3.6775033035659246`*^9, 3.677504302804964*^9, 3.677583578685508*^9, 
+   3.6775845974376993`*^9, 3.6776016349233723`*^9, 3.677620775828188*^9, 
+   3.6783100747957745`*^9, 3.678355891002116*^9, 3.6783559515516043`*^9, 
+   3.6783562018319616`*^9, 3.6783573821875486`*^9, 3.6784778291922865`*^9, 
+   3.6788213517735586`*^9, 3.6791531249600887`*^9, 3.6796677242924614`*^9, 
+   3.6799511414490967`*^9, 3.6799546614945235`*^9, 3.680106626938154*^9, 
+   3.680114303476158*^9, 3.6801166311852317`*^9, 3.6804533533330765`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1089, 983},
+WindowMargins->{{-8, Automatic}, {Automatic, 20}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 176, 2, 84, "Subtitle"],
+Cell[CellGroupData[{
+Cell[780, 28, 98, 1, 106, "Section"],
+Cell[881, 31, 709, 12, 74, "Text"],
+Cell[1593, 45, 563, 11, 74, "Text"],
+Cell[2159, 58, 607, 13, 102, "Text"],
+Cell[2769, 73, 973, 20, 131, "Text"],
+Cell[3745, 95, 117, 1, 45, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3899, 101, 179, 2, 106, "Section"],
+Cell[4081, 105, 4739, 103, 977, "Code",
+ Evaluatable->False,
+ InitializationCell->False]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8857, 213, 144, 2, 106, "Section"],
+Cell[CellGroupData[{
+Cell[9026, 219, 163, 2, 72, "Subsection"],
+Cell[9192, 223, 103, 1, 45, "Text"],
+Cell[CellGroupData[{
+Cell[9320, 228, 126, 2, 45, "Input"],
+Cell[9449, 232, 965, 17, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10451, 254, 102, 1, 45, "Input"],
+Cell[10556, 257, 1462, 20, 45, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12067, 283, 100, 1, 72, "Subsection"],
+Cell[12170, 286, 1055, 19, 452, "Input"],
+Cell[CellGroupData[{
+Cell[13250, 309, 45, 0, 45, "Input"],
+Cell[13298, 311, 772, 11, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14107, 327, 162, 3, 45, "Input"],
+Cell[14272, 332, 196, 4, 45, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14517, 342, 153, 2, 72, "Subsection"],
+Cell[CellGroupData[{
+Cell[14695, 348, 382, 9, 45, "Input"],
+Cell[15080, 359, 742, 10, 75, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15859, 374, 475, 9, 45, "Input"],
+Cell[16337, 385, 601, 8, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16975, 398, 304, 7, 45, "Input"],
+Cell[17282, 407, 944, 13, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18263, 425, 1106, 17, 336, "Input"],
+Cell[19372, 444, 869, 12, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20278, 461, 210, 3, 45, "Input"],
+Cell[20491, 466, 859, 12, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21387, 483, 264, 4, 45, "Input"],
+Cell[21654, 489, 860, 12, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22551, 506, 159, 3, 45, "Input"],
+Cell[22713, 511, 908, 12, 78, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

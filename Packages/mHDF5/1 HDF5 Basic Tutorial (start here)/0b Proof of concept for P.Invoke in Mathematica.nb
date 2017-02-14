@@ -1,0 +1,987 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     33398,        979]
+NotebookOptionsPosition[     29801,        848]
+NotebookOutlinePosition[     30263,        866]
+CellTagsIndexPosition[     30220,        863]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\[OpenCurlyDoubleQuote]Proof of Concept for P.Invoke in Mathematica\
+\[CloseCurlyDoubleQuote]", "Subtitle",
+ CellChangeTimes->{{3.5192928170291147`*^9, 3.5192928285487733`*^9}, {
+  3.677349699285014*^9, 3.6773497034884357`*^9}, {3.6773565143787584`*^9, 
+  3.67735652173942*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Information", "Section",
+ CellChangeTimes->{{3.5192929670456953`*^9, 3.519292967780737*^9}}],
+
+Cell[TextData[{
+ "This the purpose of this notebook is to demonstrate that the HDF P/Invoke \
+works in the ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " framework."
+}], "Text",
+ CellChangeTimes->{{3.6773497236617403`*^9, 3.677349734271867*^9}, {
+  3.6773500166248426`*^9, 3.677350035391797*^9}, {3.6773565256114254`*^9, 
+  3.6773565597584085`*^9}}],
+
+Cell[TextData[{
+ "Prepared 12 August 2016 by Scot Martin for Windows 10, 64-bit, ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 11.0.0 using switching to the new technology of P/Invoke (",
+ ButtonBox["https://www.hdfgroup.org/projects/hdf.net/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.hdfgroup.org/projects/hdf.net/"], None},
+  ButtonNote->"https://www.hdfgroup.org/projects/hdf.net/"],
+ ")."
+}], "Text",
+ CellChangeTimes->{{3.5192900627995815`*^9, 3.519290073040167*^9}, {
+  3.519292549013785*^9, 3.519292559290373*^9}, {3.6773360055565386`*^9, 
+  3.6773360835542364`*^9}, {3.6773365151735687`*^9, 3.6773365151735687`*^9}, {
+  3.677349715083008*^9, 3.677349715864313*^9}, {3.677350012155776*^9, 
+  3.6773500126401863`*^9}, {3.6796674050183873`*^9, 3.679667405737192*^9}, {
+  3.6796681061583085`*^9, 3.6796681065802174`*^9}, {3.6800178146313515`*^9, 
+  3.6800178181003723`*^9}}],
+
+Cell["Email: scot_martin@harvard.edu.", "Text",
+ CellChangeTimes->{{3.6773363775442753`*^9, 3.6773363787317915`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Set up and Load NETAssembly of P/Invoke", "Section",
+ CellChangeTimes->{{3.5192929340948105`*^9, 3.5192929346948442`*^9}, 
+   3.5193134125426784`*^9, {3.6773497933072977`*^9, 3.677349802557951*^9}, 
+   3.677349910346837*^9, {3.677350043845521*^9, 3.677350044251799*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Local Work Environment", "Subsection",
+ CellChangeTimes->{{3.608686190253518*^9, 3.608686195258805*^9}, {
+  3.6102776282052584`*^9, 3.6102776296092606`*^9}}],
+
+Cell["Code last run on:", "Text",
+ CellChangeTimes->{{3.6157256199256115`*^9, 3.6157256218132143`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DateString", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6157256131707993`*^9, 3.615725616852406*^9}}],
+
+Cell[BoxData["\<\"Fri 12 Aug 2016 15:10:25\"\>"], "Output",
+ CellChangeTimes->CompressedData["
+1:eJwVxV1IU2EYAOAzq3UTwRTEaBkmZ7S0jJRlrajPForD0c8MEbGRWkdtnFgs
+YtSoNRGiP6IStlajH4kudBezC2/6WYKrbFrTGq6li/LwfeFGO1bUmr3vxcNT
+ckQ80KHgOK4WTNTwypNpSkrD0gc7XHxpTDwDN260aFyw0KWw433JO2dxz8gy
+0wX47szKATd8L/TrUBTOfTlYMgW/aPYlcWHKZ4zBuhba4/xByS3PXvE3HKvq
+u4KHG1TCHzihE5zaDCU+ZUj1Hq7Mj22Lwo7zp+Pf4HWnVq2fg2u20AoGR606
+bw5+no0XHpcpCVgmy/DZWfNlK/yy3H2sH774SerGdVfzh/C21bYoLu97rArB
+/ge8+xXs0jvn8YX7dd/TsKPTJuPBxAmNDA9qqwvUC5TYeydu4nrD1/1r4FHD
+2iZcDDRb8M16rbwLNs/dYLXwTPzt6BN409PDmWHYYKz3K3OU8EtpUyVc2FKh
+MuYxUi8FduLtH9M9eLF/+vXfNkZsWanxZwcj23d7U1l4yUNz0T84GzZZ8RW3
+68bwTNFiZw7mduzpx6fV58q4o4ykvKYGvDqZ4BUw94bbij+blFrxR8vF63hw
+PPUOnx8qX8T5z73qPNjkKo1sgAfSkWs+gZEqdcQjdDHiGNYEC7oZ+Q8Zhj7R
+
+  "]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$Version"], "Input",
+ CellChangeTimes->{{3.6182424570853863`*^9, 3.618242467835346*^9}}],
+
+Cell[BoxData["\<\"11.0.0 for Microsoft Windows (64-bit) (July 28, \
+2016)\"\>"], "Output",
+ CellChangeTimes->{{3.618242465288475*^9, 3.618242468085305*^9}, 
+   3.618258780663247*^9, 3.618485830480062*^9, 3.618494363013088*^9, 
+   3.622843650334688*^9, 3.622935239329007*^9, 3.625080969489991*^9, 
+   3.6250813255433564`*^9, 3.625081903541416*^9, 3.6762988468783045`*^9, 
+   3.677336239280816*^9, 3.677349756867216*^9, 3.6773500826607685`*^9, 
+   3.677350762493409*^9, 3.6773515302690487`*^9, 3.677352783987422*^9, 
+   3.677353266179204*^9, 3.6773563800614214`*^9, 3.6773566505135994`*^9, 
+   3.6773583830415416`*^9, 3.6773585201354494`*^9, 3.677358839332588*^9, 
+   3.677359251483073*^9, 3.6773597675637374`*^9, 3.677360121463786*^9, 
+   3.6773603563965225`*^9, 3.677443705172161*^9, 3.678727302560635*^9, 
+   3.6796674144878035`*^9, 3.680017825225889*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "@", 
+  RowBox[{"ParentDirectory", "@", 
+   RowBox[{"NotebookDirectory", "[", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.608658621624937*^9, 3.6086586296533957`*^9}, 
+   3.6126997557245026`*^9}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\smartin\\\\Desktop\\\\\
+HDF5WrappersForMathematica  Ver 12 August 2016\"\>"], "Output",
+ CellChangeTimes->CompressedData["
+1:eJwVzl1Ik2EYgOFt2KgY0lhYyTowclarDSvsj35eKq10ugWNUTiqsfrcGluY
+eOJEloMypjFsaG0iMqSjYWghZj+0GKU1cc0to8ICP/V7Vw03h9laPc/BzXV6
+F122njXyeTxeFRS4IJ+xsBzRKjRaDxhfaBvpAntM193DYFm9sjYElrZ0rKpP
+ciT9lo03gDrXmLUJlCn0MgfYZ87dQHsMXjsaS3WqboL+S6JAK5h3IqONgnsr
+aopi4Mpg93d0xuyrnAanHs07mxc58rLwuHUZjA152tFRVT6zAm4KGpq3pzji
+EwbFH0C5O34gCtbxGz+zoCizftscyP+9oKSg/0fpgxzIGN8VXEtz5OtyWI5q
+BqtdFjA4Zb/aD7bRsBl9tWbtY7Tvti2Kfgk8FAfBW4e2to6B6mH7T1TBnEwk
+wQ0vbGl0vsEqS4NV2jKJdIkjp7ST99BeyaxmM2jqKNShgsbzF1HR05L0UdD5
+vJNWgNX68TdPwCPB2tQIyInP9Apz8Bue0+0BP0Z2iSsFlOxsHziMfvIknWj+
+nenxPwZKtmRnz2WMlCiPdf/Kggl/zca/4NJplQUVeMvfo2xXti4Hrhst70dD
++x1y3hVKwpNqFbo68a2YD6pf5+1Dd7OcHg3FrW5U2rIYQe0a5T/UJHRJBaDO
+UTyxA3xmi9z1MZQUeCfuMyZKmg6WDEnMlPwHXDVWsg==
+  "]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Definitions", "Subsection",
+ CellChangeTimes->{{3.5192918020820627`*^9, 3.5192918044061956`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$pathToPInvoke", "=", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Directory", "[", "]"}], ",", "\"\<HDF5.PInvoke\>\"", ",", 
+     "\"\<HDF.PInvoke.dll\>\""}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.457546165609375*^9, 3.457546171265625*^9}, {
+   3.457546207015625*^9, 3.457546220796875*^9}, {3.45799610640625*^9, 
+   3.45799611634375*^9}, {3.468963528828125*^9, 3.4689635290625*^9}, {
+   3.4823496125557427`*^9, 3.48234961459686*^9}, 3.489017891677415*^9, {
+   3.5186009153340993`*^9, 3.518600938016539*^9}, {3.5186010187466807`*^9, 
+   3.5186010191366816`*^9}, {3.5186011517993145`*^9, 3.518601152251715*^9}, {
+   3.518601328734825*^9, 3.518601387578129*^9}, {3.519291553313834*^9, 
+   3.519291554619909*^9}, {3.5192916615460243`*^9, 3.51929166601628*^9}, {
+   3.519291723726581*^9, 3.519291754511342*^9}, {3.6773371143631*^9, 
+   3.6773371683233986`*^9}, {3.677337425786313*^9, 3.6773374351422853`*^9}, 
+   3.6773563774873824`*^9, 3.677358825146861*^9}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\smartin\\\\Desktop\\\\\
+HDF5WrappersForMathematica  Ver 12 August \
+2016\\\\HDF5.PInvoke\\\\HDF.PInvoke.dll\"\>"], "Output",
+ CellChangeTimes->{
+  3.6773371832961206`*^9, {3.6773374262081547`*^9, 3.677337436267259*^9}, {
+   3.67733764930569*^9, 3.6773376791329927`*^9}, 3.6773377361469193`*^9, 
+   3.677350088504933*^9, 3.677350762493409*^9, 3.6773515302846746`*^9, 
+   3.677352784003048*^9, 3.677353266241709*^9, 3.6773563800759387`*^9, 
+   3.6773566505356207`*^9, 3.6773583830870953`*^9, 3.677358520171488*^9, 
+   3.6773588393536143`*^9, 3.6773592515106044`*^9, 3.6773597676001625`*^9, 
+   3.6773601215007224`*^9, 3.6773603564295216`*^9, 3.677443705187787*^9, 
+   3.678727302576262*^9, 3.6796674145034447`*^9, 3.680017825241516*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Load the Assembly", "Subsection",
+ CellChangeTimes->{{3.5192918020820627`*^9, 3.5192918044061956`*^9}, {
+  3.677349894689478*^9, 3.677349897564681*^9}}],
+
+Cell[TextData[{
+ "Inclusion of {\[OpenCurlyDoubleQuote]NETLink`\[CloseCurlyDoubleQuote]} is \
+part of documentation of how to access .NET in Mathematica. The inclusion in \
+BeginPackage[ ] has an implicit Needs[ ].\n",
+ ButtonBox["http://reference.wolfram.com/language/NETLink/tutorial/\
+CallingNETFromTheWolframLanguage.html#23489",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://reference.wolfram.com/language/NETLink/tutorial/\
+CallingNETFromTheWolframLanguage.html#23489"], None},
+  ButtonNote->
+   "http://reference.wolfram.com/language/NETLink/tutorial/\
+CallingNETFromTheWolframLanguage.html#23489"]
+}], "Text",
+ CellChangeTimes->{{3.677336880784587*^9, 3.677336903242653*^9}, {
+  3.67733696903395*^9, 3.677337001103253*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6773498431389523`*^9, 3.6773498511238923`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"assembly", "=", 
+  RowBox[{"LoadNETAssembly", "[", "$pathToPInvoke", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6773504433272953`*^9, 3.6773504446555147`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"NETAssembly", "[", 
+  RowBox[{"\<\"HDF.PInvoke\"\>", ",", "1"}], "]"}]], "Output",
+ CellChangeTimes->{3.677350098052484*^9, 3.67735076280593*^9, 
+  3.6773515306560726`*^9, 3.677352784331196*^9, 3.6773532665854836`*^9, 
+  3.6773563805137777`*^9, 3.677356650811981*^9, 3.677358383373211*^9, 
+  3.67735852062115*^9, 3.677358839628095*^9, 3.6773592518176937`*^9, 
+  3.6773597678698397`*^9, 3.677360121775934*^9, 3.677360356681179*^9, 
+  3.6774437056409473`*^9, 3.67872730288879*^9, 3.6796674148628674`*^9, 
+  3.680017825522786*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Look at the Assembly", "Subsection",
+ CellChangeTimes->{{3.67735923032526*^9, 3.6773592326534476`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NETTypeInfo", "[", 
+  RowBox[{"assembly", ",", "\"\<Classes\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6773507728222666`*^9, 3.6773507769788103`*^9}, {
+  3.677353210151319*^9, 3.6773532117139297`*^9}}],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     RowBox[{"Assembly", ":", " "}], 
+     StyleBox["\<\"HDF.PInvoke\"\>",
+      FontWeight->"Bold"]}]},
+   {"\<\"Full Name: HDF.PInvoke, Version=1.8.17.0, Culture=neutral, \
+PublicKeyToken=18793c1fcffe58a3\"\>"},
+   {"\<\"Location: \
+C:\\\\Users\\\\smartin\\\\Desktop\\\\HDF5WrappersForMathematica  Ver 12 \
+August 2016\\\\HDF5.PInvoke\\\\HDF.PInvoke.dll\"\>"},
+   {""},
+   {Cell[BoxData[
+     RowBox[{
+      RowBox[{"\[FilledCircle]", " "}], 
+      StyleBox["Classes",
+       FontSize->18,
+       FontWeight->"Bold",
+       FontSlant->"Italic"]}]]]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["Constants",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5A",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5AC",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5C",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5D",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5DO",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5E",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5F",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5FD",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5G",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5I",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5L",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5MM",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5O",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5P",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5PL",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5R",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5S",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5T",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["H5Z",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], "\<\"HDF.PInvoke.\"\>", 
+     StyleBox["NativeDependencies",
+      FontWeight->"Bold"]}]}
+  },
+  GridBoxAlignment->{
+   "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+    "RowsIndexed" -> {}},
+  GridBoxItemSize->{
+   "Columns" -> {{All}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.2}}, 
+    "RowsIndexed" -> {}}]], "Output",
+ CellChangeTimes->{3.680017825554039*^9},
+ AutoSpacing->False]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Demonstrate Some communication between P/Invoke and Mathematica\
+\>", "Section",
+ CellChangeTimes->{{3.5192929340948105`*^9, 3.5192929346948442`*^9}, 
+   3.5193134125426784`*^9, {3.6773497933072977`*^9, 3.677349802557951*^9}, 
+   3.677349910346837*^9, {3.677350043845521*^9, 3.677350073519497*^9}, {
+   3.6773566351012707`*^9, 3.6773566399656277`*^9}, {3.6773589908968506`*^9, 
+   3.6773589998256454`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Load the specific type into the .NET runtime", "Subsection",
+ CellChangeTimes->{{3.6773590066417165`*^9, 3.6773590336764164`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadNETType", "[", "\"\<HDF.PInvoke.H5\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6773573876157913`*^9, 3.677357401375765*^9}}],
+
+Cell[BoxData[
+ RowBox[{"NETType", "[", 
+  RowBox[{"\<\"HDF.PInvoke.H5\"\>", ",", "1"}], "]"}]], "Output",
+ CellChangeTimes->{
+  3.677357401695734*^9, 3.6773583977637787`*^9, {3.677358484474635*^9, 
+   3.6773585206484423`*^9}, 3.6773588396441107`*^9, 3.67735925186374*^9, 
+   3.6773597679269*^9, 3.677360121831992*^9, 3.6773603567376094`*^9, 
+   3.677443705703452*^9, 3.6787273029669175`*^9, 3.679667414909729*^9, 
+   3.680017825569665*^9}]
+}, Open  ]],
+
+Cell["Demonstrate what is loaded into Mathematica:", "Text",
+ CellChangeTimes->{{3.6773589581819687`*^9, 3.677358972854806*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadedNETTypes", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6773575696872444`*^9, 3.677357574206772*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"NETType", "[", 
+   RowBox[{"\<\"HDF.PInvoke.H5\"\>", ",", "1"}], "]"}], "}"}]], "Output",
+ CellChangeTimes->{3.6773575746749516`*^9, 3.677358399498107*^9, 
+  3.677358484617384*^9, 3.677358520666939*^9, 3.6773588396521206`*^9, 
+  3.6773592518717475`*^9, 3.6773597679424186`*^9, 3.6773601218440065`*^9, 
+  3.67736035674762*^9, 3.677443705719079*^9, 3.678727302982544*^9, 
+  3.679667414925336*^9, 3.6800178255852914`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NETTypeInfo", "[", "\"\<HDF.PInvoke.H5\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.677357490304725*^9, 3.6773575063689394`*^9}}],
+
+Cell[BoxData[GridBox[{
+   {Cell[BoxData[
+     RowBox[{
+      RowBox[{"\[FilledCircle]", " "}], 
+      StyleBox["Type",
+       FontSize->18,
+       FontWeight->"Bold",
+       FontSlant->"Italic"]}]]]},
+   {
+    RowBox[{
+     RowBox[{"class", " "}], 
+     StyleBox["\<\"HDF.PInvoke.H5\"\>",
+      FontWeight->"Bold"]}]},
+   {GridBox[{
+      {
+       RowBox[{"Inheritance", ":"}]},
+      {
+       RowBox[{"   ", "   ", "\<\"System.Object\"\>"}]},
+      {
+       RowBox[{"   ", "   ", "   ", 
+        StyleBox["\<\"HDF.PInvoke.H5\"\>",
+         FontWeight->"Bold"]}]}
+     },
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}}]},
+   {
+    RowBox[{"Interfaces", " ", 
+     RowBox[{"Implemented", ":", " ", "None"}]}]},
+   {"\<\"Assembly-Qualified Name: HDF.PInvoke.H5, HDF.PInvoke, \
+Version=1.8.17.0, Culture=neutral, PublicKeyToken=18793c1fcffe58a3\"\>"},
+   {"\<\"Assembly Location: \
+C:\\\\Users\\\\smartin\\\\Desktop\\\\HDF5WrappersForMathematica  Ver 12 \
+August 2016\\\\HDF5.PInvoke\\\\HDF.PInvoke.dll\"\>"},
+   {""},
+   {Cell[BoxData[
+     RowBox[{
+      RowBox[{"\[FilledCircle]", " "}], 
+      StyleBox["Constructors",
+       FontSize->18,
+       FontWeight->"Bold",
+       FontSlant->"Italic"]}]]]},
+   {
+    RowBox[{
+     StyleBox["H5",
+      FontWeight->"Bold"], "\<\"()\"\>"}]},
+   {""},
+   {Cell[BoxData[
+     RowBox[{
+      RowBox[{"\[FilledCircle]", " "}], 
+      StyleBox["Fields",
+       FontSize->18,
+       FontWeight->"Bold",
+       FontSlant->"Italic"]}]]]},
+   {
+    RowBox[{"const", " ", "\<\"unsigned long\"\>", " ", 
+     StyleBox["HADDR_MAX",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{"const", " ", "\<\"unsigned long\"\>", " ", 
+     StyleBox["HADDR_UNDEF",
+      FontWeight->"Bold"]}]},
+   {
+    RowBox[{"const", " ", "\<\"unsigned long\"\>", " ", 
+     StyleBox["HSIZE_UNDEF",
+      FontWeight->"Bold"]}]},
+   {""},
+   {Cell[BoxData[
+     RowBox[{
+      RowBox[{"\[FilledCircle]", " "}], 
+      StyleBox["Methods",
+       FontSize->18,
+       FontWeight->"Bold",
+       FontSlant->"Italic"]}]]]},
+   {
+    RowBox[{"static", " ", "\<\"IntPtr\"\>", " ", 
+     StyleBox["allocate_memory",
+      FontWeight->"Bold"], "\<\"(IntPtr size, unsigned clear)\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["close",
+      FontWeight->"Bold"], "\<\"()\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["dont_atexit",
+      FontWeight->"Bold"], "\<\"()\"\>"}]},
+   {
+    RowBox[{"virtual", " ", "\<\"bool\"\>", " ", 
+     StyleBox["Equals",
+      FontWeight->"Bold"], "\<\"(object obj)\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"bool\"\>", " ", 
+     StyleBox["Equals",
+      FontWeight->"Bold"], "\<\"(object objA, object objB)\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["free_memory",
+      FontWeight->"Bold"], "\<\"(IntPtr buf)\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["garbage_collect",
+      FontWeight->"Bold"], "\<\"()\"\>"}]},
+   {
+    RowBox[{"virtual", " ", "\<\"int\"\>", " ", 
+     StyleBox["GetHashCode",
+      FontWeight->"Bold"], "\<\"()\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["get_libversion",
+      FontWeight->
+       "Bold"], "\<\"(ref unsigned majnum, ref unsigned minnum, ref unsigned \
+relnum)\"\>"}]},
+   {
+    RowBox[{"\<\"Type\"\>", " ", 
+     StyleBox["GetType",
+      FontWeight->"Bold"], "\<\"()\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"is_library", "_threadsafe"}],
+      FontWeight->"Bold"], "\<\"(ref unsigned is_ts)\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["open",
+      FontWeight->"Bold"], "\<\"()\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"bool\"\>", " ", 
+     StyleBox["ReferenceEquals",
+      FontWeight->"Bold"], "\<\"(object objA, object objB)\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"IntPtr\"\>", " ", 
+     StyleBox["resize_memory",
+      FontWeight->"Bold"], "\<\"(IntPtr mem, IntPtr size)\"\>"}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"set_free", "_list", "_limits"}],
+      FontWeight->
+       "Bold"], "\<\"(int reg_global_lim, int reg_list_lim, int \
+arr_global_lim, int arr_list_lim, int blk_global_lim, int \
+blk_list_lim)\"\>"}]},
+   {
+    RowBox[{"virtual", " ", "\<\"string\"\>", " ", 
+     StyleBox["ToString",
+      FontWeight->"Bold"], "\<\"()\"\>"}]}
+  },
+  GridBoxAlignment->{
+   "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+    "RowsIndexed" -> {}},
+  GridBoxItemSize->{
+   "Columns" -> {{All}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.2}}, 
+    "RowsIndexed" -> {}}]], "Output",
+ CellChangeTimes->{3.6800178256165433`*^9},
+ AutoSpacing->False]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Use H5.open to demonstrate the simplest possible communication\
+\>", "Subsection",
+ CellChangeTimes->{{3.677359038684698*^9, 3.677359048389583*^9}, {
+  3.6773593376626916`*^9, 3.6773593656651325`*^9}}],
+
+Cell[TextData[{
+ "H5.open(unsigned *majnum, unsigned *minnum, unsigned *relnum):  error - \
+Returns 0 if successful and -1 if fails\n",
+ ButtonBox["https://www.hdfgroup.org/HDF5/doc/RM/RM_H5.html#Library-Open",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.hdfgroup.org/HDF5/doc/RM/RM_H5.html#Library-Open"], None},
+  ButtonNote->"https://www.hdfgroup.org/HDF5/doc/RM/RM_H5.html#Library-Open"]
+}], "Text",
+ CellChangeTimes->{{3.677356938167346*^9, 3.6773569565317016`*^9}, {
+  3.6773590697756653`*^9, 3.6773590704160323`*^9}, {3.677359119372199*^9, 
+  3.677359125172366*^9}, {3.6773598048147497`*^9, 3.677359812943609*^9}, {
+  3.6773599083043633`*^9, 3.677359915440546*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HDF`PInvoke`H5`open", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.677357900453297*^9, 3.6773579108679934`*^9}, {
+  3.677357941142889*^9, 3.6773579423422217`*^9}, {3.677358094179814*^9, 
+  3.677358112164682*^9}, {3.6773583175829754`*^9, 3.677358318431003*^9}, {
+  3.6773584324008617`*^9, 3.6773584335845532`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{
+  3.677357943048473*^9, {3.677358103600469*^9, 3.6773581130029745`*^9}, 
+   3.677358319311246*^9, {3.6773583926351576`*^9, 3.6773584029258285`*^9}, 
+   3.6773584348457317`*^9, {3.6773584735446386`*^9, 3.6773584846504173`*^9}, {
+   3.6773585209039946`*^9, 3.6773585440159254`*^9}, 3.6773588397337675`*^9, 
+   3.6773592519371243`*^9, 3.6773595351616316`*^9, 3.6773597680073366`*^9, 
+   3.677360121909768*^9, 3.677360356812554*^9, 3.6774437057972097`*^9, 
+   3.6787273030450478`*^9, 3.6796674149878607`*^9, 3.6800178256634216`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Communication between P/Invoke and Mathematica is thus demonstrated.\
+\>", "Text",
+ CellChangeTimes->{{3.677358937099949*^9, 3.6773589504690647`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Use H5.close() ", "Subsection",
+ CellChangeTimes->{{3.677359038684698*^9, 3.677359048389583*^9}, {
+  3.6773590858247557`*^9, 3.6773590901533456`*^9}, {3.6773592850902147`*^9, 
+  3.677359287322503*^9}, {3.677359340846552*^9, 3.677359363056985*^9}}],
+
+Cell[TextData[{
+ "H5.close():  error - Returns 0 if successful and -1 if fails\n",
+ ButtonBox["https://www.hdfgroup.org/HDF5/doc/RM/RM_H5.html#Library-Close",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.hdfgroup.org/HDF5/doc/RM/RM_H5.html#Library-Close"], 
+    None},
+  ButtonNote->"https://www.hdfgroup.org/HDF5/doc/RM/RM_H5.html#Library-Close"]
+}], "Text",
+ CellChangeTimes->{{3.677356938167346*^9, 3.6773569565317016`*^9}, {
+  3.6773590697756653`*^9, 3.6773590704160323`*^9}, {3.677359119372199*^9, 
+  3.6773591532834883`*^9}, {3.6773598008225546`*^9, 3.6773598167921553`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HDF`PInvoke`H5`close", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.677357900453297*^9, 3.6773579108679934`*^9}, {
+  3.677357941142889*^9, 3.6773579423422217`*^9}, {3.677358094179814*^9, 
+  3.677358112164682*^9}, {3.6773583175829754`*^9, 3.677358318431003*^9}, {
+  3.6773584324008617`*^9, 3.6773584335845532`*^9}, {3.6773591006023417`*^9, 
+  3.677359101690462*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.677359102495737*^9, 3.677359251947135*^9, 
+  3.6773597680203495`*^9, 3.6773601219197793`*^9, 3.677360356824067*^9, 
+  3.6774437057972097`*^9, 3.6787273030606747`*^9, 3.67966741500348*^9, 
+  3.6800178256790476`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Pass some variables with H5.get_libversion", "Subsection",
+ CellChangeTimes->{{3.6773592647609153`*^9, 3.6773592796815424`*^9}, {
+  3.6773593735294075`*^9, 3.6773593737696643`*^9}}],
+
+Cell[TextData[{
+ "H5.get_libversion:  error - Returns 0 if successful and -1 if fails\n",
+ ButtonBox["https://www.hdfgroup.org/HDF5/doc/RM/RM_H5.html#Library-Version",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.hdfgroup.org/HDF5/doc/RM/RM_H5.html#Library-Version"], 
+    None},
+  ButtonNote->
+   "https://www.hdfgroup.org/HDF5/doc/RM/RM_H5.html#Library-Version"]
+}], "Text",
+ CellChangeTimes->{{3.677356938167346*^9, 3.6773569565317016`*^9}, {
+  3.6773590697756653`*^9, 3.6773590704160323`*^9}, {3.677359119372199*^9, 
+  3.6773591532834883`*^9}, {3.677359834121709*^9, 3.677359878145855*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Example 1", "Subsubsection",
+ CellChangeTimes->{{3.677360340853044*^9, 3.6773603416053705`*^9}}],
+
+Cell[TextData[{
+ "We have to define some integer containers (i.e., x, y, z) in Mathematica \
+before we get to work, and then ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " handles the rest with respect to pointer variables and so forth."
+}], "Text",
+ CellChangeTimes->{{3.677359920033103*^9, 3.6773599525796084`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"x", "=", 
+   RowBox[{"y", "=", 
+    RowBox[{"z", "=", "1"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"HDF`PInvoke`H5`getUlibversion", "[", 
+  RowBox[{"x", ",", "y", ",", "z"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6773596646349297`*^9, 3.6773596657232304`*^9}, {
+  3.6773597263688974`*^9, 3.6773597343370543`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.6773596663029623`*^9, 3.677359734745489*^9, 
+  3.6773597680422325`*^9, 3.6773601219463067`*^9, 3.677360356850099*^9, 
+  3.677443705812836*^9, 3.6787273030919275`*^9, 3.679667415019104*^9, 
+  3.680017825694674*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "The above return is 0, so there was no error. The values in x, y, and z \
+have been updated by ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " to give the version."
+}], "Text",
+ CellChangeTimes->{{3.677359957203973*^9, 3.677359970245302*^9}, {
+  3.677360080919051*^9, 3.677360088879459*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"x", ",", "y", ",", "z"}], "}"}]], "Input",
+ CellChangeTimes->{{3.6773597361520243`*^9, 3.6773597415379515`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "8", ",", "17"}], "}"}]], "Output",
+ CellChangeTimes->{{3.677359741808735*^9, 3.6773597680522437`*^9}, 
+   3.677360121956303*^9, 3.6773603568636155`*^9, 3.677443705828462*^9, 
+   3.6787273030919275`*^9, 3.679667415019104*^9, 3.680017825694674*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Example 2", "Subsubsection",
+ CellChangeTimes->{{3.6773603444537263`*^9, 3.677360345181923*^9}}],
+
+Cell[TextData[{
+ "Here is a somewhat better programming form in a ",
+ StyleBox["Mathematica ",
+  FontSlant->"Italic"],
+ "context:"
+}], "Text",
+ CellChangeTimes->{{3.6773602163543673`*^9, 3.6773602520214825`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Module", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "=", "0"}], ",", 
+     RowBox[{"b", "=", "0"}], ",", 
+     RowBox[{"c", "=", "0"}], ",", "return"}], "}"}], ",", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"CompoundExpression", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"return", "=", 
+      RowBox[{"HDF`PInvoke`H5`getUlibversion", "[", 
+       RowBox[{"a", ",", "b", ",", "c"}], "]"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Row", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Return = \>\"", ",", "return", ",", "\"\<. Version = \>\"", ",", 
+        RowBox[{"{", 
+         RowBox[{"a", ",", "b", ",", "c"}], "}"}], ",", "\"\<.\>\""}], "}"}], 
+      "]"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.677360184399976*^9, 3.6773603211481295`*^9}, 
+   3.677443699062314*^9, {3.6774437599107733`*^9, 3.677443765895612*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"\"Return = \"","0","\". Version = \"",RowBox[{"{", 
+     RowBox[{"1", ",", "8", ",", "17"}], "}"}],"\".\""},
+  "RowDefault"]], "Output",
+ CellChangeTimes->{
+  3.677360212052988*^9, {3.6773602987401056`*^9, 3.6773603214219184`*^9}, 
+   3.677360356879609*^9, 3.6774437058440886`*^9, 3.6774437672863417`*^9, 
+   3.6787273031231794`*^9, 3.6796674150503454`*^9, 3.6800178257259264`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"a", ",", "b", ",", "c", ",", "return"}], "}"}]], "Input",
+ CellChangeTimes->{{3.677360324808508*^9, 3.6773603279806647`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"a", ",", "b", ",", "c", ",", "return"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6773603282582273`*^9, 3.677360356889621*^9}, 
+   3.6774437058440886`*^9, 3.6774437700209274`*^9, 3.6787273031388063`*^9, 
+   3.679667415065972*^9, 3.6800178257259264`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1584, 841},
+WindowMargins->{{-9, Automatic}, {Automatic, 0}},
+ShowSelection->True,
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 284, 4, 84, "Subtitle"],
+Cell[CellGroupData[{
+Cell[888, 30, 98, 1, 106, "Section"],
+Cell[989, 33, 357, 9, 45, "Text"],
+Cell[1349, 44, 918, 18, 74, "Text"],
+Cell[2270, 64, 117, 1, 45, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2424, 70, 276, 3, 106, "Section"],
+Cell[CellGroupData[{
+Cell[2725, 77, 163, 2, 72, "Subsection"],
+Cell[2891, 81, 103, 1, 45, "Text"],
+Cell[CellGroupData[{
+Cell[3019, 86, 126, 2, 45, "Input"],
+Cell[3148, 90, 774, 14, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3959, 109, 102, 1, 45, "Input"],
+Cell[4064, 112, 856, 12, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4957, 129, 233, 5, 45, "Input"],
+Cell[5193, 136, 879, 15, 45, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6121, 157, 103, 1, 72, "Subsection"],
+Cell[CellGroupData[{
+Cell[6249, 162, 1021, 17, 45, "Input"],
+Cell[7273, 181, 767, 11, 45, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8089, 198, 158, 2, 72, "Subsection"],
+Cell[8250, 202, 743, 15, 74, "Text"],
+Cell[8996, 219, 143, 2, 45, "Input"],
+Cell[CellGroupData[{
+Cell[9164, 225, 181, 3, 45, "Input"],
+Cell[9348, 230, 551, 9, 45, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9948, 245, 109, 1, 72, "Subsection"],
+Cell[CellGroupData[{
+Cell[10082, 250, 229, 4, 45, "Input"],
+Cell[10314, 256, 3642, 137, 827, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14017, 400, 416, 7, 106, "Section"],
+Cell[CellGroupData[{
+Cell[14458, 411, 136, 1, 72, "Subsection"],
+Cell[CellGroupData[{
+Cell[14619, 416, 153, 2, 45, "Input"],
+Cell[14775, 420, 439, 8, 45, "Output"]
+}, Open  ]],
+Cell[15229, 431, 128, 1, 45, "Text"],
+Cell[CellGroupData[{
+Cell[15382, 436, 130, 2, 45, "Input"],
+Cell[15515, 440, 458, 8, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16010, 453, 153, 2, 45, "Input"],
+Cell[16166, 457, 4827, 153, 1031, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21042, 616, 211, 4, 72, "Subsection"],
+Cell[21256, 622, 691, 12, 74, "Text"],
+Cell[CellGroupData[{
+Cell[21972, 638, 336, 5, 45, "Input"],
+Cell[22311, 645, 577, 8, 45, "Output"]
+}, Open  ]],
+Cell[22903, 656, 160, 3, 45, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23100, 664, 253, 3, 72, "Subsection"],
+Cell[23356, 669, 599, 11, 74, "Text"],
+Cell[CellGroupData[{
+Cell[23980, 684, 388, 6, 45, "Input"],
+Cell[24371, 692, 264, 4, 45, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24684, 702, 187, 2, 72, "Subsection"],
+Cell[24874, 706, 612, 12, 74, "Text"],
+Cell[CellGroupData[{
+Cell[25511, 722, 102, 1, 58, "Subsubsection"],
+Cell[25616, 725, 325, 7, 74, "Text"],
+Cell[CellGroupData[{
+Cell[25966, 736, 357, 8, 75, "Input"],
+Cell[26326, 746, 263, 4, 45, "Output"]
+}, Open  ]],
+Cell[26604, 753, 316, 8, 45, "Text"],
+Cell[CellGroupData[{
+Cell[26945, 765, 152, 3, 45, "Input"],
+Cell[27100, 770, 296, 5, 45, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27445, 781, 102, 1, 58, "Subsubsection"],
+Cell[27550, 784, 212, 6, 45, "Text"],
+Cell[CellGroupData[{
+Cell[27787, 794, 1040, 23, 307, "Input"],
+Cell[28830, 819, 410, 7, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29277, 831, 165, 3, 45, "Input"],
+Cell[29445, 836, 292, 5, 78, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

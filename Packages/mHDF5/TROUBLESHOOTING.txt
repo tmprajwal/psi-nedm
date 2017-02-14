@@ -1,0 +1,44 @@
+8 August 2016
+Scot Martin
+HDF.PInvoke -Version 1.8.17.4
+
+TROUBLESHOOTING FOR .NET ERROR MESSAGES WITHIN MATHEMATICA 
+
+OBSERVED PROBLEM 1
+------------------
+
+"System.IO.FileLoadException: Could not load file or assembly 'file:///C:\...\HDF.PInvoke\lib\NET45\HDF.PInvoke.dll' or one of its dependencies. Operation is not supported. (Exception from HRESULT: 0x80131515)"
+
+Explanation
+-----------
+
+This is a Windows10 security issue for files downloaded from the internet.
+ 
+https://blogs.msdn.microsoft.com/delay/p/unblockingdownloadedfile/
+
+Solution
+--------
+
+Go to all the '*.dll' files in the 'HDF5.PInvoke' directory and right click and then UNBLOCK.
+
+
+OBSERVED PROBLEM 2
+------------------
+
+"A .NET exception occurred: ... System.DllNotFoundException: Unable to load DLL 'hdf5.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)".
+
+Explanation
+-----------
+The files "msvcp120.dll" and "mscvcr120.dll" also need to be in this directory or somehow otherwise accessible on your machine (e.g., through PATH of system properties). They are provided by Microsoft rather than the HDF5 group. 
+
+Solution
+--------
+
+“Please verify that a version of the Visual C++ Redistributable Packages for Visual Studio 2013 is installed on your system. If unsure, get it as a free download from Microsoft at:
+https://www.microsoft.com/en-us/download/details.aspx?id=40784.
+If a newer version already exists on the system, the installation will make no changes.”
+
+
+
+
+

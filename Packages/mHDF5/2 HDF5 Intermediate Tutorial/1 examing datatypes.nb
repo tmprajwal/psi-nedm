@@ -1,0 +1,2965 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[    124192,       2957]
+NotebookOptionsPosition[    121220,       2852]
+NotebookOutlinePosition[    121855,       2876]
+CellTagsIndexPosition[    121766,       2871]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\[OpenCurlyDoubleQuote]examining data types\[CloseCurlyDoubleQuote]", \
+"Chapter",
+ CellChangeTimes->{{3.5192928170291147`*^9, 3.5192928285487733`*^9}, 
+   3.5192935097227345`*^9, 3.5192943555601134`*^9, 3.519297569739954*^9, {
+   3.677758799452699*^9, 3.6777588150800767`*^9}, {3.6781447817086973`*^9, 
+   3.678144784460899*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Information", "Section",
+ CellChangeTimes->{{3.5192929670456953`*^9, 3.519292967780737*^9}}],
+
+Cell[TextData[{
+ "Good references for the shown HDF5 functions include:\n",
+ ButtonBox["http://www.hdfgroup.org/HDF5/doc/RM/RM_H5Front.html\n",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/HDF5/doc/RM/RM_H5Front.html"], None},
+  ButtonNote->"http://www.hdfgroup.org/HDF5/doc/RM/RM_H5Front.html"],
+ ButtonBox["http://www.hdfgroup.org/HDF5/doc/RM/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/HDF5/doc/RM/"], None},
+  ButtonNote->"http://www.hdfgroup.org/HDF5/doc/RM/"]
+}], "Text",
+ CellChangeTimes->{{3.519292884540976*^9, 3.519292921736103*^9}}],
+
+Cell[TextData[{
+ "Prepared 12 August 2016 by Scot Martin for Windows 10, 64-bit, ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " version 11.0.0 using switching to the new HDF5 technology of P/Invoke (",
+ ButtonBox["https://www.hdfgroup.org/projects/hdf.net/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.hdfgroup.org/ftp/HDF5/current/src/unpacked/src/"], None},
+  ButtonNote->"http://www.hdfgroup.org/ftp/HDF5/current/src/unpacked/src/"],
+ ")."
+}], "Text",
+ CellChangeTimes->{{3.5192900627995815`*^9, 3.519290073040167*^9}, {
+  3.519292549013785*^9, 3.519292559290373*^9}, {3.6774438037891655`*^9, 
+  3.677443805664311*^9}, {3.677447697079324*^9, 3.677447748711583*^9}, {
+  3.677758822190003*^9, 3.6777588231744537`*^9}, {3.679668268139291*^9, 
+  3.6796682764055395`*^9}, {3.6800175767803445`*^9, 3.6800175805249057`*^9}}],
+
+Cell["Email: scot_martin@harvard.edu.", "Text",
+ CellChangeTimes->{{3.6773363775442753`*^9, 3.6773363787317915`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Code", "Section",
+ CellChangeTimes->{{3.6777588677967634`*^9, 3.6777588733128147`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Local Work Environment", "Subsection",
+ CellChangeTimes->{{3.608686190253518*^9, 3.608686195258805*^9}, {
+  3.6102776282052584`*^9, 3.6102776296092606`*^9}}],
+
+Cell["Code last run on:", "Text",
+ CellChangeTimes->{{3.6157256199256115`*^9, 3.6157256218132143`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DateString", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6157256131707993`*^9, 3.615725616852406*^9}}],
+
+Cell[BoxData["\<\"Thu 18 Aug 2016 18:34:58\"\>"], "Output",
+ CellChangeTimes->{
+  3.6157256171644063`*^9, 3.615731391274553*^9, 3.615744894423354*^9, 
+   3.6157565950055337`*^9, 3.615757224044239*^9, 3.61575729296516*^9, 
+   3.6157589601803713`*^9, 3.6157617764649196`*^9, 3.615924919742631*^9, 
+   3.615928586621581*^9, 3.615930132917329*^9, 3.6159350689324226`*^9, 
+   3.616797743323756*^9, 3.6170474181751204`*^9, 3.617047668725201*^9, 
+   3.6170514565407453`*^9, 3.6171478912566977`*^9, 3.6174951820945573`*^9, 
+   3.6174975507834716`*^9, 3.6175357157658052`*^9, 3.6175363207956705`*^9, 
+   3.617544575318635*^9, 3.6175843457009068`*^9, 3.6178085669058537`*^9, 
+   3.6178087346680527`*^9, 3.617811562652573*^9, 3.6179279961304646`*^9, 
+   3.6179280312770433`*^9, 3.617928616579982*^9, 3.617928867565843*^9, 
+   3.617986701322382*^9, 3.618001953176346*^9, 3.618002803944764*^9, 
+   3.6180806102700143`*^9, 3.6180806755753756`*^9, 3.6180872195271854`*^9, 
+   3.6181689857550883`*^9, 3.6181700305477853`*^9, 3.618171535164579*^9, 
+   3.618171584977146*^9, 3.6181716508340373`*^9, 3.618242465288475*^9, 
+   3.6182587806532383`*^9, 3.6184858304644623`*^9, 3.6184943629920874`*^9, 
+   3.6228436503216877`*^9, 3.622935239313006*^9, 3.625080969479991*^9, 
+   3.6250813255283556`*^9, 3.625081903526415*^9, 3.6762988468632956`*^9, 
+   3.677336239280816*^9, 3.67734975685159*^9, 3.677350082645143*^9, 
+   3.6773507624621563`*^9, 3.6773515302690487`*^9, 3.6773527839717956`*^9, 
+   3.677353266101074*^9, 3.6773563800035224`*^9, 3.677356650456535*^9, 
+   3.6773583829651146`*^9, 3.6773585200249023`*^9, 3.6773588392760925`*^9, 
+   3.6773592514696846`*^9, 3.6773597674942265`*^9, 3.677360121397208*^9, 
+   3.6773603562459893`*^9, 3.6774437051096563`*^9, 3.677445044257758*^9, 
+   3.6774462404462247`*^9, 3.677447342522664*^9, 3.6774478587467856`*^9, 
+   3.677500737710382*^9, 3.6775404918516006`*^9, 3.6775407494985733`*^9, 
+   3.677540892211952*^9, 3.677541010702482*^9, 3.6775410954439116`*^9, 
+   3.677541214529546*^9, 3.6775413423630347`*^9, 3.6775413744228296`*^9, 
+   3.677584776820384*^9, 3.677602268575395*^9, 3.67762068201053*^9, 
+   3.6776208834812613`*^9, 3.6777589399742203`*^9, 3.6781483517446985`*^9, 
+   3.6781484154102592`*^9, 3.6781872589827347`*^9, 3.6781880924690895`*^9, 
+   3.6782172010343175`*^9, 3.6782173023637094`*^9, 3.6782173997818356`*^9, 
+   3.678267315100425*^9, 3.6782972876350636`*^9, 3.678309876340275*^9, 
+   3.6783591292350802`*^9, 3.6784772599763546`*^9, 3.678727207554363*^9, 
+   3.678744006817133*^9, 3.6788696649034977`*^9, 3.678869871562611*^9, 
+   3.678869915536008*^9, 3.6788703853922*^9, 3.6788706376216383`*^9, 
+   3.6788708326747065`*^9, 3.6789108853198867`*^9, 3.679248188167681*^9, 
+   3.679668320315057*^9, 3.6797645872008343`*^9, 3.6797647041536436`*^9, 
+   3.679764753351885*^9, {3.679764856496149*^9, 3.679764875396057*^9}, 
+   3.6797650369748187`*^9, 3.6797651147117643`*^9, 3.679781452918756*^9, 
+   3.6800175909006767`*^9, 3.680117297372592*^9, 3.68011736876762*^9, 
+   3.6804536823007126`*^9, 3.680548498069791*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$Version"], "Input",
+ CellChangeTimes->{{3.6182424570853863`*^9, 3.618242467835346*^9}}],
+
+Cell[BoxData["\<\"11.0.0 for Microsoft Windows (64-bit) (July 28, \
+2016)\"\>"], "Output",
+ CellChangeTimes->{{3.618242465288475*^9, 3.618242468085305*^9}, 
+   3.618258780663247*^9, 3.618485830480062*^9, 3.618494363013088*^9, 
+   3.622843650334688*^9, 3.622935239329007*^9, 3.625080969489991*^9, 
+   3.6250813255433564`*^9, 3.625081903541416*^9, 3.6762988468783045`*^9, 
+   3.677336239280816*^9, 3.677349756867216*^9, 3.6773500826607685`*^9, 
+   3.677350762493409*^9, 3.6773515302690487`*^9, 3.677352783987422*^9, 
+   3.677353266179204*^9, 3.6773563800614214`*^9, 3.6773566505135994`*^9, 
+   3.6773583830415416`*^9, 3.6773585201354494`*^9, 3.677358839332588*^9, 
+   3.677359251483073*^9, 3.6773597675637374`*^9, 3.677360121463786*^9, 
+   3.6773603563965225`*^9, 3.677443705172161*^9, 3.6774450445702825`*^9, 
+   3.677446240539982*^9, 3.6774473426007957`*^9, 3.6774478588249164`*^9, 
+   3.677500737804139*^9, 3.6775404919141054`*^9, 3.6775407496548357`*^9, 
+   3.6775408923682146`*^9, 3.67754101079624*^9, 3.6775410956157994`*^9, 
+   3.6775412146076765`*^9, 3.677541342691185*^9, 3.6775413745790915`*^9, 
+   3.677584776867263*^9, 3.6776022686379004`*^9, 3.6776206821042876`*^9, 
+   3.677620883543765*^9, 3.6777589400367255`*^9, 3.6781483519009604`*^9, 
+   3.6781484155665226`*^9, 3.678187259045238*^9, 3.678188092609725*^9, 
+   3.678217201096822*^9, 3.6782173024418397`*^9, 3.6782173998599663`*^9, 
+   3.6782673151629295`*^9, 3.678297287697569*^9, 3.6783098764109387`*^9, 
+   3.678359129297585*^9, 3.6784772600544853`*^9, 3.678727207616864*^9, 
+   3.678744007137912*^9, 3.6788696649503756`*^9, 3.6788698716251163`*^9, 
+   3.6788699155985117`*^9, 3.678870385454705*^9, 3.6788706377153945`*^9, 
+   3.678870832752838*^9, 3.678910885403755*^9, 3.6792481883239565`*^9, 
+   3.679668320330683*^9, 3.679764587263339*^9, 3.679764704294262*^9, 
+   3.679764753648746*^9, {3.6797648565586414`*^9, 3.6797648754585624`*^9}, 
+   3.6797650371310806`*^9, 3.679765114789884*^9, 3.6797814529968934`*^9, 
+   3.6800175909163027`*^9, 3.680117297419462*^9, 3.6801173688301153`*^9, 
+   3.680453682363207*^9, 3.6805484980854025`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Load Package", "Subsection",
+ CellChangeTimes->{{3.677444223131667*^9, 3.677444224459895*^9}}],
+
+Cell[BoxData[
+ RowBox[{"With", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{"packageFileName", "=", "\[IndentingNewLine]", 
+     RowBox[{"FileNameJoin", "[", "\[IndentingNewLine]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "@", 
+         RowBox[{"NotebookDirectory", "[", "]"}]}], ",", 
+        "\[IndentingNewLine]", "\"\<HDF5.Mathematica.Packages\>\"", ",", 
+        "\[IndentingNewLine]", "\"\<HDF5Extend.m\>\""}], 
+       "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]", "]"}]}], 
+    "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Needs", "[", 
+    RowBox[{"\"\<HDF5Extend`\>\"", ",", "packageFileName"}], "]"}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.6774438972651477`*^9, 3.6774439576891108`*^9}, {
+  3.6774440240379925`*^9, 3.6774440403653436`*^9}, {3.677444077790114*^9, 
+  3.6774441465766845`*^9}, {3.6777702643366923`*^9, 3.6777702716966357`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$HDF5packageVersion"], "Input"],
+
+Cell[BoxData["\<\"V2.0\"\>"], "Output",
+ CellChangeTimes->{
+  3.6774451203579206`*^9, 3.677445263156946*^9, 3.677446240915011*^9, 
+   3.677446279324232*^9, 3.677447346460469*^9, 3.677447859324955*^9, 
+   3.6775007382729254`*^9, 3.677540492320387*^9, 3.677540750045491*^9, 
+   3.6775408927588696`*^9, 3.6775410112181463`*^9, 3.677541096006454*^9, 
+   3.677541215060837*^9, 3.6775413427380643`*^9, 3.6775413750166254`*^9, 
+   3.6775847772735443`*^9, 3.6776022691223125`*^9, 3.6776156488811655`*^9, 
+   3.6776196572083673`*^9, 3.677619832265128*^9, 3.6776206825261955`*^9, 
+   3.6776208840281773`*^9, 3.6777589438963995`*^9, 3.677760107401258*^9, 
+   3.677766164755525*^9, 3.6777702859946175`*^9, 3.677771242236683*^9, 
+   3.677772191562688*^9, 3.677775299968465*^9, 3.67786250758469*^9, 
+   3.677951086913975*^9, 3.677951733690487*^9, 3.6779519230183716`*^9, 
+   3.678036124438916*^9, 3.6780361977727146`*^9, 3.678144865208499*^9, 
+   3.6781483529166636`*^9, 3.678148416238448*^9, 3.678187259920306*^9, 
+   3.6781880932972775`*^9, 3.678215001604088*^9, 3.6782161898119574`*^9, 
+   3.6782172018156276`*^9, 3.6782173031606455`*^9, 3.6782174006256504`*^9, 
+   3.6782673158504825`*^9, 3.6782972884007473`*^9, 3.6783098770975027`*^9, 
+   3.678359129750745*^9, 3.6784772605701504`*^9, 3.6787272080974355`*^9, 
+   3.678744007168396*^9, 3.678869665622304*^9, 3.6788698716407433`*^9, 
+   3.6788699156141386`*^9, 3.678870385923492*^9, 3.678870638246687*^9, 
+   3.678870833268503*^9, 3.6789108859029546`*^9, 3.6792481887302237`*^9, 
+   3.6796683208776107`*^9, 3.679764588382049*^9, 3.6797647047005424`*^9, 
+   3.679764753664372*^9, {3.6797648565898943`*^9, 3.679764875942973*^9}, 
+   3.6797650375373735`*^9, 3.6797651152586703`*^9, 3.679781453434411*^9, 
+   3.6800175914007144`*^9, 3.680117297841323*^9, 3.6801173692676287`*^9, 
+   3.6804536827694564`*^9, 3.6805484985385256`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H5BasicGetLibVersion", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.677445323536618*^9, 3.677445323614748*^9}, {
+  3.680117303747596*^9, 3.680117307687373*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "8", ",", "17"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6774452937061844`*^9, 3.6774453242085447`*^9, 3.6774462409462643`*^9, 
+   3.6774462793711114`*^9, 3.677447346491722*^9, 3.677447859371834*^9, 
+   3.677500738319804*^9, 3.6775404923516397`*^9, 3.677540750076744*^9, 
+   3.6775408927901225`*^9, 3.6775410112494*^9, 3.6775410960377083`*^9, 
+   3.6775412150920906`*^9, 3.67754134275369*^9, 3.6775413750478783`*^9, 
+   3.677584777304797*^9, 3.6776022691535654`*^9, 3.6776156489124174`*^9, 
+   3.6776196572239943`*^9, 3.677619832296381*^9, 3.6776206825574474`*^9, 
+   3.6776208840438037`*^9, 3.6777589439120255`*^9, 3.677760107416885*^9, 
+   3.677766164789558*^9, 3.677770283494424*^9, 3.6777712422679353`*^9, 
+   3.6777721915939403`*^9, 3.6777752999997187`*^9, 3.677862507615943*^9, 
+   3.677951086945228*^9, 3.6779517337061124`*^9, 3.677951923049624*^9, 
+   3.678036124454543*^9, 3.6780361977883415`*^9, 3.6781448652335234`*^9, 
+   3.678148352947916*^9, 3.678148416269701*^9, 3.678187259951558*^9, 
+   3.6781880933285313`*^9, 3.67821500163534*^9, 3.6782161898432093`*^9, 
+   3.67821720184688*^9, 3.6782173031918983`*^9, 3.6782174006569033`*^9, 
+   3.67826731586611*^9, 3.678297288416374*^9, 3.678309877119024*^9, 
+   3.6783591297663713`*^9, 3.6784772605857773`*^9, 3.678727208113063*^9, 
+   3.6787440071863785`*^9, 3.67886966563793*^9, 3.6788698716407433`*^9, 
+   3.6788699156297646`*^9, 3.6788703859391184`*^9, 3.6788706382623124`*^9, 
+   3.678870833284129*^9, 3.6789108859169674`*^9, 3.67924818876149*^9, 
+   3.6796683208932257`*^9, 3.6797645883976746`*^9, 3.6797647047161694`*^9, 
+   3.679764753679986*^9, {3.6797648566055202`*^9, 3.679764875974264*^9}, 
+   3.6797650375686345`*^9, 3.679765115289936*^9, 3.6797814534500523`*^9, 
+   3.68001759141634*^9, {3.6801172978569646`*^9, 3.680117307952958*^9}, 
+   3.6801173692832384`*^9, 3.680453682785084*^9, 3.6805484985541506`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examine Datatypes", "Subsection",
+ CellChangeTimes->{{3.677444233335582*^9, 3.677444243648879*^9}, {
+  3.677758948396748*^9, 3.6777589515532417`*^9}, {3.6781447933015833`*^9, 
+  3.6781447956294193`*^9}}],
+
+Cell["https://www.hdfgroup.org/HDF5/doc/H5.user/Datatypes.html", "Text",
+ CellChangeTimes->{3.6781342168497076`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NETTypeInfo", "[", 
+  RowBox[{"\"\<HDF.PInvoke.H5T\>\"", ",", "\"\<Properties\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.678144889318282*^9, 3.678144935938116*^9}, {
+  3.678145227060014*^9, 3.6781452294673357`*^9}}],
+
+Cell[BoxData[GridBox[{
+   {""},
+   {Cell[BoxData[
+     RowBox[{
+      RowBox[{"\[FilledCircle]", " "}], 
+      StyleBox["Properties",
+       FontSize->18,
+       FontWeight->"Bold",
+       FontSlant->"Italic"]}]]]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["C_S1",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["FORTRAN_S1",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["IEEE_F32BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["IEEE_F32LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["IEEE_F64BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["IEEE_F64LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_B16",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_B32",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_B64",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_B8",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_DOUBLE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_FLOAT",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_HADDR",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_HBOOL",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_HERR",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_HSIZE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_HSSIZE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_INT",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_INT16",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_INT32",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_INT64",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_INT8",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_INT", "_FAST16"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_INT", "_FAST32"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_INT", "_FAST64"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_INT", "_FAST8"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_INT", "_LEAST16"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_INT", "_LEAST32"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_INT", "_LEAST64"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_INT", "_LEAST8"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_LDOUBLE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_LLONG",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_LONG",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_OPAQUE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_SCHAR",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_SHORT",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_UCHAR",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_UINT",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_UINT16",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_UINT32",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_UINT64",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_UINT8",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_UINT", "_FAST16"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_UINT", "_FAST32"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_UINT", "_FAST64"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_UINT", "_FAST8"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_UINT", "_LEAST16"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_UINT", "_LEAST32"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_UINT", "_LEAST64"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"NATIVE_UINT", "_LEAST8"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_ULLONG",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_ULONG",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["NATIVE_USHORT",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_B16BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_B16LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_B32BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_B32LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_B64BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_B64LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_B8BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_B8LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_I16BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_I16LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_I32BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_I32LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_I64BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_I64LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_I8BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_I8LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"STD_REF", "_DSETREG"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox[
+      RowBox[{"STD_REF", "_OBJ"}],
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_U16BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_U16LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_U32BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_U32LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_U64BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_U64LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_U8BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["STD_U8LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["UNIX_D32BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["UNIX_D32LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["UNIX_D64BE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["UNIX_D64LE",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["VAX_F32",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]},
+   {
+    RowBox[{"static", " ", "\<\"int\"\>", " ", 
+     StyleBox["VAX_F64",
+      FontWeight->"Bold"], 
+     RowBox[{"  ", 
+      RowBox[{"[", 
+       RowBox[{"read", " ", "only"}], "]"}]}]}]}
+  },
+  GridBoxAlignment->{
+   "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+    "RowsIndexed" -> {}},
+  GridBoxItemSize->{
+   "Columns" -> {{All}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.2}}, 
+    "RowsIndexed" -> {}}]], "Output",
+ CellChangeTimes->{3.6805484986166625`*^9},
+ AutoSpacing->False]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"someDataTypes", "=", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"StringReplace", "[", 
+     RowBox[{"#", ",", 
+      RowBox[{"\"\<_\>\"", "\[Rule]", "\"\<U\>\""}]}], "]"}], "&"}], "/@", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Cases", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"InputForm", "[", "%", "]"}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"RowBox", "[", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<static\>\"", ",", "\"\< \>\"", ",", "\"\<\\\"int\\\"\>\"", ",", 
+         "\"\< \>\"", ",", 
+         RowBox[{"StyleBox", "[", 
+          RowBox[{
+           RowBox[{"item", ":", "_String"}], ",", 
+           RowBox[{"FontWeight", "\[Rule]", "\"\<Bold\>\""}]}], "]"}], ",", 
+         "\"\<  [read only]\>\""}], "}"}], "]"}], "\[RuleDelayed]", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"\"\<HDF`PInvoke`H5T`\>\"", ",", "item"}], "]"}]}], " ", ",", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"{", "3", "}"}]}], "\[IndentingNewLine]", "]"}], 
+   " "}]}]], "Input",
+ CellChangeTimes->{{3.678145018929413*^9, 3.6781450217298565`*^9}, {
+   3.6781450637360983`*^9, 3.6781450685980935`*^9}, 3.6781451439817734`*^9, {
+   3.6781452059059176`*^9, 3.678145219178645*^9}, {3.6781452492615023`*^9, 
+   3.6781452755683126`*^9}, {3.6781453060022707`*^9, 3.6781453085142636`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"HDF`PInvoke`H5T`CUS1\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`FORTRANUS1\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`IEEEUF32BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`IEEEUF32LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`IEEEUF64BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`IEEEUF64LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUB16\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUB32\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUB64\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUB8\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUDOUBLE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUFLOAT\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUHADDR\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUHBOOL\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUHERR\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUHSIZE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUHSSIZE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINT\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINT16\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINT32\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINT64\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINT8\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST16\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST32\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST64\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST8\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST16\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST32\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST64\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST8\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEULDOUBLE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEULLONG\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEULONG\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUOPAQUE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUSCHAR\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUSHORT\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUCHAR\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINT\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINT16\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINT32\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINT64\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINT8\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST16\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST32\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST64\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST8\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST16\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST32\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST64\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST8\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUULLONG\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUULONG\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`NATIVEUUSHORT\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUB16BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUB16LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUB32BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUB32LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUB64BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUB64LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUB8BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUB8LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUI16BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUI16LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUI32BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUI32LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUI64BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUI64LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUI8BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUI8LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUREFUDSETREG\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUREFUOBJ\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUU16BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUU16LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUU32BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUU32LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUU64BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUU64LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUU8BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`STDUU8LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`UNIXUD32BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`UNIXUD32LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`UNIXUD64BE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`UNIXUD64LE\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`VAXUF32\"\>", 
+   ",", "\<\"HDF`PInvoke`H5T`VAXUF64\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.6781450302202983`*^9, 3.678145100013342*^9, 3.6781451581401105`*^9, {
+   3.678145220019158*^9, 3.678145232914798*^9}, {3.6781452761458445`*^9, 
+   3.678145313175268*^9}, 3.6781456530601583`*^9, 3.678148353026047*^9, 
+   3.6781484163478327`*^9, 3.6781872601703253`*^9, 3.6781880933910356`*^9, 
+   3.67821501062041*^9, {3.6782161957030373`*^9, 3.678216203967161*^9}, 
+   3.6782163268126645`*^9, 3.6782172019406376`*^9, 3.678217303285655*^9, 
+   3.6782174007506604`*^9, 3.67826731594424*^9, 3.6782970036287174`*^9, 
+   3.6782971605158544`*^9, 3.678297288494505*^9, 3.678309877200614*^9, 
+   3.6783591298601284`*^9, 3.678477260679534*^9, 3.6787272081755676`*^9, 
+   3.678744007274471*^9, 3.6788696657473135`*^9, 3.678869871687621*^9, 
+   3.6788699156766434`*^9, 3.67887038601725*^9, 3.6788706383248177`*^9, 
+   3.6788708333778872`*^9, 3.6789108860169516`*^9, 3.6792481888239803`*^9, 
+   3.6796683210182533`*^9, 3.6797645884914446`*^9, 3.6797647047943*^9, 
+   3.6797647537268643`*^9, {3.679764856668025*^9, 3.679764876036731*^9}, 
+   3.6797650376311183`*^9, 3.6797651153524437`*^9, 3.6797814535594325`*^9, 
+   3.6800175915100975`*^9, 3.6801172979663234`*^9, 3.680117369377*^9, 
+   3.6804536828944564`*^9, 3.68054849864791*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"someNativeDataTypes", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"H5TgetNativeType", "[", 
+     RowBox[{
+      RowBox[{"ToExpression", "@", "#"}], ",", "H5TuDEFAULT"}], "]"}], "&"}], 
+   "/@", "someDataTypes"}]}]], "Input",
+ CellChangeTimes->{{3.6781478057632523`*^9, 3.67814783223405*^9}, 
+   3.6782150770861335`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "50331741", ",", "50331742", ",", "50331743", ",", "50331744", ",", 
+   "50331745", ",", "50331746", ",", "50331747", ",", "50331748", ",", 
+   "50331749", ",", "50331750", ",", "50331751", ",", "50331752", ",", 
+   "50331753", ",", "50331754", ",", "50331755", ",", "50331756", ",", 
+   "50331757", ",", "50331758", ",", "50331759", ",", "50331760", ",", 
+   "50331761", ",", "50331762", ",", "50331763", ",", "50331764", ",", 
+   "50331765", ",", "50331766", ",", "50331767", ",", "50331768", ",", 
+   "50331769", ",", "50331770", ",", "50331771", ",", "50331772", ",", 
+   "50331773", ",", "50331774", ",", "50331775", ",", "50331776", ",", 
+   "50331777", ",", "50331778", ",", "50331779", ",", "50331780", ",", 
+   "50331781", ",", "50331782", ",", "50331783", ",", "50331784", ",", 
+   "50331785", ",", "50331786", ",", "50331787", ",", "50331788", ",", 
+   "50331789", ",", "50331790", ",", "50331791", ",", "50331792", ",", 
+   "50331793", ",", "50331794", ",", "50331795", ",", "50331796", ",", 
+   "50331797", ",", "50331798", ",", "50331799", ",", "50331800", ",", 
+   "50331801", ",", "50331802", ",", "50331803", ",", "50331804", ",", 
+   "50331805", ",", "50331806", ",", "50331807", ",", "50331808", ",", 
+   "50331809", ",", "50331810", ",", "50331811", ",", "50331812", ",", 
+   "50331813", ",", "50331814", ",", "50331815", ",", "50331816", ",", 
+   "50331817", ",", "50331818", ",", "50331819", ",", 
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"-", "1"}], ",", 
+   RowBox[{"-", "1"}], ",", "50331820", ",", "50331821"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.678147832655957*^9, 3.6781483530885525`*^9, 3.6781484163947115`*^9, 
+   3.678187260217204*^9, 3.678187400368672*^9, 3.6781880934535403`*^9, 
+   3.678215078445613*^9, 3.6782163299847846`*^9, 3.678217201987517*^9, 
+   3.6782173033481603`*^9, 3.6782174007975397`*^9, 3.678267315991119*^9, 
+   3.678297003691221*^9, 3.678297160562733*^9, 3.6782972885413837`*^9, 
+   3.6783098772569*^9, 3.6783591299226327`*^9, 3.6784772607420387`*^9, 
+   3.678727208222446*^9, 3.6787440073324876`*^9, 3.6788696657941923`*^9, 
+   3.6788698717188745`*^9, 3.6788699156922708`*^9, 3.678870386079755*^9, 
+   3.678870638387322*^9, 3.678870833424766*^9, 3.678910886082119*^9, 
+   3.679248188886485*^9, 3.67966832108074*^9, 3.6797645885539513`*^9, 
+   3.679764704841178*^9, 3.6797647537581167`*^9, {3.679764856683651*^9, 
+   3.6797648760992355`*^9}, 3.6797650376936235`*^9, 3.6797651154149323`*^9, 
+   3.6797814536219254`*^9, 3.6800175915569754`*^9, 3.680117298044447*^9, 
+   3.6801173694394865`*^9, 3.6804536829569435`*^9, 3.6805484987104*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"nativeDataTypeProperties", "=", "\[IndentingNewLine]", 
+  RowBox[{"With", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"func", "=", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{"Row", "[", "\[IndentingNewLine]", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{"\"\<Class: \>\"", ",", 
+           RowBox[{
+            RowBox[{"H5TBasicGetClass", "[", "\"\<Value\>\"", "]"}], "[", "#",
+             "]"}], ",", "\"\<, \>\"", ",", 
+           RowBox[{
+            RowBox[{"H5TBasicGetClass", "[", "\"\<String\>\"", "]"}], "[", 
+            "#", "]"}], ",", "\[IndentingNewLine]", "\"\<; Size: \>\"", ",", 
+           RowBox[{"H5TBasicGetSize", "[", "#", "]"}], ",", 
+           "\[IndentingNewLine]", "\"\<; Sign: \>\"", ",", 
+           RowBox[{
+            RowBox[{"H5TBasicGetSign", "[", "\"\<Value\>\"", "]"}], "[", "#", 
+            "]"}], ",", "\"\<, \>\"", ",", 
+           RowBox[{
+            RowBox[{"H5TBasicGetSign", "[", "\"\<String\>\"", "]"}], "[", "#",
+             "]"}], ",", "\[IndentingNewLine]", 
+           "\"\<; VariableLengthString: \>\"", ",", 
+           RowBox[{"H5TisVariableStr", "[", "#", "]"}]}], 
+          "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]", "]"}], 
+        "\[IndentingNewLine]", "}"}], "&"}]}], "\[IndentingNewLine]", "}"}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Map", "[", "func", "]"}], "[", "someNativeDataTypes", "]"}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6781453293391438`*^9, 3.6781453387405834`*^9}, {
+   3.678145561232325*^9, 3.6781457094849076`*^9}, {3.678145760185197*^9, 
+   3.6781460322166357`*^9}, {3.678146112648081*^9, 3.678146160763855*^9}, {
+   3.6781471670940065`*^9, 3.6781472516939287`*^9}, {3.6781472916447153`*^9, 
+   3.6781472995672035`*^9}, {3.678147534043113*^9, 3.6781475875472517`*^9}, 
+   3.6781476585996246`*^9, {3.678147728038489*^9, 3.6781477638068805`*^9}, {
+   3.6781478490947294`*^9, 3.6781479118964624`*^9}, {3.6781480119527864`*^9, 
+   3.678148030532349*^9}, {3.678148087083599*^9, 3.6781481865444183`*^9}, {
+   3.678148250815016*^9, 3.6781482634566193`*^9}, {3.6781872403562927`*^9, 
+   3.6781872505289545`*^9}, {3.678217146111743*^9, 3.678217175113308*^9}, {
+   3.6782672909423075`*^9, 3.678267310896976*^9}, {3.678309840855212*^9, 
+   3.6783098611531096`*^9}, {3.67886967654504*^9, 3.678869686733342*^9}, {
+   3.678869732208998*^9, 3.678869863468224*^9}, {3.6788699040946617`*^9, 
+   3.6788699146609387`*^9}, {3.6801173192438483`*^9, 3.6801173351508584`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","3","\", \"","\"STRING\"","\"; Size: \"","1",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","3","\", \"","\"STRING\"","\"; Size: \"","1",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","4","\"; Sign: \"",
+      RowBox[{"-", "1"}],"\", \"","\"ERROR\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","4","\"; Sign: \"",
+      RowBox[{"-", "1"}],"\", \"","\"ERROR\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","8","\"; Sign: \"",
+      RowBox[{"-", "1"}],"\", \"","\"ERROR\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","8","\"; Sign: \"",
+      RowBox[{"-", "1"}],"\", \"","\"ERROR\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","2",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","4",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","8",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","1",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","8","\"; Sign: \"",
+      RowBox[{"-", "1"}],"\", \"","\"ERROR\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","4","\"; Sign: \"",
+      RowBox[{"-", "1"}],"\", \"","\"ERROR\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","8","\"; Sign: \"",
+      RowBox[{"-", "1"}],"\", \"","\"ERROR\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","5","\", \"","\"OPAQUE\"","\"; Size: \"","1",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","2",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","2",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","4",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","4",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","8",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","8",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","1",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","1",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","7","\", \"","\"REFERENCE\"","\"; Size: \"","12",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","7","\", \"","\"REFERENCE\"","\"; Size: \"","8",
+      "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"","0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+      "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"",RowBox[{"-", "1"}],"\", \"","\"NO_CLASS\"","\"; Size: \"",
+      "0","\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"",RowBox[{"-", "1"}]},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"",RowBox[{"-", "1"}],"\", \"","\"NO_CLASS\"","\"; Size: \"",
+      "0","\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"",RowBox[{"-", "1"}]},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"",RowBox[{"-", "1"}],"\", \"","\"NO_CLASS\"","\"; Size: \"",
+      "0","\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"",RowBox[{"-", "1"}]},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"",RowBox[{"-", "1"}],"\", \"","\"NO_CLASS\"","\"; Size: \"",
+      "0","\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+      "\"; VariableLengthString: \"",RowBox[{"-", "1"}]},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","4","\"; Sign: \"",
+      RowBox[{"-", "1"}],"\", \"","\"ERROR\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}], ",", 
+   RowBox[{"{", 
+    TemplateBox[{
+     "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","8","\"; Sign: \"",
+      RowBox[{"-", "1"}],"\", \"","\"ERROR\"","\"; VariableLengthString: \"",
+      "0"},
+     "RowDefault"], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.678148263862899*^9, {3.678148339634386*^9, 3.678148353197935*^9}, 
+   3.678148416504094*^9, 3.6781872603422136`*^9, 3.6781880935629234`*^9, 
+   3.678217202221909*^9, 3.678217303582553*^9, 3.6782174011100626`*^9, 
+   3.6782673162098856`*^9, 3.6782970039099884`*^9, 3.678297160781499*^9, 
+   3.67829728876015*^9, 3.6783098774871454`*^9, 3.6783591301413994`*^9, 
+   3.6784772609608045`*^9, 3.6787272084568386`*^9, 3.678744007548922*^9, 
+   3.6788696660285854`*^9, 3.678869771593773*^9, {3.6788698165136056`*^9, 
+   3.6788698719063888`*^9}, 3.6788699158797846`*^9, 3.678870386282895*^9, 
+   3.6788706385904636`*^9, 3.6788708336435328`*^9, 3.678910886329613*^9, 
+   3.6792481890896254`*^9, 3.6796683212995176`*^9, 3.6797645887727385`*^9, 
+   3.6797647050443306`*^9, 3.679764753961257*^9, {3.6797648568867903`*^9, 
+   3.679764876302387*^9}, 3.679765038095696*^9, 3.6797651156024456`*^9, 
+   3.679781453825065*^9, 3.680017591806994*^9, 3.6801172981225905`*^9, 
+   3.680117369658252*^9, 3.680453683175708*^9, 3.680548498944791*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Join", "[", 
+   RowBox[{
+    RowBox[{"List", "/@", "someDataTypes"}], ",", "nativeDataTypeProperties", 
+    ",", "2"}], "]"}], "//", "TableForm"}]], "Input",
+ CellChangeTimes->{{3.6781482657693005`*^9, 3.678148291333774*^9}, {
+  3.678148333821437*^9, 3.678148334805889*^9}, {3.6781483873568316`*^9, 
+  3.678148407248993*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"HDF`PInvoke`H5T`CUS1\"\>", 
+     TemplateBox[{
+      "\"Class: \"","3","\", \"","\"STRING\"","\"; Size: \"","1",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`FORTRANUS1\"\>", 
+     TemplateBox[{
+      "\"Class: \"","3","\", \"","\"STRING\"","\"; Size: \"","1",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`IEEEUF32BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","4",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`IEEEUF32LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","4",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`IEEEUF64BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","8",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`IEEEUF64LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","8",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUB16\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","2",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUB32\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","4",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUB64\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","8",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUB8\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","1",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUDOUBLE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","8",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUFLOAT\"\>", 
+     TemplateBox[{
+      "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","4",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUHADDR\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUHBOOL\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUHERR\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUHSIZE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUHSSIZE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINT\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINT16\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINT32\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINT64\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINT8\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST16\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST32\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST64\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST8\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST16\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST32\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST64\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST8\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEULDOUBLE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","8",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEULLONG\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEULONG\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUOPAQUE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","5","\", \"","\"OPAQUE\"","\"; Size: \"","1",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUSCHAR\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUSHORT\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUCHAR\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINT\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINT16\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINT32\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINT64\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINT8\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST16\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST32\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST64\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST8\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST16\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST32\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST64\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST8\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUULLONG\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUULONG\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUSHORT\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUB16BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","2",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUB16LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","2",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUB32BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","4",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUB32LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","4",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUB64BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","8",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUB64LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","8",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUB8BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","1",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUB8LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","4","\", \"","\"BITFIELD\"","\"; Size: \"","1",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUI16BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUI16LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUI32BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUI32LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUI64BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUI64LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUI8BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUI8LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","1","\", \"","\"SGN_2\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUREFUDSETREG\"\>", 
+     TemplateBox[{
+      "\"Class: \"","7","\", \"","\"REFERENCE\"","\"; Size: \"","12",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUREFUOBJ\"\>", 
+     TemplateBox[{
+      "\"Class: \"","7","\", \"","\"REFERENCE\"","\"; Size: \"","8",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUU16BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUU16LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","2",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUU32BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUU32LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","4",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUU64BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUU64LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","8",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUU8BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`STDUU8LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"","0","\", \"","\"INTEGER\"","\"; Size: \"","1",
+       "\"; Sign: \"","0","\", \"","\"NONE\"","\"; VariableLengthString: \"",
+       "0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`UNIXUD32BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"",RowBox[{"-", "1"}],"\", \"","\"NO_CLASS\"","\"; Size: \"",
+       "0","\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"",RowBox[{"-", "1"}]},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`UNIXUD32LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"",RowBox[{"-", "1"}],"\", \"","\"NO_CLASS\"","\"; Size: \"",
+       "0","\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"",RowBox[{"-", "1"}]},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`UNIXUD64BE\"\>", 
+     TemplateBox[{
+      "\"Class: \"",RowBox[{"-", "1"}],"\", \"","\"NO_CLASS\"","\"; Size: \"",
+       "0","\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"",RowBox[{"-", "1"}]},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`UNIXUD64LE\"\>", 
+     TemplateBox[{
+      "\"Class: \"",RowBox[{"-", "1"}],"\", \"","\"NO_CLASS\"","\"; Size: \"",
+       "0","\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"",RowBox[{"-", "1"}]},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`VAXUF32\"\>", 
+     TemplateBox[{
+      "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","4",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]},
+    {"\<\"HDF`PInvoke`H5T`VAXUF64\"\>", 
+     TemplateBox[{
+      "\"Class: \"","1","\", \"","\"FLOAT\"","\"; Size: \"","8",
+       "\"; Sign: \"",RowBox[{"-", "1"}],"\", \"","\"ERROR\"",
+       "\"; VariableLengthString: \"","0"},
+      "RowDefault"]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.6781482837081842`*^9, 3.6781482916150465`*^9}, {
+   3.6781483358372173`*^9, 3.678148353260441*^9}, {3.678148392966637*^9, 
+   3.678148416722862*^9}, 3.6781872604047184`*^9, 3.678188093766065*^9, 
+   3.6782172024094243`*^9, 3.67821730380132*^9, 3.6782174011725683`*^9, 
+   3.6782673164130263`*^9, 3.678297003972493*^9, 3.6782971608440046`*^9, 
+   3.678297288963291*^9, 3.678309877698824*^9, 3.67835913021953*^9, 
+   3.678477261179572*^9, 3.6787272085349703`*^9, 3.678744007617338*^9, 
+   3.6788696662317266`*^9, 3.678869872000146*^9, 3.6788699159422903`*^9, 
+   3.678870386345401*^9, 3.6788706386373425`*^9, 3.678870833690412*^9, 
+   3.678910886559019*^9, 3.679248189167756*^9, 3.6796683213463974`*^9, 
+   3.6797645888196006`*^9, 3.6797647050911975`*^9, 3.6797647540081363`*^9, {
+   3.679764856949296*^9, 3.679764876343557*^9}, 3.679765038330089*^9, 
+   3.679765115664963*^9, 3.6797814538875823`*^9, 3.680017591900751*^9, 
+   3.6801172982163334`*^9, 3.6801173697207355`*^9, 3.6804536832381916`*^9, 
+   3.6805484990072737`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "H5TExtendGetSystemTypeAndSize"}]], "Input",
+ CellChangeTimes->{{3.6781877093144484`*^9, 3.6781877096425986`*^9}, {
+  3.679764594663822*^9, 3.679764595476385*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"H5TExtendGetSystemTypeAndSize[\\\"DataTypeID\\\"] returns a \
+list of {\\\"SystemType\\\"-> ..., \\\"SystemTypeCountInOneDatum\\\"-> ...}, \
+where \\\"SystemType\\\" is a .NET string of the data type, such as \
+\\\"System.Int32[]\\\", and \\\"SystemTypeCountInOneDatum\\\" is the number \
+of system type elements that make up one datum. See more at \
+H5TExtendGetByteSize[] about size. Alternatively, if not identified by the \
+algorithm, it returns Missing[\\\"NotSupported\\\"] along with a warning \
+message.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6805484991635237`*^9},
+ CellTags->"Info113680534099-7770164"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Flatten", "/@", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{"someDataTypes", ",", 
+      RowBox[{
+      "H5TExtendGetSystemTypeAndSize", "/@", "someNativeDataTypes"}]}], "}"}],
+     "]"}]}], "//", "TableForm"}]], "Input",
+ CellChangeTimes->{{3.678187404228346*^9, 3.6781874096350126`*^9}, {
+  3.6781877578182006`*^9, 3.678187875296039*^9}, {3.679764583841256*^9, 
+  3.6797645845756865`*^9}, {3.679764620026467*^9, 3.679764653099447*^9}, {
+  3.6797647427037344`*^9, 3.6797647484452653`*^9}, {3.6797648471772466`*^9, 
+  3.6797648544307013`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "H5TExtendGetSystemTypeAndSize","badtype",
+   "\"Identified class of \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"REFERENCE\\\\\\\"\\\"}]\\) is not one of \
+INTEGER, FLOAT, STRING, BITFIELD, ENUM, OPAQUE, COMPOUND, or ARRAY.\"",2,12,1,
+   19274819639039819585,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.6781874101194253`*^9, 3.678187441496853*^9, 3.678187502657834*^9, 
+   3.6781876502473774`*^9, 3.6781876887503557`*^9, {3.6781877645062165`*^9, 
+   3.6781878210730925`*^9}, {3.678187852341137*^9, 3.6781878756554403`*^9}, 
+   3.678188094062962*^9, 3.6782172027063217`*^9, 3.6782173040982175`*^9, 
+   3.6782174014850917`*^9, 3.678267316709924*^9, 3.6782970042693915`*^9, 
+   3.6782971611409025`*^9, 3.678297289260189*^9, 3.678309878013946*^9, 
+   3.6783591307195697`*^9, 3.6784772615546007`*^9, 3.678727209003758*^9, 
+   3.678744007911989*^9, 3.6788696665442505`*^9, 3.678869872250165*^9, 
+   3.6788699162391872`*^9, 3.678870386814188*^9, 3.6788706391061287`*^9, 
+   3.6788708341748247`*^9, 3.6789108869704776`*^9, 3.6792481896990585`*^9, 
+   3.6796683218464317`*^9, 3.679764589350872*^9, {3.67976463437757*^9, 
+   3.679764653630705*^9}, 3.679764706513197*^9, 3.679764754492564*^9, {
+   3.679764857433719*^9, 3.679764876999868*^9}, 3.679765038845765*^9, 
+   3.679765116321262*^9, 3.679781454559513*^9, 3.680017592353927*^9, 
+   3.680117298794444*^9, 3.6801173702519827`*^9, 3.68045368376945*^9, 
+   3.6805484994135227`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "H5TExtendGetSystemTypeAndSize","badtype",
+   "\"Identified class of \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"REFERENCE\\\\\\\"\\\"}]\\) is not one of \
+INTEGER, FLOAT, STRING, BITFIELD, ENUM, OPAQUE, COMPOUND, or ARRAY.\"",2,12,2,
+   19274819639039819585,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.6781874101194253`*^9, 3.678187441496853*^9, 3.678187502657834*^9, 
+   3.6781876502473774`*^9, 3.6781876887503557`*^9, {3.6781877645062165`*^9, 
+   3.6781878210730925`*^9}, {3.678187852341137*^9, 3.6781878756554403`*^9}, 
+   3.678188094062962*^9, 3.6782172027063217`*^9, 3.6782173040982175`*^9, 
+   3.6782174014850917`*^9, 3.678267316709924*^9, 3.6782970042693915`*^9, 
+   3.6782971611409025`*^9, 3.678297289260189*^9, 3.678309878013946*^9, 
+   3.6783591307195697`*^9, 3.6784772615546007`*^9, 3.678727209003758*^9, 
+   3.678744007911989*^9, 3.6788696665442505`*^9, 3.678869872250165*^9, 
+   3.6788699162391872`*^9, 3.678870386814188*^9, 3.6788706391061287`*^9, 
+   3.6788708341748247`*^9, 3.6789108869704776`*^9, 3.6792481896990585`*^9, 
+   3.6796683218464317`*^9, 3.679764589350872*^9, {3.67976463437757*^9, 
+   3.679764653630705*^9}, 3.679764706513197*^9, 3.679764754492564*^9, {
+   3.679764857433719*^9, 3.679764876999868*^9}, 3.679765038845765*^9, 
+   3.679765116321262*^9, 3.679781454559513*^9, 3.680017592353927*^9, 
+   3.680117298794444*^9, 3.6801173702519827`*^9, 3.68045368376945*^9, 
+   3.680548499476037*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "H5TExtendGetSystemTypeAndSize","badtype",
+   "\"Identified class of \\!\\(\\*RowBox[{\\\"\\\\\\\"NO_CLASS\\\\\\\"\\\"}]\
+\\) is not one of INTEGER, FLOAT, STRING, BITFIELD, ENUM, OPAQUE, COMPOUND, \
+or ARRAY.\"",2,12,3,19274819639039819585,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.6781874101194253`*^9, 3.678187441496853*^9, 3.678187502657834*^9, 
+   3.6781876502473774`*^9, 3.6781876887503557`*^9, {3.6781877645062165`*^9, 
+   3.6781878210730925`*^9}, {3.678187852341137*^9, 3.6781878756554403`*^9}, 
+   3.678188094062962*^9, 3.6782172027063217`*^9, 3.6782173040982175`*^9, 
+   3.6782174014850917`*^9, 3.678267316709924*^9, 3.6782970042693915`*^9, 
+   3.6782971611409025`*^9, 3.678297289260189*^9, 3.678309878013946*^9, 
+   3.6783591307195697`*^9, 3.6784772615546007`*^9, 3.678727209003758*^9, 
+   3.678744007911989*^9, 3.6788696665442505`*^9, 3.678869872250165*^9, 
+   3.6788699162391872`*^9, 3.678870386814188*^9, 3.6788706391061287`*^9, 
+   3.6788708341748247`*^9, 3.6789108869704776`*^9, 3.6792481896990585`*^9, 
+   3.6796683218464317`*^9, 3.679764589350872*^9, {3.67976463437757*^9, 
+   3.679764653630705*^9}, 3.679764706513197*^9, 3.679764754492564*^9, {
+   3.679764857433719*^9, 3.679764876999868*^9}, 3.679765038845765*^9, 
+   3.679765116321262*^9, 3.679781454559513*^9, 3.680017592353927*^9, 
+   3.680117298794444*^9, 3.6801173702519827`*^9, 3.68045368376945*^9, 
+   3.680548499491647*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \
+\\!\\(\\*StyleBox[RowBox[{\\\"H5TExtendGetSystemTypeAndSize\\\", \\\"::\\\", \
+\\\"badtype\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,12,4,19274819639039819585,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.6781874101194253`*^9, 3.678187441496853*^9, 3.678187502657834*^9, 
+   3.6781876502473774`*^9, 3.6781876887503557`*^9, {3.6781877645062165`*^9, 
+   3.6781878210730925`*^9}, {3.678187852341137*^9, 3.6781878756554403`*^9}, 
+   3.678188094062962*^9, 3.6782172027063217`*^9, 3.6782173040982175`*^9, 
+   3.6782174014850917`*^9, 3.678267316709924*^9, 3.6782970042693915`*^9, 
+   3.6782971611409025`*^9, 3.678297289260189*^9, 3.678309878013946*^9, 
+   3.6783591307195697`*^9, 3.6784772615546007`*^9, 3.678727209003758*^9, 
+   3.678744007911989*^9, 3.6788696665442505`*^9, 3.678869872250165*^9, 
+   3.6788699162391872`*^9, 3.678870386814188*^9, 3.6788706391061287`*^9, 
+   3.6788708341748247`*^9, 3.6789108869704776`*^9, 3.6792481896990585`*^9, 
+   3.6796683218464317`*^9, 3.679764589350872*^9, {3.67976463437757*^9, 
+   3.679764653630705*^9}, 3.679764706513197*^9, 3.679764754492564*^9, {
+   3.679764857433719*^9, 3.679764876999868*^9}, 3.679765038845765*^9, 
+   3.679765116321262*^9, 3.679781454559513*^9, 3.680017592353927*^9, 
+   3.680117298794444*^9, 3.6801173702519827`*^9, 3.68045368376945*^9, 
+   3.680548499507272*^9}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"HDF`PInvoke`H5T`CUS1\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`FORTRANUS1\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`IEEEUF32BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Single[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`IEEEUF32LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Single[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`IEEEUF64BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Double[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`IEEEUF64LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Double[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUB16\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUB32\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUB64\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUB8\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUDOUBLE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Double[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUFLOAT\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Single[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUHADDR\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUHBOOL\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUHERR\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUHSIZE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUHSSIZE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINT\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINT16\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINT32\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINT64\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINT8\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.SByte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST16\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST32\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST64\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTUFAST8\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.SByte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST16\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST32\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST64\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUINTULEAST8\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.SByte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEULDOUBLE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Double[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEULLONG\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEULONG\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUOPAQUE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUSCHAR\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.SByte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUSHORT\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUCHAR\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINT\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINT16\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINT32\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINT64\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINT8\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST16\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST32\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST64\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTUFAST8\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST16\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST32\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST64\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUINTULEAST8\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUULLONG\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUULONG\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`NATIVEUUSHORT\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUB16BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUB16LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUB32BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUB32LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUB64BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUB64LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUB8BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUB8LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUI16BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUI16LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUI32BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUI32LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUI64BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUI64LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Int64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUI8BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.SByte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUI8LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.SByte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUREFUDSETREG\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}]},
+    {"\<\"HDF`PInvoke`H5T`STDUREFUOBJ\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}]},
+    {"\<\"HDF`PInvoke`H5T`STDUU16BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUU16LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt16[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUU32BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUU32LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt32[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUU64BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUU64LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.UInt64[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUU8BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`STDUU8LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Byte[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`UNIXUD32BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}]},
+    {"\<\"HDF`PInvoke`H5T`UNIXUD32LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}]},
+    {"\<\"HDF`PInvoke`H5T`UNIXUD64BE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}]},
+    {"\<\"HDF`PInvoke`H5T`UNIXUD64LE\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotSupported\"\>", "]"}]}]},
+    {"\<\"HDF`PInvoke`H5T`VAXUF32\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Single[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]},
+    {"\<\"HDF`PInvoke`H5T`VAXUF64\"\>", 
+     RowBox[{"\<\"SystemType\"\>", "\[Rule]", "\<\"System.Double[]\"\>"}], 
+     RowBox[{"\<\"SystemTypeCountInOneDatum\"\>", "\[Rule]", "1"}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.6781874105100813`*^9, 3.6781874419968915`*^9, 3.678187503204752*^9, 
+   3.678187650794295*^9, 3.6781876891097593`*^9, {3.67818776486562*^9, 
+   3.678187821495001*^9}, {3.6781878527317924`*^9, 3.678187876014844*^9}, 
+   3.678188094453618*^9, 3.6782172030657244`*^9, 3.6782173045201263`*^9, 
+   3.6782174018913736`*^9, 3.678267317147458*^9, 3.6782970047069254`*^9, 
+   3.678297161578437*^9, 3.678297289697723*^9, 3.678309878480023*^9, 
+   3.678359131172729*^9, 3.678477261992134*^9, 3.6787272094569187`*^9, 
+   3.6787440089290695`*^9, 3.6788696675287037`*^9, 3.678869873250244*^9, 
+   3.6788699171767626`*^9, 3.678870387814266*^9, 3.678870640043703*^9, 
+   3.678870835096772*^9, 3.6789108881483154`*^9, 3.6792481901184316`*^9, 
+   3.679668322190198*^9, 3.679764589741544*^9, {3.679764634846343*^9, 
+   3.679764654099485*^9}, 3.6797647068569555`*^9, 3.6797647548675766`*^9, {
+   3.6797648578087482`*^9, 3.6797648773592587`*^9}, 3.6797650392207932`*^9, 
+   3.6797651166962786`*^9, 3.6797814549501514`*^9, 3.680017592525797*^9, 
+   3.680117298888193*^9, 3.680117370330124*^9, 3.680453683863205*^9, 
+   3.6805484995385385`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Close out and clean up", "Subsection",
+ CellChangeTimes->{{3.6777702213177395`*^9, 3.6777702287558155`*^9}, {
+  3.6781474296686454`*^9, 3.6781474318563137`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H5close", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.51929331872581*^9, 3.5192933323945913`*^9}, {
+  3.519294255857411*^9, 3.519294258239547*^9}, {3.5192976786471834`*^9, 
+  3.5192976970572357`*^9}, {3.5192978590565023`*^9, 3.519297865346862*^9}, {
+  3.519298947165306*^9, 3.5192989534256644`*^9}, {3.677616180223443*^9, 
+  3.6776161805828466`*^9}, {3.6777760691538086`*^9, 3.6777760736854095`*^9}, {
+  3.6777761054066133`*^9, 3.677776105500371*^9}, {3.6777762509178705`*^9, 
+  3.677776255340088*^9}, {3.6781474257777185`*^9, 3.6781474433415766`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.6781483270865407`*^9, 3.6781483532916927`*^9}, 
+   3.67814841676974*^9, 3.6781872604515967`*^9, 3.678187928597037*^9, 
+   3.678188094453618*^9, 3.6782162335123324`*^9, 3.678217203081351*^9, 
+   3.6782173045357523`*^9, 3.678217402032009*^9, 3.6782673171630845`*^9, 
+   3.6782970049100657`*^9, 3.678297289697723*^9, 3.6783098784895344`*^9, 
+   3.6783591311883554`*^9, 3.678477262007761*^9, 3.6787272094725447`*^9, 
+   3.6787440092088566`*^9, 3.6788696676380877`*^9, 3.6788698734377594`*^9, 
+   3.678869917364277*^9, 3.6788703879236493`*^9, 3.678870640153158*^9, 
+   3.678870835221782*^9, 3.678910888293774*^9, 3.679248190134057*^9, 
+   3.679668322330846*^9, 3.679764589913414*^9, 3.679764707091366*^9, 
+   3.6797647551332245`*^9, {3.6797648580743804`*^9, 3.679764877374898*^9}, 
+   3.6797650393926864`*^9, 3.679765116711905*^9, 3.6797814549657764`*^9, 
+   3.6800175925883017`*^9, 3.6801172989038353`*^9, 3.68011737039262*^9, 
+   3.680453683910092*^9, 3.680548499632286*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LoadedNETObjects", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.678216206889263*^9, 3.6782162112489753`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5G"}], "+", "info_t"}], "]"}], 
+     "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$4138683166883841], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5O"}], "+", "info_t"}], "]"}], 
+     "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$28017701645451265], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5S"}], "+", "seloper_t"}], "]"}],
+      "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$83886081], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5S"}], "+", "seloper_t"}], "]"}],
+      "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$67108865], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5S"}], "+", "seloper_t"}], "]"}],
+      "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$50331649], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5S"}], "+", "seloper_t"}], "]"}],
+      "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$33554433], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5S"}], "+", "seloper_t"}], "]"}],
+      "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$16777219], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5"}], "+", 
+       RowBox[{"iter_order", "_t"}]}], "]"}], "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$16777218], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5"}], "+", "index_t"}], "]"}], 
+     "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$16777217], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5T"}], "+", "direction_t"}], 
+      "]"}], "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$4], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5S"}], "+", "seloper_t"}], "]"}],
+      "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$3], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5"}], "+", 
+       RowBox[{"iter_order", "_t"}]}], "]"}], "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$2], ",", 
+   InterpretationBox[
+    RowBox[{"\[LeftGuillemet]", 
+     RowBox[{"NETObject", "[", 
+      RowBox[{
+       RowBox[{"HDF", ".", "PInvoke", ".", "H5"}], "+", "index_t"}], "]"}], 
+     "\[RightGuillemet]"}],
+    NETLink`Objects`NETObject$1]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6782162115458717`*^9, 3.678216237497015*^9}, 
+   3.6782172031126046`*^9, 3.678217304567004*^9, 3.678217402063262*^9, 
+   3.678267317178711*^9, 3.678297004925692*^9, 3.67829728971335*^9, 
+   3.678309878501049*^9, 3.6783591312039824`*^9, 3.6784772621171446`*^9, 
+   3.6787272094725447`*^9, 3.6787440092365613`*^9, 3.6788696676537137`*^9, 
+   3.6788698734533863`*^9, 3.678869917379902*^9, 3.6788703879392757`*^9, 
+   3.6788706401687126`*^9, 3.6788708352374086`*^9, 3.678910888310294*^9, 
+   3.679248190149684*^9, 3.6796683223464727`*^9, 3.679764589913414*^9, 
+   3.679764707106992*^9, 3.6797647551332245`*^9, {3.6797648580900164`*^9, 
+   3.679764877374898*^9}, 3.6797650394082966`*^9, 3.6797651167275305`*^9, 
+   3.6797814549814034`*^9, 3.680017592603928*^9, 3.6801172989350796`*^9, 
+   3.6801173704238577`*^9, 3.6804536839256945`*^9, 3.680548499647897*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1225, 737},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+Magnification:>1.3 Inherited,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info113680534099-7770164"->{
+  Cell[89326, 2265, 661, 10, 103, "Print",
+   CellTags->"Info113680534099-7770164"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info113680534099-7770164", 121657, 2865}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 336, 5, 93, "Chapter"],
+Cell[CellGroupData[{
+Cell[940, 31, 98, 1, 91, "Section"],
+Cell[1041, 34, 607, 13, 89, "Text"],
+Cell[1651, 49, 847, 16, 65, "Text"],
+Cell[2501, 67, 117, 1, 39, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2655, 73, 93, 1, 91, "Section"],
+Cell[CellGroupData[{
+Cell[2773, 78, 163, 2, 61, "Subsection"],
+Cell[2939, 82, 103, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[3067, 87, 126, 2, 39, "Input"],
+Cell[3196, 91, 3060, 42, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6293, 138, 102, 1, 39, "Input"],
+Cell[6398, 141, 2107, 29, 39, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8554, 176, 100, 1, 61, "Subsection"],
+Cell[8657, 179, 1064, 20, 390, "Input"],
+Cell[CellGroupData[{
+Cell[9746, 203, 45, 0, 39, "Input"],
+Cell[9794, 205, 1867, 26, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11698, 236, 183, 3, 39, "Input"],
+Cell[11884, 241, 1932, 28, 39, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13865, 275, 209, 3, 61, "Subsection"],
+Cell[14077, 280, 116, 1, 39, "Text"],
+Cell[CellGroupData[{
+Cell[14218, 285, 246, 5, 39, "Input"],
+Cell[14467, 292, 17973, 630, 2278, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32477, 927, 1406, 31, 265, "Input"],
+Cell[33886, 960, 5435, 104, 615, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39358, 1069, 340, 9, 39, "Input"],
+Cell[39701, 1080, 2665, 41, 215, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42403, 1126, 2627, 46, 415, "Input"],
+Cell[45033, 1174, 20684, 527, 2140, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65754, 1706, 360, 8, 39, "Input"],
+Cell[66117, 1716, 22978, 539, 1902, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[89132, 2260, 191, 3, 39, "Input"],
+Cell[89326, 2265, 661, 10, 103, "Print",
+ CellTags->"Info113680534099-7770164"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[90024, 2280, 596, 13, 39, "Input"],
+Cell[90623, 2295, 1472, 24, 29, "Message"],
+Cell[92098, 2321, 1470, 24, 29, "Message"],
+Cell[93571, 2347, 1465, 23, 29, "Message"],
+Cell[95039, 2372, 1467, 24, 29, "Message"],
+Cell[96509, 2398, 18358, 298, 1902, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[114916, 2702, 167, 2, 61, "Subsection"],
+Cell[CellGroupData[{
+Cell[115108, 2708, 576, 8, 39, "Input"],
+Cell[115687, 2718, 1022, 14, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[116746, 2737, 132, 2, 39, "Input"],
+Cell[116881, 2741, 4287, 105, 223, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

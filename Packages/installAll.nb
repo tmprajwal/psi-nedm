@@ -1,0 +1,216 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      7775,        207]
+NotebookOptionsPosition[      7070,        182]
+NotebookOutlinePosition[      7415,        197]
+CellTagsIndexPosition[      7372,        194]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ StyleBox["Will install the following packages\n1. EDA: Needs[\
+\[OpenCurlyDoubleQuote]EDA`\[CloseCurlyDoubleQuote]]\n2. h5mma: Needs[\
+\[OpenCurlyDoubleQuote]h5mma`\[CloseCurlyDoubleQuote]]\n3. CustomTicks: \
+Needs[\[OpenCurlyDoubleQuote]CustomTicks`\[CloseCurlyDoubleQuote]]\n4. \
+HDF5HighLevel: ",
+  FontSize->18],
+ StyleBox["Needs[\[OpenCurlyDoubleQuote]HDF5HighLevel`\[CloseCurlyDoubleQuote]\
+,FileNameJoin[{ParentDirectory@NotebookDirectory[],\[CloseCurlyDoubleQuote]\
+HDF5.Mathematica.Packages\[CloseCurlyDoubleQuote],\[CloseCurlyDoubleQuote]\
+HDF5HighLevel.m\[CloseCurlyDoubleQuote]}]] (Windows Only)",
+  FontSize->12]
+}], "Text",
+ CellChangeTimes->{{3.460821767453125*^9, 3.46082178371875*^9}, {
+   3.460821837015625*^9, 3.46082203828125*^9}, {3.460822112703125*^9, 
+   3.460822200109375*^9}, {3.460822263328125*^9, 3.46082227321875*^9}, {
+   3.461935518018921*^9, 3.4619355392211037`*^9}, {3.696079750780763*^9, 
+   3.69607976874745*^9}, 3.69607982443353*^9, {3.696079873433572*^9, 
+   3.696079982987952*^9}, {3.6960801413736095`*^9, 3.6960801464025865`*^9}, {
+   3.6960815064676743`*^9, 3.6960815067027183`*^9}},
+ FontSize->14],
+
+Cell[TextData[StyleBox["Install EDA",
+ FontVariations->{"Underline"->True}]], "Text",
+ CellChangeTimes->{{3.46082229253125*^9, 3.460822305890625*^9}, {
+   3.4608223685625*^9, 3.460822453375*^9}, 3.461935551820633*^9, {
+   3.6960810915171256`*^9, 3.69608110212519*^9}, {3.6960811969790382`*^9, 
+   3.6960811991320567`*^9}},
+ FontSize->14],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"origin", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<EDA\>\""}], "}"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"copyto", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$BaseDirectory", ",", "\"\<Applications\>\"", ",", "\"\<EDA\>\""}], 
+     "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CopyDirectory", "[", 
+   RowBox[{"origin", ",", "copyto"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6960812055360374`*^9, 3.6960813144513173`*^9}, {
+  3.696081346536488*^9, 3.696081350653901*^9}}],
+
+Cell[TextData[StyleBox["Install CustomTicks",
+ FontVariations->{"Underline"->True}]], "Text",
+ CellChangeTimes->{{3.46082229253125*^9, 3.460822305890625*^9}, {
+   3.4608223685625*^9, 3.460822453375*^9}, 3.461935551820633*^9, {
+   3.6960810915171256`*^9, 3.69608110212519*^9}, {3.6960811969790382`*^9, 
+   3.6960811991320567`*^9}, {3.6960814010392466`*^9, 3.696081412542861*^9}},
+ FontSize->14],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"origin", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<CustomTicks\>\""}], 
+     "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"copyto", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$BaseDirectory", ",", "\"\<Applications\>\"", ",", 
+      "\"\<CustomTicks\>\""}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CopyDirectory", "[", 
+   RowBox[{"origin", ",", "copyto"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6960812055360374`*^9, 3.6960813144513173`*^9}, {
+  3.696081346536488*^9, 3.696081350653901*^9}, {3.696081417867539*^9, 
+  3.696081424723522*^9}}],
+
+Cell[TextData[StyleBox["Install h5mma",
+ FontVariations->{"Underline"->True}]], "Text",
+ CellChangeTimes->{{3.46082229253125*^9, 3.460822305890625*^9}, {
+   3.4608223685625*^9, 3.460822453375*^9}, 3.461935551820633*^9, {
+   3.6960810915171256`*^9, 3.69608110212519*^9}, {3.6960811969790382`*^9, 
+   3.6960811991320567`*^9}, {3.6960814010392466`*^9, 3.696081412542861*^9}, {
+   3.696081547837741*^9, 3.696081555276744*^9}},
+ FontSize->14],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"origin", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<h5mma\>\""}], "}"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"copyto", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$BaseDirectory", ",", "\"\<Applications\>\"", ",", "\"\<h5mma\>\""}], 
+     "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CopyDirectory", "[", 
+   RowBox[{"origin", ",", "copyto"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6960812055360374`*^9, 3.6960813144513173`*^9}, {
+  3.696081346536488*^9, 3.696081350653901*^9}, {3.696081417867539*^9, 
+  3.696081424723522*^9}, {3.6960815593368025`*^9, 3.6960815647947865`*^9}}],
+
+Cell["\<\
+Note:
+1. You do not need to install the packages everytime
+2. But you do need to call the package in order to use the functions within\
+\>", "Text",
+ CellChangeTimes->{{3.46082229253125*^9, 3.460822305890625*^9}, {
+   3.4608223685625*^9, 3.460822453375*^9}, 3.461935551820633*^9, {
+   3.6960810915171256`*^9, 3.69608110212519*^9}, {3.6960811969790382`*^9, 
+   3.6960811991320567`*^9}, {3.6960814010392466`*^9, 3.696081412542861*^9}, {
+   3.696081547837741*^9, 3.6960816221233826`*^9}},
+ FontSize->14],
+
+Cell[TextData[StyleBox["Execute the following to use the respective \
+packages",
+ FontVariations->{"Underline"->True}]], "Text",
+ CellChangeTimes->{{3.46082229253125*^9, 3.460822305890625*^9}, {
+   3.4608223685625*^9, 3.460822453375*^9}, 3.461935551820633*^9, {
+   3.6960810915171256`*^9, 3.69608110212519*^9}},
+ FontSize->14],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<EDA`\>\"", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<h5mma`\>\"", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<CustomTicks`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6960810750622654`*^9, 3.696081075069493*^9}}],
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"packageFileName", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "@", 
+         RowBox[{"NotebookDirectory", "[", "]"}]}], ",", 
+        "\"\<HDF5.Mathematica.Packages\>\"", ",", "\"\<HDF5HighLevel.m\>\""}],
+        "}"}], "]"}]}], "}"}], ",", 
+   RowBox[{"Needs", "[", 
+    RowBox[{"\"\<HDF5HighLevel`\>\"", ",", "packageFileName"}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6960792153321605`*^9, 3.6960792256421795`*^9}, {
+   3.6960800564904213`*^9, 3.696080057793855*^9}, {3.6960807588166633`*^9, 
+   3.6960808243771143`*^9}, 3.6960809133192277`*^9, {3.6960809602180986`*^9, 
+   3.696080970227249*^9}, {3.6960810138355193`*^9, 3.696081067706499*^9}}]
+},
+WindowSize->{1920, 1117},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1154, 20, 131, "Text"],
+Cell[1702, 42, 337, 6, 30, "Text"],
+Cell[2042, 50, 689, 19, 72, "Input"],
+Cell[2734, 71, 393, 6, 30, "Text"],
+Cell[3130, 79, 756, 20, 72, "Input"],
+Cell[3889, 101, 437, 7, 30, "Text"],
+Cell[4329, 110, 792, 20, 72, "Input"],
+Cell[5124, 132, 510, 10, 68, "Text"],
+Cell[5637, 144, 326, 6, 30, "Text"],
+Cell[5966, 152, 69, 1, 31, "Input"],
+Cell[6038, 155, 71, 1, 31, "Input"],
+Cell[6112, 158, 145, 2, 31, "Input"],
+Cell[6260, 162, 806, 18, 31, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
