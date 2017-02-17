@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    249905,       4658]
-NotebookOptionsPosition[    247924,       4588]
-NotebookOutlinePosition[    248299,       4604]
-CellTagsIndexPosition[    248256,       4601]
+NotebookDataLength[    252607,       4734]
+NotebookOptionsPosition[    250466,       4659]
+NotebookOutlinePosition[    250840,       4675]
+CellTagsIndexPosition[    250797,       4672]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -3787,8 +3787,9 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell["Field Calculation", "Chapter",
- CellChangeTimes->{{3.6960724760255923`*^9, 3.696072481873248*^9}}],
+Cell["Field Elements", "Chapter",
+ CellChangeTimes->{{3.6960724760255923`*^9, 3.696072481873248*^9}, {
+  3.696171941819893*^9, 3.6961719430500536`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -4379,6 +4380,10 @@ Cell[BoxData[{
   3.696152705899433*^9, 3.696152706670545*^9}}]
 }, Open  ]],
 
+Cell["Geometry+Field", "Chapter",
+ CellChangeTimes->{{3.6960724760255923`*^9, 3.696072481873248*^9}, {
+  3.696171941819893*^9, 3.696171957245058*^9}}],
+
 Cell[CellGroupData[{
 
 Cell["Test", "Chapter",
@@ -4583,10 +4588,76 @@ Cell[BoxData["\<\"test.dat\"\>"], "Output",
    3.6961699923803043`*^9}, 3.69617002252169*^9, 3.696170103939288*^9, 
    3.696170133983783*^9, {3.6961701958099337`*^9, 3.696170238139599*^9}, 
    3.696170354354391*^9, 3.696170427652203*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Mean of the lattice distribution [ideally around ({0,0,.06} \
+\[PlusMinus] \>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"N", "[", 
+      RowBox[{"2", "/", 
+       RowBox[{"(", 
+        RowBox[{"cylr", "*", "dimlattice"}], ")"}]}], "]"}], ",", 
+     RowBox[{"N", "[", 
+      RowBox[{"2", "/", 
+       RowBox[{"(", 
+        RowBox[{"cylr", "*", "dimlattice"}], ")"}]}], "]"}], ",", 
+     RowBox[{"N", "[", 
+      RowBox[{"2", "/", 
+       RowBox[{"(", 
+        RowBox[{"H", "*", "dimlattice"}], ")"}]}], "]"}]}], "}"}], ",", 
+   "\"\<)m, cntr = \>\"", ",", 
+   RowBox[{"cntr", " ", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Mean", "[", 
+       RowBox[{"latticepts", "[", 
+        RowBox[{"[", 
+         RowBox[{";;", ",", "1"}], "]"}], "]"}], "]"}], ",", 
+      RowBox[{"Mean", "[", 
+       RowBox[{"latticepts", "[", 
+        RowBox[{"[", 
+         RowBox[{";;", ",", "2"}], "]"}], "]"}], "]"}], ",", 
+      RowBox[{"Mean", "[", 
+       RowBox[{"latticepts", "[", 
+        RowBox[{"[", 
+         RowBox[{";;", ",", "3"}], "]"}], "]"}], "]"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6962513330892715`*^9, 3.696251424596436*^9}, {
+  3.696251461923236*^9, 3.6962516736293793`*^9}, {3.696251741611692*^9, 
+  3.6962517449868174`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Mean of the lattice distribution [ideally around ({0,0,.06} \
+\[PlusMinus] \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.0005285454165862838`", ",", "0.0005285454165862838`", ",", 
+     "0.0010350681074814722`"}], "}"}], 
+   "\[InvisibleSpace]", "\<\")m, cntr = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.0005276475702550521`", ",", "0.0004634761788343377`", ",", 
+     "0.06001332046777668`"}], "}"}]}],
+  SequenceForm[
+  "Mean of the lattice distribution [ideally around ({0,0,.06} \[PlusMinus] \
+", {0.0005285454165862838, 0.0005285454165862838, 0.0010350681074814722`}, 
+   ")m, cntr = ", {0.0005276475702550521, 0.0004634761788343377, 
+   0.06001332046777668}],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.696251418610468*^9, 3.69625142651546*^9}, {
+   3.6962515323609037`*^9, 3.6962516048411927`*^9}, {3.696251664564906*^9, 
+   3.696251674522009*^9}, 3.696251745931992*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1920, 1117},
+WindowSize->{1600, 817},
 WindowMargins->{{-8, Automatic}, {Automatic, -8}},
 Magnification:>1.3 Inherited,
 FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
@@ -4638,26 +4709,31 @@ Cell[212564, 3760, 1297, 22, 30, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[213922, 3789, 104, 1, 93, "Chapter"],
-Cell[214029, 3792, 13664, 234, 385, "Input"],
-Cell[227696, 4028, 12391, 350, 784, "Input"]
+Cell[213922, 3789, 152, 2, 93, "Chapter"],
+Cell[214077, 3793, 13664, 234, 385, "Input"],
+Cell[227744, 4029, 12391, 350, 814, "Input"]
+}, Open  ]],
+Cell[240150, 4382, 150, 2, 93, "Chapter"],
+Cell[CellGroupData[{
+Cell[240325, 4388, 91, 1, 78, "Chapter"],
+Cell[CellGroupData[{
+Cell[240441, 4393, 273, 5, 39, "Input"],
+Cell[240717, 4400, 113, 1, 39, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[240124, 4383, 91, 1, 93, "Chapter"],
-Cell[CellGroupData[{
-Cell[240240, 4388, 273, 5, 39, "Input"],
-Cell[240516, 4395, 113, 1, 39, "Output"]
+Cell[240867, 4406, 468, 12, 65, "Input"],
+Cell[241338, 4420, 222, 5, 39, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[240666, 4401, 468, 12, 65, "Input"],
-Cell[241137, 4415, 222, 5, 39, "Output"]
+Cell[241597, 4430, 1789, 47, 115, "Input"],
+Cell[243389, 4479, 1248, 29, 39, "Output"],
+Cell[244640, 4510, 1278, 29, 39, "Output"],
+Cell[245921, 4541, 1639, 39, 65, "Output"],
+Cell[247563, 4582, 534, 7, 39, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[241396, 4425, 1789, 47, 115, "Input"],
-Cell[243188, 4474, 1248, 29, 39, "Output"],
-Cell[244439, 4505, 1278, 29, 39, "Output"],
-Cell[245720, 4536, 1639, 39, 65, "Output"],
-Cell[247362, 4577, 534, 7, 39, "Output"]
+Cell[248134, 4594, 1322, 38, 65, "Input"],
+Cell[249459, 4634, 979, 21, 52, "Print"]
 }, Open  ]]
 }, Open  ]]
 }
