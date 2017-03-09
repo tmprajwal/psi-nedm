@@ -1,0 +1,715 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24978,        707]
+NotebookOptionsPosition[     23567,        655]
+NotebookOutlinePosition[     23941,        671]
+CellTagsIndexPosition[     23898,        668]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Pre-calc      ", "Chapter",
+ CellChangeTimes->{{3.6955037984439726`*^9, 3.6955038070535393`*^9}, {
+  3.6955038493251486`*^9, 3.6955038503942766`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"OS", "=", "\"\<win\>\""}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"or", " ", "linux"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<ErrorBarPlots`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<EDA`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<CustomTicks`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"OS", "\[Equal]", "\"\<win\>\""}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Working Directory: \>\"", ",", 
+       RowBox[{"curDir", "=", 
+        RowBox[{
+        "SetDirectory", "[", 
+         "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\psi-nedm\\\\\
+Analysis\\\\mLC\>\"", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(ASCII) Rawdata Directory: \>\"", ",", 
+       RowBox[{
+       "AscDir", "=", 
+        "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\rawdata\>\""}]}], 
+      "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"OS", "\[Equal]", "\"\<linux\>\""}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Working Directory:\>\"", ",", 
+       RowBox[{"curDir", "=", 
+        RowBox[{
+        "SetDirectory", "[", 
+         "\"\</home/prajwal/Dropbox/nEDM/psi-nedm/Analysis\>\"", "]"}]}]}], 
+      "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(faster) Rawdata Directory:\>\"", ",", 
+       RowBox[{"fastDir", "=", "\"\</home/prajwal/nEDM/rawdata\>\""}]}], 
+      "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(ASCII) Rawdata Directory:\>\"", ",", 
+       RowBox[{
+       "AscDir", "=", "\"\</home/prajwal/Dropbox/nEDM/rawdata\>\""}]}], "]"}],
+      ";"}]}], "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", 
+  RowBox[{"H", ",", "h", ",", "c", ",", "m", ",", "b"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"c", " ", "H"}], "-", 
+        FractionBox[
+         RowBox[{"m", " ", 
+          SuperscriptBox["H", "2"]}], "2"]}], "\[Equal]", "1"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"c", "+", "b"}], ")"}], 
+        RowBox[{"(", 
+         RowBox[{
+          FractionBox["H", "2"], "-", "h"}], ")"}]}], "\[Equal]", "1"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"c", "-", 
+          RowBox[{"m", " ", "H"}], "+", "b"}], ")"}], 
+        RowBox[{"(", 
+         RowBox[{
+          FractionBox["H", "2"], "+", "h"}], ")"}]}], "\[Equal]", "1"}]}], 
+     "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"c", ",", "m", ",", "b"}], "}"}]}], "]"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"H", "=", ".12"}], ";", 
+  RowBox[{"h", "=", ".0054"}], ";", 
+  RowBox[{"b", "=", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"4", " ", 
+      SuperscriptBox["h", "2"]}], "+", 
+     SuperscriptBox["H", "2"]}], 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "4"}], " ", 
+      SuperscriptBox["h", "2"], " ", "H"}], "+", 
+     SuperscriptBox["H", "3"]}]]}], ";", 
+  RowBox[{"cylr", "=", ".235"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mu0", "=", 
+   RowBox[{
+    SuperscriptBox["10", 
+     RowBox[{"-", "7"}]], "\[Times]", "2", "\[Pi]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rhoHg", "[", "z_", "]"}], "=", 
+  RowBox[{"H", "/", "H"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rhon", "[", "z_", "]"}], "=", 
+  RowBox[{"Simplify", "[", 
+   RowBox[{"H", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox["1", "H"], "-", 
+        FractionBox[
+         RowBox[{"4", " ", "h"}], 
+         RowBox[{
+          RowBox[{"4", " ", 
+           SuperscriptBox["h", "2"]}], "-", 
+          SuperscriptBox["H", "2"]}]]}], ")"}], "-", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"8", " ", "h"}], 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "4"}], " ", 
+          SuperscriptBox["h", "2"], " ", "H"}], "+", 
+         SuperscriptBox["H", "3"]}]], "z"}]}], ")"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"whtsn", "=", 
+   RowBox[{"ParallelTable", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"rhon", "[", 
+       RowBox[{
+        RowBox[{"latticepts", "[", 
+         RowBox[{"[", "k", "]"}], "]"}], "[", 
+        RowBox[{"[", "3", "]"}], "]"}], "]"}], "/", "dimlattice"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "1", ",", "dimlattice"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"whtshg", "=", 
+   RowBox[{"ParallelTable", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"rhoHg", "[", 
+       RowBox[{
+        RowBox[{"latticepts", "[", 
+         RowBox[{"[", "k", "]"}], "]"}], "[", 
+        RowBox[{"[", "3", "]"}], "]"}], "]"}], "/", "dimlattice"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "1", ",", "dimlattice"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.695510273212858*^9, 3.6955102775594063`*^9}, {
+   3.695652243784697*^9, 3.6956522671223*^9}, {3.696152700135008*^9, 
+   3.6961527110047827`*^9}, {3.6961528040571675`*^9, 
+   3.6961528158599567`*^9}, {3.6961559425779076`*^9, 3.6961559428570585`*^9}, 
+   3.696589673756728*^9, {3.69658973317157*^9, 3.6965897662267127`*^9}, {
+   3.698062537224777*^9, 3.6980625376770616`*^9}, {3.698063512878231*^9, 
+   3.698063513132081*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\psi-nedm\\\\Analysis\\\\mLC\
+\"\>"}],
+  SequenceForm[
+  "Working Directory: ", 
+   "C:\\Users\\Prajwal\\Dropbox\\nEDM\\psi-nedm\\Analysis\\mLC"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.6965897445542984`*^9, 3.6965897671429396`*^9}, 
+   3.696708471762605*^9, 3.69670853282796*^9, 3.6978664060160913`*^9, 
+   3.697896535800771*^9, 3.697906285882591*^9, {3.698062518919265*^9, 
+   3.6980625388677835`*^9}, 3.698063430193206*^9, 3.698063945432026*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(ASCII) Rawdata Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\rawdata\"\>"}],
+  SequenceForm[
+  "(ASCII) Rawdata Directory: ", "C:\\Users\\Prajwal\\Dropbox\\nEDM\\rawdata"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.6965897445542984`*^9, 3.6965897671429396`*^9}, 
+   3.696708471762605*^9, 3.69670853282796*^9, 3.6978664060160913`*^9, 
+   3.697896535800771*^9, 3.697906285882591*^9, {3.698062518919265*^9, 
+   3.6980625388677835`*^9}, 3.698063430193206*^9, 3.6980639454365296`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"c", "\[Rule]", 
+     RowBox[{
+      FractionBox["1", "H"], "-", 
+      FractionBox[
+       RowBox[{"4", " ", "h"}], 
+       RowBox[{
+        RowBox[{"4", " ", 
+         SuperscriptBox["h", "2"]}], "-", 
+        SuperscriptBox["H", "2"]}]]}]}], ",", 
+    RowBox[{"m", "\[Rule]", 
+     FractionBox[
+      RowBox[{"8", " ", "h"}], 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "4"}], " ", 
+        SuperscriptBox["h", "2"], " ", "H"}], "+", 
+       SuperscriptBox["H", "3"]}]]}], ",", 
+    RowBox[{"b", "\[Rule]", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"4", " ", 
+        SuperscriptBox["h", "2"]}], "+", 
+       SuperscriptBox["H", "2"]}], 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "4"}], " ", 
+        SuperscriptBox["h", "2"], " ", "H"}], "+", 
+       SuperscriptBox["H", "3"]}]]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6965897448475285`*^9, 3.6965897674336486`*^9}, 
+   3.6967084722112503`*^9, 3.6967085332352247`*^9, 3.6978664065087757`*^9, 
+   3.697896536091477*^9, 3.697906286235339*^9, {3.6980625193990583`*^9, 
+   3.6980625391716175`*^9}, 3.6980634304965754`*^9, 3.698063945742225*^9}],
+
+Cell[BoxData["1.`"], "Output",
+ CellChangeTimes->{{3.6965897448475285`*^9, 3.6965897674336486`*^9}, 
+   3.6967084722112503`*^9, 3.6967085332352247`*^9, 3.6978664065087757`*^9, 
+   3.697896536091477*^9, 3.697906286235339*^9, {3.6980625193990583`*^9, 
+   3.6980625391716175`*^9}, 3.6980634304965754`*^9, 3.6980639457462206`*^9}],
+
+Cell[BoxData[
+ RowBox[{"1.1814699062405485`", "\[VeryThinSpace]", "-", 
+  RowBox[{"3.024498437342474`", " ", "z"}]}]], "Output",
+ CellChangeTimes->{{3.6965897448475285`*^9, 3.6965897674336486`*^9}, 
+   3.6967084722112503`*^9, 3.6967085332352247`*^9, 3.6978664065087757`*^9, 
+   3.697896536091477*^9, 3.697906286235339*^9, {3.6980625193990583`*^9, 
+   3.6980625391716175`*^9}, 3.6980634304965754`*^9, 3.698063945752753*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Read Lattice and Field Info from file", "Chapter",
+ CellChangeTimes->{{3.69806297787939*^9, 3.698062996655545*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", " ", 
+   RowBox[{"Read", " ", "lattice", " ", "points", " ", "from", " ", "file"}], 
+   "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"latticepts", "=", 
+     RowBox[{"ReadList", "[", 
+      RowBox[{
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "curDir", ",", "\"\<\\\\\>\"", ",", "\"\<lattice_pts.dat\>\""}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Real", ",", "Real", ",", "Real"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dimlattice", "=", 
+     RowBox[{
+      RowBox[{"Dimensions", "[", "latticepts", "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tmP01", "=", "11"}], ";", 
+    RowBox[{"qq", "=", ".01"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<*) # lattice points = \>\"", ",", "dimlattice", ",", 
+      "\"\<; Time taken to generate lattice points with {cell side length (m) \
+= \>\"", ",", "qq", ",", 
+      "\"\<, cell volume (\!\(\*SuperscriptBox[\(m\), \(3\)]\)): \>\"", ",", 
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{"(", "qq", ")"}], "^", "3"}], "]"}], ",", "\"\<} = \>\"", ",",
+       "tmP01", ",", "\"\< s\>\""}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<*) Increase # of lattice points by a factor, ptscl = \>\"", ",", 
+      RowBox[{"ptscl", "=", "100"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<*) # lattice points = \>\"", ",", 
+      RowBox[{"dimlattice", "*", "ptscl"}], ",", 
+      "\"\<; Time taken to generate lattice points with {cell side length (m) \
+= \>\"", ",", 
+      RowBox[{"qq", "/", 
+       RowBox[{"CubeRoot", "[", "ptscl", "]"}]}], ",", 
+      "\"\<, cell volume (\!\(\*SuperscriptBox[\(m\), \(3\)]\)): \>\"", ",", 
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", "qq", ")"}], "^", "3"}], "/", "ptscl"}], "]"}], ",", 
+      "\"\<} = \>\"", ",", 
+      RowBox[{"tmP01", "*", "ptscl"}], ",", "\"\< s\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<*) Descrease lattice side length (qq) by a factor, sdscl = \>\"", 
+      ",", 
+      RowBox[{"sdscl", "=", "5"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<*) # lattice points = \>\"", ",", 
+      RowBox[{"dimlattice", "*", 
+       RowBox[{"sdscl", "^", "3"}]}], ",", 
+      "\"\<; Time taken to generate lattice points with {cell side length (m) \
+= \>\"", ",", 
+      RowBox[{"qq", "/", "sdscl"}], ",", 
+      "\"\<, cell volume (\!\(\*SuperscriptBox[\(m\), \(3\)]\)): \>\"", ",", 
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"qq", "/", "sdscl"}], ")"}], "^", "3"}], "]"}], ",", 
+      "\"\<} = \>\"", ",", 
+      RowBox[{"tmP01", "*", 
+       RowBox[{"sdscl", "^", "3"}]}], ",", "\"\< s\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<*) Mean of the lattice distribution [ideally around ({0,0,.06} \
+\[PlusMinus] \>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"N", "[", 
+        RowBox[{"2", "/", 
+         RowBox[{"(", 
+          RowBox[{"cylr", "*", "dimlattice"}], ")"}]}], "]"}], ",", 
+       RowBox[{"N", "[", 
+        RowBox[{"2", "/", 
+         RowBox[{"(", 
+          RowBox[{"cylr", "*", "dimlattice"}], ")"}]}], "]"}], ",", 
+       RowBox[{"N", "[", 
+        RowBox[{"2", "/", 
+         RowBox[{"(", 
+          RowBox[{"H", "*", "dimlattice"}], ")"}]}], "]"}]}], "}"}], ",", 
+     "\"\<)m, cntr = \>\"", ",", 
+     RowBox[{"cntr", " ", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Mean", "[", 
+         RowBox[{"latticepts", "[", 
+          RowBox[{"[", 
+           RowBox[{";;", ",", "1"}], "]"}], "]"}], "]"}], ",", 
+        RowBox[{"Mean", "[", 
+         RowBox[{"latticepts", "[", 
+          RowBox[{"[", 
+           RowBox[{";;", ",", "2"}], "]"}], "]"}], "]"}], ",", 
+        RowBox[{"Mean", "[", 
+         RowBox[{"latticepts", "[", 
+          RowBox[{"[", 
+           RowBox[{";;", ",", "3"}], "]"}], "]"}], "]"}]}], "}"}]}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "\[IndentingNewLine]", " ", 
+    RowBox[{"Read", " ", "field", " ", "points", " ", "from", " ", "file"}], 
+    "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"fieldb1", "=", 
+     RowBox[{"ReadList", "[", 
+      RowBox[{
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "curDir", ",", "\"\<\\\\\>\"", ",", "\"\<lattice_b1.dat\>\""}], "]"}],
+        ",", 
+       RowBox[{"{", 
+        RowBox[{"Real", ",", "Real", ",", "Real"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"fieldb2", "=", 
+     RowBox[{"ReadList", "[", 
+      RowBox[{
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "curDir", ",", "\"\<\\\\\>\"", ",", "\"\<lattice_b2.dat\>\""}], "]"}],
+        ",", 
+       RowBox[{"{", 
+        RowBox[{"Real", ",", "Real", ",", "Real"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"fieldb3", "=", 
+     RowBox[{"ReadList", "[", 
+      RowBox[{
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "curDir", ",", "\"\<\\\\\>\"", ",", "\"\<lattice_b3.dat\>\""}], "]"}],
+        ",", 
+       RowBox[{"{", 
+        RowBox[{"Real", ",", "Real", ",", "Real"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Mean", "[", "fieldb1", "]"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "6"}]], 
+      RowBox[{"{", 
+       RowBox[{
+        SuperscriptBox["10", 
+         RowBox[{"-", "11"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "11"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Mean", "[", "fieldb2", "]"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "6"}]], 
+      RowBox[{"{", 
+       RowBox[{
+        SuperscriptBox["10", 
+         RowBox[{"-", "11"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "11"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Mean", "[", "fieldb3", "]"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "6"}]], 
+      RowBox[{"{", 
+       RowBox[{
+        SuperscriptBox["10", 
+         RowBox[{"-", "11"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "11"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.6980628602172747`*^9, 3.6980628664510517`*^9}, {
+  3.698062926459812*^9, 3.698062936214696*^9}, {3.698062972807886*^9, 
+  3.698062973665721*^9}, {3.6980630037526865`*^9, 3.698063010813376*^9}, {
+  3.6980633078425655`*^9, 3.6980633081683455`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"*) # lattice points = \"\>", "\[InvisibleSpace]", "30701", 
+   "\[InvisibleSpace]", "\<\"; Time taken to generate lattice points with \
+{cell side length (m) = \"\>", "\[InvisibleSpace]", "0.01`", 
+   "\[InvisibleSpace]", "\<\", cell volume (\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)): \"\>", "\[InvisibleSpace]", "1.0000000000000002`*^-6", 
+   "\[InvisibleSpace]", "\<\"} = \"\>", "\[InvisibleSpace]", "11", 
+   "\[InvisibleSpace]", "\<\" s\"\>"}],
+  SequenceForm[
+  "*) # lattice points = ", 30701, 
+   "; Time taken to generate lattice points with {cell side length (m) = ", 
+   0.01, ", cell volume (\!\(\*SuperscriptBox[\(m\), \(3\)]\)): ", 
+   1.0000000000000002`*^-6, "} = ", 11, " s"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6980634431131268`*^9, 3.698063952372176*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"*) Increase # of lattice points by a factor, ptscl = \"\>", 
+   "\[InvisibleSpace]", "100"}],
+  SequenceForm["*) Increase # of lattice points by a factor, ptscl = ", 100],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6980634431131268`*^9, 3.6980639523806753`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"*) # lattice points = \"\>", "\[InvisibleSpace]", "3070100", 
+   "\[InvisibleSpace]", "\<\"; Time taken to generate lattice points with \
+{cell side length (m) = \"\>", "\[InvisibleSpace]", "0.002154434690031884`", 
+   "\[InvisibleSpace]", "\<\", cell volume (\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)): \"\>", "\[InvisibleSpace]", "1.0000000000000002`*^-8", 
+   "\[InvisibleSpace]", "\<\"} = \"\>", "\[InvisibleSpace]", "1100", 
+   "\[InvisibleSpace]", "\<\" s\"\>"}],
+  SequenceForm[
+  "*) # lattice points = ", 3070100, 
+   "; Time taken to generate lattice points with {cell side length (m) = ", 
+   0.002154434690031884, 
+   ", cell volume (\!\(\*SuperscriptBox[\(m\), \(3\)]\)): ", 
+   1.0000000000000002`*^-8, "} = ", 1100, " s"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6980634431131268`*^9, 3.6980639523891816`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"*) Descrease lattice side length (qq) by a factor, sdscl = \
+\"\>", "\[InvisibleSpace]", "5"}],
+  SequenceForm[
+  "*) Descrease lattice side length (qq) by a factor, sdscl = ", 5],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6980634431131268`*^9, 3.698063952397688*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"*) # lattice points = \"\>", "\[InvisibleSpace]", "3837625", 
+   "\[InvisibleSpace]", "\<\"; Time taken to generate lattice points with \
+{cell side length (m) = \"\>", "\[InvisibleSpace]", "0.002`", 
+   "\[InvisibleSpace]", "\<\", cell volume (\\!\\(\\*SuperscriptBox[\\(m\\), \
+\\(3\\)]\\)): \"\>", "\[InvisibleSpace]", "8.`*^-9", 
+   "\[InvisibleSpace]", "\<\"} = \"\>", "\[InvisibleSpace]", "1375", 
+   "\[InvisibleSpace]", "\<\" s\"\>"}],
+  SequenceForm[
+  "*) # lattice points = ", 3837625, 
+   "; Time taken to generate lattice points with {cell side length (m) = ", 
+   0.002, ", cell volume (\!\(\*SuperscriptBox[\(m\), \(3\)]\)): ", 8.*^-9, 
+   "} = ", 1375, " s"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6980634431131268`*^9, 3.6980639524066987`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"*) Mean of the lattice distribution [ideally around ({0,0,.06} \
+\[PlusMinus] \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.00027721045887340283`", ",", "0.00027721045887340283`", ",", 
+     "0.0005428704819604139`"}], "}"}], 
+   "\[InvisibleSpace]", "\<\")m, cntr = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.0004268152615496569`", ",", "0.0002457272724381703`", ",", 
+     "0.06003234406814803`"}], "}"}]}],
+  SequenceForm[
+  "*) Mean of the lattice distribution [ideally around ({0,0,.06} \
+\[PlusMinus] ", {0.00027721045887340283`, 0.00027721045887340283`, 
+   0.0005428704819604139}, ")m, cntr = ", {0.0004268152615496569, 
+   0.0002457272724381703, 0.06003234406814803}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6980634431131268`*^9, 3.6980639524162064`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"4.5682661626068874`", ",", 
+   RowBox[{"-", "0.05968818420003563`"}], ",", "0.21705817236665814`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6980634439977565`*^9, 3.698063953358494*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"4.597981487627865`", ",", 
+   RowBox[{"-", "0.03859254423697662`"}], ",", "0.`"}], "}"}]], "Output",
+ CellChangeTimes->{3.6980634439977565`*^9, 3.6980639533775067`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3.6024259820208684`", ",", 
+   RowBox[{"-", "0.02634753093052803`"}], ",", "0.`"}], "}"}]], "Output",
+ CellChangeTimes->{3.6980634439977565`*^9, 3.6980639533965263`*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pnfieldb1", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{"fieldb1", ",", "whtsn"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgfieldb1", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{"fieldb1", ",", "whtshg"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.697910609480603*^9, 3.6979106361264086`*^9}, {
+   3.697910702689767*^9, 3.697910904481703*^9}, {3.697910978509551*^9, 
+   3.69791102952204*^9}, 3.697911072810278*^9, 3.6979111595160484`*^9, {
+   3.6980627363891816`*^9, 3.698062751576341*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Mean", "[", "phgfieldb1", "]"}], "/", 
+  RowBox[{"(", 
+   RowBox[{
+    SuperscriptBox["10", 
+     RowBox[{"-", "6"}]], 
+    RowBox[{"{", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "11"}]], ",", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "11"}]], ",", 
+      SuperscriptBox["10", 
+       RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.697911035439456*^9, 3.6979110484799232`*^9}, 
+   3.6979111029398575`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"501.7402702069425`", ",", 
+   RowBox[{"-", "3.3662341872020787`"}], ",", "18.43394093307201`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.6979110529587603`*^9, 3.697911085831761*^9, {3.697911148549712*^9, 
+   3.6979111729468*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"latticepts", "[", 
+  RowBox[{"[", "10", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6979107559627337`*^9, 3.6979107615910177`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "0.20142251077627163`"}], ",", 
+   RowBox[{"-", "0.12105359206807018`"}], ",", "0.04285714285714347`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6979107623657255`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1600, 817},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>1.2 Inherited,
+FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 156, 2, 88, "Chapter"],
+Cell[CellGroupData[{
+Cell[761, 28, 5662, 162, 568, "Input"],
+Cell[CellGroupData[{
+Cell[6448, 194, 612, 13, 26, "Print"],
+Cell[7063, 209, 588, 11, 26, "Print"]
+}, Open  ]],
+Cell[7666, 223, 1201, 35, 59, "Output"],
+Cell[8870, 260, 326, 4, 36, "Output"],
+Cell[9199, 266, 422, 6, 36, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9670, 278, 121, 1, 88, "Chapter"],
+Cell[CellGroupData[{
+Cell[9816, 283, 7151, 196, 627, "Input"],
+Cell[CellGroupData[{
+Cell[16992, 483, 843, 15, 26, "Print"],
+Cell[17838, 500, 318, 6, 26, "Print"],
+Cell[18159, 508, 889, 16, 26, "Print"],
+Cell[19051, 526, 325, 7, 26, "Print"],
+Cell[19379, 535, 822, 15, 26, "Print"],
+Cell[20204, 552, 867, 19, 26, "Print"]
+}, Open  ]],
+Cell[21086, 574, 227, 5, 36, "Output"],
+Cell[21316, 581, 208, 4, 36, "Output"],
+Cell[21527, 587, 209, 4, 69, "Output"]
+}, Open  ]],
+Cell[21751, 594, 570, 12, 60, "Input"],
+Cell[CellGroupData[{
+Cell[22346, 610, 494, 16, 40, "Input"],
+Cell[22843, 628, 274, 7, 36, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23154, 640, 157, 3, 36, "Input"],
+Cell[23314, 645, 225, 6, 36, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
