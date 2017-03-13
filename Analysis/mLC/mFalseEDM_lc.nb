@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     24978,        707]
-NotebookOptionsPosition[     23567,        655]
-NotebookOutlinePosition[     23941,        671]
-CellTagsIndexPosition[     23898,        668]
+NotebookDataLength[    120952,       3030]
+NotebookOptionsPosition[    117417,       2925]
+NotebookOutlinePosition[    117791,       2941]
+CellTagsIndexPosition[    117748,       2938]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -154,41 +154,14 @@ Analysis\\\\mLC\>\"", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]",
          RowBox[{
           RowBox[{"-", "4"}], " ", 
           SuperscriptBox["h", "2"], " ", "H"}], "+", 
-         SuperscriptBox["H", "3"]}]], "z"}]}], ")"}]}], 
-   "]"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"whtsn", "=", 
-   RowBox[{"ParallelTable", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"rhon", "[", 
-       RowBox[{
-        RowBox[{"latticepts", "[", 
-         RowBox[{"[", "k", "]"}], "]"}], "[", 
-        RowBox[{"[", "3", "]"}], "]"}], "]"}], "/", "dimlattice"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"k", ",", "1", ",", "dimlattice"}], "}"}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"whtshg", "=", 
-   RowBox[{"ParallelTable", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"rhoHg", "[", 
-       RowBox[{
-        RowBox[{"latticepts", "[", 
-         RowBox[{"[", "k", "]"}], "]"}], "[", 
-        RowBox[{"[", "3", "]"}], "]"}], "]"}], "/", "dimlattice"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"k", ",", "1", ",", "dimlattice"}], "}"}]}], "]"}]}], 
-  ";"}]}], "Input",
+         SuperscriptBox["H", "3"]}]], "z"}]}], ")"}]}], "]"}]}]}], "Input",
  CellChangeTimes->{{3.695510273212858*^9, 3.6955102775594063`*^9}, {
    3.695652243784697*^9, 3.6956522671223*^9}, {3.696152700135008*^9, 
    3.6961527110047827`*^9}, {3.6961528040571675`*^9, 
    3.6961528158599567`*^9}, {3.6961559425779076`*^9, 3.6961559428570585`*^9}, 
    3.696589673756728*^9, {3.69658973317157*^9, 3.6965897662267127`*^9}, {
    3.698062537224777*^9, 3.6980625376770616`*^9}, {3.698063512878231*^9, 
-   3.698063513132081*^9}}],
+   3.698063513132081*^9}, {3.6983386134927435`*^9, 3.698338613909264*^9}}],
 
 Cell[CellGroupData[{
 
@@ -205,7 +178,8 @@ Cell[BoxData[
  CellChangeTimes->{{3.6965897445542984`*^9, 3.6965897671429396`*^9}, 
    3.696708471762605*^9, 3.69670853282796*^9, 3.6978664060160913`*^9, 
    3.697896535800771*^9, 3.697906285882591*^9, {3.698062518919265*^9, 
-   3.6980625388677835`*^9}, 3.698063430193206*^9, 3.698063945432026*^9}],
+   3.6980625388677835`*^9}, 3.698063430193206*^9, 3.698063945432026*^9, {
+   3.698338597751895*^9, 3.698338625318675*^9}, 3.6983670516756897`*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -218,7 +192,8 @@ Cell[BoxData[
  CellChangeTimes->{{3.6965897445542984`*^9, 3.6965897671429396`*^9}, 
    3.696708471762605*^9, 3.69670853282796*^9, 3.6978664060160913`*^9, 
    3.697896535800771*^9, 3.697906285882591*^9, {3.698062518919265*^9, 
-   3.6980625388677835`*^9}, 3.698063430193206*^9, 3.6980639454365296`*^9}]
+   3.6980625388677835`*^9}, 3.698063430193206*^9, 3.698063945432026*^9, {
+   3.698338597751895*^9, 3.698338625318675*^9}, 3.698367051684695*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -256,13 +231,15 @@ Cell[BoxData[
  CellChangeTimes->{{3.6965897448475285`*^9, 3.6965897674336486`*^9}, 
    3.6967084722112503`*^9, 3.6967085332352247`*^9, 3.6978664065087757`*^9, 
    3.697896536091477*^9, 3.697906286235339*^9, {3.6980625193990583`*^9, 
-   3.6980625391716175`*^9}, 3.6980634304965754`*^9, 3.698063945742225*^9}],
+   3.6980625391716175`*^9}, 3.6980634304965754`*^9, 3.698063945742225*^9, {
+   3.698338598245773*^9, 3.6983386256389055`*^9}, 3.6983670520148673`*^9}],
 
 Cell[BoxData["1.`"], "Output",
  CellChangeTimes->{{3.6965897448475285`*^9, 3.6965897674336486`*^9}, 
    3.6967084722112503`*^9, 3.6967085332352247`*^9, 3.6978664065087757`*^9, 
    3.697896536091477*^9, 3.697906286235339*^9, {3.6980625193990583`*^9, 
-   3.6980625391716175`*^9}, 3.6980634304965754`*^9, 3.6980639457462206`*^9}],
+   3.6980625391716175`*^9}, 3.6980634304965754`*^9, 3.698063945742225*^9, {
+   3.698338598245773*^9, 3.6983386256389055`*^9}, 3.6983670520209*^9}],
 
 Cell[BoxData[
  RowBox[{"1.1814699062405485`", "\[VeryThinSpace]", "-", 
@@ -270,7 +247,8 @@ Cell[BoxData[
  CellChangeTimes->{{3.6965897448475285`*^9, 3.6965897674336486`*^9}, 
    3.6967084722112503`*^9, 3.6967085332352247`*^9, 3.6978664065087757`*^9, 
    3.697896536091477*^9, 3.697906286235339*^9, {3.6980625193990583`*^9, 
-   3.6980625391716175`*^9}, 3.6980634304965754`*^9, 3.698063945752753*^9}]
+   3.6980625391716175`*^9}, 3.6980634304965754`*^9, 3.698063945742225*^9, {
+   3.698338598245773*^9, 3.6983386256389055`*^9}, 3.698367052025875*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -422,6 +400,17 @@ Cell[BoxData[
         RowBox[{"Real", ",", "Real", ",", "Real"}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"fieldb22", "=", 
+     RowBox[{"ReadList", "[", 
+      RowBox[{
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "curDir", ",", "\"\<\\\\\>\"", ",", "\"\<lattice_b22.dat\>\""}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Real", ",", "Real", ",", "Real"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{"fieldb3", "=", 
      RowBox[{"ReadList", "[", 
       RowBox[{
@@ -429,6 +418,17 @@ Cell[BoxData[
         RowBox[{
         "curDir", ",", "\"\<\\\\\>\"", ",", "\"\<lattice_b3.dat\>\""}], "]"}],
         ",", 
+       RowBox[{"{", 
+        RowBox[{"Real", ",", "Real", ",", "Real"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"fieldb32", "=", 
+     RowBox[{"ReadList", "[", 
+      RowBox[{
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "curDir", ",", "\"\<\\\\\>\"", ",", "\"\<lattice_b32.dat\>\""}], 
+        "]"}], ",", 
        RowBox[{"{", 
         RowBox[{"Real", ",", "Real", ",", "Real"}], "}"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
@@ -461,6 +461,20 @@ Cell[BoxData[
         SuperscriptBox["10", 
          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}], "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"Mean", "[", "fieldb22", "]"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "6"}]], 
+      RowBox[{"{", 
+       RowBox[{
+        SuperscriptBox["10", 
+         RowBox[{"-", "11"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "11"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}], "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{"Mean", "[", "fieldb3", "]"}], "/", 
     RowBox[{"(", 
      RowBox[{
@@ -473,11 +487,52 @@ Cell[BoxData[
         SuperscriptBox["10", 
          RowBox[{"-", "11"}]], ",", 
         SuperscriptBox["10", 
-         RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}]], "Input",
+         RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Mean", "[", "fieldb32", "]"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "6"}]], 
+      RowBox[{"{", 
+       RowBox[{
+        SuperscriptBox["10", 
+         RowBox[{"-", "11"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "11"}]], ",", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"whtsn", "=", 
+     RowBox[{"ParallelTable", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"rhon", "[", 
+         RowBox[{
+          RowBox[{"latticepts", "[", 
+           RowBox[{"[", "k", "]"}], "]"}], "[", 
+          RowBox[{"[", "3", "]"}], "]"}], "]"}], "/", "dimlattice"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", "dimlattice"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"whtshg", "=", 
+     RowBox[{"ParallelTable", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"rhoHg", "[", 
+         RowBox[{
+          RowBox[{"latticepts", "[", 
+           RowBox[{"[", "k", "]"}], "]"}], "[", 
+          RowBox[{"[", "3", "]"}], "]"}], "]"}], "/", "dimlattice"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", "dimlattice"}], "}"}]}], "]"}]}], 
+    ";"}]}]}]], "Input",
  CellChangeTimes->{{3.6980628602172747`*^9, 3.6980628664510517`*^9}, {
   3.698062926459812*^9, 3.698062936214696*^9}, {3.698062972807886*^9, 
   3.698062973665721*^9}, {3.6980630037526865`*^9, 3.698063010813376*^9}, {
-  3.6980633078425655`*^9, 3.6980633081683455`*^9}}],
+  3.6980633078425655`*^9, 3.6980633081683455`*^9}, {3.698338621776836*^9, 
+  3.69833862208817*^9}, {3.698358795606903*^9, 3.698358822103179*^9}}],
 
 Cell[CellGroupData[{
 
@@ -496,7 +551,8 @@ Cell[BoxData[
    0.01, ", cell volume (\!\(\*SuperscriptBox[\(m\), \(3\)]\)): ", 
    1.0000000000000002`*^-6, "} = ", 11, " s"],
   Editable->False]], "Print",
- CellChangeTimes->{3.6980634431131268`*^9, 3.698063952372176*^9}],
+ CellChangeTimes->{3.6980634431131268`*^9, 3.698063952372176*^9, 
+  3.698338628617131*^9, 3.698367061796441*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -504,7 +560,8 @@ Cell[BoxData[
    "\[InvisibleSpace]", "100"}],
   SequenceForm["*) Increase # of lattice points by a factor, ptscl = ", 100],
   Editable->False]], "Print",
- CellChangeTimes->{3.6980634431131268`*^9, 3.6980639523806753`*^9}],
+ CellChangeTimes->{3.6980634431131268`*^9, 3.698063952372176*^9, 
+  3.698338628617131*^9, 3.6983670618039722`*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -522,7 +579,8 @@ Cell[BoxData[
    ", cell volume (\!\(\*SuperscriptBox[\(m\), \(3\)]\)): ", 
    1.0000000000000002`*^-8, "} = ", 1100, " s"],
   Editable->False]], "Print",
- CellChangeTimes->{3.6980634431131268`*^9, 3.6980639523891816`*^9}],
+ CellChangeTimes->{3.6980634431131268`*^9, 3.698063952372176*^9, 
+  3.698338628617131*^9, 3.698367061811455*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -531,7 +589,8 @@ Cell[BoxData[
   SequenceForm[
   "*) Descrease lattice side length (qq) by a factor, sdscl = ", 5],
   Editable->False]], "Print",
- CellChangeTimes->{3.6980634431131268`*^9, 3.698063952397688*^9}],
+ CellChangeTimes->{3.6980634431131268`*^9, 3.698063952372176*^9, 
+  3.698338628617131*^9, 3.698367061817961*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -548,7 +607,8 @@ Cell[BoxData[
    0.002, ", cell volume (\!\(\*SuperscriptBox[\(m\), \(3\)]\)): ", 8.*^-9, 
    "} = ", 1375, " s"],
   Editable->False]], "Print",
- CellChangeTimes->{3.6980634431131268`*^9, 3.6980639524066987`*^9}],
+ CellChangeTimes->{3.6980634431131268`*^9, 3.698063952372176*^9, 
+  3.698338628617131*^9, 3.6983670618244877`*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -569,28 +629,49 @@ Cell[BoxData[
    0.0005428704819604139}, ")m, cntr = ", {0.0004268152615496569, 
    0.0002457272724381703, 0.06003234406814803}],
   Editable->False]], "Print",
- CellChangeTimes->{3.6980634431131268`*^9, 3.6980639524162064`*^9}]
+ CellChangeTimes->{3.6980634431131268`*^9, 3.698063952372176*^9, 
+  3.698338628617131*^9, 3.6983670618334727`*^9}]
 }, Open  ]],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"4.5682661626068874`", ",", 
-   RowBox[{"-", "0.05968818420003563`"}], ",", "0.21705817236665814`"}], 
+   RowBox[{"-", "0.006671727783982848`"}], ",", "0.21652800780249823`"}], 
   "}"}]], "Output",
- CellChangeTimes->{3.6980634439977565`*^9, 3.698063953358494*^9}],
+ CellChangeTimes->{3.6980634439977565`*^9, 3.698063953358494*^9, 
+  3.6983386296503973`*^9, 3.6983670633480425`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"4.597981487627865`", ",", 
-   RowBox[{"-", "0.03859254423697662`"}], ",", "0.`"}], "}"}]], "Output",
- CellChangeTimes->{3.6980634439977565`*^9, 3.6980639533775067`*^9}],
+  RowBox[{"4.597981487627865`", ",", "0.014423912179076893`", ",", 
+   RowBox[{"-", "0.0005301645641605339`"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6980634439977565`*^9, 3.698063953358494*^9, 
+  3.6983386296503973`*^9, 3.6983670633675575`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"3.6024259820208684`", ",", 
-   RowBox[{"-", "0.02634753093052803`"}], ",", "0.`"}], "}"}]], "Output",
- CellChangeTimes->{3.6980634439977565`*^9, 3.6980639533965263`*^9}]
+  RowBox[{
+  "2.8008540068516457`", ",", "0.8721077909756427`", ",", 
+   "0.01633337383234465`"}], "}"}]], "Output",
+ CellChangeTimes->{3.6980634439977565`*^9, 3.698063953358494*^9, 
+  3.6983386296503973`*^9, 3.6983670633745866`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3.6024259820208684`", ",", "0.`", ",", 
+   RowBox[{"-", "0.00026347530930528033`"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6980634439977565`*^9, 3.698063953358494*^9, 
+  3.6983386296503973`*^9, 3.6983670633950768`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3.214544830692845`", ",", "0.8944785349189325`", ",", 
+   RowBox[{"-", "0.016854722886320422`"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6980634439977565`*^9, 3.698063953358494*^9, 
+  3.6983386296503973`*^9, 3.698367063401103*^9}]
 }, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -598,58 +679,2247 @@ Cell[BoxData[{
    RowBox[{"WeightedData", "[", 
     RowBox[{"fieldb1", ",", "whtsn"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"pnnormfieldb1", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Norm", ",", "fieldb1"}], "]"}], ",", "whtsn"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnfieldb2", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{"fieldb2", ",", "whtsn"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnnormfieldb2", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Norm", ",", "fieldb2"}], "]"}], ",", "whtsn"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnfieldb22", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{"fieldb22", ",", "whtsn"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnnormfieldb22", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Norm", ",", "fieldb22"}], "]"}], ",", "whtsn"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnfieldb3", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{"fieldb3", ",", "whtsn"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnnormfieldb3", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Norm", ",", "fieldb3"}], "]"}], ",", "whtsn"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnfieldb32", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{"fieldb32", ",", "whtsn"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnnormfieldb32", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Norm", ",", "fieldb32"}], "]"}], ",", "whtsn"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"phgfieldb1", "=", 
    RowBox[{"WeightedData", "[", 
-    RowBox[{"fieldb1", ",", "whtshg"}], "]"}]}], ";"}]}], "Input",
+    RowBox[{"fieldb1", ",", "whtshg"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgnormfieldb1", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Norm", ",", "fieldb1"}], "]"}], ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgfieldb2", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{"fieldb2", ",", "whtshg"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgnormfieldb2", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Norm", ",", "fieldb2"}], "]"}], ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgfieldb22", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{"fieldb22", ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgnormfieldb22", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Norm", ",", "fieldb22"}], "]"}], ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgfieldb3", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{"fieldb3", ",", "whtshg"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgnormfieldb3", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Norm", ",", "fieldb3"}], "]"}], ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgfieldb32", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{"fieldb32", ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgnormfieldb32", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Norm", ",", "fieldb32"}], "]"}], ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<***LOOP***\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Loop [n], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(n\), \((1)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mpnfieldb1", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb1", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Loop [n], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(n\), \((1)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", 
+   ",", 
+   RowBox[{"mpnnormfieldb1", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnnormfieldb1", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "\[Times]", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Loop [Hg], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(Hg\), \((1)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mphgfieldb1", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb1", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Loop [Hg], \
+<|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \((1)\)]\
+\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mphgnormfieldb1", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgnormfieldb1", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "\[Times]", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<***STRAIGHT-2***\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight2 [n], \
+<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(n\), \
+\((2)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mpnfieldb2", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb2", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight2 [n], \
+<|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(n\), \
+\((2)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mpnnormfieldb2", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnnormfieldb2", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "\[Times]", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight2 [Hg], \
+<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \
+\((2)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mphgfieldb2", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb2", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight2 [Hg], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(B\), \(Hg\), \((2)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \
+\>\"", ",", 
+   RowBox[{"mphgnormfieldb2", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgnormfieldb2", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "\[Times]", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<***STRAIGHT-22***\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight22 [n], \
+<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(n\), \
+\((22)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mpnfieldb22", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb22", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight22 [n], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(B\), \(n\), \((22)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \
+\>\"", ",", 
+   RowBox[{"mpnnormfieldb22", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnnormfieldb22", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "\[Times]", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight22 [Hg], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(B\), \(Hg\), \((22)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-11\)]\),\!\
+\(\*SuperscriptBox[\(10\), \(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mphgfieldb22", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb22", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight22 [Hg], \
+<|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \
+\((22)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mphgnormfieldb22", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgnormfieldb22", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "\[Times]", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<***ARC-3***\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc3 [n], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(n\), \((3)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mpnfieldb3", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb3", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc3 [n], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(n\), \((3)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", 
+   ",", 
+   RowBox[{"mpnnormfieldb3", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnnormfieldb3", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "\[Times]", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc3 [Hg], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(Hg\), \((3)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mphgfieldb3", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb3", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc3 [Hg], \
+<|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \((3)\)]\
+\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mphgnormfieldb3", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgnormfieldb3", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "\[Times]", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<***ARC-32***\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc32 [n], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(n\), \((32)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mpnfieldb32", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb32", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc32 [n], \
+<|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(n\), \((32)\)]\
+\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mpnnormfieldb32", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnnormfieldb32", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "\[Times]", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc32 [Hg], \
+<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \((32)\)]\
+\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mphgfieldb32", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb32", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "11"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc32 [Hg], \
+<|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \
+\((32)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mphgnormfieldb32", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgnormfieldb32", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "\[Times]", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.697910609480603*^9, 3.6979106361264086`*^9}, {
    3.697910702689767*^9, 3.697910904481703*^9}, {3.697910978509551*^9, 
    3.69791102952204*^9}, 3.697911072810278*^9, 3.6979111595160484`*^9, {
-   3.6980627363891816`*^9, 3.698062751576341*^9}}],
+   3.6980627363891816`*^9, 3.698062751576341*^9}, {3.6983386911466856`*^9, 
+   3.698338691406507*^9}, {3.698338813533465*^9, 3.6983388424158583`*^9}, {
+   3.698338970292226*^9, 3.6983390161322737`*^9}, {3.698339084947837*^9, 
+   3.6983391543367014`*^9}, {3.698339247932974*^9, 3.698339288245138*^9}, {
+   3.698339649409938*^9, 3.698339661989502*^9}, 3.698340085855296*^9, {
+   3.698340127321352*^9, 3.6983402320021877`*^9}, {3.698341220344124*^9, 
+   3.698341263394167*^9}, {3.698341645832343*^9, 3.6983416840943313`*^9}, {
+   3.698354687733786*^9, 3.6983547446339617`*^9}, {3.698355082609124*^9, 
+   3.6983552760000806`*^9}, {3.698355325436347*^9, 3.6983554865875897`*^9}, {
+   3.6983588383659067`*^9, 3.6983590201169195`*^9}, {3.698367082299189*^9, 
+   3.698367084978057*^9}}],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{
-  RowBox[{"Mean", "[", "phgfieldb1", "]"}], "/", 
-  RowBox[{"(", 
-   RowBox[{
-    SuperscriptBox["10", 
-     RowBox[{"-", "6"}]], 
-    RowBox[{"{", 
-     RowBox[{
-      SuperscriptBox["10", 
-       RowBox[{"-", "11"}]], ",", 
-      SuperscriptBox["10", 
-       RowBox[{"-", "11"}]], ",", 
-      SuperscriptBox["10", 
-       RowBox[{"-", "9"}]]}], "}"}]}], ")"}]}]], "Input",
- CellChangeTimes->{{3.697911035439456*^9, 3.6979110484799232`*^9}, 
-   3.6979111029398575`*^9}],
+Cell[BoxData["\<\"***LOOP***\"\>"], "Print",
+ CellChangeTimes->{
+  3.6983396670785165`*^9, 3.698341191595645*^9, 3.698341263979395*^9, 
+   3.698341685294888*^9, 3.6983554931629915`*^9, 3.698356182322811*^9, {
+   3.6983670743179927`*^9, 3.6983671005799575`*^9}},
+ FontSize->18],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"501.7402702069425`", ",", 
-   RowBox[{"-", "3.3662341872020787`"}], ",", "18.43394093307201`"}], 
-  "}"}]], "Output",
- CellChangeTimes->{
-  3.6979110529587603`*^9, 3.697911085831761*^9, {3.697911148549712*^9, 
-   3.6979111729468*^9}}]
+ InterpretationBox[
+  RowBox[{"\<\"Loop [n], \
+<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(n\\), \
+\\((1)\\)]\\)> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"4.56822408059776`", ",", 
+     RowBox[{"-", "0.010100193929387326`"}], ",", "0.21656851954929202`"}], 
+    "}"}]}],
+  SequenceForm[
+  "Loop [n], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(n\), \((1)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", {
+   4.56822408059776, -0.010100193929387326`, 0.21656851954929202`}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671043921556`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Loop [n], \
+<|\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(n\\), \
+\\((1)\\)]\\)|> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>",
+    "\[InvisibleSpace]", "0.3129800167927869`"}],
+  SequenceForm[
+  "Loop [n], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(n\
+\), \((1)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.3129800167927869],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671051442685`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Loop [Hg], \
+<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(Hg\\), \
+\\((1)\\)]\\)> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"4.568266162606899`", ",", 
+     RowBox[{"-", "0.006671727783982218`"}], ",", "0.21652800780249878`"}], 
+    "}"}]}],
+  SequenceForm[
+  "Loop [Hg], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(Hg\), \((1)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", {
+   4.568266162606899, -0.006671727783982218, 0.21652800780249878`}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671089879885`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Loop [Hg], \
+<|\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(Hg\\), \
+\\((1)\\)]\\)|> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>",
+    "\[InvisibleSpace]", "0.3128866415668485`"}],
+  SequenceForm[
+  "Loop [Hg], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(Hg\), \((1)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.3128866415668485],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.698367109744025*^9},
+ FontSize->18],
+
+Cell[BoxData["\<\"***STRAIGHT-2***\"\>"], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671097520294`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight2 [n], \
+<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(n\\), \
+\\((2)\\)]\\)> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"4.60216407790078`", ",", "0.015225203311452343`", ",", 
+     RowBox[{"-", "0.0005054726395849287`"}]}], "}"}]}],
+  SequenceForm[
+  "Straight2 [n], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(n\), \((2)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", {4.60216407790078, 
+   0.015225203311452343`, -0.0005054726395849287}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671135013313`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight2 [n], \
+<|\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(n\\), \
+\\((2)\\)]\\)|> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>",
+    "\[InvisibleSpace]", "0.07910107928859854`"}],
+  SequenceForm[
+  "Straight2 [n], \
+<|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(n\), \
+\((2)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.07910107928859854],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.698367114231844*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight2 [Hg], \
+<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(Hg\\), \
+\\((2)\\)]\\)> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"4.597981487627871`", ",", "0.014423912179076865`", ",", 
+     RowBox[{"-", "0.0005301645641605374`"}]}], "}"}]}],
+  SequenceForm[
+  "Straight2 [Hg], \
+<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \
+\((2)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", {4.597981487627871, 
+   0.014423912179076865`, -0.0005301645641605374}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.698367118026535*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight2 [Hg], \
+<|\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(Hg\\), \
+\\((2)\\)]\\)|> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>",
+    "\[InvisibleSpace]", "0.07900005722818022`"}],
+  SequenceForm[
+  "Straight2 [Hg], \
+<|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \((2)\)]\
+\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 0.07900005722818022],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671187520423`*^9},
+ FontSize->18],
+
+Cell[BoxData["\<\"***STRAIGHT-22***\"\>"], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671187600555`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight22 [n], \
+<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(n\\), \
+\\((22)\\)]\\)> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-11\\)]\\),\\!\\(\
+\\*SuperscriptBox[\\(10\\), \\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "2.66550668791101`", ",", "0.8638290601188049`", ",", 
+     "0.016942292132317592`"}], "}"}]}],
+  SequenceForm[
+  "Straight22 [n], \
+<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(n\), \
+\((22)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", {2.66550668791101, 
+   0.8638290601188049, 0.016942292132317592`}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671219037724`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight22 [n], \
+<|\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(n\\), \
+\\((22)\\)]\\)|> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \
+\"\>", "\[InvisibleSpace]", "0.05873997445592352`"}],
+  SequenceForm[
+  "Straight22 [n], \
+<|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(n\), \((22)\)]\
+\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 0.05873997445592352],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671219748526`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight22 [Hg], \
+<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(Hg\\), \
+\\((22)\\)]\\)> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-11\\)]\\),\\!\\(\
+\\*SuperscriptBox[\\(10\\), \\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "2.800854006851654`", ",", "0.872107790975636`", ",", 
+     "0.016333373832344667`"}], "}"}]}],
+  SequenceForm[
+  "Straight22 [Hg], \
+<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \((22)\)]\
+\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", {2.800854006851654, 
+   0.872107790975636, 0.016333373832344667`}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671251155567`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight22 [Hg], \
+<|\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(Hg\\), \
+\\((22)\\)]\\)|> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \
+\"\>", "\[InvisibleSpace]", "0.06164985215868819`"}],
+  SequenceForm[
+  "Straight22 [Hg], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\
+\), \(Hg\), \((22)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.06164985215868819],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671251866074`*^9},
+ FontSize->18],
+
+Cell[BoxData["\<\"***ARC-3***\"\>"], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.698367125195113*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc3 [n], \
+<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(n\\), \
+\\((3)\\)]\\)> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"3.4803203636733695`", ",", "0", ",", 
+     RowBox[{"-", "0.00020236158090940207`"}]}], "}"}]}],
+  SequenceForm[
+  "Arc3 [n], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(n\), \((3)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", {
+   3.4803203636733695`, 0, -0.00020236158090940207`}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.698367128366941*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc3 [n], \
+<|\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(n\\), \
+\\((3)\\)]\\)|> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>",
+    "\[InvisibleSpace]", "0.056548903044974626`"}],
+  SequenceForm[
+  "Arc3 [n], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(n\
+\), \((3)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.056548903044974626`],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671291169786`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc3 [Hg], \
+<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(Hg\\), \
+\\((3)\\)]\\)> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"3.6024259820208764`", ",", "0", ",", 
+     RowBox[{"-", "0.00026347530930528125`"}]}], "}"}]}],
+  SequenceForm[
+  "Arc3 [Hg], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(Hg\), \((3)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", {
+   3.6024259820208764`, 0, -0.00026347530930528125`}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671326524734`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc3 [Hg], \
+<|\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(Hg\\), \
+\\((3)\\)]\\)|> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \"\>",
+    "\[InvisibleSpace]", "0.059896797925897576`"}],
+  SequenceForm[
+  "Arc3 [Hg], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(Hg\), \((3)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.059896797925897576`],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671334025087`*^9},
+ FontSize->18],
+
+Cell[BoxData["\<\"***ARC-32***\"\>"], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.698367133411511*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc32 [n], \
+<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(n\\), \
+\\((32)\\)]\\)> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-11\\)]\\),\\!\\(\
+\\*SuperscriptBox[\\(10\\), \\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"3.079760998847406`", ",", "0.907110724831748`", ",", 
+     RowBox[{"-", "0.01625532387317222`"}]}], "}"}]}],
+  SequenceForm[
+  "Arc32 [n], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \(n\
+\), \((32)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", {3.079760998847406, 
+   0.907110724831748, -0.01625532387317222}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671366162834`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc32 [n], \
+<|\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(n\\), \
+\\((32)\\)]\\)|> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \
+\"\>", "\[InvisibleSpace]", "0.051288205892237544`"}],
+  SequenceForm[
+  "Arc32 [n], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(n\), \((32)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.051288205892237544`],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671366793303`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc32 [Hg], \
+<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(Hg\\), \
+\\((32)\\)]\\)> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-11\\)]\\),\\!\\(\
+\\*SuperscriptBox[\\(10\\), \\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"3.2145448306928492`", ",", "0.8944785349189333`", ",", 
+     RowBox[{"-", "0.016854722886320454`"}]}], "}"}]}],
+  SequenceForm[
+  "Arc32 [Hg], <\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(Hg\), \((32)\)]\)> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", {3.2145448306928492`, 
+   0.8944785349189333, -0.016854722886320454`}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.6983671398635764`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc32 [Hg], \
+<|\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(B\\), \\(Hg\\), \
+\\((32)\\)]\\)|> \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: \
+\"\>", "\[InvisibleSpace]", "0.0544777327534219`"}],
+  SequenceForm[
+  "Arc32 [Hg], <|\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(B\), \
+\(Hg\), \((32)\)]\)|> \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.0544777327534219],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983396670785165`*^9, 3.698341191595645*^9, 
+  3.698341263979395*^9, 3.698341685294888*^9, 3.6983554931629915`*^9, 
+  3.698356182322811*^9, 3.6983670743179927`*^9, 3.698367139928652*^9},
+ FontSize->18]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"latticepts", "[", 
-  RowBox[{"[", "10", "]"}], "]"}]], "Input",
- CellChangeTimes->{{3.6979107559627337`*^9, 3.6979107615910177`*^9}}],
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pnfieldb1x", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb1", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "1"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], ";", 
+  RowBox[{"pnfieldb1y", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb1", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], ";", 
+  RowBox[{"pnfieldb1z", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb1", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "3"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnfieldb2x", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb2", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "1"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], ";", 
+  RowBox[{"pnfieldb2y", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb2", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], ";", 
+  RowBox[{"pnfieldb2z", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb2", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "3"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnfieldb22x", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb22", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "1"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], ";", 
+  RowBox[{"pnfieldb22y", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb22", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], ";", 
+  RowBox[{"pnfieldb22z", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb22", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "3"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pnfieldb3x", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb3", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "1"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], ";", 
+  RowBox[{"pnfieldb3y", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb3", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], ";", 
+  RowBox[{"pnfieldb3z", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb3", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "3"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pnfieldb32x", "=", 
+    RowBox[{"WeightedData", "[", 
+     RowBox[{
+      RowBox[{"fieldb32", "[", 
+       RowBox[{"[", 
+        RowBox[{";;", ",", "1"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], ";", 
+   RowBox[{"pnfieldb32y", "=", 
+    RowBox[{"WeightedData", "[", 
+     RowBox[{
+      RowBox[{"fieldb32", "[", 
+       RowBox[{"[", 
+        RowBox[{";;", ",", "2"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], ";", 
+   RowBox[{"pnfieldb32z", "=", 
+    RowBox[{"WeightedData", "[", 
+     RowBox[{
+      RowBox[{"fieldb32", "[", 
+       RowBox[{"[", 
+        RowBox[{";;", ",", "3"}], "]"}], "]"}], ",", "whtsn"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgfieldb1x", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb1", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "1"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], ";", 
+  RowBox[{"phgfieldb1y", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb1", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], ";", 
+  RowBox[{"phgfieldb1z", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb1", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "3"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgfieldb2x", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb2", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "1"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], ";", 
+  RowBox[{"phgfieldb2y", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb2", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], ";", 
+  RowBox[{"phgfieldb2z", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb2", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "3"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgfieldb22x", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb22", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "1"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], ";", 
+  RowBox[{"phgfieldb22y", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb22", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], ";", 
+  RowBox[{"phgfieldb22z", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb22", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "3"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgfieldb3x", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb3", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "1"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], ";", 
+  RowBox[{"phgfieldb3y", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb3", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], ";", 
+  RowBox[{"phgfieldb3z", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb3", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "3"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phgfieldb32x", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb32", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "1"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], ";", 
+  RowBox[{"phgfieldb32y", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb32", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], ";", 
+  RowBox[{"phgfieldb32z", "=", 
+   RowBox[{"WeightedData", "[", 
+    RowBox[{
+     RowBox[{"fieldb32", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "3"}], "]"}], "]"}], ",", "whtshg"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<***LOOP***\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Loop [n], \
+{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(n\), \((1)\)]\
+\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(n\), \((1)\
+\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \(n\), \
+\((1)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { \>\"", ",", 
+   RowBox[{"mpnfieldb1x", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb1x", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mpnfieldb1y", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb1y", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mpnfieldb1z", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb1z", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}], ",", "\"\< }\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Loop [n], \
+|{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(n\), \
+\((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \
+\(n\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\)\
+, \(n\), \((1)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", 
+   ",", 
+   RowBox[{"mnormpnfieldb1", "=", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"mpnfieldb1x", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", 
+       RowBox[{"mpnfieldb1y", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", "mpnfieldb1z"}], "}"}], "]"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Loop [Hg], \
+{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(Hg\), \
+\((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(Hg\
+\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(Hg\), \((1)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { \>\"", ",", 
+   RowBox[{"mphgfieldb1x", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb1x", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mphgfieldb1y", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb1y", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mphgfieldb1z", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb1z", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}], ",", "\"\< }\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Loop [Hg], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\
+\), \(Hg\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(By\), \(Hg\), \
+\((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \(Hg\
+\), \((1)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mnormphgfieldb1", "=", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"mphgfieldb1x", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", 
+       RowBox[{"mphgfieldb1y", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", "mphgfieldb1z"}], "}"}], "]"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<***STRAIGHT-2***\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight2 [n], \
+{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(n\), \((2)\)]\
+\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(n\), \((2)\
+\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \(n\), \
+\((2)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { \>\"", ",", 
+   RowBox[{"mpnfieldb2x", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb2x", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mpnfieldb2y", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb2y", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mpnfieldb2z", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb2z", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}], ",", "\"\< }\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight2 [n], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(Bx\), \(n\), \
+\((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \
+\(n\), \((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\)\
+, \(n\), \((2)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", 
+   ",", 
+   RowBox[{"mnormpnfieldb2", "=", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"mpnfieldb2x", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", 
+       RowBox[{"mpnfieldb2y", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", "mpnfieldb2z"}], "}"}], "]"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight2 [Hg], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(Bx\), \(Hg\), \
+\((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(Hg\
+\), \((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(Hg\), \((2)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { \>\"", ",", 
+   RowBox[{"mphgfieldb2x", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb2x", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mphgfieldb2y", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb2y", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mphgfieldb2z", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb2z", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}], ",", "\"\< }\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight2 [Hg], \
+|{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(Hg\), \
+\((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(Hg\
+\), \((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(Hg\), \((2)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", 
+   ",", 
+   RowBox[{"mnormphgfieldb2", "=", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"mphgfieldb2x", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", 
+       RowBox[{"mphgfieldb2y", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", "mphgfieldb2z"}], "}"}], "]"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<***STRAIGHT-22***\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight22 [n], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(Bx\), \(n\), \
+\((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(n\
+\), \((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(n\), \((22)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { \>\"", ",", 
+   RowBox[{"mpnfieldb22x", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb22x", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mpnfieldb22y", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb22y", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mpnfieldb22z", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb22z", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}], ",", "\"\< }\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight22 [n], \
+|{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(n\), \
+\((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(n\
+\), \((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(n\), \((22)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", 
+   ",", 
+   RowBox[{"mnormpnfieldb22", "=", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"mpnfieldb22x", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", 
+       RowBox[{"mpnfieldb22y", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", "mpnfieldb22z"}], "}"}], "]"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight22 [Hg], \
+{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(Hg\), \
+\((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \
+\(Hg\), \((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(\
+Bz\), \(Hg\), \((22)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-11\)]\),\!\
+\(\*SuperscriptBox[\(10\), \(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-9\)]\)}: { \>\"", ",", 
+   RowBox[{"mphgfieldb22x", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb22x", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mphgfieldb22y", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb22y", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mphgfieldb22z", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb22z", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}], ",", "\"\< }\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Straight2 [Hg], \
+|{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(Hg\), \((22)\
+\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(Hg\), \
+\((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(Hg\), \((22)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", 
+   ",", 
+   RowBox[{"mnormphgfieldb22", "=", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"mphgfieldb22x", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", 
+       RowBox[{"mphgfieldb22y", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", "mphgfieldb22z"}], "}"}], "]"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<***ARC-3***\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc3 [n], \
+{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(n\), \((3)\)]\
+\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(n\), \((3)\
+\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \(n\), \
+\((3)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { \>\"", ",", 
+   RowBox[{"mpnfieldb3x", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb3x", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mpnfieldb3y", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb3y", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mpnfieldb3z", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb3z", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}], ",", "\"\< }\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc3 [n], \
+|{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(n\), \
+\((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \
+\(n\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\)\
+, \(n\), \((3)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", 
+   ",", 
+   RowBox[{"mnormpnfieldb3", "=", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"mpnfieldb3x", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", 
+       RowBox[{"mpnfieldb3y", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", "mpnfieldb3z"}], "}"}], "]"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc3 [Hg], \
+{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(Hg\), \
+\((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(Hg\
+\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(Hg\), \((3)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { \>\"", ",", 
+   RowBox[{"mphgfieldb3x", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb3x", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mphgfieldb3y", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb3y", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mphgfieldb3z", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb3z", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}], ",", "\"\< }\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc3 [Hg], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\
+\), \(Hg\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(By\), \(Hg\), \
+\((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \(Hg\
+\), \((3)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mnormphgfieldb3", "=", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"mphgfieldb3x", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", 
+       RowBox[{"mphgfieldb3y", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", "mphgfieldb3z"}], "}"}], "]"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<***ARC-32***\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc32 [n], \
+{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(n\), \
+\((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(n\
+\), \((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(n\), \((32)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { \>\"", ",", 
+   RowBox[{"mpnfieldb32x", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb32x", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mpnfieldb32y", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb32y", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mpnfieldb32z", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "pnfieldb32z", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}], ",", "\"\< }\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc32 [n], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\
+\), \(n\), \((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(By\), \(n\), \
+\((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \(n\
+\), \((32)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", ",", 
+   RowBox[{"mnormpnfieldb32", "=", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"mpnfieldb32x", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", 
+       RowBox[{"mpnfieldb32y", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", "mpnfieldb32z"}], "}"}], "]"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc32 [Hg], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\
+\), \(Hg\), \
+\((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \
+\(Hg\), \((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(\
+Bz\), \(Hg\), \((32)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-11\)]\),\!\
+\(\*SuperscriptBox[\(10\), \(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-9\)]\)}: { \>\"", ",", 
+   RowBox[{"mphgfieldb32x", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb32x", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mphgfieldb32y", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb32y", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "11"}]]}], ")"}]}]}], ",", "\"\< , \>\"", ",", 
+   RowBox[{"mphgfieldb32z", "=", 
+    RowBox[{
+     RowBox[{"Mean", "[", "phgfieldb32z", "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["10", 
+        RowBox[{"-", "6"}]], "*", 
+       SuperscriptBox["10", 
+        RowBox[{"-", "9"}]]}], ")"}]}]}], ",", "\"\< }\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Arc32 [Hg], \
+|{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(Hg\), \((32)\
+\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(Hg\), \
+\((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(Hg\), \((32)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \>\"", 
+   ",", 
+   RowBox[{"mnormphgfieldb32", "=", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"mphgfieldb32x", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", 
+       RowBox[{"mphgfieldb32y", "\[Times]", 
+        SuperscriptBox["10", 
+         RowBox[{"-", "2"}]]}], ",", "mphgfieldb32z"}], "}"}], "]"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.698340274394803*^9, 3.6983405065067434`*^9}, {
+  3.6983406429802933`*^9, 3.698340686431912*^9}, {3.6983408091860275`*^9, 
+  3.6983410852654185`*^9}, {3.6983414313855305`*^9, 3.698341628866993*^9}, {
+  3.6983556274243975`*^9, 3.6983557262185307`*^9}, {3.6983557569400983`*^9, 
+  3.6983557600649557`*^9}, {3.6983558583350725`*^9, 3.698356158598575*^9}, {
+  3.6983562344482594`*^9, 3.698356254675559*^9}, {3.698359036977187*^9, 
+  3.69835930560719*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"***LOOP***\"\>"], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671489952774`*^9},
+ FontSize->18],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"-", "0.20142251077627163`"}], ",", 
-   RowBox[{"-", "0.12105359206807018`"}], ",", "0.04285714285714347`"}], 
-  "}"}]], "Output",
- CellChangeTimes->{3.6979107623657255`*^9}]
+ InterpretationBox[
+  RowBox[{"\<\"Loop [n], \
+{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(n\\), \
+\\((1)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(n\\), \
+\\((1)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(n\\), \\((1)\\)]\\)>} \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: { \"\>", 
+   "\[InvisibleSpace]", "4.568224080597761`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "0.010100193929386719`"}], "\[InvisibleSpace]", "\<\" , \"\>",
+    "\[InvisibleSpace]", "0.21656851954929202`", 
+   "\[InvisibleSpace]", "\<\" }\"\>"}],
+  SequenceForm[
+  "Loop [n], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(n\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\)\
+, \(n\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(\
+Bz\), \(n\), \((1)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-11\)]\),\!\(\
+\*SuperscriptBox[\(10\), \(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \
+{ ", 4.568224080597761, " , ", -0.010100193929386719`, " , ", 
+   0.21656851954929202`, " }"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671511738176`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Loop [n], \
+|{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(n\\), \
+\\((1)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(n\\), \
+\\((1)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(n\\), \\((1)\\)]\\)>}| \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", "0.22133413877262392`"}],
+  SequenceForm[
+  "Loop [n], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(n\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\)\
+, \(n\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(\
+Bz\), \(n\), \((1)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.22133413877262392`],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671511818237`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Loop [Hg], \
+{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(Hg\\), \
+\\((1)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(Hg\\), \
+\\((1)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(Hg\\), \\((1)\\)]\\)>} \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: { \"\>", 
+   "\[InvisibleSpace]", "4.568266162606899`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "0.006671727783982065`"}], "\[InvisibleSpace]", "\<\" , \"\>",
+    "\[InvisibleSpace]", "0.2165280078024988`", 
+   "\[InvisibleSpace]", "\<\" }\"\>"}],
+  SequenceForm[
+  "Loop [Hg], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(Hg\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\
+\), \(Hg\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(Bz\), \(Hg\), \((1)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { ", 4.568266162606899, 
+   " , ", -0.006671727783982065, " , ", 0.2165280078024988, " }"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671534739685`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Loop [Hg], \
+|{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(Hg\\), \
+\\((1)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(Hg\\), \
+\\((1)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(Hg\\), \\((1)\\)]\\)>}| \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", "0.2212945733346303`"}],
+  SequenceForm[
+  "Loop [Hg], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(Hg\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\
+\), \(Hg\), \((1)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(Bz\), \(Hg\), \((1)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \
+", 0.2212945733346303],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671534814687`*^9},
+ FontSize->18],
+
+Cell[BoxData["\<\"***STRAIGHT-2***\"\>"], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671534879775`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight2 [n], \
+{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(n\\), \
+\\((2)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(n\\), \
+\\((2)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(n\\), \\((2)\\)]\\)>} \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: { \"\>", 
+   "\[InvisibleSpace]", "4.60216407790078`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", 
+   "0.015225203311452487`", "\[InvisibleSpace]", "\<\" , \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"-", "0.0005054726395849279`"}], 
+   "\[InvisibleSpace]", "\<\" }\"\>"}],
+  SequenceForm[
+  "Straight2 [n], \
+{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(n\), \((2)\)]\
+\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(n\), \((2)\
+\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \(n\), \
+\((2)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { ", 4.60216407790078, 
+   " , ", 0.015225203311452487`, " , ", -0.0005054726395849279, " }"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671556905613`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight2 [n], \
+|{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(n\\), \
+\\((2)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(n\\), \
+\\((2)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(n\\), \\((2)\\)]\\)>}| \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", "0.04602466842099995`"}],
+  SequenceForm[
+  "Straight2 [n], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\
+\), \(n\), \
+\((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \
+\(n\), \((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\)\
+, \(n\), \((2)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.04602466842099995],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671556985426`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight2 [Hg], \
+{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(Hg\\), \
+\\((2)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(Hg\\), \
+\\((2)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(Hg\\), \\((2)\\)]\\)>} \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: { \"\>", 
+   "\[InvisibleSpace]", "4.597981487627873`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", 
+   "0.014423912179076894`", "\[InvisibleSpace]", "\<\" , \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"-", "0.000530164564160535`"}], "\[InvisibleSpace]", "\<\" }\"\>"}],
+  SequenceForm[
+  "Straight2 [Hg], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\
+\), \(Hg\), \((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(By\), \(Hg\), \
+\((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \(Hg\
+\), \((2)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { ", 4.597981487627873, 
+   " , ", 0.014423912179076894`, " , ", -0.000530164564160535, " }"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671579713173`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight2 [Hg], \
+|{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(Hg\\), \
+\\((2)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(Hg\\), \
+\\((2)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(Hg\\), \\((2)\\)]\\)>}| \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", "0.045983097497300125`"}],
+  SequenceForm[
+  "Straight2 [Hg], \
+|{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(Hg\), \
+\((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(Hg\
+\), \((2)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(Hg\), \((2)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.045983097497300125`],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671579798203`*^9},
+ FontSize->18],
+
+Cell[BoxData["\<\"***STRAIGHT-22***\"\>"], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.698367157984824*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight22 [n], \
+{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(n\\), \
+\\((22)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\
+\\), \\(n\\), \
+\\((22)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\
+\\), \\(n\\), \\((22)\\)]\\)>} \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: { \"\>", 
+   "\[InvisibleSpace]", "2.665506687910872`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", 
+   "0.8638290601187324`", "\[InvisibleSpace]", "\<\" , \"\>", 
+   "\[InvisibleSpace]", "0.01694229213231627`", 
+   "\[InvisibleSpace]", "\<\" }\"\>"}],
+  SequenceForm[
+  "Straight22 [n], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\
+\), \(n\), \((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(By\), \(n\), \
+\((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \(n\
+\), \((22)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { ", 2.665506687910872, 
+   " , ", 0.8638290601187324, " , ", 0.01694229213231627, " }"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.698367158075385*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight22 [n], \
+|{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(n\\), \
+\\((22)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\
+\\), \\(n\\), \
+\\((22)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\
+\\), \\(n\\), \\((22)\\)]\\)>}| \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", "0.03274376150562219`"}],
+  SequenceForm[
+  "Straight22 [n], \
+|{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(n\), \
+\((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(n\
+\), \((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(n\), \((22)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.03274376150562219],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671580833893`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight22 [Hg], \
+{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(Hg\\), \
+\\((22)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\
+\\), \\(Hg\\), \
+\\((22)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\
+\\), \\(Hg\\), \\((22)\\)]\\)>} \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: { \"\>", 
+   "\[InvisibleSpace]", "2.800854006852331`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", 
+   "0.8721077909758467`", "\[InvisibleSpace]", "\<\" , \"\>", 
+   "\[InvisibleSpace]", "0.01633337383234861`", 
+   "\[InvisibleSpace]", "\<\" }\"\>"}],
+  SequenceForm[
+  "Straight22 [Hg], \
+{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(Hg\), \
+\((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \
+\(Hg\), \((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(\
+Bz\), \(Hg\), \((22)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-11\)]\),\!\
+\(\*SuperscriptBox[\(10\), \(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-9\)]\)}: { ", 2.800854006852331, " , ", 0.8721077909758467, " , ", 
+   0.01633337383234861, " }"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.698367158178458*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Straight2 [Hg], \
+|{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(Hg\\), \
+\\((22)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\
+\\), \\(Hg\\), \
+\\((22)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\
+\\), \\(Hg\\), \\((22)\\)]\\)>}| \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", "0.03357550621249668`"}],
+  SequenceForm[
+  "Straight2 [Hg], \
+|{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \(Hg\), \((22)\
+\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\), \(Hg\), \
+\((22)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(Hg\), \((22)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.03357550621249668],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.698367158185463*^9},
+ FontSize->18],
+
+Cell[BoxData["\<\"***ARC-3***\"\>"], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671581904655`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc3 [n], \
+{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(n\\), \
+\\((3)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(n\\), \
+\\((3)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(n\\), \\((3)\\)]\\)>} \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: { \"\>", 
+   "\[InvisibleSpace]", "3.4803203636733704`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", "0.`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "0.00020236158090940404`"}], 
+   "\[InvisibleSpace]", "\<\" }\"\>"}],
+  SequenceForm[
+  "Arc3 [n], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(n\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\)\
+, \(n\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(\
+Bz\), \(n\), \((3)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-11\)]\),\!\(\
+\*SuperscriptBox[\(10\), \(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \
+{ ", 3.4803203636733704`, " , ", 0., " , ", -0.00020236158090940404`, " }"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.698367159835634*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc3 [n], \
+|{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(n\\), \
+\\((3)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(n\\), \
+\\((3)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(n\\), \\((3)\\)]\\)>}| \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", "0.03480379194268036`"}],
+  SequenceForm[
+  "Arc3 [n], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(n\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\)\
+, \(n\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(\
+Bz\), \(n\), \((3)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.03480379194268036],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.698367159842635*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc3 [Hg], \
+{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(Hg\\), \
+\\((3)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(Hg\\), \
+\\((3)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(Hg\\), \\((3)\\)]\\)>} \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: { \"\>", 
+   "\[InvisibleSpace]", "3.6024259820208777`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", "0.`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "0.00026347530930527973`"}], 
+   "\[InvisibleSpace]", "\<\" }\"\>"}],
+  SequenceForm[
+  "Arc3 [Hg], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(Hg\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\
+\), \(Hg\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(Bz\), \(Hg\), \((3)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { ", 3.6024259820208777`, 
+   " , ", 0., " , ", -0.00026347530930527973`, " }"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671614747915`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc3 [Hg], \
+|{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(Hg\\), \
+\\((3)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\\\
+), \\(Hg\\), \
+\\((3)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\\\
+), \\(Hg\\), \\((3)\\)]\\)>}| \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", "0.03602522331412426`"}],
+  SequenceForm[
+  "Arc3 [Hg], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(Hg\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\
+\), \(Hg\), \((3)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(Bz\), \(Hg\), \((3)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \
+", 0.03602522331412426],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671614817953`*^9},
+ FontSize->18],
+
+Cell[BoxData["\<\"***ARC-32***\"\>"], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.698367161487299*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc32 [n], \
+{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(n\\), \
+\\((32)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\
+\\), \\(n\\), \
+\\((32)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\
+\\), \\(n\\), \\((32)\\)]\\)>} \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: { \"\>", 
+   "\[InvisibleSpace]", "3.0797609988474064`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", 
+   "0.9071107248317083`", "\[InvisibleSpace]", "\<\" , \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"-", "0.016255323873171062`"}], "\[InvisibleSpace]", "\<\" }\"\>"}],
+  SequenceForm[
+  "Arc32 [n], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(n\), \((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\
+\), \(n\), \((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(Bz\), \(n\), \((32)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { ", 3.0797609988474064`, 
+   " , ", 0.9071107248317083, " , ", -0.016255323873171062`, " }"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.698367162260846*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc32 [n], \
+|{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(n\\), \
+\\((32)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\
+\\), \\(n\\), \
+\\((32)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\
+\\), \\(n\\), \\((32)\\)]\\)>}| \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", "0.03598629352870775`"}],
+  SequenceForm[
+  "Arc32 [n], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(n\), \((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(By\
+\), \(n\), \((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\
+\(Bz\), \(n\), \((32)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: \
+", 0.03598629352870775],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.698367162269353*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc32 [Hg], \
+{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(Hg\\), \
+\\((32)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\
+\\), \\(Hg\\), \
+\\((32)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\
+\\), \\(Hg\\), \\((32)\\)]\\)>} \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-11\\)]\\),\\!\\(\\*SuperscriptBox[\\(10\\), \\(-9\\)]\\)}: { \"\>", 
+   "\[InvisibleSpace]", "3.21454483069285`", 
+   "\[InvisibleSpace]", "\<\" , \"\>", "\[InvisibleSpace]", 
+   "0.8944785349191492`", "\[InvisibleSpace]", "\<\" , \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"-", "0.016854722886324516`"}], "\[InvisibleSpace]", "\<\" }\"\>"}],
+  SequenceForm[
+  "Arc32 [Hg], {<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(Hg\), \((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(\
+By\), \(Hg\), \
+\((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(Hg\), \((32)\)]\)>} \[Mu]T{\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \
+\(-11\)]\),\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: { ", 3.21454483069285, 
+   " , ", 0.8944785349191492, " , ", -0.016854722886324516`, " }"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671630654173`*^9},
+ FontSize->18],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Arc32 [Hg], \
+|{<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bx\\), \\(Hg\\), \
+\\((32)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(By\
+\\), \\(Hg\\), \
+\\((32)\\)]\\)>,<\[InvisiblePrefixScriptBase]\\!\\(\\*SubsuperscriptBox[\\(Bz\
+\\), \\(Hg\\), \\((32)\\)]\\)>}| \[Mu]T{\\!\\(\\*SuperscriptBox[\\(10\\), \
+\\(-9\\)]\\)}: \"\>", "\[InvisibleSpace]", "0.03738209083734235`"}],
+  SequenceForm[
+  "Arc32 [Hg], |{<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bx\), \
+\(Hg\), \((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(\
+By\), \(Hg\), \
+\((32)\)]\)>,<\[InvisiblePrefixScriptBase]\!\(\*SubsuperscriptBox[\(Bz\), \
+\(Hg\), \((32)\)]\)>}| \[Mu]T{\!\(\*SuperscriptBox[\(10\), \(-9\)]\)}: ", 
+   0.03738209083734235],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6983410908065825`*^9, 3.698341445662141*^9, 
+  3.698341709042906*^9, 3.698356209298413*^9, 3.698356257874397*^9, 
+  3.6983671630724487`*^9},
+ FontSize->18]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
@@ -673,40 +2943,93 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 156, 2, 88, "Chapter"],
 Cell[CellGroupData[{
-Cell[761, 28, 5662, 162, 568, "Input"],
+Cell[761, 28, 4868, 135, 520, "Input"],
 Cell[CellGroupData[{
-Cell[6448, 194, 612, 13, 26, "Print"],
-Cell[7063, 209, 588, 11, 26, "Print"]
+Cell[5654, 167, 686, 14, 26, "Print"],
+Cell[6343, 183, 658, 12, 26, "Print"]
 }, Open  ]],
-Cell[7666, 223, 1201, 35, 59, "Output"],
-Cell[8870, 260, 326, 4, 36, "Output"],
-Cell[9199, 266, 422, 6, 36, "Output"]
+Cell[7016, 198, 1277, 36, 59, "Output"],
+Cell[8296, 236, 396, 5, 36, "Output"],
+Cell[8695, 243, 496, 7, 36, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9670, 278, 121, 1, 88, "Chapter"],
+Cell[9240, 256, 121, 1, 88, "Chapter"],
 Cell[CellGroupData[{
-Cell[9816, 283, 7151, 196, 627, "Input"],
+Cell[9386, 261, 9706, 273, 769, "Input"],
 Cell[CellGroupData[{
-Cell[16992, 483, 843, 15, 26, "Print"],
-Cell[17838, 500, 318, 6, 26, "Print"],
-Cell[18159, 508, 889, 16, 26, "Print"],
-Cell[19051, 526, 325, 7, 26, "Print"],
-Cell[19379, 535, 822, 15, 26, "Print"],
-Cell[20204, 552, 867, 19, 26, "Print"]
+Cell[19117, 538, 890, 16, 26, "Print"],
+Cell[20010, 556, 365, 7, 26, "Print"],
+Cell[20378, 565, 934, 17, 26, "Print"],
+Cell[21315, 584, 372, 8, 26, "Print"],
+Cell[21690, 594, 869, 16, 26, "Print"],
+Cell[22562, 612, 914, 20, 26, "Print"]
 }, Open  ]],
-Cell[21086, 574, 227, 5, 36, "Output"],
-Cell[21316, 581, 208, 4, 36, "Output"],
-Cell[21527, 587, 209, 4, 69, "Output"]
-}, Open  ]],
-Cell[21751, 594, 570, 12, 60, "Input"],
-Cell[CellGroupData[{
-Cell[22346, 610, 494, 16, 40, "Input"],
-Cell[22843, 628, 274, 7, 36, "Output"]
+Cell[23491, 635, 279, 6, 36, "Output"],
+Cell[23773, 643, 277, 5, 36, "Output"],
+Cell[24053, 650, 262, 6, 36, "Output"],
+Cell[24318, 658, 261, 5, 36, "Output"],
+Cell[24582, 665, 272, 5, 36, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23154, 640, 157, 3, 36, "Input"],
-Cell[23314, 645, 225, 6, 36, "Output"]
+Cell[24891, 675, 18022, 497, 1109, "Input"],
+Cell[CellGroupData[{
+Cell[42938, 1176, 276, 5, 33, "Print"],
+Cell[43217, 1183, 1057, 22, 35, "Print"],
+Cell[44277, 1207, 709, 14, 35, "Print"],
+Cell[44989, 1223, 1062, 22, 38, "Print"],
+Cell[46054, 1247, 711, 14, 38, "Print"],
+Cell[46768, 1263, 275, 4, 33, "Print"],
+Cell[47046, 1269, 1065, 21, 35, "Print"],
+Cell[48114, 1292, 721, 15, 35, "Print"],
+Cell[48838, 1309, 1071, 22, 38, "Print"],
+Cell[49912, 1333, 723, 14, 38, "Print"],
+Cell[50638, 1349, 276, 4, 33, "Print"],
+Cell[50917, 1355, 1050, 22, 35, "Print"],
+Cell[51970, 1379, 721, 14, 35, "Print"],
+Cell[52694, 1395, 1054, 22, 38, "Print"],
+Cell[53751, 1419, 727, 14, 38, "Print"],
+Cell[54481, 1435, 268, 4, 33, "Print"],
+Cell[54752, 1441, 1021, 21, 35, "Print"],
+Cell[55776, 1464, 714, 14, 35, "Print"],
+Cell[56493, 1480, 1027, 21, 38, "Print"],
+Cell[57523, 1503, 718, 14, 38, "Print"],
+Cell[58244, 1519, 269, 4, 33, "Print"],
+Cell[58516, 1525, 1046, 20, 35, "Print"],
+Cell[59565, 1547, 716, 14, 35, "Print"],
+Cell[60284, 1563, 1058, 20, 38, "Print"],
+Cell[61345, 1585, 713, 14, 38, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[62107, 1605, 28829, 773, 1617, "Input"],
+Cell[CellGroupData[{
+Cell[90961, 2382, 221, 4, 33, "Print"],
+Cell[91185, 2388, 1494, 27, 35, "Print"],
+Cell[92682, 2417, 1018, 19, 35, "Print"],
+Cell[93703, 2438, 1498, 27, 38, "Print"],
+Cell[95204, 2467, 1021, 19, 38, "Print"],
+Cell[96228, 2488, 227, 4, 33, "Print"],
+Cell[96458, 2494, 1511, 29, 35, "Print"],
+Cell[97972, 2525, 1029, 20, 35, "Print"],
+Cell[99004, 2547, 1515, 28, 38, "Print"],
+Cell[100522, 2577, 1040, 20, 38, "Print"],
+Cell[101565, 2599, 226, 4, 33, "Print"],
+Cell[101794, 2605, 1490, 28, 35, "Print"],
+Cell[103287, 2635, 1037, 20, 35, "Print"],
+Cell[104327, 2657, 1498, 28, 38, "Print"],
+Cell[105828, 2687, 1041, 20, 38, "Print"],
+Cell[106872, 2709, 222, 4, 33, "Print"],
+Cell[107097, 2715, 1460, 26, 35, "Print"],
+Cell[108560, 2743, 1015, 19, 35, "Print"],
+Cell[109578, 2764, 1474, 27, 38, "Print"],
+Cell[111055, 2793, 1023, 19, 38, "Print"],
+Cell[112081, 2814, 221, 4, 33, "Print"],
+Cell[112305, 2820, 1500, 27, 35, "Print"],
+Cell[113808, 2849, 1021, 19, 35, "Print"],
+Cell[114832, 2870, 1507, 28, 38, "Print"],
+Cell[116342, 2900, 1035, 20, 38, "Print"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
