@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[      7775,        207]
-NotebookOptionsPosition[      7070,        182]
-NotebookOutlinePosition[      7415,        197]
-CellTagsIndexPosition[      7372,        194]
+NotebookDataLength[      9961,        274]
+NotebookOptionsPosition[      9143,        245]
+NotebookOutlinePosition[      9488,        260]
+CellTagsIndexPosition[      9445,        257]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -178,10 +178,73 @@ Cell[BoxData[
  CellChangeTimes->{{3.6960792153321605`*^9, 3.6960792256421795`*^9}, {
    3.6960800564904213`*^9, 3.696080057793855*^9}, {3.6960807588166633`*^9, 
    3.6960808243771143`*^9}, 3.6960809133192277`*^9, {3.6960809602180986`*^9, 
-   3.696080970227249*^9}, {3.6960810138355193`*^9, 3.696081067706499*^9}}]
+   3.696080970227249*^9}, {3.6960810138355193`*^9, 3.696081067706499*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"origin", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Directory", "[", "]"}], ",", "\"\<EDA\>\""}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"copyto", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$BaseDirectory", ",", "\"\<Applications\>\"", ",", "\"\<EDA\>\""}], 
+     "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CopyDirectory", "[", 
+   RowBox[{"origin", ",", "copyto"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"origin", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Directory", "[", "]"}], ",", "\"\<CustomTicks\>\""}], "}"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"copyto", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$BaseDirectory", ",", "\"\<Applications\>\"", ",", 
+      "\"\<CustomTicks\>\""}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CopyDirectory", "[", 
+   RowBox[{"origin", ",", "copyto"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"origin", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<h5mma\>\""}], "}"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"copyto", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$BaseDirectory", ",", "\"\<Applications\>\"", ",", "\"\<h5mma\>\""}], 
+     "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CopyDirectory", "[", 
+   RowBox[{"origin", ",", "copyto"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7142117851931047`*^9, 3.7142117935286026`*^9}, {
+  3.714211838204963*^9, 3.714211840657931*^9}, {3.7142119475673947`*^9, 
+  3.7142119871044083`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\psi-nedm\\\\\
+Packages\\\\\"\>"], "Output",
+ CellChangeTimes->{3.7142117941490574`*^9}]
+}, Open  ]]
 },
 WindowSize->{1920, 1117},
-WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+WindowMargins->{{-1, Automatic}, {Automatic, 53}},
 FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
 StyleDefinitions->"Default.nb"
 ]
@@ -208,7 +271,11 @@ Cell[5637, 144, 326, 6, 30, "Text"],
 Cell[5966, 152, 69, 1, 31, "Input"],
 Cell[6038, 155, 71, 1, 31, "Input"],
 Cell[6112, 158, 145, 2, 31, "Input"],
-Cell[6260, 162, 806, 18, 31, "Input"]
+Cell[6260, 162, 806, 18, 31, "Input"],
+Cell[CellGroupData[{
+Cell[7091, 184, 1883, 54, 192, "Input"],
+Cell[8977, 240, 150, 2, 31, "Output"]
+}, Open  ]]
 }
 ]
 *)
