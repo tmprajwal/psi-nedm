@@ -5,7 +5,7 @@ CopyDirectory[origin, copyto];
 origin = FileNameJoin[{Directory[], "CustomTicks"}];
 copyto = FileNameJoin[{$BaseDirectory, "Applications", "CustomTicks"}];
 CopyDirectory[origin, copyto];
-origin = FileNameJoin[{NotebookDirectory[], "h5mma"}];
+origin = FileNameJoin[{Directory[], "h5mma"}];
 copyto = FileNameJoin[{$BaseDirectory, "Applications", "h5mma"}];
 CopyDirectory[origin, copyto];
 (*EOF*)
