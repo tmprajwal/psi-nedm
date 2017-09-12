@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      8628,        229]
-NotebookOptionsPosition[      8127,        206]
-NotebookOutlinePosition[      8472,        221]
-CellTagsIndexPosition[      8429,        218]
+NotebookDataLength[     68450,       1628]
+NotebookOptionsPosition[     67040,       1574]
+NotebookOutlinePosition[     67384,       1589]
+CellTagsIndexPosition[     67341,       1586]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -113,7 +113,8 @@ Cell[BoxData[
   "Working Directory: ", 
    "C:\\Users\\Prajwal\\Dropbox\\nEDM\\psi-nedm\\Analysis\\mLI"],
   Editable->False]], "Print",
- CellChangeTimes->{{3.713173754312785*^9, 3.7131737629751883`*^9}}],
+ CellChangeTimes->{{3.713173754312785*^9, 3.7131737629751883`*^9}, 
+   3.7135019755404763`*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -123,9 +124,64 @@ Cell[BoxData[
   SequenceForm[
   "(ASCII) Rawdata Directory: ", "C:\\Users\\Prajwal\\Dropbox\\nEDM\\rawdata"],
   Editable->False]], "Print",
- CellChangeTimes->{{3.713173754312785*^9, 3.71317376297869*^9}}]
+ CellChangeTimes->{{3.713173754312785*^9, 3.7131737629751883`*^9}, 
+   3.713501975545988*^9}]
 }, Open  ]]
 }, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Equations & Frequencies", "Chapter",
+ CellChangeTimes->{{3.713176310252381*^9, 3.713176316173271*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"w", "=", 
+   RowBox[{"2", 
+    RowBox[{"\[Pi]", "/", "23.934"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gnval", "=", 
+   RowBox[{"29.1646943", "\[Times]", 
+    SuperscriptBox["10", "6"], "\[Times]", "2", "\[Pi]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ghgval", "=", 
+    RowBox[{"7.590118", "\[Times]", 
+     SuperscriptBox["10", "6"], "\[Times]", "2", "\[Pi]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"B", ":", " ", "Tesla"}], ",", " ", 
+    RowBox[{"t", ":", " ", "hours"}], ",", " ", 
+    RowBox[{"f", ":", " ", "Hz"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"fr", "[", 
+     RowBox[{
+     "b_", ",", "bp_", ",", "gn_", ",", "gpn_", ",", "p_", ",", "t_"}], "]"}],
+     ":=", 
+    RowBox[{
+     RowBox[{
+      FractionBox["gn", 
+       RowBox[{"2", "\[Pi]"}]], "b"}], "+", 
+     RowBox[{
+      FractionBox["gpn", 
+       RowBox[{"2", "\[Pi]"}]], "bp", " ", 
+      RowBox[{"Sin", "[", 
+       RowBox[{
+        RowBox[{"w", " ", "t"}], "+", "p"}], "]"}]}]}]}], ";"}], 
+  " "}]}], "Input",
+ CellChangeTimes->{{3.7131763185690746`*^9, 3.7131763630601206`*^9}, {
+  3.713176448258877*^9, 3.7131764497835026`*^9}, {3.713176681527579*^9, 
+  3.7131768412632914`*^9}, {3.7131768741625824`*^9, 3.7131768900536613`*^9}, {
+  3.7131770405862403`*^9, 3.713177101416117*^9}, {3.713177155182213*^9, 
+  3.713177164791152*^9}, {3.713177293581859*^9, 3.713177368254779*^9}, {
+  3.7131774327595234`*^9, 3.7131774588812265`*^9}, {3.7131779032212205`*^9, 
+  3.7131779097227287`*^9}, {3.7131779935574007`*^9, 3.7131780148723283`*^9}, {
+  3.7131781373740034`*^9, 3.713178149537179*^9}, {3.7131782378715982`*^9, 
+  3.7131782609010067`*^9}, {3.7131784028044243`*^9, 3.713178402943022*^9}}],
 
 Cell[CellGroupData[{
 
@@ -134,19 +190,37 @@ Cell[BoxData[
   RowBox[{
    RowBox[{"Plot", "[", 
     RowBox[{
-     RowBox[{"Sin", "[", 
-      RowBox[{"k", " ", "y"}], "]"}], ",", 
      RowBox[{"{", 
-      RowBox[{"y", ",", 
-       RowBox[{
-        RowBox[{"-", "4"}], "Pi"}], ",", 
-       RowBox[{"4", "Pi"}]}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"fr", "[", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]], ",", "0", ",", "ghgval", ",", "0", ",", "p", 
+         ",", "t"}], "]"}], ",", 
+       RowBox[{"fr", "[", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]], ",", "ghgval", ",", " ", "ghgval", ",", "p", 
+         ",", "t"}], "]"}], ",", 
+       RowBox[{"fr", "[", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]], ",", 
+         RowBox[{"bp", " ", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]]}], ",", "ghgval", ",", 
+         RowBox[{"gphg", " ", "ghgval"}], ",", "p", ",", "t"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "48"}], "}"}], ",", 
      RowBox[{"Frame", "\[Rule]", "True"}], ",", 
      RowBox[{"FrameLabel", "\[Rule]", 
       RowBox[{"{", 
        RowBox[{
-       "\"\<Log[\[CapitalDelta]t/\[Mu]s]\>\"", ",", 
-        "\"\<Log[p(n=2,\[CapitalDelta]t)]\>\""}], "}"}]}], ",", 
+       "\"\<t (hours)\>\"", ",", 
+        "\"\<\!\(\*SubscriptBox[\(f\), \(Hg\)]\) (Hz)\>\""}], "}"}]}], ",", 
      RowBox[{"TicksStyle", "\[Rule]", 
       RowBox[{"Directive", "[", 
        RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
@@ -156,41 +230,166 @@ Cell[BoxData[
        RowBox[{"28", ",", "Black"}], "}"}]}], ",", 
      RowBox[{"FrameTicksStyle", "\[Rule]", "Thick"}], ",", 
      RowBox[{"FrameStyle", "\[Rule]", "Thick"}], ",", 
-     RowBox[{"ImageSize", "\[Rule]", "1000"}]}], "]"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "1000"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "48"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "4"}], ",", "20"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", "DotDashed"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Gray", ",", "Dashed"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<\!\(\*SubscriptBox[\(f\), \
+\(Hg\)]\)(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=0,\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \('\)]\)=0)\>\"", 
+        ",", "\"\<\!\(\*SubscriptBox[\(f\), \
+\(Hg\)]\)(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=\!\(\*SubscriptBox[\(B\), \
+\(0\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))\>\"", ",", 
+        "\"\<\!\(\*SubscriptBox[\(f\), \
+\(Hg\)]\)(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=bp.\!\(\*SubscriptBox[\(B\), \(0\)]\),\!\(\*SubsuperscriptBox[\(\
+\[Gamma]\), \(Hg\), \('\)]\)=gphg.\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))\
+\>\""}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotLabel", "\[Rule]", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{
+       "\"\<{ \!\(\*SubscriptBox[\(B\), \(0\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(0\), \('\)]\) } \[Mu]T = { 1 , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"N", "[", "bp", "]"}], "]"}], ",", "\"\< }\\n\>\"", ",", 
+        "\"\<{ \!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"ghgval", "/", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}], "]"}], ",",
+            "3"}], "]"}], "]"}], " ", ",", " ", "\"\< , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gphg", " ", 
+             RowBox[{"ghgval", "/", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}]}], "]"}], 
+           ",", "3"}], "]"}], "]"}], ",", "\"\< } ;\>\""}], "]"}]}]}], "]"}], 
+   ",", 
    RowBox[{"{", 
-    RowBox[{"k", ",", "0", ",", "2"}], "}"}]}], "]"}]], "Input",
+    RowBox[{"bp", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"gphg", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"p", ",", "0", ",", 
+     RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.713173147224267*^9, 3.713173157256124*^9}, {
-  3.7131737070252104`*^9, 3.7131737470398636`*^9}}],
+   3.7131737070252104`*^9, 3.7131737470398636`*^9}, {3.7131773951476603`*^9, 
+   3.7131775614952283`*^9}, {3.713177608306382*^9, 3.7131776433903093`*^9}, {
+   3.7131779398516474`*^9, 3.7131779430449953`*^9}, {3.7131780205641055`*^9, 
+   3.7131780399668865`*^9}, {3.7131781572294617`*^9, 3.713178182191966*^9}, {
+   3.7131782134395275`*^9, 3.7131782761302876`*^9}, {3.7131783152427487`*^9, 
+   3.713178622466057*^9}, {3.713178676165264*^9, 3.7131787118225327`*^9}, {
+   3.713178906138551*^9, 3.7131793892106056`*^9}, {3.7131794309620056`*^9, 
+   3.7131794438489866`*^9}, {3.7131795096922913`*^9, 
+   3.7131796926037908`*^9}, {3.713179811380431*^9, 3.7131798374144297`*^9}, {
+   3.7131798994518166`*^9, 3.713179924612933*^9}, 3.713180112880376*^9, 
+   3.7131805312063937`*^9}],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`k$$ = 1.7720516204833985`, Typeset`show$$ = 
-    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+   DynamicModuleBox[{$CellContext`bp$$ = 0, $CellContext`gphg$$ = 
+    0, $CellContext`p$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`k$$], 0, 2}}, Typeset`size$$ = {1000., {313., 317.}}, 
-    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`k$1935$$ = 0}, 
+      Hold[$CellContext`bp$$], 0, 1}, {
+      Hold[$CellContext`gphg$$], 0, 1}, {
+      Hold[$CellContext`p$$], 0, 2 Pi}}, Typeset`size$$ = {
+    1420., {386., 392.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`bp$812$$ = 
+    0, $CellContext`gphg$813$$ = 0, $CellContext`p$814$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`k$$ = 0}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`k$$, $CellContext`k$1935$$, 0]}, 
+     1, StandardForm, 
+      "Variables" :> {$CellContext`bp$$ = 0, $CellContext`gphg$$ = 
+        0, $CellContext`p$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`bp$$, $CellContext`bp$812$$, 0], 
+        Hold[$CellContext`gphg$$, $CellContext`gphg$813$$, 0], 
+        Hold[$CellContext`p$$, $CellContext`p$814$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> Plot[
-        Sin[$CellContext`k$$ $CellContext`y], {$CellContext`y, (-4) Pi, 4 Pi},
-         Frame -> True, 
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`fr[
+         10^(-6), 0, $CellContext`ghgval, 
+          0, $CellContext`p$$, $CellContext`t], 
+         $CellContext`fr[
+         10^(-6), 
+          10^(-6), $CellContext`ghgval, $CellContext`ghgval, \
+$CellContext`p$$, $CellContext`t], 
+         $CellContext`fr[
+         10^(-6), $CellContext`bp$$ 
+          10^(-6), $CellContext`ghgval, $CellContext`gphg$$ \
+$CellContext`ghgval, $CellContext`p$$, $CellContext`t]}, {$CellContext`t, 0, 
+         48}, Frame -> True, 
         FrameLabel -> {
-         "Log[\[CapitalDelta]t/\[Mu]s]", "Log[p(n=2,\[CapitalDelta]t)]"}, 
-        TicksStyle -> Directive[FontSize -> 40], FrameTicks -> 
-        CustomTicks`LinTicks, LabelStyle -> {28, Black}, FrameTicksStyle -> 
-        Thick, FrameStyle -> Thick, ImageSize -> 1000], 
-      "Specifications" :> {{$CellContext`k$$, 0, 2}}, "Options" :> {}, 
+         "t (hours)", "\!\(\*SubscriptBox[\(f\), \(Hg\)]\) (Hz)"}, TicksStyle -> 
+        Directive[FontSize -> 40], FrameTicks -> CustomTicks`LinTicks, 
+        LabelStyle -> {28, Black}, FrameTicksStyle -> Thick, FrameStyle -> 
+        Thick, ImageSize -> 1000, Axes -> None, 
+        PlotRange -> {{0, 48}, {-4, 20}}, 
+        PlotStyle -> {{Blue, DotDashed}, {Gray, Dashed}, {Red, Thick}}, 
+        PlotLegends -> {
+         "\!\(\*SubscriptBox[\(f\), \(Hg\)]\)(\!\(\*SubsuperscriptBox[\(B\), \
+\(0\), \('\)]\)=0,\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \('\)]\)=0)", 
+          "\!\(\*SubscriptBox[\(f\), \(Hg\)]\)(\!\(\*SubsuperscriptBox[\(B\), \
+\(0\), \('\)]\)=\!\(\*SubscriptBox[\(B\), \(0\)]\),\!\(\*SubsuperscriptBox[\(\
+\[Gamma]\), \(Hg\), \('\)]\)=\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))", 
+          "\!\(\*SubscriptBox[\(f\), \(Hg\)]\)(\!\(\*SubsuperscriptBox[\(B\), \
+\(0\), \('\)]\)=bp.\!\(\*SubscriptBox[\(B\), \
+\(0\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=gphg.\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))"}, PlotLabel -> 
+        StringJoin[
+         "{ \!\(\*SubscriptBox[\(B\), \(0\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(0\), \('\)]\) } \[Mu]T = { 1 , ", 
+          ToString[
+           N[$CellContext`bp$$]], " }\n", 
+          "{ \!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`ghgval/(10^6 2 Pi)], 3]], " , ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gphg$$ ($CellContext`ghgval/(10^6 2 Pi))], 3]], 
+          " } ;"]], 
+      "Specifications" :> {{$CellContext`bp$$, 0, 1}, {$CellContext`gphg$$, 0,
+          1}, {$CellContext`p$$, 0, 2 Pi}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{1051., {372., 378.}},
+     ImageSizeCache->{1471., {461., 467.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -201,10 +400,1179 @@ Cell[BoxData[
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.7131737515968685`*^9, 3.7131737663351917`*^9}}]
+ CellChangeTimes->{{3.7131737515968685`*^9, 3.7131737663351917`*^9}, 
+   3.7131775719289494`*^9, {3.713177630819368*^9, 3.713177644085346*^9}, {
+   3.7131779207587585`*^9, 3.7131779441287613`*^9}, 3.713178046004228*^9, 
+   3.7131781900004263`*^9, 3.7131782267499514`*^9, 3.713178286909236*^9, 
+   3.7131786268863535`*^9, 3.7131787123959646`*^9, 3.7131791550821905`*^9, 
+   3.7131793335303144`*^9, 3.713179399688882*^9, {3.7131794399666305`*^9, 
+   3.713179447814782*^9}, {3.7131795591964664`*^9, 3.7131795849695077`*^9}, {
+   3.7131796160332484`*^9, 3.7131796354753356`*^9}, {3.713179668718047*^9, 
+   3.713179693916395*^9}, 3.7131798379193296`*^9, 3.7131799283054857`*^9, 
+   3.71318011373458*^9, 3.7131805383256264`*^9, 3.713501978734353*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"fr", "[", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]], ",", "0", ",", "gnval", ",", "0", ",", "p", 
+         ",", "t"}], "]"}], ",", 
+       RowBox[{"fr", "[", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]], ",", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]], ",", "gnval", ",", " ", "gnval", ",", "p", ",",
+          "t"}], "]"}], ",", 
+       RowBox[{"fr", "[", 
+        RowBox[{
+         SuperscriptBox["10", 
+          RowBox[{"-", "6"}]], ",", 
+         RowBox[{"bp", " ", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]]}], ",", "gnval", ",", 
+         RowBox[{"gpn", " ", "gnval"}], ",", "p", ",", "t"}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "48"}], "}"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<t (hours)\>\"", ",", 
+        "\"\<\!\(\*SubscriptBox[\(f\), \(n\)]\) (Hz)\>\""}], "}"}]}], ",", 
+     RowBox[{"TicksStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+     RowBox[{"FrameTicks", "\[Rule]", "LinTicks"}], ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"28", ",", "Black"}], "}"}]}], ",", 
+     RowBox[{"FrameTicksStyle", "\[Rule]", "Thick"}], ",", 
+     RowBox[{"FrameStyle", "\[Rule]", "Thick"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "1000"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "48"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "4"}], ",", "64"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", "DotDashed"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Gray", ",", "Dashed"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<\!\(\*SubscriptBox[\(f\), \(n\)]\)(\!\(\*SubsuperscriptBox[\(B\), \
+\(0\), \('\)]\)=0,\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \
+\('\)]\)=0)\>\"", ",", 
+        "\"\<\!\(\*SubscriptBox[\(f\), \
+\(n\)]\)(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=\!\(\*SubscriptBox[\(B\), \
+\(0\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \
+\('\)]\)=\!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\))\>\"", ",", 
+        "\"\<\!\(\*SubscriptBox[\(f\), \
+\(Hg\)]\)(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=bp.\!\(\*SubscriptBox[\(B\), \(0\)]\),\!\(\*SubsuperscriptBox[\(\
+\[Gamma]\), \(n\), \('\)]\)=gpn.\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\))\>\""}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotLabel", "\[Rule]", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{
+       "\"\<{ \!\(\*SubscriptBox[\(B\), \(0\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(0\), \('\)]\) } \[Mu]T = { 1 , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"N", "[", "bp", "]"}], "]"}], ",", "\"\< }\\n\>\"", ",", 
+        "\"\<{ \!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gnval", "/", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}], "]"}], ",",
+            "3"}], "]"}], "]"}], " ", ",", " ", "\"\< , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gpn", " ", 
+             RowBox[{"gnval", "/", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}]}], "]"}], 
+           ",", "3"}], "]"}], "]"}], ",", "\"\< }\>\""}], "]"}]}]}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"bp", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"gpn", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"p", ",", "0", ",", 
+     RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.713179985374958*^9, 3.7131801419030914`*^9}, 
+   3.713180179140747*^9, {3.7131802817040653`*^9, 3.7131802819347253`*^9}, 
+   3.7131805228504515`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`bp$$ = 0, $CellContext`gpn$$ = 
+    0, $CellContext`p$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`bp$$], 0, 1}, {
+      Hold[$CellContext`gpn$$], 0, 1}, {
+      Hold[$CellContext`p$$], 0, 2 Pi}}, Typeset`size$$ = {
+    1378., {385., 390.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`bp$1151$$ = 
+    0, $CellContext`gpn$1152$$ = 0, $CellContext`p$1153$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`bp$$ = 0, $CellContext`gpn$$ = 
+        0, $CellContext`p$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`bp$$, $CellContext`bp$1151$$, 0], 
+        Hold[$CellContext`gpn$$, $CellContext`gpn$1152$$, 0], 
+        Hold[$CellContext`p$$, $CellContext`p$1153$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         $CellContext`fr[
+         10^(-6), 0, $CellContext`gnval, 0, $CellContext`p$$, $CellContext`t], 
+         $CellContext`fr[
+         10^(-6), 
+          10^(-6), $CellContext`gnval, $CellContext`gnval, $CellContext`p$$, \
+$CellContext`t], 
+         $CellContext`fr[
+         10^(-6), $CellContext`bp$$ 
+          10^(-6), $CellContext`gnval, $CellContext`gpn$$ $CellContext`gnval, \
+$CellContext`p$$, $CellContext`t]}, {$CellContext`t, 0, 48}, Frame -> True, 
+        FrameLabel -> {
+         "t (hours)", "\!\(\*SubscriptBox[\(f\), \(n\)]\) (Hz)"}, TicksStyle -> 
+        Directive[FontSize -> 40], FrameTicks -> CustomTicks`LinTicks, 
+        LabelStyle -> {28, Black}, FrameTicksStyle -> Thick, FrameStyle -> 
+        Thick, ImageSize -> 1000, Axes -> None, 
+        PlotRange -> {{0, 48}, {-4, 64}}, 
+        PlotStyle -> {{Blue, DotDashed}, {Gray, Dashed}, {Red, Thick}}, 
+        PlotLegends -> {
+         "\!\(\*SubscriptBox[\(f\), \(n\)]\)(\!\(\*SubsuperscriptBox[\(B\), \
+\(0\), \('\)]\)=0,\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\)=0)", 
+          "\!\(\*SubscriptBox[\(f\), \(n\)]\)(\!\(\*SubsuperscriptBox[\(B\), \
+\(0\), \('\)]\)=\!\(\*SubscriptBox[\(B\), \(0\)]\),\!\(\*SubsuperscriptBox[\(\
+\[Gamma]\), \(n\), \('\)]\)=\!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\))", 
+          "\!\(\*SubscriptBox[\(f\), \(Hg\)]\)(\!\(\*SubsuperscriptBox[\(B\), \
+\(0\), \('\)]\)=bp.\!\(\*SubscriptBox[\(B\), \
+\(0\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \
+\('\)]\)=gpn.\!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\))"}, PlotLabel -> 
+        StringJoin[
+         "{ \!\(\*SubscriptBox[\(B\), \(0\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(0\), \('\)]\) } \[Mu]T = { 1 , ", 
+          ToString[
+           N[$CellContext`bp$$]], " }\n", 
+          "{ \!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gnval/(10^6 2 Pi)], 3]], " , ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gpn$$ ($CellContext`gnval/(10^6 2 Pi))], 3]], 
+          " }"]], "Specifications" :> {{$CellContext`bp$$, 0, 
+         1}, {$CellContext`gpn$$, 0, 1}, {$CellContext`p$$, 0, 2 Pi}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1429., {460., 466.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.713180126305004*^9, 3.7131801424309635`*^9}, 
+   3.7131801800555077`*^9, 3.713180283069046*^9, 3.713180556292843*^9, 
+   3.7135019797842817`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "0", ",", "gnval", ",", "0", ",", "p", 
+          ",", "t"}], "]"}], "/", 
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "0", ",", "ghgval", ",", "0", ",", "p", 
+          ",", "t"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "gnval", ",", " ", 
+          RowBox[{"gnval", "/", "2"}], ",", "p", ",", "t"}], "]"}], "/", 
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "ghgval", ",", " ", "ghgval", ",", "p", 
+          ",", "t"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", 
+          RowBox[{"bp", " ", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "6"}]]}], ",", "gnval", ",", 
+          RowBox[{"gpn", " ", "gnval"}], ",", "p", ",", "t"}], "]"}], "/", 
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", 
+          RowBox[{"bp", " ", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "6"}]]}], ",", "ghgval", ",", 
+          RowBox[{"gphg", " ", "ghgval"}], ",", "p", ",", "t"}], "]"}]}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "48"}], "}"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<t (hours)\>\"", ",", 
+        "\"\<R = \!\(\*SubscriptBox[\(f\), \(n\)]\)/\!\(\*SubscriptBox[\(f\), \
+\(Hg\)]\)\>\""}], "}"}]}], ",", 
+     RowBox[{"TicksStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+     RowBox[{"FrameTicks", "\[Rule]", "LinTicks"}], ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"28", ",", "Black"}], "}"}]}], ",", 
+     RowBox[{"FrameTicksStyle", "\[Rule]", "Thick"}], ",", 
+     RowBox[{"FrameStyle", "\[Rule]", "Thick"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "1000"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "48"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "4"}], ",", "11"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", "DotDashed"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Gray", ",", "Dashed"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=0,\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\)=0)\>\"", 
+        ",", "\"\<R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=\!\(\*SubscriptBox[\(B\), \
+\(0\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \
+\('\)]\)=2\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))\>\"", ",", 
+        "\"\<R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=bp.\!\(\*SubscriptBox[\(B\), \(0\)]\),\!\(\*SubsuperscriptBox[\(\
+\[Gamma]\), \(n\), \('\)]\)=gpn.\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=gphg.\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))\>\""}], "}"}]}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotLabel", "\[Rule]", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{
+       "\"\<{ \!\(\*SubscriptBox[\(B\), \(0\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(0\), \('\)]\) } \[Mu]T = { 1 , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"N", "[", "bp", "]"}], "]"}], ",", "\"\< }\\n\>\"", ",", 
+        "\"\<{ \!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gnval", "/", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}], "]"}], ",",
+            "3"}], "]"}], "]"}], " ", ",", " ", "\"\< , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gpn", " ", 
+             RowBox[{"gnval", "/", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}]}], "]"}], 
+           ",", "3"}], "]"}], "]"}], ",", "\"\< }\\n\>\"", ",", 
+        "\"\<{ \!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"ghgval", "/", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}], "]"}], ",",
+            "3"}], "]"}], "]"}], " ", ",", " ", "\"\< , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gphg", " ", 
+             RowBox[{"ghgval", "/", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}]}], "]"}], 
+           ",", "3"}], "]"}], "]"}], ",", "\"\< }\>\""}], "]"}]}]}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"bp", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"gpn", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"gphg", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"p", ",", "0", ",", 
+     RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7131801958451457`*^9, 3.7131802576091137`*^9}, {
+   3.713180293669857*^9, 3.7131804449662666`*^9}, {3.7131807763077183`*^9, 
+   3.7131807809753947`*^9}, 3.7131808279899015`*^9, {3.7131808811999216`*^9, 
+   3.7131809282444797`*^9}, {3.713180967133801*^9, 3.71318097054519*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`bp$$ = 0, $CellContext`gphg$$ = 
+    0, $CellContext`gpn$$ = 0, $CellContext`p$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`bp$$], 0, 1}, {
+      Hold[$CellContext`gpn$$], 0, 1}, {
+      Hold[$CellContext`gphg$$], 0, 1}, {
+      Hold[$CellContext`p$$], 0, 2 Pi}}, Typeset`size$$ = {
+    1543., {413., 418.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`bp$1515$$ = 
+    0, $CellContext`gpn$1516$$ = 0, $CellContext`gphg$1517$$ = 
+    0, $CellContext`p$1518$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`bp$$ = 0, $CellContext`gphg$$ = 
+        0, $CellContext`gpn$$ = 0, $CellContext`p$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`bp$$, $CellContext`bp$1515$$, 0], 
+        Hold[$CellContext`gpn$$, $CellContext`gpn$1516$$, 0], 
+        Hold[$CellContext`gphg$$, $CellContext`gphg$1517$$, 0], 
+        Hold[$CellContext`p$$, $CellContext`p$1518$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[{$CellContext`fr[
+          10^(-6), 0, $CellContext`gnval, 
+           0, $CellContext`p$$, $CellContext`t]/$CellContext`fr[
+         10^(-6), 0, $CellContext`ghgval, 
+          0, $CellContext`p$$, $CellContext`t], $CellContext`fr[
+          10^(-6), 10^(-6), $CellContext`gnval, $CellContext`gnval/
+           2, $CellContext`p$$, $CellContext`t]/$CellContext`fr[
+         10^(-6), 
+          10^(-6), $CellContext`ghgval, $CellContext`ghgval, \
+$CellContext`p$$, $CellContext`t], $CellContext`fr[
+          10^(-6), $CellContext`bp$$ 
+           
+           10^(-6), $CellContext`gnval, $CellContext`gpn$$ \
+$CellContext`gnval, $CellContext`p$$, $CellContext`t]/$CellContext`fr[
+         10^(-6), $CellContext`bp$$ 
+          10^(-6), $CellContext`ghgval, $CellContext`gphg$$ \
+$CellContext`ghgval, $CellContext`p$$, $CellContext`t]}, {$CellContext`t, 0, 
+         48}, Frame -> True, 
+        FrameLabel -> {
+         "t (hours)", 
+          "R = \!\(\*SubscriptBox[\(f\), \(n\)]\)/\!\(\*SubscriptBox[\(f\), \
+\(Hg\)]\)"}, TicksStyle -> Directive[FontSize -> 40], FrameTicks -> 
+        CustomTicks`LinTicks, LabelStyle -> {28, Black}, FrameTicksStyle -> 
+        Thick, FrameStyle -> Thick, ImageSize -> 1000, Axes -> None, 
+        PlotRange -> {{0, 48}, {-4, 11}}, 
+        PlotStyle -> {{Blue, DotDashed}, {Gray, Dashed}, {Red, Thick}}, 
+        PlotLegends -> {
+         "R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=0,\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\)=0)", 
+          "R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=\!\(\*SubscriptBox[\(B\), \
+\(0\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \
+\('\)]\)=2\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))", 
+          "R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=bp.\!\(\*SubscriptBox[\(B\), \(0\)]\),\!\(\*SubsuperscriptBox[\(\
+\[Gamma]\), \(n\), \('\)]\)=gpn.\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=gphg.\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))"}, PlotLabel -> 
+        StringJoin[
+         "{ \!\(\*SubscriptBox[\(B\), \(0\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(0\), \('\)]\) } \[Mu]T = { 1 , ", 
+          ToString[
+           N[$CellContext`bp$$]], " }\n", 
+          "{ \!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gnval/(10^6 2 Pi)], 3]], " , ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gpn$$ ($CellContext`gnval/(10^6 2 Pi))], 3]], 
+          " }\n", "{ \!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`ghgval/(10^6 2 Pi)], 3]], " , ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gphg$$ ($CellContext`ghgval/(10^6 2 Pi))], 3]], 
+          " }"]], "Specifications" :> {{$CellContext`bp$$, 0, 
+         1}, {$CellContext`gpn$$, 0, 1}, {$CellContext`gphg$$, 0, 
+         1}, {$CellContext`p$$, 0, 2 Pi}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1594., {502., 508.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.713180406407791*^9, 3.713180445862896*^9}, 
+   3.7131805712981424`*^9, 3.7131807820641627`*^9, 3.7131808347543736`*^9, 
+   3.713180888484807*^9, 3.7131809296255207`*^9, 3.713180971116065*^9, 
+   3.713501980970545*^9}]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Asking the question, are we really sensitive to {bp, gphg, gpn} separately? \
+Or to the products: {bp.gphg, bp. gpn}? In essence asking the question is \
+R(t) a 3 parameter equation or a 2 parameter equation? Answer: only sensitive \
+to the products.\
+\>", "Chapter",
+ CellChangeTimes->{{3.713181503281928*^9, 3.7131815959942465`*^9}, {
+  3.7131817951391635`*^9, 3.7131818025661793`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "0", ",", "gnval", ",", "0", ",", "p", 
+          ",", "t"}], "]"}], "/", 
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "0", ",", "ghgval", ",", "0", ",", "p", 
+          ",", "t"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "gnval", ",", " ", 
+          RowBox[{"gnval", "/", "2"}], ",", "p", ",", "t"}], "]"}], "/", 
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "ghgval", ",", " ", "ghgval", ",", "p", 
+          ",", "t"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", 
+          RowBox[{"bp", " ", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "6"}]]}], ",", "gnval", ",", 
+          RowBox[{"gpn", " ", "gnval"}], ",", "p", ",", "t"}], "]"}], "/", 
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", 
+          RowBox[{"bp", " ", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "6"}]]}], ",", "ghgval", ",", 
+          RowBox[{"gphg", " ", "ghgval"}], ",", "p", ",", "t"}], "]"}]}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "48"}], "}"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<t (hours)\>\"", ",", 
+        "\"\<R = \!\(\*SubscriptBox[\(f\), \(n\)]\)/\!\(\*SubscriptBox[\(f\), \
+\(Hg\)]\)\>\""}], "}"}]}], ",", 
+     RowBox[{"TicksStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+     RowBox[{"FrameTicks", "\[Rule]", "LinTicks"}], ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"28", ",", "Black"}], "}"}]}], ",", 
+     RowBox[{"FrameTicksStyle", "\[Rule]", "Thick"}], ",", 
+     RowBox[{"FrameStyle", "\[Rule]", "Thick"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "1000"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "48"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "4"}], ",", "11"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", "DotDashed"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Gray", ",", "Dashed"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=0,\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\)=0)\>\"", 
+        ",", "\"\<R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=\!\(\*SubscriptBox[\(B\), \
+\(0\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \
+\('\)]\)=2\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))\>\"", ",", 
+        "\"\<R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=bp.\!\(\*SubscriptBox[\(B\), \(0\)]\),\!\(\*SubsuperscriptBox[\(\
+\[Gamma]\), \(n\), \('\)]\)=gpn.\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=gphg.\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))\>\""}], "}"}]}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotLabel", "\[Rule]", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{
+       "\"\<{ \!\(\*SubscriptBox[\(B\), \(0\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(0\), \('\)]\) } \[Mu]T = { 1 , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"N", "[", "bp", "]"}], "]"}], ",", "\"\< }\\n\>\"", ",", 
+        "\"\<{ \!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gnval", "/", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}], "]"}], ",",
+            "3"}], "]"}], "]"}], " ", ",", " ", "\"\< , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gpn", " ", 
+             RowBox[{"gnval", "/", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}]}], "]"}], 
+           ",", "3"}], "]"}], "]"}], ",", "\"\< }\\n\>\"", ",", 
+        "\"\<{ \!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"ghgval", "/", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}], "]"}], ",",
+            "3"}], "]"}], "]"}], " ", ",", " ", "\"\< , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gphg", " ", 
+             RowBox[{"ghgval", "/", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}]}], "]"}], 
+           ",", "3"}], "]"}], "]"}], ",", "\"\< }\>\""}], "]"}]}]}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"bp", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"gpn", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"gphg", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"p", ",", "0", ",", 
+     RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`bp$$ = 0.358, $CellContext`gphg$$ = 
+    0.402, $CellContext`gpn$$ = 0.406, $CellContext`p$$ = 3.7824775549221106`,
+     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`bp$$], 0, 1}, {
+      Hold[$CellContext`gpn$$], 0, 1}, {
+      Hold[$CellContext`gphg$$], 0, 1}, {
+      Hold[$CellContext`p$$], 0, 2 Pi}}, Typeset`size$$ = {
+    1543., {513., 518.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`bp$1912$$ = 
+    0, $CellContext`gpn$1913$$ = 0, $CellContext`gphg$1914$$ = 
+    0, $CellContext`p$1915$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`bp$$ = 0, $CellContext`gphg$$ = 
+        0, $CellContext`gpn$$ = 0, $CellContext`p$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`bp$$, $CellContext`bp$1912$$, 0], 
+        Hold[$CellContext`gpn$$, $CellContext`gpn$1913$$, 0], 
+        Hold[$CellContext`gphg$$, $CellContext`gphg$1914$$, 0], 
+        Hold[$CellContext`p$$, $CellContext`p$1915$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[{$CellContext`fr[
+          10^(-6), 0, $CellContext`gnval, 
+           0, $CellContext`p$$, $CellContext`t]/$CellContext`fr[
+         10^(-6), 0, $CellContext`ghgval, 
+          0, $CellContext`p$$, $CellContext`t], $CellContext`fr[
+          10^(-6), 10^(-6), $CellContext`gnval, $CellContext`gnval/
+           2, $CellContext`p$$, $CellContext`t]/$CellContext`fr[
+         10^(-6), 
+          10^(-6), $CellContext`ghgval, $CellContext`ghgval, \
+$CellContext`p$$, $CellContext`t], $CellContext`fr[
+          10^(-6), $CellContext`bp$$ 
+           10^(-6), $CellContext`gnval, $CellContext`gpn$$ \
+$CellContext`gnval, $CellContext`p$$, $CellContext`t]/$CellContext`fr[
+         10^(-6), $CellContext`bp$$ 
+          10^(-6), $CellContext`ghgval, $CellContext`gphg$$ \
+$CellContext`ghgval, $CellContext`p$$, $CellContext`t]}, {$CellContext`t, 0, 
+         48}, Frame -> True, 
+        FrameLabel -> {
+         "t (hours)", 
+          "R = \!\(\*SubscriptBox[\(f\), \(n\)]\)/\!\(\*SubscriptBox[\(f\), \
+\(Hg\)]\)"}, TicksStyle -> Directive[FontSize -> 40], FrameTicks -> 
+        CustomTicks`LinTicks, LabelStyle -> {28, Black}, FrameTicksStyle -> 
+        Thick, FrameStyle -> Thick, ImageSize -> 1000, Axes -> None, 
+        PlotRange -> {{0, 48}, {-4, 11}}, 
+        PlotStyle -> {{Blue, DotDashed}, {Gray, Dashed}, {Red, Thick}}, 
+        PlotLegends -> {
+         "R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=0,\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\)=0)", 
+          "R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=\!\(\*SubscriptBox[\(B\), \
+\(0\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \
+\('\)]\)=2\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))", 
+          "R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=bp.\!\(\*SubscriptBox[\(B\), \(0\)]\),\!\(\*SubsuperscriptBox[\(\
+\[Gamma]\), \(n\), \('\)]\)=gpn.\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=gphg.\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))"}, PlotLabel -> 
+        StringJoin[
+         "{ \!\(\*SubscriptBox[\(B\), \(0\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(0\), \('\)]\) } \[Mu]T = { 1 , ", 
+          ToString[
+           N[$CellContext`bp$$]], " }\n", 
+          "{ \!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gnval/(10^6 2 Pi)], 3]], " , ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gpn$$ ($CellContext`gnval/(10^6 2 Pi))], 3]], 
+          " }\n", "{ \!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`ghgval/(10^6 2 Pi)], 3]], " , ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gphg$$ ($CellContext`ghgval/(10^6 2 Pi))], 3]], 
+          " }"]], "Specifications" :> {{$CellContext`bp$$, 0, 
+         1}, {$CellContext`gpn$$, 0, 1}, {$CellContext`gphg$$, 0, 
+         1}, {$CellContext`p$$, 0, 2 Pi}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1594., {654., 660.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.7131816048791423`*^9, 3.713501982263736*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Let us ask the question if Hg sees a different field compared to n? Here \
+\>", "Chapter",
+ CellChangeTimes->{{3.7131818174627247`*^9, 3.713181839005952*^9}, {
+  3.7131818819700065`*^9, 3.713181882796631*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "0", ",", "gnval", ",", "0", ",", "p", 
+          ",", "t"}], "]"}], "/", 
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "0", ",", "ghgval", ",", "0", ",", "p", 
+          ",", "t"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "gnval", ",", " ", 
+          RowBox[{"gnval", "/", "2"}], ",", "p", ",", "t"}], "]"}], "/", 
+        RowBox[{"fr", "[", 
+         RowBox[{
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "6"}]], ",", "ghgval", ",", " ", "ghgval", ",", "p", 
+          ",", "t"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"fr", "[", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["10", 
+            RowBox[{"-", "6"}]], "b0"}], ",", 
+          RowBox[{"bpn", " ", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "6"}]]}], ",", "gnval", ",", 
+          RowBox[{"gpn", " ", "gnval"}], ",", "p", ",", "t"}], "]"}], "/", 
+        RowBox[{"fr", "[", 
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["10", 
+            RowBox[{"-", "6"}]], "b0"}], ",", 
+          RowBox[{"bphg", " ", 
+           SuperscriptBox["10", 
+            RowBox[{"-", "6"}]]}], ",", "ghgval", ",", 
+          RowBox[{"gphg", " ", "ghgval"}], ",", "p", ",", "t"}], "]"}]}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "48"}], "}"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<t (hours)\>\"", ",", 
+        "\"\<R = \!\(\*SubscriptBox[\(f\), \(n\)]\)/\!\(\*SubscriptBox[\(f\), \
+\(Hg\)]\)\>\""}], "}"}]}], ",", 
+     RowBox[{"TicksStyle", "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+     RowBox[{"FrameTicks", "\[Rule]", "LinTicks"}], ",", 
+     RowBox[{"LabelStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"28", ",", "Black"}], "}"}]}], ",", 
+     RowBox[{"FrameTicksStyle", "\[Rule]", "Thick"}], ",", 
+     RowBox[{"FrameStyle", "\[Rule]", "Thick"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "1000"}], ",", 
+     RowBox[{"Axes", "\[Rule]", "None"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "48"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "4"}], ",", "11"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", "DotDashed"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Gray", ",", "Dashed"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=0,\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\)=0)\>\"", 
+        ",", "\"\<R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=\!\(\*SubscriptBox[\(B\), \
+\(0\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \
+\('\)]\)=2\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))\>\"", ",", 
+        "\"\<R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=bp.\!\(\*SubscriptBox[\(B\), \(0\)]\),\!\(\*SubsuperscriptBox[\(\
+\[Gamma]\), \(n\), \('\)]\)=gpn.\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=gphg.\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))\>\""}], "}"}]}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotLabel", "\[Rule]", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{
+       "\"\<{ \!\(\*SubscriptBox[\(B\), \(0\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(n\), \('\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \('\)]\) } \[Mu]T = { \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"N", "[", "b0", "]"}], "]"}], ",", "\"\< , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"N", "[", 
+          RowBox[{"bpn", " ", "b0"}], "]"}], "]"}], ",", "\"\< , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"N", "[", 
+          RowBox[{"bphg", " ", "b0"}], "]"}], "]"}], ",", "\"\< }\\n\>\"", 
+        ",", "\"\<{ \!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gnval", "/", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}], "]"}], ",",
+            "3"}], "]"}], "]"}], " ", ",", " ", "\"\< , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gpn", " ", 
+             RowBox[{"gnval", "/", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}]}], "]"}], 
+           ",", "3"}], "]"}], "]"}], ",", "\"\< }\\n\>\"", ",", 
+        "\"\<{ \!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"ghgval", "/", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}], "]"}], ",",
+            "3"}], "]"}], "]"}], " ", ",", " ", "\"\< , \>\"", ",", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"gphg", " ", 
+             RowBox[{"ghgval", "/", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["10", "6"], "2", "\[Pi]"}], ")"}]}]}], "]"}], 
+           ",", "3"}], "]"}], "]"}], ",", "\"\< }\>\""}], "]"}]}]}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"b0", ",", "0.5", ",", "1.5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"bpn", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"bphg", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"gpn", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"gphg", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"p", ",", "0", ",", 
+     RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.713181848280533*^9, 3.713181864097661*^9}, {
+   3.713181934530407*^9, 3.713181980269872*^9}, {3.7131821889284687`*^9, 
+   3.713182279931779*^9}, 3.7131823370954833`*^9, {3.7131824288688555`*^9, 
+   3.713182431909536*^9}, {3.7131825679566164`*^9, 3.713182585391049*^9}, {
+   3.7131826834994664`*^9, 3.713182692055253*^9}, {3.7131839719058895`*^9, 
+   3.713183973839754*^9}, {3.71318409420407*^9, 3.713184095907401*^9}, {
+   3.7131842431546326`*^9, 3.7131842753408194`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`b0$$ = 
+    1.3055096168518048`, $CellContext`bphg$$ = 0.4, $CellContext`bpn$$ = 
+    0.6, $CellContext`gphg$$ = 0.724, $CellContext`gpn$$ = 
+    0.6, $CellContext`p$$ = 3.053628059289279, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`b0$$], 0.5, 1.5}, {
+      Hold[$CellContext`bpn$$], 0, 1}, {
+      Hold[$CellContext`bphg$$], 0, 1}, {
+      Hold[$CellContext`gpn$$], 0, 1}, {
+      Hold[$CellContext`gphg$$], 0, 1}, {
+      Hold[$CellContext`p$$], 0, 2 Pi}}, Typeset`size$$ = {
+    1543., {516., 521.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`b0$2308$$ = 
+    0, $CellContext`bpn$2309$$ = 0, $CellContext`bphg$2310$$ = 
+    0, $CellContext`gpn$2311$$ = 0, $CellContext`gphg$2312$$ = 
+    0, $CellContext`p$2313$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`b0$$ = 0.5, $CellContext`bphg$$ = 
+        0, $CellContext`bpn$$ = 0, $CellContext`gphg$$ = 
+        0, $CellContext`gpn$$ = 0, $CellContext`p$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`b0$$, $CellContext`b0$2308$$, 0], 
+        Hold[$CellContext`bpn$$, $CellContext`bpn$2309$$, 0], 
+        Hold[$CellContext`bphg$$, $CellContext`bphg$2310$$, 0], 
+        Hold[$CellContext`gpn$$, $CellContext`gpn$2311$$, 0], 
+        Hold[$CellContext`gphg$$, $CellContext`gphg$2312$$, 0], 
+        Hold[$CellContext`p$$, $CellContext`p$2313$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[{$CellContext`fr[
+          10^(-6), 0, $CellContext`gnval, 
+           0, $CellContext`p$$, $CellContext`t]/$CellContext`fr[
+         10^(-6), 0, $CellContext`ghgval, 
+          0, $CellContext`p$$, $CellContext`t], $CellContext`fr[
+          10^(-6), 10^(-6), $CellContext`gnval, $CellContext`gnval/
+           2, $CellContext`p$$, $CellContext`t]/$CellContext`fr[
+         10^(-6), 
+          10^(-6), $CellContext`ghgval, $CellContext`ghgval, \
+$CellContext`p$$, $CellContext`t], $CellContext`fr[
+          10^(-6) $CellContext`b0$$, $CellContext`bpn$$ 
+           10^(-6), $CellContext`gnval, $CellContext`gpn$$ \
+$CellContext`gnval, $CellContext`p$$, $CellContext`t]/$CellContext`fr[
+         10^(-6) $CellContext`b0$$, $CellContext`bphg$$ 
+          10^(-6), $CellContext`ghgval, $CellContext`gphg$$ \
+$CellContext`ghgval, $CellContext`p$$, $CellContext`t]}, {$CellContext`t, 0, 
+         48}, Frame -> True, 
+        FrameLabel -> {
+         "t (hours)", 
+          "R = \!\(\*SubscriptBox[\(f\), \(n\)]\)/\!\(\*SubscriptBox[\(f\), \
+\(Hg\)]\)"}, TicksStyle -> Directive[FontSize -> 40], FrameTicks -> 
+        CustomTicks`LinTicks, LabelStyle -> {28, Black}, FrameTicksStyle -> 
+        Thick, FrameStyle -> Thick, ImageSize -> 1000, Axes -> None, 
+        PlotRange -> {{0, 48}, {-4, 11}}, 
+        PlotStyle -> {{Blue, DotDashed}, {Gray, Dashed}, {Red, Thick}}, 
+        PlotLegends -> {
+         "R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=0,\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\)=0)", 
+          "R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=\!\(\*SubscriptBox[\(B\), \
+\(0\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \
+\('\)]\)=2\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))", 
+          "R(\!\(\*SubsuperscriptBox[\(B\), \(0\), \
+\('\)]\)=bp.\!\(\*SubscriptBox[\(B\), \(0\)]\),\!\(\*SubsuperscriptBox[\(\
+\[Gamma]\), \(n\), \('\)]\)=gpn.\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(n\)]\),\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \
+\('\)]\)=gphg.\!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\))"}, PlotLabel -> 
+        StringJoin[
+         "{ \!\(\*SubscriptBox[\(B\), \(0\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(n\), \('\)]\) , \
+\!\(\*SubsuperscriptBox[\(B\), \(Hg\), \('\)]\) } \[Mu]T = { ", 
+          ToString[
+           N[$CellContext`b0$$]], " , ", 
+          ToString[
+           N[$CellContext`bpn$$ $CellContext`b0$$]], " , ", 
+          ToString[
+           N[$CellContext`bphg$$ $CellContext`b0$$]], " }\n", 
+          "{ \!\(\*SubscriptBox[\(\[Gamma]\), \(n\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(n\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gnval/(10^6 2 Pi)], 3]], " , ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gpn$$ ($CellContext`gnval/(10^6 2 Pi))], 3]], 
+          " }\n", "{ \!\(\*SubscriptBox[\(\[Gamma]\), \(Hg\)]\) , \
+\!\(\*SubsuperscriptBox[\(\[Gamma]\), \(Hg\), \('\)]\) } MHz \
+\!\(\*SuperscriptBox[\(T\), \(-1\)]\) = { ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`ghgval/(10^6 2 Pi)], 3]], " , ", 
+          ToString[
+           SetPrecision[
+            N[$CellContext`gphg$$ ($CellContext`ghgval/(10^6 2 Pi))], 3]], 
+          " }"]], "Specifications" :> {{$CellContext`b0$$, 0.5, 
+         1.5}, {$CellContext`bpn$$, 0, 1}, {$CellContext`bphg$$, 0, 
+         1}, {$CellContext`gpn$$, 0, 1}, {$CellContext`gphg$$, 0, 
+         1}, {$CellContext`p$$, 0, 2 Pi}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1594., {711., 717.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.713181866382891*^9, 3.7131819813221283`*^9, {3.7131822365221586`*^9, 
+   3.713182280705473*^9}, 3.7131823390298996`*^9, 3.7131824382628865`*^9, 
+   3.7131825864168406`*^9, 3.7131826928503623`*^9, 3.7131839758041415`*^9, 
+   3.7131840977983665`*^9, {3.713184246553618*^9, 3.7131842766672587`*^9}, 
+   3.7135019833788557`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fr", "[", 
+   RowBox[{
+    SuperscriptBox["10", 
+     RowBox[{"-", "6"}]], ",", 
+    RowBox[{"bp", " ", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "6"}]]}], ",", "gnval", ",", 
+    RowBox[{"gpn", " ", "gnval"}], ",", "p", ",", "t"}], "]"}], "/", 
+  RowBox[{"fr", "[", 
+   RowBox[{
+    SuperscriptBox["10", 
+     RowBox[{"-", "6"}]], ",", 
+    RowBox[{"bp", " ", 
+     SuperscriptBox["10", 
+      RowBox[{"-", "6"}]]}], ",", "ghgval", ",", 
+    RowBox[{"gphg", " ", "ghgval"}], ",", "p", ",", "t"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7131813833057733`*^9, 3.7131813896346216`*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"29.1646943`", "\[VeryThinSpace]", "+", 
+   RowBox[{"29.1646943`", " ", "bp", " ", "gpn", " ", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"p", "+", 
+      RowBox[{"0.2625213214330904`", " ", "t"}]}], "]"}]}]}], 
+  RowBox[{"7.5901179999999995`", "\[VeryThinSpace]", "+", 
+   RowBox[{"7.5901179999999995`", " ", "bp", " ", "gphg", " ", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"p", "+", 
+      RowBox[{"0.2625213214330904`", " ", "t"}]}], "]"}]}]}]]], "Output",
+ CellChangeTimes->{3.7131812183759537`*^9, 3.7131813935878077`*^9, 
+  3.713501984423892*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell["We know from ", "Chapter",
+ CellChangeTimes->{{3.7131859982703595`*^9, 3.713185999985623*^9}}]
 },
-WindowSize->{2560, 1357},
+WindowSize->{1600, 817},
 WindowMargins->{{-8, Automatic}, {Automatic, -8}},
 FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
 StyleDefinitions->"Default.nb"
@@ -223,14 +1591,45 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 3485, 79, 292, "Input"],
 Cell[CellGroupData[{
-Cell[4090, 105, 395, 10, 23, "Print"],
-Cell[4488, 117, 366, 8, 23, "Print"]
+Cell[4090, 105, 423, 11, 23, "Print"],
+Cell[4516, 118, 395, 9, 23, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4903, 131, 1228, 31, 31, "Input"],
-Cell[6134, 164, 1977, 39, 767, "Output"]
+Cell[4960, 133, 108, 1, 72, "Chapter"],
+Cell[5071, 136, 1830, 47, 134, "Input"],
+Cell[CellGroupData[{
+Cell[6926, 187, 5464, 129, 143, "Input"],
+Cell[12393, 318, 4891, 93, 945, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17321, 416, 4770, 120, 141, "Input"],
+Cell[22094, 538, 4263, 83, 943, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26394, 626, 6898, 170, 189, "Input"],
+Cell[33295, 798, 5553, 111, 1027, "Output"]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38897, 915, 398, 7, 174, "Chapter"],
+Cell[CellGroupData[{
+Cell[39320, 926, 6599, 166, 189, "Input"],
+Cell[45922, 1094, 5397, 107, 1331, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51368, 1207, 219, 4, 72, "Chapter"],
+Cell[CellGroupData[{
+Cell[51612, 1215, 7631, 186, 212, "Input"],
+Cell[59246, 1403, 6413, 126, 1445, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65696, 1534, 626, 18, 34, "Input"],
+Cell[66325, 1554, 584, 13, 58, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[66936, 1571, 100, 1, 72, "Chapter"]
 }
 ]
 *)
