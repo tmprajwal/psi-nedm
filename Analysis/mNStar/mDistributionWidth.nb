@@ -1,0 +1,3758 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    174787,       3749]
+NotebookOptionsPosition[    173758,       3711]
+NotebookOutlinePosition[    174102,       3726]
+CellTagsIndexPosition[    174059,       3723]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"OS", "=", "\"\<win\>\""}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"or", ",", "linux"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<ErrorBarPlots`\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<EDA`\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<CustomTicks`\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{"LinTicks", ",", 
+    RowBox[{"TickLabelStep", "\[Rule]", "1"}], ",", 
+    RowBox[{"MajorTickLength", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"0.0125", ",", "0"}], "}"}]}], ",", 
+    RowBox[{"MinorTickLength", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"0.0075", ",", "0"}], "}"}]}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"OS", "\[Equal]", "\"\<win\>\""}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Working Directory: \>\"", ",", 
+       RowBox[{"curDir", "=", 
+        RowBox[{
+        "SetDirectory", "[", 
+         "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\daq-tools-bkg-auto\
+\\\\nstar_online\>\"", "]"}]}]}], "]"}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(AscDir) Rawdata Directory: \>\"", ",", 
+       RowBox[{
+       "AscDir", "=", 
+        "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\rawdata\>\""}]}], 
+      "]"}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(ScrDir) Scratch Directory: \>\"", ",", 
+       RowBox[{
+       "ScrDir", "=", 
+        "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\Scratch\>\""}]}], "]"}], 
+     ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(PicDir) Picture Directory: \>\"", ",", 
+       RowBox[{
+       "PicDir", "=", 
+        "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\Pictures\>\""}]}], 
+      "]"}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(SysDir) System Directory: \>\"", ",", 
+       RowBox[{
+       "SysDir", "=", 
+        "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\system\>\""}]}], 
+      "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<Runs in the list: runNum = \>\"", ",", 
+   RowBox[{"runNum", "=", 
+    RowBox[{"{", "12693", "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<#Runs in the list: runn = \>\"", ",", 
+    RowBox[{"runn", "=", 
+     RowBox[{
+      RowBox[{"Dimensions", "[", "runNum", "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"metaStructure2", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "Word", ",", "Real", ",", "Real", ",", "Word", ",", "Real", ",", "Real", 
+     ",", "Word", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", 
+     "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", 
+     ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", 
+     "Real", ",", "Word", ",", "Real", ",", "Real", ",", "Real", ",", "Real", 
+     ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", 
+     "Real", ",", "Real", ",", "Real", ",", "Word", ",", "Real", ",", "Real", 
+     ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", 
+     "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", 
+     ",", "Real", ",", "Real", ",", "Real", ",", "Word", ",", "Real", ",", 
+     "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", 
+     ",", "Real", ",", "Real", ",", "Real", ",", "Real"}], "}"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"histbeg", "=", "100"}], ";", 
+  RowBox[{"histlast", "=", "1400"}], ";", 
+  RowBox[{"icycle", "=", "25"}], ";", 
+  RowBox[{"ChNum", "=", "4"}], ";", 
+  RowBox[{"binw", "=", "10"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.714891887836751*^9, 3.7148919130996456`*^9}, {
+  3.714891943734197*^9, 3.7148919564660993`*^9}, {3.71489217708582*^9, 
+  3.714892323904261*^9}, {3.7148923721101084`*^9, 3.71489252966545*^9}, {
+  3.7148930739958*^9, 3.714893080017525*^9}, {3.714894219369686*^9, 
+  3.7148942297592*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\daq-tools-bkg-auto\\\\nstar_\
+online\"\>"}],
+  SequenceForm[
+  "Working Directory: ", 
+   "C:\\Users\\Prajwal\\Dropbox\\nEDM\\daq-tools-bkg-auto\\nstar_online"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.714892488748551*^9, {3.714892527115116*^9, 3.714892531143571*^9}, 
+   3.7148930820102654`*^9, {3.7148942203572035`*^9, 3.714894230350062*^9}, 
+   3.715016316371769*^9, 3.7150173836684713`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(AscDir) Rawdata Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\rawdata\"\>"}],
+  SequenceForm[
+  "(AscDir) Rawdata Directory: ", 
+   "C:\\Users\\Prajwal\\Dropbox\\nEDM\\rawdata"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.714892488748551*^9, {3.714892527115116*^9, 3.714892531143571*^9}, 
+   3.7148930820102654`*^9, {3.7148942203572035`*^9, 3.714894230350062*^9}, 
+   3.715016316371769*^9, 3.7150173836749763`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(ScrDir) Scratch Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\Scratch\"\>"}],
+  SequenceForm[
+  "(ScrDir) Scratch Directory: ", "C:\\Users\\Prajwal\\Dropbox\\Scratch"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.714892488748551*^9, {3.714892527115116*^9, 3.714892531143571*^9}, 
+   3.7148930820102654`*^9, {3.7148942203572035`*^9, 3.714894230350062*^9}, 
+   3.715016316371769*^9, 3.7150173836799803`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(PicDir) Picture Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\Pictures\"\>"}],
+  SequenceForm[
+  "(PicDir) Picture Directory: ", 
+   "C:\\Users\\Prajwal\\Dropbox\\nEDM\\Pictures"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.714892488748551*^9, {3.714892527115116*^9, 3.714892531143571*^9}, 
+   3.7148930820102654`*^9, {3.7148942203572035`*^9, 3.714894230350062*^9}, 
+   3.715016316371769*^9, 3.7150173836854844`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(SysDir) System Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\system\"\>"}],
+  SequenceForm[
+  "(SysDir) System Directory: ", "C:\\Users\\Prajwal\\Dropbox\\nEDM\\system"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.714892488748551*^9, {3.714892527115116*^9, 3.714892531143571*^9}, 
+   3.7148930820102654`*^9, {3.7148942203572035`*^9, 3.714894230350062*^9}, 
+   3.715016316371769*^9, 3.7150173836914883`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Runs in the list: runNum = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "12693", "}"}]}],
+  SequenceForm["Runs in the list: runNum = ", {12693}],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.714892488748551*^9, {3.714892527115116*^9, 3.714892531143571*^9}, 
+   3.7148930820102654`*^9, {3.7148942203572035`*^9, 3.714894230350062*^9}, 
+   3.715016316371769*^9, 3.715017383696993*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"#Runs in the list: runn = \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["#Runs in the list: runn = ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.714892488748551*^9, {3.714892527115116*^9, 3.714892531143571*^9}, 
+   3.7148930820102654`*^9, {3.7148942203572035`*^9, 3.714894230350062*^9}, 
+   3.715016316371769*^9, 3.7150173837029967`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"runi", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"ReadList", "[", 
+    RowBox[{
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"ScrDir", ",", "\"\<\\\\\>\"", ",", 
+       RowBox[{"IntegerString", "[", 
+        RowBox[{
+         RowBox[{"runNum", "[", 
+          RowBox[{"[", "runi", "]"}], "]"}], ",", "10", ",", "6"}], "]"}], 
+       ",", "\"\<_Meta3.edm\>\""}], "]"}], ",", "metaStructure2"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"begCy", "=", "15"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"maxCy", "=", "135"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ptud", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"data", "[", 
+         RowBox[{"[", "k", "]"}], "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"data", "[", 
+             RowBox[{"[", "k", "]"}], "]"}], "[", 
+            RowBox[{"[", "27", "]"}], "]"}], "+", 
+           RowBox[{
+            RowBox[{"data", "[", 
+             RowBox[{"[", "k", "]"}], "]"}], "[", 
+            RowBox[{"[", "28", "]"}], "]"}]}], ",", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"data", "[", 
+              RowBox[{"[", "k", "]"}], "]"}], "[", 
+             RowBox[{"[", "27", "]"}], "]"}], "+", 
+            RowBox[{
+             RowBox[{"data", "[", 
+              RowBox[{"[", "k", "]"}], "]"}], "[", 
+             RowBox[{"[", "28", "]"}], "]"}]}], "]"}]}], "}"}], "/", 
+        "1000"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "begCy", ",", "maxCy"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ptmon", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"data", "[", 
+         RowBox[{"[", "k", "]"}], "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"data", "[", 
+            RowBox[{"[", "k", "]"}], "]"}], "[", 
+           RowBox[{"[", "30", "]"}], "]"}], ",", 
+          RowBox[{"Sqrt", "[", 
+           RowBox[{
+            RowBox[{"data", "[", 
+             RowBox[{"[", "k", "]"}], "]"}], "[", 
+            RowBox[{"[", "30", "]"}], "]"}], "]"}]}], "}"}], "/", "10000"}]}],
+       "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "begCy", ",", "maxCy"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ftud", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"data", "[", 
+         RowBox[{"[", "k", "]"}], "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"data", "[", 
+            RowBox[{"[", "k", "]"}], "]"}], "[", 
+           RowBox[{"[", "27", "]"}], "]"}], "+", 
+          RowBox[{
+           RowBox[{"data", "[", 
+            RowBox[{"[", "k", "]"}], "]"}], "[", 
+           RowBox[{"[", "28", "]"}], "]"}]}], ")"}], "/", "1000"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "begCy", ",", "maxCy"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ftmon", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"data", "[", 
+         RowBox[{"[", "k", "]"}], "]"}], "[", 
+        RowBox[{"[", "2", "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"data", "[", 
+           RowBox[{"[", "k", "]"}], "]"}], "[", 
+          RowBox[{"[", "30", "]"}], "]"}], ")"}], "/", "10000"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "begCy", ",", "maxCy"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nlmud", "=", 
+   RowBox[{"NonlinearModelFit", "[", 
+    RowBox[{"ftud", ",", 
+     RowBox[{"aa", "+", 
+      RowBox[{"bb", " ", 
+       RowBox[{"Exp", "[", 
+        RowBox[{
+         RowBox[{"-", "cc"}], " ", "xx"}], "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"aa", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"bb", ",", "10"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"cc", ",", ".1"}], "}"}]}], "}"}], ",", "xx"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nlmmon", "=", 
+   RowBox[{"NonlinearModelFit", "[", 
+    RowBox[{"ftmon", ",", 
+     RowBox[{"aa", "+", 
+      RowBox[{"bb", " ", 
+       RowBox[{"Exp", "[", 
+        RowBox[{
+         RowBox[{"-", "cc"}], " ", "xx"}], "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"aa", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"bb", ",", "10"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"cc", ",", ".1"}], "}"}]}], "}"}], ",", "xx"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pt1", "=", 
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"nlmud", "[", "x", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "begCy", ",", "maxCy"}], "}"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"begCy", ",", "maxCy"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "100"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Blue", ",", 
+            RowBox[{"Thickness", "[", ".005", "]"}]}], "}"}]}], ",", 
+         RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"Frame", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"True", ",", "True", ",", "False", ",", "False"}], "}"}]}],
+          ",", 
+         RowBox[{"FrameStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", 
+              RowBox[{"Thickness", "[", ".005", "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", 
+              RowBox[{"Thickness", "[", ".005", "]"}]}], "}"}], ",", "None", 
+            ",", "None"}], "}"}]}], ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Cycle #\>\"", ",", 
+            "\"\<\!\(\*SubscriptBox[\(N\), \
+\(Up\)]\)+\!\(\*SubscriptBox[\(N\), \(Down\)]\) (\[Cross]1k)\>\""}], "}"}]}], 
+         ",", 
+         RowBox[{"FrameTicks", "\[Rule]", "LinTicks"}], ",", 
+         RowBox[{"TicksStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+         RowBox[{"LabelStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"38", ",", "Black", ",", "Bold"}], "}"}]}], ",", 
+         RowBox[{"FrameTicksStyle", "\[Rule]", "Bold"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", "1000", "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"EDAListPlot", "[", 
+        RowBox[{"ptud", ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"begCy", ",", "maxCy"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "100"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", "Blue", "}"}]}], ",", 
+         RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"Frame", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"True", ",", "True", ",", "False", ",", "False"}], "}"}]}],
+          ",", 
+         RowBox[{"FrameStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", 
+              RowBox[{"Thickness", "[", ".005", "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", 
+              RowBox[{"Thickness", "[", ".005", "]"}]}], "}"}], ",", "None", 
+            ",", "None"}], "}"}]}], ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Cycle #\>\"", ",", 
+            "\"\<\!\(\*SubscriptBox[\(N\), \
+\(Up\)]\)+\!\(\*SubscriptBox[\(N\), \(Down\)]\) (\[Cross]1k)\>\""}], "}"}]}], 
+         ",", 
+         RowBox[{"FrameTicks", "\[Rule]", "LinTicks"}], ",", 
+         RowBox[{"TicksStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+         RowBox[{"LabelStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"38", ",", "Black", ",", "Bold"}], "}"}]}], ",", 
+         RowBox[{"FrameTicksStyle", "\[Rule]", "Bold"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", "1000", "}"}]}], ",", 
+         RowBox[{"PlotMarkers", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Automatic", ",", " ", "Medium"}], "}"}]}]}], "]"}]}], 
+      "\[IndentingNewLine]", "}"}], ",", 
+     RowBox[{"ImagePadding", "\[Rule]", "125"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pt2", "=", 
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"EDAListPlot", "[", 
+        RowBox[{"ptmon", ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"begCy", ",", "maxCy"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "100"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", "Red", "}"}]}], ",", 
+         RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"Frame", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"False", ",", "False", ",", "True", ",", "True"}], "}"}]}],
+          ",", 
+         RowBox[{"FrameStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"None", ",", "None", ",", 
+            RowBox[{"{", 
+             RowBox[{"Red", ",", 
+              RowBox[{"Thickness", "[", ".005", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"Red", ",", 
+              RowBox[{"Thickness", "[", ".005", "]"}]}], "}"}]}], "}"}]}], 
+         ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<\>\"", ",", "\"\<\>\"", ",", "\"\<\>\"", ",", 
+            RowBox[{"Rotate", "[", 
+             RowBox[{
+             "\"\<\!\(\*SubscriptBox[\(N\), \(Monitor\)]\) (\[Cross]10k)\>\"",
+               ",", 
+              RowBox[{"180", "Degree"}]}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"FrameTicks", "\[Rule]", "LinTicks"}], ",", 
+         RowBox[{"TicksStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+         RowBox[{"LabelStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"38", ",", "Black", ",", "Bold"}], "}"}]}], ",", 
+         RowBox[{"FrameTicksStyle", "\[Rule]", "Bold"}], ",", 
+         RowBox[{"FrameStyle", "\[Rule]", 
+          RowBox[{"Thickness", "[", ".005", "]"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", "1000", "}"}]}], ",", 
+         RowBox[{"PlotMarkers", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Automatic", ",", " ", "Medium"}], "}"}]}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"nlmmon", "[", "x", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "begCy", ",", "maxCy"}], "}"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"begCy", ",", "maxCy"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "100"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Red", ",", 
+            RowBox[{"Thickness", "[", ".005", "]"}]}], "}"}]}], ",", 
+         RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"Frame", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"False", ",", "False", ",", "True", ",", "True"}], "}"}]}],
+          ",", 
+         RowBox[{"FrameStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"None", ",", "None", ",", 
+            RowBox[{"{", 
+             RowBox[{"Red", ",", 
+              RowBox[{"Thickness", "[", ".005", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"Red", ",", 
+              RowBox[{"Thickness", "[", ".005", "]"}]}], "}"}]}], "}"}]}], 
+         ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"\"\<\>\"", ",", "\"\<\>\"", ",", "\"\<\>\"", ",", 
+            RowBox[{"Rotate", "[", 
+             RowBox[{
+             "\"\<\!\(\*SubscriptBox[\(N\), \(Monitor\)]\) (\[Cross]10k)\>\"",
+               ",", 
+              RowBox[{"180", "Degree"}]}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"FrameTicks", "\[Rule]", "LinTicks"}], ",", 
+         RowBox[{"TicksStyle", "\[Rule]", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+         RowBox[{"LabelStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"38", ",", "Black", ",", "Bold"}], "}"}]}], ",", 
+         RowBox[{"FrameTicksStyle", "\[Rule]", "Bold"}], ",", 
+         RowBox[{"FrameStyle", "\[Rule]", 
+          RowBox[{"Thickness", "[", ".005", "]"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", "1000", "}"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+      "}"}], ",", 
+     RowBox[{"ImagePadding", "\[Rule]", "125"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"pt3", "=", 
+  RowBox[{"Overlay", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pt1", ",", "pt2"}], "}"}], ",", 
+    RowBox[{"ImageSize", "\[Rule]", "1200"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.714892620474162*^9, 3.7148926269798355`*^9}, {
+  3.714892695642619*^9, 3.7148928677116346`*^9}, {3.7148929002306204`*^9, 
+  3.714892955881045*^9}, {3.714892986856229*^9, 3.7148930218131037`*^9}, {
+  3.7148931271348143`*^9, 3.7148931554321575`*^9}, {3.7148935850624075`*^9, 
+  3.714893935421826*^9}, {3.7148939691541433`*^9, 3.7148941842655954`*^9}, {
+  3.7148942350006633`*^9, 3.7148949205262213`*^9}, {3.7148949601240673`*^9, 
+  3.7148951638373575`*^9}}],
+
+Cell[BoxData[
+ OverlayBox[{
+  GraphicsBox[{{{}, {}, 
+     {RGBColor[0, 0, 1], Thickness[0.005], Opacity[1.], 
+      LineBox[CompressedData["
+1:eJwV0n8w1HkYB/BVc1GSokJy0Vhz1VoWR+3ny71tO1i/Wz+yLL5L2+UqhOxe
+whSdRJ2jU1xXS0KtkXGLLUfq0rS1SoWMfl5TrtAY0w8kuW9/PPPM64/neWae
+57FLSBHL57FYrCAmvmbzMo6YxeKClM0Vbg+lIOTt8h4042JPyCovIeOMu2rn
+JjYXUnnROzvGA8YbTOkALsZ2pCY8CaFQmb9Of6WciyCJMDScsW2mg0+uoxMq
+XY12CYIpnOAstcl1dMbI0eqzawIp1JguWvYlmocthZuWPvWl0OzVI9e8dkWB
+te5GixeF0dcXNZYB7tgQ+9DyB3cKv8WeuJNXtRHxI6IyQy4FDgmOqFtPMOR0
+o96NTWGizH5AedgTr43au01sKPSvfyU7sBg4a5piG7KcwptUfqcu2BvF+jNB
+vcYUSjPOWCRlCVCluDk9OZ9CC2dX3barmxHl4etYPEOwu9rPrW1CCNVtO8Pr
+7wik2XUOJqt94B2SbOA+RtC9ODnkSrwv9F6qMsuXBNclwr03j/pBkj6trnhM
+4Blz8J5jvwj/KdSaY30Eb68KyspXBkDWIM/q1BO4DJuJIwWBSJTtbS7oJpjo
+9PdNKwjCg+Pr9Dc7CHwiSje9ag3Gwwi1VtVKsELlnaCZC0FJXq72XSOBSf0m
+5eaqUIzm+rTl1BE8ihvyHPTYAlH1SMMfKoLh8cZvrR9tQahHn9KjguDveOOc
+wnQxXu3RtCeUEjjOW1cybRSGl+kGs11FTH3Ovg4LdRjeumWfq8onCB8KS5IJ
+wlGeUy00ySFYtFTmLBkOB+eBjP8lkyBG6XRBXBCBH6M9tWtTCRRXDlUrbCJR
+sbCppSeJoPe5aat/VyQ2Ns/kGiQSvH9u5yeK2oopj/HsS1KCv8w/FIvebsX5
+rMydqkiCi7afxyaPRcH12cJk81CCzMVFt++xJRhaHXlggT/BvvtB3RKdBJ+j
+3WIPbyYQKU56miREo+ay1OKwJ9MvuGbHtcloXD31zQmNB0E062UjuzIGMR/1
+rHQegb5Ena7hSVHvxgtXbyDImqkNm+iX4s/2/Wwlm7nnycRhJ0Us7A0b3NLW
+MH+1vH6ywiQOTeNzeGFFwNlpa9/cFIdSubD/jTkzX2V794NfPBKTZmXyJQQG
+Ri845Gk86rU1axctJJipGRVbgIYuezBQNJ/Z1/cX7tQW0ai9ZtAzNcsHbRDj
+OlX81V7O/zLe3mN8UnSMxvlDecd1jNPku2VjJTQaHOzpSsZHfnd+zyunkVfa
+NZ9irP3QatWhomE2T7o/9zMfK1r/2faghcaZZ3oXwxk+Vh3M0Nm30TCeHW0d
+/8SHbTCbm6ml4ZC8jBpkzBn+ZdKyncZZmxTRecbClf5H4rpoiPdkpAYwTsvs
+vfjmFg3rkVPjv07zoRQcWE70NFjD1vlKxjlLXH4u7qGhzlFZyRgX1pYJnHoZ
+R132dWGsGojsz+in0Zvi1NQ3xUdttSH/xgANmdlQYAfjhmTtaYtBGhkfC0fO
+MdYuWLXj8hCN/Ijp7xSMO+/f0hs/ptF2SauLZ3z9dBYv9gmNPl72Tj/Gt37i
+lDc+paFs9lnCY3zX/cmnuWc04Lyi2Yrx/zmoH2w=
+       "]]}}, {{}, GraphicsComplexBox[CompressedData["
+1:eJztlflrlFcUhodUQhD3Rm2jVptaVzSmGqOJmjfLZB9nn0xmJjOfwdRqXVoR
+K60NkVJERFJpRbSFqFVqSikq4hJFx7iQCm3jRqwLKppKqIpJiWss3s9z34H2
+H+gv88EwHN773HPOPefe83b1MldNgsVi6VI/81++yXBs2Lx0UP4siD0FB/5+
+cXFVR7a201GTfcO+IZP6e1hy93lj5yDaU5ERbirps4Prp2Gq+bmpZ+Cz5J+L
+bmXRno6FG++vzvHSzsSe5R9svN9DfgbKM9flGlbqM3HPeeitL8toZ8F0lzCR
+djbGpif9NLyJ/CyJr4v2bCg1MH8Y18+BiubT5Mm0c/DNG718/SbRBkYE5mff
+qNd2HWCG0z6Feq7Ee03vX5f7n3jzMNh0MI18Hi6t6hiTnkQ9H6dHqR3Sqefj
+ZPe4UH0C9QLkGe2tqUHqBShV2a71UbeieoB/5n7uV2fFP6paYzqZbyF+WXms
+IaU/9UIcb0hJu96LfBGy9resPBZh/EUY+sdvj92vUS/Gg9U5GeEr1IvR9v1H
+s3sf5P4lcKly/BWLvwQ7ldx2knopPld4UyP5UjmfduplMHHnZeplEs9x6uXo
+Om+rHhDTy/+dj8WG706pAxxH/zZ8ouS0F+TnYuLaISoj8nOx4H31JZK3Sz1b
+qdthHu+Qw+Qd0g99tQ2H9NM+rnfgiNl+d7UddUh+NeSd6GnsPG9rJu+E2Z6B
+O+Sd2LpFffQXdeKrZrMByLtgtp/9V/IuPKtddHSFm7wLT9y3d317irwLu8+U
+Za67Rd4t/fAxebf0SzF5t+TH/aNuyWcBeQ/Gh+qbu3eT9+BHlU517Lw8eP2L
+6Nntp7M075H6xOL3Sj0byHvhMcPdRt4r8e2lfy/+bE29+nQOeZ/Uq5C8T+K1
+kffJ/VxG3if1btPxWCrkPUolX4FhaddHJ64hX6HvJ/kKeT8C9O+X84/V3w/1
++m1e2qX3r/Nj/WLVEAPJ+6V+dvKV+j3U61GJE2e3Ww9cIF+p3x/ylfo+kQ9g
+pLoeh8L0H5D7mML4A/KesJ7RAF6l1838g3L+I8kH8c7Vp7WLeug/KPm4yAex
+ZlP++sVF9B+SfNLIh7DDqiZCMv2HpD9i/kM4p8pXO4F8ldTvDPOvwsMfVIOO
+J1+F3x+rBn7O/qmC+fzctpIPy/3m/tB2C+PXdhL9h9HbfKBKyUekv1gfROR8
+Mug/goHqOrQ8ov+IzKuveX4G3k1UJ/KhXj/KQIFZ8A7mY8j74dC6YeBNc3zE
++sOQ82A82wz9vjJeQ+7vTm3fNKQ/5zH++DyOz+P4PI7P4/g8Fj4+j+Pz+P+Z
+xy8BMr/8mQ==
+      "], {
+       {RGBColor[0, 0, 1], AbsolutePointSize[6], AbsoluteThickness[
+        1.6], {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 122], {
+          LineBox[{{15., 28.43011305719664}, {15., 28.093886942803362`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {15., 28.43011305719664}], 
+            Offset[{-1.5, 0}, {15., 28.43011305719664}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {15., 28.093886942803362`}], 
+            Offset[{-1.5, 0}, {15., 28.093886942803362`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 123], {
+          LineBox[{{16., 28.079068848083654`}, {16., 27.744931151916344`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {16., 28.079068848083654`}], 
+            Offset[{-1.5, 0}, {16., 28.079068848083654`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {16., 27.744931151916344`}], 
+            Offset[{-1.5, 0}, {16., 27.744931151916344`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 124], {
+          LineBox[{{17., 28.38497916537476}, {17., 28.049020834625246`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {17., 28.38497916537476}], 
+            Offset[{-1.5, 0}, {17., 28.38497916537476}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {17., 28.049020834625246`}], 
+            Offset[{-1.5, 0}, {17., 28.049020834625246`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 125], {
+          LineBox[{{18., 28.241552976696926`}, {18., 27.906447023303077`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {18., 28.241552976696926`}], 
+            Offset[{-1.5, 0}, {18., 28.241552976696926`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {18., 27.906447023303077`}], 
+            Offset[{-1.5, 0}, {18., 27.906447023303077`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 126], {
+          LineBox[{{19., 27.799231765917348`}, {19., 27.46676823408265}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {19., 27.799231765917348`}], 
+            Offset[{-1.5, 0}, {19., 27.799231765917348`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {19., 27.46676823408265}], 
+            Offset[{-1.5, 0}, {19., 27.46676823408265}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 127], {
+          LineBox[{{20., 28.49330032679707}, {20., 28.15669967320293}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {20., 28.49330032679707}], 
+            Offset[{-1.5, 0}, {20., 28.49330032679707}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {20., 28.15669967320293}], 
+            Offset[{-1.5, 0}, {20., 28.15669967320293}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 128], {
+          LineBox[{{21., 28.398017856193917`}, {21., 28.061982143806084`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {21., 28.398017856193917`}], 
+            Offset[{-1.5, 0}, {21., 28.398017856193917`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {21., 28.061982143806084`}], 
+            Offset[{-1.5, 0}, {21., 28.061982143806084`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 129], {
+          LineBox[{{22., 28.50132409215558}, {22., 28.164675907844423`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {22., 28.50132409215558}], 
+            Offset[{-1.5, 0}, {22., 28.50132409215558}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {22., 28.164675907844423`}], 
+            Offset[{-1.5, 0}, {22., 28.164675907844423`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 130], {
+          LineBox[{{23., 28.155296144605906`}, {23., 27.820703855394093`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {23., 28.155296144605906`}], 
+            Offset[{-1.5, 0}, {23., 28.155296144605906`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {23., 27.820703855394093`}], 
+            Offset[{-1.5, 0}, {23., 27.820703855394093`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 131], {
+          LineBox[{{24., 28.43913982276665}, {24., 28.102860177233353`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {24., 28.43913982276665}], 
+            Offset[{-1.5, 0}, {24., 28.43913982276665}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {24., 28.102860177233353`}], 
+            Offset[{-1.5, 0}, {24., 28.102860177233353`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 132], {
+          LineBox[{{25., 28.46321117679869}, {25., 28.126788823201313`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {25., 28.46321117679869}], 
+            Offset[{-1.5, 0}, {25., 28.46321117679869}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {25., 28.126788823201313`}], 
+            Offset[{-1.5, 0}, {25., 28.126788823201313`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 133], {
+          LineBox[{{26., 28.335833250579256`}, {26., 28.000166749420742`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {26., 28.335833250579256`}], 
+            Offset[{-1.5, 0}, {26., 28.335833250579256`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {26., 28.000166749420742`}], 
+            Offset[{-1.5, 0}, {26., 28.000166749420742`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 134], {
+          LineBox[{{27., 27.893514263653298`}, {27., 27.560485736346703`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {27., 27.893514263653298`}], 
+            Offset[{-1.5, 0}, {27., 27.893514263653298`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {27., 27.560485736346703`}], 
+            Offset[{-1.5, 0}, {27., 27.560485736346703`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 135], {
+          LineBox[{{28., 28.11617954420323}, {28., 27.781820455796773`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {28., 28.11617954420323}], 
+            Offset[{-1.5, 0}, {28., 28.11617954420323}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {28., 27.781820455796773`}], 
+            Offset[{-1.5, 0}, {28., 27.781820455796773`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 136], {
+          LineBox[{{29., 28.274651424091775`}, {29., 27.939348575908223`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {29., 28.274651424091775`}], 
+            Offset[{-1.5, 0}, {29., 28.274651424091775`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {29., 27.939348575908223`}], 
+            Offset[{-1.5, 0}, {29., 27.939348575908223`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 137], {
+          LineBox[{{30., 28.347868996541948`}, {30., 28.01213100345805}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {30., 28.347868996541948`}], 
+            Offset[{-1.5, 0}, {30., 28.347868996541948`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {30., 28.01213100345805}], 
+            Offset[{-1.5, 0}, {30., 28.01213100345805}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 138], {
+          LineBox[{{31., 28.34385708206686}, {31., 28.008142917933142`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {31., 28.34385708206686}], 
+            Offset[{-1.5, 0}, {31., 28.34385708206686}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {31., 28.008142917933142`}], 
+            Offset[{-1.5, 0}, {31., 28.008142917933142`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 139], {
+          LineBox[{{32., 28.731002958553987`}, {32., 28.392997041446016`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {32., 28.731002958553987`}], 
+            Offset[{-1.5, 0}, {32., 28.731002958553987`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {32., 28.392997041446016`}], 
+            Offset[{-1.5, 0}, {32., 28.392997041446016`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 140], {
+          LineBox[{{33., 28.35890175698902}, {33., 28.023098243010978`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {33., 28.35890175698902}], 
+            Offset[{-1.5, 0}, {33., 28.35890175698902}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {33., 28.023098243010978`}], 
+            Offset[{-1.5, 0}, {33., 28.023098243010978`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 141], {
+          LineBox[{{34., 28.029922137537234`}, {34., 27.696077862462765`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {34., 28.029922137537234`}], 
+            Offset[{-1.5, 0}, {34., 28.029922137537234`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {34., 27.696077862462765`}], 
+            Offset[{-1.5, 0}, {34., 27.696077862462765`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 142], {
+          LineBox[{{35., 28.43913982276665}, {35., 28.102860177233353`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {35., 28.43913982276665}], 
+            Offset[{-1.5, 0}, {35., 28.43913982276665}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {35., 28.102860177233353`}], 
+            Offset[{-1.5, 0}, {35., 28.102860177233353`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 143], {
+          LineBox[{{36., 28.372943442860983`}, {36., 28.03705655713902}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {36., 28.372943442860983`}], 
+            Offset[{-1.5, 0}, {36., 28.372943442860983`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {36., 28.03705655713902}], 
+            Offset[{-1.5, 0}, {36., 28.03705655713902}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 144], {
+          LineBox[{{37., 28.199427596291653`}, {37., 27.864572403708348`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {37., 28.199427596291653`}], 
+            Offset[{-1.5, 0}, {37., 28.199427596291653`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {37., 27.864572403708348`}], 
+            Offset[{-1.5, 0}, {37., 27.864572403708348`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 145], {
+          LineBox[{{38., 28.360907712747213`}, {38., 28.02509228725279}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {38., 28.360907712747213`}], 
+            Offset[{-1.5, 0}, {38., 28.360907712747213`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {38., 28.02509228725279}], 
+            Offset[{-1.5, 0}, {38., 28.02509228725279}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 146], {
+          LineBox[{{39., 28.177361883354607`}, {39., 27.842638116645396`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {39., 28.177361883354607`}], 
+            Offset[{-1.5, 0}, {39., 28.177361883354607`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {39., 27.842638116645396`}], 
+            Offset[{-1.5, 0}, {39., 27.842638116645396`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 147], {
+          LineBox[{{40., 28.524392398878337`}, {40., 28.187607601121666`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {40., 28.524392398878337`}], 
+            Offset[{-1.5, 0}, {40., 28.524392398878337`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {40., 28.187607601121666`}], 
+            Offset[{-1.5, 0}, {40., 28.187607601121666`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 148], {
+          LineBox[{{41., 28.506338943800895`}, {41., 28.169661056199107`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {41., 28.506338943800895`}], 
+            Offset[{-1.5, 0}, {41., 28.506338943800895`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {41., 28.169661056199107`}], 
+            Offset[{-1.5, 0}, {41., 28.169661056199107`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 149], {
+          LineBox[{{42., 28.20143356891615}, {42., 27.866566431083847`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {42., 28.20143356891615}], 
+            Offset[{-1.5, 0}, {42., 28.20143356891615}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {42., 27.866566431083847`}], 
+            Offset[{-1.5, 0}, {42., 27.866566431083847`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 150], {
+          LineBox[{{43., 28.109158607316523`}, {43., 27.774841392683477`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {43., 28.109158607316523`}], 
+            Offset[{-1.5, 0}, {43., 28.109158607316523`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {43., 27.774841392683477`}], 
+            Offset[{-1.5, 0}, {43., 27.774841392683477`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 151], {
+          LineBox[{{44., 28.22650820875408}, {44., 27.891491791245922`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {44., 28.22650820875408}], 
+            Offset[{-1.5, 0}, {44., 28.22650820875408}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {44., 27.891491791245922`}], 
+            Offset[{-1.5, 0}, {44., 27.891491791245922`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 152], {
+          LineBox[{{45., 28.186388769037833`}, {45., 27.85161123096217}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {45., 28.186388769037833`}], 
+            Offset[{-1.5, 0}, {45., 28.186388769037833`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {45., 27.85161123096217}], 
+            Offset[{-1.5, 0}, {45., 27.85161123096217}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 153], {
+          LineBox[{{46., 27.53945089906072}, {46., 27.208549100939283`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {46., 27.53945089906072}], 
+            Offset[{-1.5, 0}, {46., 27.53945089906072}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {46., 27.208549100939283`}], 
+            Offset[{-1.5, 0}, {46., 27.208549100939283`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 154], {
+          LineBox[{{47., 28.18037084572888}, {47., 27.845629154271123`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {47., 28.18037084572888}], 
+            Offset[{-1.5, 0}, {47., 28.18037084572888}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {47., 27.845629154271123`}], 
+            Offset[{-1.5, 0}, {47., 27.845629154271123`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 155], {
+          LineBox[{{48., 28.01989218076351}, {48., 27.686107819236494`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {48., 28.01989218076351}], 
+            Offset[{-1.5, 0}, {48., 28.01989218076351}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {48., 27.686107819236494`}], 
+            Offset[{-1.5, 0}, {48., 27.686107819236494`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 156], {
+          LineBox[{{49., 27.88147822680459}, {49., 27.54852177319541}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {49., 27.88147822680459}], 
+            Offset[{-1.5, 0}, {49., 27.88147822680459}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {49., 27.54852177319541}], 
+            Offset[{-1.5, 0}, {49., 27.54852177319541}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 157], {
+          LineBox[{{50., 28.36291366829416}, {50., 28.027086331705842`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {50., 28.36291366829416}], 
+            Offset[{-1.5, 0}, {50., 28.36291366829416}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {50., 28.027086331705842`}], 
+            Offset[{-1.5, 0}, {50., 28.027086331705842`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 158], {
+          LineBox[{{51., 27.931628328923985`}, {51., 27.598371671076016`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {51., 27.931628328923985`}], 
+            Offset[{-1.5, 0}, {51., 27.931628328923985`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {51., 27.598371671076016`}], 
+            Offset[{-1.5, 0}, {51., 27.598371671076016`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 159], {
+          LineBox[{{52., 27.82932197690023}, {52., 27.496678023099772`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {52., 27.82932197690023}], 
+            Offset[{-1.5, 0}, {52., 27.82932197690023}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {52., 27.496678023099772`}], 
+            Offset[{-1.5, 0}, {52., 27.496678023099772`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 160], {
+          LineBox[{{53., 28.063020956768906`}, {53., 27.728979043231096`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {53., 28.063020956768906`}], 
+            Offset[{-1.5, 0}, {53., 28.063020956768906`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {53., 27.728979043231096`}], 
+            Offset[{-1.5, 0}, {53., 27.728979043231096`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 161], {
+          LineBox[{{54., 28.011868211472407`}, {54., 27.67813178852759}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {54., 28.011868211472407`}], 
+            Offset[{-1.5, 0}, {54., 28.011868211472407`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {54., 27.67813178852759}], 
+            Offset[{-1.5, 0}, {54., 27.67813178852759}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 162], {
+          LineBox[{{55., 27.915580310961413`}, {55., 27.58241968903859}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {55., 27.915580310961413`}], 
+            Offset[{-1.5, 0}, {55., 27.915580310961413`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {55., 27.58241968903859}], 
+            Offset[{-1.5, 0}, {55., 27.58241968903859}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 163], {
+          LineBox[{{56., 28.01086521506893}, {56., 27.677134784931074`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {56., 28.01086521506893}], 
+            Offset[{-1.5, 0}, {56., 28.01086521506893}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {56., 27.677134784931074`}], 
+            Offset[{-1.5, 0}, {56., 27.677134784931074`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 164], {
+          LineBox[{{57., 28.22650820875408}, {57., 27.891491791245922`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {57., 28.22650820875408}], 
+            Offset[{-1.5, 0}, {57., 28.22650820875408}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {57., 27.891491791245922`}], 
+            Offset[{-1.5, 0}, {57., 27.891491791245922`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 165], {
+          LineBox[{{58., 28.325803456460232`}, {58., 27.99019654353977}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {58., 28.325803456460232`}], 
+            Offset[{-1.5, 0}, {58., 28.325803456460232`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {58., 27.99019654353977}], 
+            Offset[{-1.5, 0}, {58., 27.99019654353977}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 166], {
+          LineBox[{{59., 28.156299133291242`}, {59., 27.82170086670876}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {59., 28.156299133291242`}], 
+            Offset[{-1.5, 0}, {59., 28.156299133291242`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {59., 27.82170086670876}], 
+            Offset[{-1.5, 0}, {59., 27.82170086670876}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 167], {
+          LineBox[{{60., 28.135236359682935`}, {60., 27.800763640317065`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {60., 28.135236359682935`}], 
+            Offset[{-1.5, 0}, {60., 28.135236359682935`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {60., 27.800763640317065`}], 
+            Offset[{-1.5, 0}, {60., 27.800763640317065`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 168], {
+          LineBox[{{61., 28.192406690427834`}, {61., 27.85759330957217}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {61., 28.192406690427834`}], 
+            Offset[{-1.5, 0}, {61., 28.192406690427834`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {61., 27.85759330957217}], 
+            Offset[{-1.5, 0}, {61., 27.85759330957217}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 169], {
+          LineBox[{{62., 27.982781293915114`}, {62., 27.649218706084884`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {62., 27.982781293915114`}], 
+            Offset[{-1.5, 0}, {62., 27.982781293915114`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {62., 27.649218706084884`}], 
+            Offset[{-1.5, 0}, {62., 27.649218706084884`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 170], {
+          LineBox[{{63., 27.88950225223702}, {63., 27.55649774776298}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {63., 27.88950225223702}], 
+            Offset[{-1.5, 0}, {63., 27.88950225223702}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {63., 27.55649774776298}], 
+            Offset[{-1.5, 0}, {63., 27.55649774776298}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 171], {
+          LineBox[{{64., 27.215471882095393`}, {64., 26.88652811790461}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {64., 27.215471882095393`}], 
+            Offset[{-1.5, 0}, {64., 27.215471882095393`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {64., 26.88652811790461}], 
+            Offset[{-1.5, 0}, {64., 26.88652811790461}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 172], {
+          LineBox[{{65., 27.865430165534978`}, {65., 27.532569834465026`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {65., 27.865430165534978`}], 
+            Offset[{-1.5, 0}, {65., 27.865430165534978`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {65., 27.532569834465026`}], 
+            Offset[{-1.5, 0}, {65., 27.532569834465026`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 173], {
+          LineBox[{{66., 28.07004191090861}, {66., 27.735958089091394`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {66., 28.07004191090861}], 
+            Offset[{-1.5, 0}, {66., 28.07004191090861}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {66., 27.735958089091394`}], 
+            Offset[{-1.5, 0}, {66., 27.735958089091394`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 174], {
+          LineBox[{{67., 27.561517370689604`}, {67., 27.230482629310398`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {67., 27.561517370689604`}], 
+            Offset[{-1.5, 0}, {67., 27.561517370689604`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {67., 27.230482629310398`}], 
+            Offset[{-1.5, 0}, {67., 27.230482629310398`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 175], {
+          LineBox[{{68., 27.92561032380978}, {68., 27.59238967619022}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {68., 27.92561032380978}], 
+            Offset[{-1.5, 0}, {68., 27.92561032380978}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {68., 27.59238967619022}], 
+            Offset[{-1.5, 0}, {68., 27.59238967619022}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 176], {
+          LineBox[{{69., 28.059008981794392`}, {69., 27.724991018205607`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {69., 28.059008981794392`}], 
+            Offset[{-1.5, 0}, {69., 28.059008981794392`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {69., 27.724991018205607`}], 
+            Offset[{-1.5, 0}, {69., 27.724991018205607`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 177], {
+          LineBox[{{70., 27.89150825805347}, {70., 27.558491741946533`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {70., 27.89150825805347}], 
+            Offset[{-1.5, 0}, {70., 27.89150825805347}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {70., 27.558491741946533`}], 
+            Offset[{-1.5, 0}, {70., 27.558491741946533`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 178], {
+          LineBox[{{71., 27.726012047755578`}, {71., 27.393987952244427`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {71., 27.726012047755578`}], 
+            Offset[{-1.5, 0}, {71., 27.726012047755578`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {71., 27.393987952244427`}], 
+            Offset[{-1.5, 0}, {71., 27.393987952244427`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 179], {
+          LineBox[{{72., 27.9687393174989}, {72., 27.635260682501098`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {72., 27.9687393174989}], 
+            Offset[{-1.5, 0}, {72., 27.9687393174989}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {72., 27.635260682501098`}], 
+            Offset[{-1.5, 0}, {72., 27.635260682501098`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 180], {
+          LineBox[{{73., 27.491305777273514`}, {73., 27.160694222726487`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {73., 27.491305777273514`}], 
+            Offset[{-1.5, 0}, {73., 27.491305777273514`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {73., 27.160694222726487`}], 
+            Offset[{-1.5, 0}, {73., 27.160694222726487`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 181], {
+          LineBox[{{74., 27.934637330751546`}, {74., 27.601362669248456`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {74., 27.934637330751546`}], 
+            Offset[{-1.5, 0}, {74., 27.934637330751546`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {74., 27.601362669248456`}], 
+            Offset[{-1.5, 0}, {74., 27.601362669248456`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 182], {
+          LineBox[{{75., 28.04797604618627}, {75., 27.71402395381373}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {75., 28.04797604618627}], 
+            Offset[{-1.5, 0}, {75., 28.04797604618627}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {75., 27.71402395381373}], 
+            Offset[{-1.5, 0}, {75., 27.71402395381373}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 183], {
+          LineBox[{{76., 27.607656270632898`}, {76., 27.276343729367102`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {76., 27.607656270632898`}], 
+            Offset[{-1.5, 0}, {76., 27.607656270632898`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {76., 27.276343729367102`}], 
+            Offset[{-1.5, 0}, {76., 27.276343729367102`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 184], {
+          LineBox[{{77., 27.44917869111965}, {77., 27.11882130888035}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {77., 27.44917869111965}], 
+            Offset[{-1.5, 0}, {77., 27.44917869111965}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {77., 27.11882130888035}], 
+            Offset[{-1.5, 0}, {77., 27.11882130888035}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 185], {
+          LineBox[{{78., 27.967736318779085`}, {78., 27.63426368122092}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {78., 27.967736318779085`}], 
+            Offset[{-1.5, 0}, {78., 27.967736318779085`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {78., 27.63426368122092}], 
+            Offset[{-1.5, 0}, {78., 27.63426368122092}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 186], {
+          LineBox[{{79., 27.56853851515584}, {79., 27.237461484844165`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {79., 27.56853851515584}], 
+            Offset[{-1.5, 0}, {79., 27.56853851515584}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {79., 27.237461484844165`}], 
+            Offset[{-1.5, 0}, {79., 27.237461484844165`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 187], {
+          LineBox[{{80., 27.82631295800388}, {80., 27.49368704199612}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {80., 27.82631295800388}], 
+            Offset[{-1.5, 0}, {80., 27.82631295800388}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {80., 27.49368704199612}], 
+            Offset[{-1.5, 0}, {80., 27.49368704199612}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 188], {
+          LineBox[{{81., 27.98077529793108}, {81., 27.64722470206892}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {81., 27.98077529793108}], 
+            Offset[{-1.5, 0}, {81., 27.98077529793108}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {81., 27.64722470206892}], 
+            Offset[{-1.5, 0}, {81., 27.64722470206892}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 189], {
+          LineBox[{{82., 26.935621514477774`}, {82., 26.60837848552223}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {82., 26.935621514477774`}], 
+            Offset[{-1.5, 0}, {82., 26.935621514477774`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {82., 26.60837848552223}], 
+            Offset[{-1.5, 0}, {82., 26.60837848552223}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 190], {
+          LineBox[{{83., 27.725009035898655`}, {83., 27.392990964101347`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {83., 27.725009035898655`}], 
+            Offset[{-1.5, 0}, {83., 27.725009035898655`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {83., 27.392990964101347`}], 
+            Offset[{-1.5, 0}, {83., 27.392990964101347`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 191], {
+          LineBox[{{84., 27.790204693074536`}, {84., 27.45779530692547}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {84., 27.790204693074536`}], 
+            Offset[{-1.5, 0}, {84., 27.790204693074536`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {84., 27.45779530692547}], 
+            Offset[{-1.5, 0}, {84., 27.45779530692547}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 192], {
+          LineBox[{{85., 27.794216725993504`}, {85., 27.461783274006496`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {85., 27.794216725993504`}], 
+            Offset[{-1.5, 0}, {85., 27.794216725993504`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {85., 27.461783274006496`}], 
+            Offset[{-1.5, 0}, {85., 27.461783274006496`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 193], {
+          LineBox[{{86., 27.858409134364674`}, {86., 27.525590865635326`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {86., 27.858409134364674`}], 
+            Offset[{-1.5, 0}, {86., 27.858409134364674`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {86., 27.525590865635326`}], 
+            Offset[{-1.5, 0}, {86., 27.525590865635326`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 194], {
+          LineBox[{{87., 27.411063624096894`}, {87., 27.08093637590311}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {87., 27.411063624096894`}], 
+            Offset[{-1.5, 0}, {87., 27.411063624096894`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {87., 27.08093637590311}], 
+            Offset[{-1.5, 0}, {87., 27.08093637590311}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 195], {
+          LineBox[{{88., 27.44015144564914}, {88., 27.109848554350865`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {88., 27.44015144564914}], 
+            Offset[{-1.5, 0}, {88., 27.44015144564914}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {88., 27.109848554350865`}], 
+            Offset[{-1.5, 0}, {88., 27.109848554350865`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 196], {
+          LineBox[{{89., 27.466230142528538`}, {89., 27.135769857471466`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {89., 27.466230142528538`}], 
+            Offset[{-1.5, 0}, {89., 27.466230142528538`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {89., 27.135769857471466`}], 
+            Offset[{-1.5, 0}, {89., 27.135769857471466`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 197], {
+          LineBox[{{90., 27.60264117845512}, {90., 27.271358821544883`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {90., 27.60264117845512}], 
+            Offset[{-1.5, 0}, {90., 27.60264117845512}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {90., 27.271358821544883`}], 
+            Offset[{-1.5, 0}, {90., 27.271358821544883`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 198], {
+          LineBox[{{91., 27.006838334952477`}, {91., 26.679161665047523`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {91., 27.006838334952477`}], 
+            Offset[{-1.5, 0}, {91., 27.006838334952477`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {91., 26.679161665047523`}], 
+            Offset[{-1.5, 0}, {91., 26.679161665047523`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 199], {
+          LineBox[{{92., 27.297720976199145`}, {92., 26.968279023800854`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {92., 27.297720976199145`}], 
+            Offset[{-1.5, 0}, {92., 27.297720976199145`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {92., 26.968279023800854`}], 
+            Offset[{-1.5, 0}, {92., 26.968279023800854`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 200], {
+          LineBox[{{93., 27.669843299533024`}, {93., 27.33815670046698}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {93., 27.669843299533024`}], 
+            Offset[{-1.5, 0}, {93., 27.669843299533024`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {93., 27.33815670046698}], 
+            Offset[{-1.5, 0}, {93., 27.33815670046698}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 201], {
+          LineBox[{{94., 27.369939382804716`}, {94., 27.040060617195287`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {94., 27.369939382804716`}], 
+            Offset[{-1.5, 0}, {94., 27.369939382804716`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {94., 27.040060617195287`}], 
+            Offset[{-1.5, 0}, {94., 27.040060617195287`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 202], {
+          LineBox[{{95., 27.517384400715425`}, {95., 27.186615599284575`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {95., 27.517384400715425`}], 
+            Offset[{-1.5, 0}, {95., 27.517384400715425`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {95., 27.186615599284575`}], 
+            Offset[{-1.5, 0}, {95., 27.186615599284575`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 203], {
+          LineBox[{{96., 27.216474922100605`}, {96., 26.887525077899394`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {96., 27.216474922100605`}], 
+            Offset[{-1.5, 0}, {96., 27.216474922100605`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {96., 26.887525077899394`}], 
+            Offset[{-1.5, 0}, {96., 26.887525077899394`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 204], {
+          LineBox[{{97., 27.111155414165967`}, {97., 26.78284458583403}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {97., 27.111155414165967`}], 
+            Offset[{-1.5, 0}, {97., 27.111155414165967`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {97., 26.78284458583403}], 
+            Offset[{-1.5, 0}, {97., 26.78284458583403}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 205], {
+          LineBox[{{98., 27.233526593595077`}, {98., 26.90447340640492}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {98., 27.233526593595077`}], 
+            Offset[{-1.5, 0}, {98., 27.233526593595077`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {98., 26.90447340640492}], 
+            Offset[{-1.5, 0}, {98., 26.90447340640492}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 206], {
+          LineBox[{{99., 27.475257375024537`}, {99., 27.144742624975468`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {99., 27.475257375024537`}], 
+            Offset[{-1.5, 0}, {99., 27.475257375024537`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {99., 27.144742624975468`}], 
+            Offset[{-1.5, 0}, {99., 27.144742624975468`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 207], {
+          LineBox[{{100., 26.796196200936173`}, {100., 26.469803799063826`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {100., 26.796196200936173`}], 
+            Offset[{-1.5, 0}, {100., 26.796196200936173`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {100., 26.469803799063826`}], 
+            Offset[{-1.5, 0}, {100., 26.469803799063826`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 208], {
+          LineBox[{{101., 26.9907894990529}, {101., 26.663210500947102`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {101., 26.9907894990529}], 
+            Offset[{-1.5, 0}, {101., 26.9907894990529}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {101., 26.663210500947102`}], 
+            Offset[{-1.5, 0}, {101., 26.663210500947102`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 209], {
+          LineBox[{{102., 27.344863579968408`}, {102., 27.01513642003159}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {102., 27.344863579968408`}], 
+            Offset[{-1.5, 0}, {102., 27.344863579968408`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {102., 27.01513642003159}], 
+            Offset[{-1.5, 0}, {102., 27.01513642003159}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 210], {
+          LineBox[{{103., 27.359909065851458`}, {103., 27.030090934148543`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {103., 27.359909065851458`}], 
+            Offset[{-1.5, 0}, {103., 27.359909065851458`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {103., 27.030090934148543`}], 
+            Offset[{-1.5, 0}, {103., 27.030090934148543`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 211], {
+          LineBox[{{104., 27.5354388104406}, {104., 27.204561189559403`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {104., 27.5354388104406}], 
+            Offset[{-1.5, 0}, {104., 27.5354388104406}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {104., 27.204561189559403`}], 
+            Offset[{-1.5, 0}, {104., 27.204561189559403`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 212], {
+          LineBox[{{105., 27.267629887930475`}, {105., 26.938370112069528`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {105., 27.267629887930475`}], 
+            Offset[{-1.5, 0}, {105., 27.267629887930475`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {105., 26.938370112069528`}], 
+            Offset[{-1.5, 0}, {105., 26.938370112069528`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 213], {
+          LineBox[{{106., 27.44717263695903}, {106., 27.11682736304097}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {106., 27.44717263695903}], 
+            Offset[{-1.5, 0}, {106., 27.44717263695903}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {106., 27.11682736304097}], 
+            Offset[{-1.5, 0}, {106., 27.11682736304097}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 214], {
+          LineBox[{{107., 27.123191960826343`}, {107., 26.794808039173656`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {107., 27.123191960826343`}], 
+            Offset[{-1.5, 0}, {107., 27.123191960826343`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {107., 26.794808039173656`}], 
+            Offset[{-1.5, 0}, {107., 26.794808039173656`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 215], {
+          LineBox[{{108., 27.288693655008323`}, {108., 26.95930634499168}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {108., 27.288693655008323`}], 
+            Offset[{-1.5, 0}, {108., 27.288693655008323`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {108., 26.95930634499168}], 
+            Offset[{-1.5, 0}, {108., 26.95930634499168}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 216], {
+          LineBox[{{109., 27.15027416108445}, {109., 26.82172583891555}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {109., 27.15027416108445}], 
+            Offset[{-1.5, 0}, {109., 27.15027416108445}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {109., 26.82172583891555}], 
+            Offset[{-1.5, 0}, {109., 26.82172583891555}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 217], {
+          LineBox[{{110., 27.487293678040025`}, {110., 27.156706321959973`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {110., 27.487293678040025`}], 
+            Offset[{-1.5, 0}, {110., 27.487293678040025`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {110., 27.156706321959973`}], 
+            Offset[{-1.5, 0}, {110., 27.156706321959973`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 218], {
+          LineBox[{{111., 27.44416355530201}, {111., 27.11383644469799}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {111., 27.44416355530201}], 
+            Offset[{-1.5, 0}, {111., 27.44416355530201}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {111., 27.11383644469799}], 
+            Offset[{-1.5, 0}, {111., 27.11383644469799}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 219], {
+          LineBox[{{112., 27.349878743323696`}, {112., 27.02012125667631}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {112., 27.349878743323696`}], 
+            Offset[{-1.5, 0}, {112., 27.349878743323696`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {112., 27.02012125667631}], 
+            Offset[{-1.5, 0}, {112., 27.02012125667631}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 220], {
+          LineBox[{{113., 27.24656609614377}, {113., 26.91743390385623}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {113., 27.24656609614377}], 
+            Offset[{-1.5, 0}, {113., 27.24656609614377}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {113., 26.91743390385623}], 
+            Offset[{-1.5, 0}, {113., 26.91743390385623}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 221], {
+          LineBox[{{114., 27.450181718116745`}, {114., 27.119818281883255`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {114., 27.450181718116745`}], 
+            Offset[{-1.5, 0}, {114., 27.450181718116745`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {114., 27.119818281883255`}], 
+            Offset[{-1.5, 0}, {114., 27.119818281883255`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 222], {
+          LineBox[{{115., 27.330821115152155`}, {115., 27.001178884847846`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {115., 27.330821115152155`}], 
+            Offset[{-1.5, 0}, {115., 27.330821115152155`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {115., 27.001178884847846`}], 
+            Offset[{-1.5, 0}, {115., 27.001178884847846`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 223], {
+          LineBox[{{116., 26.938630681719538`}, {116., 26.611369318280467`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {116., 26.938630681719538`}], 
+            Offset[{-1.5, 0}, {116., 26.938630681719538`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {116., 26.611369318280467`}], 
+            Offset[{-1.5, 0}, {116., 26.611369318280467`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 224], {
+          LineBox[{{117., 27.325805946494658`}, {117., 26.996194053505345`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {117., 27.325805946494658`}], 
+            Offset[{-1.5, 0}, {117., 27.325805946494658`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {117., 26.996194053505345`}], 
+            Offset[{-1.5, 0}, {117., 26.996194053505345`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 225], {
+          LineBox[{{118., 27.14726502975375}, {118., 26.81873497024625}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {118., 27.14726502975375}], 
+            Offset[{-1.5, 0}, {118., 27.14726502975375}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {118., 26.81873497024625}], 
+            Offset[{-1.5, 0}, {118., 26.81873497024625}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 226], {
+          LineBox[{{119., 27.438145390489712`}, {119., 27.107854609510287`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {119., 27.438145390489712`}], 
+            Offset[{-1.5, 0}, {119., 27.438145390489712`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {119., 27.107854609510287`}], 
+            Offset[{-1.5, 0}, {119., 27.107854609510287`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 227], {
+          LineBox[{{120., 27.44817566406708}, {120., 27.117824335932923`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {120., 27.44817566406708}], 
+            Offset[{-1.5, 0}, {120., 27.44817566406708}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {120., 27.117824335932923`}], 
+            Offset[{-1.5, 0}, {120., 27.117824335932923`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 228], {
+          LineBox[{{121., 26.946655125187085`}, {121., 26.619344874812917`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {121., 26.946655125187085`}], 
+            Offset[{-1.5, 0}, {121., 26.946655125187085`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {121., 26.619344874812917`}], 
+            Offset[{-1.5, 0}, {121., 26.619344874812917`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 229], {
+          LineBox[{{122., 27.19741715238989}, {122., 26.868582847610114`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {122., 27.19741715238989}], 
+            Offset[{-1.5, 0}, {122., 27.19741715238989}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {122., 26.868582847610114`}], 
+            Offset[{-1.5, 0}, {122., 26.868582847610114`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 230], {
+          LineBox[{{123., 27.45519685227025}, {123., 27.124803147729747`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {123., 27.45519685227025}], 
+            Offset[{-1.5, 0}, {123., 27.45519685227025}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {123., 27.124803147729747`}], 
+            Offset[{-1.5, 0}, {123., 27.124803147729747`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 231], {
+          LineBox[{{124., 27.231520515438046`}, {124., 26.902479484561955`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {124., 27.231520515438046`}], 
+            Offset[{-1.5, 0}, {124., 27.231520515438046`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {124., 26.902479484561955`}], 
+            Offset[{-1.5, 0}, {124., 26.902479484561955`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 232], {
+          LineBox[{{125., 27.373951508025844`}, {125., 27.044048491974156`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {125., 27.373951508025844`}], 
+            Offset[{-1.5, 0}, {125., 27.373951508025844`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {125., 27.044048491974156`}], 
+            Offset[{-1.5, 0}, {125., 27.044048491974156`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 233], {
+          LineBox[{{126., 27.12820718620085}, {126., 26.799792813799154`}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {126., 27.12820718620085}], 
+            Offset[{-1.5, 0}, {126., 27.12820718620085}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {126., 26.799792813799154`}], 
+            Offset[{-1.5, 0}, {126., 26.799792813799154`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 234], {
+          LineBox[{{127., 26.73801840386901}, {127., 26.41198159613099}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {127., 26.73801840386901}], 
+            Offset[{-1.5, 0}, {127., 26.73801840386901}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {127., 26.41198159613099}], 
+            Offset[{-1.5, 0}, {127., 26.41198159613099}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 235], {
+          LineBox[{{128., 27.584586835225508`}, {128., 27.253413164774493`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {128., 27.584586835225508`}], 
+            Offset[{-1.5, 0}, {128., 27.584586835225508`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {128., 27.253413164774493`}], 
+            Offset[{-1.5, 0}, {128., 27.253413164774493`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 236], {
+          LineBox[{{129., 27.078054868870144`}, {129., 26.74994513112986}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {129., 27.078054868870144`}], 
+            Offset[{-1.5, 0}, {129., 27.078054868870144`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {129., 26.74994513112986}], 
+            Offset[{-1.5, 0}, {129., 26.74994513112986}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 237], {
+          LineBox[{{130., 27.481275527529032`}, {130., 27.150724472470966`}}],
+           LineBox[{
+           Offset[{1.5, 0}, {130., 27.481275527529032`}], 
+            Offset[{-1.5, 0}, {130., 27.481275527529032`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {130., 27.150724472470966`}], 
+            Offset[{-1.5, 0}, {130., 27.150724472470966`}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 238], {
+          LineBox[{{131., 27.110152368243654`}, {131., 26.78184763175635}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {131., 27.110152368243654`}], 
+            Offset[{-1.5, 0}, {131., 27.110152368243654`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {131., 26.78184763175635}], 
+            Offset[{-1.5, 0}, {131., 26.78184763175635}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 239], {
+          LineBox[{{132., 27.45619987893458}, {132., 27.12580012106542}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {132., 27.45619987893458}], 
+            Offset[{-1.5, 0}, {132., 27.45619987893458}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {132., 27.12580012106542}], 
+            Offset[{-1.5, 0}, {132., 27.12580012106542}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 240], {
+          LineBox[{{133., 27.177356320231382`}, {133., 26.84864367976862}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {133., 27.177356320231382`}], 
+            Offset[{-1.5, 0}, {133., 27.177356320231382`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {133., 26.84864367976862}], 
+            Offset[{-1.5, 0}, {133., 26.84864367976862}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 241], {
+          LineBox[{{134., 27.809261841683533`}, {134., 27.47673815831647}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {134., 27.809261841683533`}], 
+            Offset[{-1.5, 0}, {134., 27.809261841683533`}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {134., 27.47673815831647}], 
+            Offset[{-1.5, 0}, {134., 27.47673815831647}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 242], {
+          LineBox[{{135., 27.54446600859391}, {135., 27.21353399140609}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {135., 27.54446600859391}], 
+            Offset[{-1.5, 0}, {135., 27.54446600859391}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {135., 27.21353399140609}], 
+            Offset[{-1.5, 0}, {135., 27.21353399140609}]}]}}}, {}}], {}}},
+   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+   Axes->{True, True},
+   AxesLabel->{None, None},
+   AxesOrigin->{20., 0},
+   DisplayFunction->Identity,
+   Frame->{{True, False}, {True, False}},
+   FrameLabel->{{
+      FormBox[
+      "\"\\!\\(\\*SubscriptBox[\\(N\\), \
+\\(Up\\)]\\)+\\!\\(\\*SubscriptBox[\\(N\\), \\(Down\\)]\\) (\[Cross]1k)\"", 
+       TraditionalForm], None}, {
+      FormBox["\"Cycle #\"", TraditionalForm], None}},
+   FrameStyle->{{
+      RGBColor[0, 0, 1], 
+      Thickness[0.005]}, {
+      RGBColor[0, 0, 1], 
+      Thickness[0.005]}, None, None},
+   FrameTicks->
+    FrontEndValueCache[{{CustomTicks`LinTicks, Charting`ScaledFrameTicks[
+        CustomTicks`LinTicks[
+         SlotSequence[1]], {Identity, Identity}]& }, {
+      CustomTicks`LinTicks, Charting`ScaledFrameTicks[
+        CustomTicks`LinTicks[
+         SlotSequence[1]], {Identity, Identity}]& }}, {{{{0., 
+         FormBox["\"  0\"", TraditionalForm], {0.0125, 0.}, {}}, {20., 
+         FormBox["\" 20\"", TraditionalForm], {0.0125, 0.}, {}}, {40., 
+         FormBox["\" 40\"", TraditionalForm], {0.0125, 0.}, {}}, {60., 
+         FormBox["\" 60\"", TraditionalForm], {0.0125, 0.}, {}}, {80., 
+         FormBox["\" 80\"", TraditionalForm], {0.0125, 0.}, {}}, {100., 
+         FormBox["\"100\"", TraditionalForm], {0.0125, 0.}, {}}, {5., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {10., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {15., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {25., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {30., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {35., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {45., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {50., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {55., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {65., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {70., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {75., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {85., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {90., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {95., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}}, {{0., 
+         FormBox["\"  0\"", TraditionalForm], {0.0125, 0.}, {}}, {20., 
+         FormBox["\" 20\"", TraditionalForm], {0.0125, 0.}, {}}, {40., 
+         FormBox["\" 40\"", TraditionalForm], {0.0125, 0.}, {}}, {60., 
+         FormBox["\" 60\"", TraditionalForm], {0.0125, 0.}, {}}, {80., 
+         FormBox["\" 80\"", TraditionalForm], {0.0125, 0.}, {}}, {100., 
+         FormBox["\"100\"", TraditionalForm], {0.0125, 0.}, {}}, {5., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {10., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {15., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {25., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {30., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {35., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {45., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {50., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {55., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {65., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {70., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {75., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {85., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {90., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {95., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}}}, {{{20., 
+         FormBox["\" 20\"", TraditionalForm], {0.0125, 0.}, {}}, {40., 
+         FormBox["\" 40\"", TraditionalForm], {0.0125, 0.}, {}}, {60., 
+         FormBox["\" 60\"", TraditionalForm], {0.0125, 0.}, {}}, {80., 
+         FormBox["\" 80\"", TraditionalForm], {0.0125, 0.}, {}}, {100., 
+         FormBox["\"100\"", TraditionalForm], {0.0125, 0.}, {}}, {120., 
+         FormBox["\"120\"", TraditionalForm], {0.0125, 0.}, {}}, {25., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {30., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {35., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {45., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {50., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {55., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {65., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {70., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {75., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {85., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {90., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {95., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {105., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {110., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {115., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {15., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {125., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {130., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {135., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}}, {{20., 
+         FormBox["\" 20\"", TraditionalForm], {0.0125, 0.}, {}}, {40., 
+         FormBox["\" 40\"", TraditionalForm], {0.0125, 0.}, {}}, {60., 
+         FormBox["\" 60\"", TraditionalForm], {0.0125, 0.}, {}}, {80., 
+         FormBox["\" 80\"", TraditionalForm], {0.0125, 0.}, {}}, {100., 
+         FormBox["\"100\"", TraditionalForm], {0.0125, 0.}, {}}, {120., 
+         FormBox["\"120\"", TraditionalForm], {0.0125, 0.}, {}}, {25., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {30., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {35., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {45., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {50., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {55., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {65., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {70., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {75., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {85., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {90., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {95., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {105., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {110., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {115., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {15., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {125., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {130., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {135., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}}}}],
+   FrameTicksStyle->Bold,
+   GridLines->{Automatic, Automatic},
+   GridLinesStyle->Directive[
+     GrayLevel[0.5, 0.4]],
+   ImagePadding->125,
+   ImageSize->{1000},
+   LabelStyle->{38, 
+     GrayLevel[0], Bold},
+   Method->{
+    "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+     AbsolutePointSize[6], "ScalingFunctions" -> None},
+   PlotRange->{{15, 135}, {0, 100}},
+   PlotRangeClipping->True,
+   PlotRangePadding->{{0, 0}, {0, 0}},
+   Ticks->{Automatic, Automatic},
+   TicksStyle->Directive[FontSize -> 40]], 
+  GraphicsBox[{{{}, GraphicsComplexBox[CompressedData["
+1:eJztVftTlGUYXRQtKdQczCsooMWAXFPkIngAQe6wu8AusAurDgqo4QXTFBEF
+LRUUTEhNG5A0Q0ALAUmgncEE2SiYDE3FK0FeYlKoGaDGPma/w7/QL7sz3+yc
+Oe95z/M+7/O8j+XKNFnSGIlE8lL4Rv71Pwds9DK5WYoo6LETsqVBp7JaiZ3x
+XOtuHawjdsEbAfO3jAkgfg8pkrTdxhUyES9Ew2Mz8+u/kV+E4vMVtxKfErsi
+6Lud5m52xIvRcuxKUX4VsRvybP4wbQwldscNu6QZjwKJPRB7blGbpy+xJxKP
+hU7NnUK8BN3Zn7eVfSIXsRc+3H5mgd9C8t5YESV7t7iNeCkGnXsq53cTA529
+qXZ/e4o4C/B5seoH9U/kfdC++hdhBXkfJHnej8jrJe8LC7c1y1Iek/dFmzqk
+5TV7xuOH47bTC284k/fDYPGaqqfN1C9D7p1kSZoX+WUoPeJhFPYFeX9kZDuG
+nrUl74/mkMX7fdzIB+jPN4N8AGZKb8/KcCe/HJ9tPXnauk28r6zlKBHsN3O9
+JFCf70vUB2KHWeXyhz+SD0Kpdd0/H71OPgiWFzclF/iQD8ZQZmp9+k3ywfr7
+/pJ8CB4pp9V2LCAfgk0HDnW/7Gf9hOLi2N5cG3vyochd1zv8VSH1YZgYceFo
+0mXyYSie6dg1r4d8OLTxc31e1JIPx8C/N7Y9KSMfgas/Cwc8QT4CtrrJzd9q
+yUeiqzono10nxoNI/f0Mi/eXFQmPI7pdgdPE9dpI3Nq9OeDoaeqlMArLMY3o
+F9dDivUxOytrxtBPirI9QoPxPrVSDE16UnthLPUy+Hn//mt5D/UyVL25sfyg
+nP4ytDb5VqR0ilgrw+yMFS7R26iXwyn0rEmAWsSQw04otwkbqJfj01f5mcOp
+9JdDJaRrVTfrMwpn7jdOPLmD+ijYFO+/+HA9449C6r2NBw7ZiPkR8jZ+d6Hf
+wVF9NLa7nvdWNDH+aPwVHLvPLZz6aAzr+q439TH+aKRXTx3WfUN9DPLq1k4Y
+5HkQg9vlQ6r1DYw/BlvtLecMkNfGIFko3+pTrB8Fetqt7gw20l+BJeEdBaoE
++itQMEmIkO+HVoH3S43qx436K7H02t3qnMvUKzHb9IF9vjH1SnhcavmgsZTx
+K6Er8a/pr6Y+Vq/XsH5i0TVPyNBhxh+LgUPy9HlrqY+FTHhu3xl9z+KwpEFW
+ZFlE/zj4p6T9uXcL/eOgbHW5+vVqxh+HbG1rib+M/vGYPHIB3B/xGGmXjxX0
+j8f3h5232rNftfHQCds5uNBfhZulG7xMqqhX6d+P49SrUJA57LHBm3oVhOpK
+tuJ7IFFj0ywhYTnUqzGwTmiAPdSrcU4hHGAv60eNg0L7z8lk/AlwHLkQvkdI
+QGfMc8crr6hPgPmzR64zo5i/BNSPm2K21IL+iajtFxq+hP6JmF7bIblnxfwl
+okYotz5zxp+IOou9z6RHWT8ajLST0wlRP1eDzMqalbtG99PgLaX7pZbtItZo
+8HZu8FNjCffXwFRo1zucp8Uafb850E+D8UK415QifqDR+9/l+Q3z2DCPDfPY
+MI8N81ivN8xjwzz+f+bxf7DvLY4=
+      "], {
+       {RGBColor[1, 0, 0], AbsolutePointSize[6], AbsoluteThickness[
+        1.6], {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 122], {
+          LineBox[{{15., 81.1000055553841}, {15., 80.91999444461591}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {15., 81.1000055553841}], 
+            Offset[{-1.5, 0}, {15., 81.1000055553841}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {15., 80.91999444461591}], 
+            Offset[{-1.5, 0}, {15., 80.91999444461591}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 123], {
+          LineBox[{{16., 83.25529435289535}, {16., 83.07290564710466}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {16., 83.25529435289535}], 
+            Offset[{-1.5, 0}, {16., 83.25529435289535}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {16., 83.07290564710466}], 
+            Offset[{-1.5, 0}, {16., 83.07290564710466}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 124], {
+          LineBox[{{17., 83.26760109648464}, {17., 83.08519890351536}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {17., 83.26760109648464}], 
+            Offset[{-1.5, 0}, {17., 83.26760109648464}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {17., 83.08519890351536}], 
+            Offset[{-1.5, 0}, {17., 83.08519890351536}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 125], {
+          LineBox[{{18., 81.18395215155675}, {18., 81.00384784844326}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {18., 81.18395215155675}], 
+            Offset[{-1.5, 0}, {18., 81.18395215155675}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {18., 81.00384784844326}], 
+            Offset[{-1.5, 0}, {18., 81.00384784844326}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 126], {
+          LineBox[{{19., 74.78983112865167}, {19., 74.61696887134833}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {19., 74.78983112865167}], 
+            Offset[{-1.5, 0}, {19., 74.78983112865167}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {19., 74.61696887134833}], 
+            Offset[{-1.5, 0}, {19., 74.61696887134833}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 127], {
+          LineBox[{{20., 83.68182778571091}, {20., 83.4989722142891}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {20., 83.68182778571091}], 
+            Offset[{-1.5, 0}, {20., 83.68182778571091}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {20., 83.4989722142891}], 
+            Offset[{-1.5, 0}, {20., 83.4989722142891}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 128], {
+          LineBox[{{21., 83.75356698858059}, {21., 83.57063301141943}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {21., 83.75356698858059}], 
+            Offset[{-1.5, 0}, {21., 83.75356698858059}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {21., 83.57063301141943}], 
+            Offset[{-1.5, 0}, {21., 83.57063301141943}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 129], {
+          LineBox[{{22., 80.76511942996925}, {22., 80.58548057003077}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {22., 80.76511942996925}], 
+            Offset[{-1.5, 0}, {22., 80.76511942996925}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {22., 80.58548057003077}], 
+            Offset[{-1.5, 0}, {22., 80.58548057003077}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 130], {
+          LineBox[{{23., 82.89669763733197}, {23., 82.71470236266804}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {23., 82.89669763733197}], 
+            Offset[{-1.5, 0}, {23., 82.89669763733197}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {23., 82.71470236266804}], 
+            Offset[{-1.5, 0}, {23., 82.71470236266804}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 131], {
+          LineBox[{{24., 81.2892105432233}, {24., 81.1089894567767}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {24., 81.2892105432233}], 
+            Offset[{-1.5, 0}, {24., 81.2892105432233}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {24., 81.1089894567767}], 
+            Offset[{-1.5, 0}, {24., 81.1089894567767}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 132], {
+          LineBox[{{25., 81.22887707810537}, {25., 81.04872292189464}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {25., 81.22887707810537}], 
+            Offset[{-1.5, 0}, {25., 81.22887707810537}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {25., 81.04872292189464}], 
+            Offset[{-1.5, 0}, {25., 81.04872292189464}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 133], {
+          LineBox[{{26., 81.12491938680085}, {26., 80.94488061319916}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {26., 81.12491938680085}], 
+            Offset[{-1.5, 0}, {26., 81.12491938680085}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {26., 80.94488061319916}], 
+            Offset[{-1.5, 0}, {26., 80.94488061319916}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 134], {
+          LineBox[{{27., 80.37940457577602}, {27., 80.20019542422398}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {27., 80.37940457577602}], 
+            Offset[{-1.5, 0}, {27., 80.37940457577602}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {27., 80.20019542422398}], 
+            Offset[{-1.5, 0}, {27., 80.20019542422398}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 135], {
+          LineBox[{{28., 78.39579141201268}, {28., 78.21880858798731}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {28., 78.39579141201268}], 
+            Offset[{-1.5, 0}, {28., 78.39579141201268}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {28., 78.21880858798731}], 
+            Offset[{-1.5, 0}, {28., 78.21880858798731}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 136], {
+          LineBox[{{29., 80.90649805337159}, {29., 80.72670194662842}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {29., 80.90649805337159}], 
+            Offset[{-1.5, 0}, {29., 80.90649805337159}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {29., 80.72670194662842}], 
+            Offset[{-1.5, 0}, {29., 80.72670194662842}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 137], {
+          LineBox[{{30., 83.30412110501415}, {30., 83.12167889498586}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {30., 83.30412110501415}], 
+            Offset[{-1.5, 0}, {30., 83.30412110501415}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {30., 83.12167889498586}], 
+            Offset[{-1.5, 0}, {30., 83.12167889498586}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 138], {
+          LineBox[{{31., 83.65621378451853}, {31., 83.47338621548148}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {31., 83.65621378451853}], 
+            Offset[{-1.5, 0}, {31., 83.65621378451853}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {31., 83.47338621548148}], 
+            Offset[{-1.5, 0}, {31., 83.47338621548148}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 139], {
+          LineBox[{{32., 81.02686493761462}, {32., 80.8469350623854}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {32., 81.02686493761462}], 
+            Offset[{-1.5, 0}, {32., 81.02686493761462}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {32., 80.8469350623854}], 
+            Offset[{-1.5, 0}, {32., 80.8469350623854}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 140], {
+          LineBox[{{33., 83.3313360126266}, {33., 83.1488639873734}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {33., 83.3313360126266}], 
+            Offset[{-1.5, 0}, {33., 83.3313360126266}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {33., 83.1488639873734}], 
+            Offset[{-1.5, 0}, {33., 83.1488639873734}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 141], {
+          LineBox[{{34., 80.76822115563719}, {34., 80.58857884436283}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {34., 80.76822115563719}], 
+            Offset[{-1.5, 0}, {34., 80.76822115563719}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {34., 80.58857884436283}], 
+            Offset[{-1.5, 0}, {34., 80.58857884436283}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 142], {
+          LineBox[{{35., 83.7094428783449}, {35., 83.52655712165512}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {35., 83.7094428783449}], 
+            Offset[{-1.5, 0}, {35., 83.7094428783449}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {35., 83.52655712165512}], 
+            Offset[{-1.5, 0}, {35., 83.52655712165512}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 143], {
+          LineBox[{{36., 83.6447074942223}, {36., 83.46189250577771}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {36., 83.6447074942223}], 
+            Offset[{-1.5, 0}, {36., 83.6447074942223}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {36., 83.46189250577771}], 
+            Offset[{-1.5, 0}, {36., 83.46189250577771}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 144], {
+          LineBox[{{37., 76.79118059145725}, {37., 76.61601940854277}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {37., 76.79118059145725}], 
+            Offset[{-1.5, 0}, {37., 76.79118059145725}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {37., 76.61601940854277}], 
+            Offset[{-1.5, 0}, {37., 76.61601940854277}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 145], {
+          LineBox[{{38., 80.86847691583493}, {38., 80.68872308416506}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {38., 80.86847691583493}], 
+            Offset[{-1.5, 0}, {38., 80.86847691583493}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {38., 80.68872308416506}], 
+            Offset[{-1.5, 0}, {38., 80.68872308416506}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 146], {
+          LineBox[{{39., 83.21487219971021}, {39., 83.03252780028978}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {39., 83.21487219971021}], 
+            Offset[{-1.5, 0}, {39., 83.21487219971021}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {39., 83.03252780028978}], 
+            Offset[{-1.5, 0}, {39., 83.03252780028978}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 147], {
+          LineBox[{{40., 81.04987771946432}, {40., 80.86992228053569}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {40., 81.04987771946432}], 
+            Offset[{-1.5, 0}, {40., 81.04987771946432}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {40., 80.86992228053569}], 
+            Offset[{-1.5, 0}, {40., 80.86992228053569}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 148], {
+          LineBox[{{41., 82.65806649547551}, {41., 82.47633350452449}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {41., 82.65806649547551}], 
+            Offset[{-1.5, 0}, {41., 82.65806649547551}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {41., 82.47633350452449}], 
+            Offset[{-1.5, 0}, {41., 82.47633350452449}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 149], {
+          LineBox[{{42., 80.75621447544802}, {42., 80.576585524552}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {42., 80.75621447544802}], 
+            Offset[{-1.5, 0}, {42., 80.75621447544802}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {42., 80.576585524552}], 
+            Offset[{-1.5, 0}, {42., 80.576585524552}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 150], {
+          LineBox[{{43., 80.96893275265442}, {43., 80.78906724734559}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {43., 80.96893275265442}], 
+            Offset[{-1.5, 0}, {43., 80.96893275265442}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {43., 80.78906724734559}], 
+            Offset[{-1.5, 0}, {43., 80.78906724734559}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 151], {
+          LineBox[{{44., 80.49006627013543}, {44., 80.31073372986458}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {44., 80.49006627013543}], 
+            Offset[{-1.5, 0}, {44., 80.49006627013543}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {44., 80.31073372986458}], 
+            Offset[{-1.5, 0}, {44., 80.31073372986458}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 152], {
+          LineBox[{{45., 80.98814342666365}, {45., 80.80825657333635}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {45., 80.98814342666365}], 
+            Offset[{-1.5, 0}, {45., 80.98814342666365}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {45., 80.80825657333635}], 
+            Offset[{-1.5, 0}, {45., 80.80825657333635}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 153], {
+          LineBox[{{46., 75.2920209893855}, {46., 75.11857901061451}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {46., 75.2920209893855}], 
+            Offset[{-1.5, 0}, {46., 75.2920209893855}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {46., 75.11857901061451}], 
+            Offset[{-1.5, 0}, {46., 75.11857901061451}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 154], {
+          LineBox[{{47., 80.48736476453992}, {47., 80.30803523546008}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {47., 80.48736476453992}], 
+            Offset[{-1.5, 0}, {47., 80.48736476453992}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {47., 80.30803523546008}], 
+            Offset[{-1.5, 0}, {47., 80.30803523546008}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 155], {
+          LineBox[{{48., 82.91730895560329}, {48., 82.73529104439672}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {48., 82.91730895560329}], 
+            Offset[{-1.5, 0}, {48., 82.91730895560329}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {48., 82.73529104439672}], 
+            Offset[{-1.5, 0}, {48., 82.73529104439672}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 156], {
+          LineBox[{{49., 83.32373184750952}, {49., 83.14126815249048}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {49., 83.32373184750952}], 
+            Offset[{-1.5, 0}, {49., 83.32373184750952}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {49., 83.14126815249048}], 
+            Offset[{-1.5, 0}, {49., 83.14126815249048}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 157], {
+          LineBox[{{50., 80.2228172050502}, {50., 80.0437827949498}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {50., 80.2228172050502}], 
+            Offset[{-1.5, 0}, {50., 80.2228172050502}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {50., 80.0437827949498}], 
+            Offset[{-1.5, 0}, {50., 80.0437827949498}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 158], {
+          LineBox[{{51., 81.11451361008203}, {51., 80.93448638991798}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {51., 81.11451361008203}], 
+            Offset[{-1.5, 0}, {51., 81.11451361008203}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {51., 80.93448638991798}], 
+            Offset[{-1.5, 0}, {51., 80.93448638991798}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 159], {
+          LineBox[{{52., 83.45780525724184}, {52., 83.27519474275816}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {52., 83.45780525724184}], 
+            Offset[{-1.5, 0}, {52., 83.45780525724184}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {52., 83.27519474275816}], 
+            Offset[{-1.5, 0}, {52., 83.27519474275816}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 160], {
+          LineBox[{{53., 82.7036915837688}, {53., 82.52190841623121}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {53., 82.7036915837688}], 
+            Offset[{-1.5, 0}, {53., 82.7036915837688}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {53., 82.52190841623121}], 
+            Offset[{-1.5, 0}, {53., 82.52190841623121}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 161], {
+          LineBox[{{54., 80.79013334570192}, {54., 80.61046665429808}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {54., 80.79013334570192}], 
+            Offset[{-1.5, 0}, {54., 80.79013334570192}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {54., 80.61046665429808}], 
+            Offset[{-1.5, 0}, {54., 80.61046665429808}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 162], {
+          LineBox[{{55., 75.89876991443661}, {55., 75.72463008556339}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {55., 75.89876991443661}], 
+            Offset[{-1.5, 0}, {55., 75.89876991443661}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {55., 75.72463008556339}], 
+            Offset[{-1.5, 0}, {55., 75.72463008556339}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 163], {
+          LineBox[{{56., 80.79543629556032}, {56., 80.61576370443969}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {56., 80.79543629556032}], 
+            Offset[{-1.5, 0}, {56., 80.79543629556032}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {56., 80.61576370443969}], 
+            Offset[{-1.5, 0}, {56., 80.61576370443969}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 164], {
+          LineBox[{{57., 82.42924056424776}, {57., 82.24775943575226}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {57., 82.42924056424776}], 
+            Offset[{-1.5, 0}, {57., 82.42924056424776}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {57., 82.24775943575226}], 
+            Offset[{-1.5, 0}, {57., 82.24775943575226}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 165], {
+          LineBox[{{58., 82.97223911247372}, {58., 82.7901608875263}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {58., 82.97223911247372}], 
+            Offset[{-1.5, 0}, {58., 82.97223911247372}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {58., 82.7901608875263}], 
+            Offset[{-1.5, 0}, {58., 82.7901608875263}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 166], {
+          LineBox[{{59., 83.68743084818594}, {59., 83.50456915181407}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {59., 83.68743084818594}], 
+            Offset[{-1.5, 0}, {59., 83.68743084818594}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {59., 83.50456915181407}], 
+            Offset[{-1.5, 0}, {59., 83.50456915181407}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 167], {
+          LineBox[{{60., 82.96513521296728}, {60., 82.78306478703271}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {60., 82.96513521296728}], 
+            Offset[{-1.5, 0}, {60., 82.96513521296728}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {60., 82.78306478703271}], 
+            Offset[{-1.5, 0}, {60., 82.78306478703271}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 168], {
+          LineBox[{{61., 82.76142331934109}, {61., 82.57957668065892}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {61., 82.76142331934109}], 
+            Offset[{-1.5, 0}, {61., 82.76142331934109}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {61., 82.57957668065892}], 
+            Offset[{-1.5, 0}, {61., 82.57957668065892}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 169], {
+          LineBox[{{62., 82.49857874200495}, {62., 82.31702125799507}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {62., 82.49857874200495}], 
+            Offset[{-1.5, 0}, {62., 82.49857874200495}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {62., 82.31702125799507}], 
+            Offset[{-1.5, 0}, {62., 82.31702125799507}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 170], {
+          LineBox[{{63., 83.10251059213945}, {63., 82.92028940786057}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {63., 83.10251059213945}], 
+            Offset[{-1.5, 0}, {63., 83.10251059213945}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {63., 82.92028940786057}], 
+            Offset[{-1.5, 0}, {63., 82.92028940786057}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 171], {
+          LineBox[{{64., 75.2713090537372}, {64., 75.09789094626281}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {64., 75.2713090537372}], 
+            Offset[{-1.5, 0}, {64., 75.2713090537372}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {64., 75.09789094626281}], 
+            Offset[{-1.5, 0}, {64., 75.09789094626281}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 172], {
+          LineBox[{{65., 80.02560704670215}, {65., 79.84679295329785}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {65., 80.02560704670215}], 
+            Offset[{-1.5, 0}, {65., 80.02560704670215}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {65., 79.84679295329785}], 
+            Offset[{-1.5, 0}, {65., 79.84679295329785}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 173], {
+          LineBox[{{66., 80.45344585880005}, {66., 80.27415414119994}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {66., 80.45344585880005}], 
+            Offset[{-1.5, 0}, {66., 80.45344585880005}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {66., 80.27415414119994}], 
+            Offset[{-1.5, 0}, {66., 80.27415414119994}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 174], {
+          LineBox[{{67., 82.63115169233427}, {67., 82.44944830766573}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {67., 82.63115169233427}], 
+            Offset[{-1.5, 0}, {67., 82.63115169233427}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {67., 82.44944830766573}], 
+            Offset[{-1.5, 0}, {67., 82.44944830766573}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 175], {
+          LineBox[{{68., 79.89103179725048}, {68., 79.71236820274952}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {68., 79.89103179725048}], 
+            Offset[{-1.5, 0}, {68., 79.89103179725048}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {68., 79.71236820274952}], 
+            Offset[{-1.5, 0}, {68., 79.71236820274952}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 176], {
+          LineBox[{{69., 80.13186641828082}, {69., 79.95293358171918}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {69., 80.13186641828082}], 
+            Offset[{-1.5, 0}, {69., 80.13186641828082}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {69., 79.95293358171918}], 
+            Offset[{-1.5, 0}, {69., 79.95293358171918}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 177], {
+          LineBox[{{70., 82.66296919169885}, {70., 82.48123080830116}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {70., 82.66296919169885}], 
+            Offset[{-1.5, 0}, {70., 82.66296919169885}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {70., 82.48123080830116}], 
+            Offset[{-1.5, 0}, {70., 82.48123080830116}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 178], {
+          LineBox[{{71., 80.14707491268507}, {71., 79.96812508731495}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {71., 80.14707491268507}], 
+            Offset[{-1.5, 0}, {71., 80.14707491268507}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {71., 79.96812508731495}], 
+            Offset[{-1.5, 0}, {71., 79.96812508731495}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 179], {
+          LineBox[{{72., 79.69352124186538}, {72., 79.51507875813463}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {72., 79.69352124186538}], 
+            Offset[{-1.5, 0}, {72., 79.69352124186538}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {72., 79.51507875813463}], 
+            Offset[{-1.5, 0}, {72., 79.51507875813463}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 180], {
+          LineBox[{{73., 77.3933234894667}, {73., 77.21747651053332}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {73., 77.3933234894667}], 
+            Offset[{-1.5, 0}, {73., 77.3933234894667}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {73., 77.21747651053332}], 
+            Offset[{-1.5, 0}, {73., 77.21747651053332}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 181], {
+          LineBox[{{74., 79.43927872922309}, {74., 79.26112127077691}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {74., 79.43927872922309}], 
+            Offset[{-1.5, 0}, {74., 79.43927872922309}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {74., 79.26112127077691}], 
+            Offset[{-1.5, 0}, {74., 79.26112127077691}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 182], {
+          LineBox[{{75., 81.97068767871926}, {75., 81.78971232128075}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {75., 81.97068767871926}], 
+            Offset[{-1.5, 0}, {75., 81.97068767871926}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {75., 81.78971232128075}], 
+            Offset[{-1.5, 0}, {75., 81.78971232128075}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 183], {
+          LineBox[{{76., 81.54765375338457}, {76., 81.36714624661545}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {76., 81.54765375338457}], 
+            Offset[{-1.5, 0}, {76., 81.54765375338457}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {76., 81.36714624661545}], 
+            Offset[{-1.5, 0}, {76., 81.36714624661545}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 184], {
+          LineBox[{{77., 77.83877630067087}, {77., 77.66242369932914}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {77., 77.83877630067087}], 
+            Offset[{-1.5, 0}, {77., 77.83877630067087}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {77., 77.66242369932914}], 
+            Offset[{-1.5, 0}, {77., 77.66242369932914}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 185], {
+          LineBox[{{78., 81.76197234090141}, {78., 81.58122765909859}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {78., 81.76197234090141}], 
+            Offset[{-1.5, 0}, {78., 81.76197234090141}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {78., 81.58122765909859}], 
+            Offset[{-1.5, 0}, {78., 81.58122765909859}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 186], {
+          LineBox[{{79., 79.65780123317533}, {79., 79.47939876682467}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {79., 79.65780123317533}], 
+            Offset[{-1.5, 0}, {79., 79.65780123317533}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {79., 79.47939876682467}], 
+            Offset[{-1.5, 0}, {79., 79.47939876682467}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 187], {
+          LineBox[{{80., 82.02191596544257}, {80., 81.84088403455745}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {80., 82.02191596544257}], 
+            Offset[{-1.5, 0}, {80., 82.02191596544257}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {80., 81.84088403455745}], 
+            Offset[{-1.5, 0}, {80., 81.84088403455745}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 188], {
+          LineBox[{{81., 81.8072974004051}, {81., 81.62650259959491}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {81., 81.8072974004051}], 
+            Offset[{-1.5, 0}, {81., 81.8072974004051}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {81., 81.62650259959491}], 
+            Offset[{-1.5, 0}, {81., 81.62650259959491}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 189], {
+          LineBox[{{82., 72.71892540700989}, {82., 72.54847459299012}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {82., 72.71892540700989}], 
+            Offset[{-1.5, 0}, {82., 72.71892540700989}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {82., 72.54847459299012}], 
+            Offset[{-1.5, 0}, {82., 72.54847459299012}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 190], {
+          LineBox[{{83., 79.66020257843807}, {83., 79.48179742156192}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {83., 79.66020257843807}], 
+            Offset[{-1.5, 0}, {83., 79.66020257843807}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {83., 79.48179742156192}], 
+            Offset[{-1.5, 0}, {83., 79.48179742156192}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 191], {
+          LineBox[{{84., 79.1411113041182}, {84., 78.9632886958818}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {84., 79.1411113041182}], 
+            Offset[{-1.5, 0}, {84., 79.1411113041182}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {84., 78.9632886958818}], 
+            Offset[{-1.5, 0}, {84., 78.9632886958818}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 192], {
+          LineBox[{{85., 81.31232335990185}, {85., 81.13207664009815}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {85., 81.31232335990185}], 
+            Offset[{-1.5, 0}, {85., 81.31232335990185}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {85., 81.13207664009815}], 
+            Offset[{-1.5, 0}, {85., 81.13207664009815}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 193], {
+          LineBox[{{86., 79.81999204891814}, {86., 79.64140795108186}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {86., 79.81999204891814}], 
+            Offset[{-1.5, 0}, {86., 79.81999204891814}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {86., 79.64140795108186}], 
+            Offset[{-1.5, 0}, {86., 79.64140795108186}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 194], {
+          LineBox[{{87., 78.88246581549222}, {87., 78.70493418450778}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {87., 78.88246581549222}], 
+            Offset[{-1.5, 0}, {87., 78.88246581549222}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {87., 78.70493418450778}], 
+            Offset[{-1.5, 0}, {87., 78.70493418450778}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 195], {
+          LineBox[{{88., 81.98069320416474}, {88., 81.79970679583528}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {88., 81.98069320416474}], 
+            Offset[{-1.5, 0}, {88., 81.98069320416474}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {88., 81.79970679583528}], 
+            Offset[{-1.5, 0}, {88., 81.79970679583528}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 196], {
+          LineBox[{{89., 79.04865932702874}, {89., 78.87094067297126}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {89., 79.04865932702874}], 
+            Offset[{-1.5, 0}, {89., 79.04865932702874}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {89., 78.87094067297126}], 
+            Offset[{-1.5, 0}, {89., 78.87094067297126}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 197], {
+          LineBox[{{90., 81.98039303840628}, {90., 81.79940696159372}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {90., 81.98039303840628}], 
+            Offset[{-1.5, 0}, {90., 81.98039303840628}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {90., 81.79940696159372}], 
+            Offset[{-1.5, 0}, {90., 81.79940696159372}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 198], {
+          LineBox[{{91., 74.550492641633}, {91., 74.37790735836701}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {91., 74.550492641633}], 
+            Offset[{-1.5, 0}, {91., 74.550492641633}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {91., 74.37790735836701}], 
+            Offset[{-1.5, 0}, {91., 74.37790735836701}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 199], {
+          LineBox[{{92., 79.07287294301418}, {92., 78.89512705698584}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {92., 79.07287294301418}], 
+            Offset[{-1.5, 0}, {92., 79.07287294301418}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {92., 78.89512705698584}], 
+            Offset[{-1.5, 0}, {92., 78.89512705698584}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 200], {
+          LineBox[{{93., 81.5646631707841}, {93., 81.3841368292159}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {93., 81.5646631707841}], 
+            Offset[{-1.5, 0}, {93., 81.5646631707841}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {93., 81.3841368292159}], 
+            Offset[{-1.5, 0}, {93., 81.3841368292159}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 201], {
+          LineBox[{{94., 81.1317231636858}, {94., 80.9516768363142}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {94., 81.1317231636858}], 
+            Offset[{-1.5, 0}, {94., 81.1317231636858}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {94., 80.9516768363142}], 
+            Offset[{-1.5, 0}, {94., 80.9516768363142}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 202], {
+          LineBox[{{95., 78.87035899954371}, {95., 78.69284100045628}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {95., 78.87035899954371}], 
+            Offset[{-1.5, 0}, {95., 78.87035899954371}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {95., 78.69284100045628}], 
+            Offset[{-1.5, 0}, {95., 78.69284100045628}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 203], {
+          LineBox[{{96., 78.97191615843978}, {96., 78.79428384156022}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {96., 78.97191615843978}], 
+            Offset[{-1.5, 0}, {96., 78.97191615843978}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {96., 78.79428384156022}], 
+            Offset[{-1.5, 0}, {96., 78.79428384156022}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 204], {
+          LineBox[{{97., 80.1607825681348}, {97., 79.98181743186521}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {97., 80.1607825681348}], 
+            Offset[{-1.5, 0}, {97., 80.1607825681348}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {97., 79.98181743186521}], 
+            Offset[{-1.5, 0}, {97., 79.98181743186521}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 205], {
+          LineBox[{{98., 78.64713323304495}, {98., 78.46986676695506}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {98., 78.64713323304495}], 
+            Offset[{-1.5, 0}, {98., 78.64713323304495}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {98., 78.46986676695506}], 
+            Offset[{-1.5, 0}, {98., 78.46986676695506}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 206], {
+          LineBox[{{99., 78.93179358084907}, {99., 78.75420641915093}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {99., 78.93179358084907}], 
+            Offset[{-1.5, 0}, {99., 78.93179358084907}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {99., 78.75420641915093}], 
+            Offset[{-1.5, 0}, {99., 78.75420641915093}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 207], {
+          LineBox[{{100., 73.5938368648832}, {100., 73.4223631351168}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {100., 73.5938368648832}], 
+            Offset[{-1.5, 0}, {100., 73.5938368648832}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {100., 73.4223631351168}], 
+            Offset[{-1.5, 0}, {100., 73.4223631351168}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 208], {
+          LineBox[{{101., 78.33195535597125}, {101., 78.15504464402875}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {101., 78.33195535597125}], 
+            Offset[{-1.5, 0}, {101., 78.33195535597125}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {101., 78.15504464402875}], 
+            Offset[{-1.5, 0}, {101., 78.15504464402875}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 209], {
+          LineBox[{{102., 77.76223291099244}, {102., 77.58596708900758}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {102., 77.76223291099244}], 
+            Offset[{-1.5, 0}, {102., 77.76223291099244}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {102., 77.58596708900758}], 
+            Offset[{-1.5, 0}, {102., 77.58596708900758}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 210], {
+          LineBox[{{103., 81.12361866473127}, {103., 80.94358133526875}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {103., 81.12361866473127}], 
+            Offset[{-1.5, 0}, {103., 81.12361866473127}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {103., 80.94358133526875}], 
+            Offset[{-1.5, 0}, {103., 80.94358133526875}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 211], {
+          LineBox[{{104., 78.43431316286294}, {104., 78.25728683713706}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {104., 78.43431316286294}], 
+            Offset[{-1.5, 0}, {104., 78.43431316286294}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {104., 78.25728683713706}], 
+            Offset[{-1.5, 0}, {104., 78.25728683713706}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 212], {
+          LineBox[{{105., 81.92676341802077}, {105., 81.74583658197925}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {105., 81.92676341802077}], 
+            Offset[{-1.5, 0}, {105., 81.92676341802077}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {105., 81.74583658197925}], 
+            Offset[{-1.5, 0}, {105., 81.74583658197925}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 213], {
+          LineBox[{{106., 81.694935264432}, {106., 81.514264735568}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {106., 81.694935264432}], 
+            Offset[{-1.5, 0}, {106., 81.694935264432}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {106., 81.514264735568}], 
+            Offset[{-1.5, 0}, {106., 81.514264735568}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 214], {
+          LineBox[{{107., 77.373412172081}, {107., 77.197587827919}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {107., 77.373412172081}], 
+            Offset[{-1.5, 0}, {107., 77.373412172081}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {107., 77.197587827919}], 
+            Offset[{-1.5, 0}, {107., 77.197587827919}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 215], {
+          LineBox[{{108., 77.7638338187077}, {108., 77.58756618129232}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {108., 77.7638338187077}], 
+            Offset[{-1.5, 0}, {108., 77.7638338187077}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {108., 77.58756618129232}], 
+            Offset[{-1.5, 0}, {108., 77.58756618129232}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 216], {
+          LineBox[{{109., 77.45565891086183}, {109., 77.27974108913817}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {109., 77.45565891086183}], 
+            Offset[{-1.5, 0}, {109., 77.45565891086183}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {109., 77.27974108913817}], 
+            Offset[{-1.5, 0}, {109., 77.27974108913817}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 217], {
+          LineBox[{{110., 81.10841022164176}, {110., 80.92838977835824}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {110., 81.10841022164176}], 
+            Offset[{-1.5, 0}, {110., 81.10841022164176}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {110., 80.92838977835824}], 
+            Offset[{-1.5, 0}, {110., 80.92838977835824}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 218], {
+          LineBox[{{111., 80.87397997552293}, {111., 80.69422002447709}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {111., 80.87397997552293}], 
+            Offset[{-1.5, 0}, {111., 80.87397997552293}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {111., 80.69422002447709}], 
+            Offset[{-1.5, 0}, {111., 80.69422002447709}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 219], {
+          LineBox[{{112., 78.88626795593005}, {112., 78.70873204406995}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {112., 78.88626795593005}], 
+            Offset[{-1.5, 0}, {112., 78.88626795593005}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {112., 78.70873204406995}], 
+            Offset[{-1.5, 0}, {112., 78.70873204406995}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 220], {
+          LineBox[{{113., 78.48674275803249}, {113., 78.30965724196751}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {113., 78.48674275803249}], 
+            Offset[{-1.5, 0}, {113., 78.48674275803249}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {113., 78.30965724196751}], 
+            Offset[{-1.5, 0}, {113., 78.30965724196751}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 221], {
+          LineBox[{{114., 81.06558644342344}, {114., 80.88561355657656}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {114., 81.06558644342344}], 
+            Offset[{-1.5, 0}, {114., 81.06558644342344}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {114., 80.88561355657656}], 
+            Offset[{-1.5, 0}, {114., 80.88561355657656}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 222], {
+          LineBox[{{115., 80.21661374196178}, {115., 80.03758625803822}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {115., 80.21661374196178}], 
+            Offset[{-1.5, 0}, {115., 80.21661374196178}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {115., 80.03758625803822}], 
+            Offset[{-1.5, 0}, {115., 80.03758625803822}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 223], {
+          LineBox[{{116., 78.1536545697743}, {116., 77.97694543022571}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {116., 78.1536545697743}], 
+            Offset[{-1.5, 0}, {116., 78.1536545697743}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {116., 77.97694543022571}], 
+            Offset[{-1.5, 0}, {116., 77.97694543022571}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 224], {
+          LineBox[{{117., 78.13024132668237}, {117., 77.95355867331763}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {117., 78.13024132668237}], 
+            Offset[{-1.5, 0}, {117., 78.13024132668237}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {117., 77.95355867331763}], 
+            Offset[{-1.5, 0}, {117., 77.95355867331763}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 225], {
+          LineBox[{{118., 74.17617560630052}, {118., 74.0040243936995}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {118., 74.17617560630052}], 
+            Offset[{-1.5, 0}, {118., 74.17617560630052}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {118., 74.0040243936995}], 
+            Offset[{-1.5, 0}, {118., 74.0040243936995}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 226], {
+          LineBox[{{119., 78.05900101924668}, {119., 77.88239898075334}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {119., 78.05900101924668}], 
+            Offset[{-1.5, 0}, {119., 78.05900101924668}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {119., 77.88239898075334}], 
+            Offset[{-1.5, 0}, {119., 77.88239898075334}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 227], {
+          LineBox[{{120., 80.49176721809}, {120., 80.31243278191}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {120., 80.49176721809}], 
+            Offset[{-1.5, 0}, {120., 80.49176721809}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {120., 80.31243278191}], 
+            Offset[{-1.5, 0}, {120., 80.31243278191}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 228], {
+          LineBox[{{121., 80.0852403711978}, {121., 79.9063596288022}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {121., 80.0852403711978}], 
+            Offset[{-1.5, 0}, {121., 80.0852403711978}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {121., 79.9063596288022}], 
+            Offset[{-1.5, 0}, {121., 79.9063596288022}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 229], {
+          LineBox[{{122., 77.40202843681087}, {122., 77.22617156318915}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {122., 77.40202843681087}], 
+            Offset[{-1.5, 0}, {122., 77.40202843681087}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {122., 77.22617156318915}], 
+            Offset[{-1.5, 0}, {122., 77.22617156318915}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 230], {
+          LineBox[{{123., 80.56230652150207}, {123., 80.38289347849793}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {123., 80.56230652150207}], 
+            Offset[{-1.5, 0}, {123., 80.56230652150207}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {123., 80.38289347849793}], 
+            Offset[{-1.5, 0}, {123., 80.38289347849793}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 231], {
+          LineBox[{{124., 78.61161320443367}, {124., 78.43438679556635}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {124., 78.61161320443367}], 
+            Offset[{-1.5, 0}, {124., 78.61161320443367}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {124., 78.43438679556635}], 
+            Offset[{-1.5, 0}, {124., 78.43438679556635}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 232], {
+          LineBox[{{125., 80.63454675481599}, {125., 80.45505324518403}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {125., 80.63454675481599}], 
+            Offset[{-1.5, 0}, {125., 80.63454675481599}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {125., 80.45505324518403}], 
+            Offset[{-1.5, 0}, {125., 80.45505324518403}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 233], {
+          LineBox[{{126., 80.55740379033242}, {126., 80.3779962096676}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {126., 80.55740379033242}], 
+            Offset[{-1.5, 0}, {126., 80.55740379033242}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {126., 80.3779962096676}], 
+            Offset[{-1.5, 0}, {126., 80.3779962096676}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 234], {
+          LineBox[{{127., 74.40370759827302}, {127., 74.231292401727}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {127., 74.40370759827302}], 
+            Offset[{-1.5, 0}, {127., 74.40370759827302}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {127., 74.231292401727}], 
+            Offset[{-1.5, 0}, {127., 74.231292401727}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 235], {
+          LineBox[{{128., 78.49774896950275}, {128., 78.32065103049725}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {128., 78.49774896950275}], 
+            Offset[{-1.5, 0}, {128., 78.49774896950275}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {128., 78.32065103049725}], 
+            Offset[{-1.5, 0}, {128., 78.32065103049725}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 236], {
+          LineBox[{{129., 78.61201343013337}, {129., 78.43478656986665}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {129., 78.61201343013337}], 
+            Offset[{-1.5, 0}, {129., 78.61201343013337}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {129., 78.43478656986665}], 
+            Offset[{-1.5, 0}, {129., 78.43478656986665}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 237], {
+          LineBox[{{130., 78.00677145631518}, {130., 77.83022854368484}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {130., 78.00677145631518}], 
+            Offset[{-1.5, 0}, {130., 78.00677145631518}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {130., 77.83022854368484}], 
+            Offset[{-1.5, 0}, {130., 77.83022854368484}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 238], {
+          LineBox[{{131., 80.08974288680494}, {131., 79.91085711319508}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {131., 80.08974288680494}], 
+            Offset[{-1.5, 0}, {131., 80.08974288680494}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {131., 79.91085711319508}], 
+            Offset[{-1.5, 0}, {131., 79.91085711319508}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 239], {
+          LineBox[{{132., 81.1034074441366}, {132., 80.92339255586342}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {132., 81.1034074441366}], 
+            Offset[{-1.5, 0}, {132., 81.1034074441366}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {132., 80.92339255586342}], 
+            Offset[{-1.5, 0}, {132., 80.92339255586342}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 240], {
+          LineBox[{{133., 80.82395215634585}, {133., 80.64424784365414}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {133., 80.82395215634585}], 
+            Offset[{-1.5, 0}, {133., 80.82395215634585}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {133., 80.64424784365414}], 
+            Offset[{-1.5, 0}, {133., 80.64424784365414}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 241], {
+          LineBox[{{134., 81.4773147992294}, {134., 81.2968852007706}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {134., 81.4773147992294}], 
+            Offset[{-1.5, 0}, {134., 81.4773147992294}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {134., 81.2968852007706}], 
+            Offset[{-1.5, 0}, {134., 81.2968852007706}]}]}}, {InsetBox[
+          StyleBox["\<\"\[FilledCircle]\"\>",
+           StripOnInput->False,
+           FontSize->Medium], 242], {
+          LineBox[{{135., 79.53163052226932}, {135., 79.3533694777307}}], 
+          LineBox[{
+           Offset[{1.5, 0}, {135., 79.53163052226932}], 
+            Offset[{-1.5, 0}, {135., 79.53163052226932}]}], 
+          LineBox[{
+           Offset[{1.5, 0}, {135., 79.3533694777307}], 
+            Offset[{-1.5, 0}, {135., 
+             79.3533694777307}]}]}}}, {}}], {}}, {{}, {}, 
+     {RGBColor[1, 0, 0], Thickness[0.005], Opacity[1.], 
+      LineBox[CompressedData["
+1:eJwV0Xs01GkYB/ChPV0MkSGXUmNDW40xk2or2f0acxiSy/xeyv1HaalQcpko
+ndhI2hKFtFmspAhpXKrNpU01oqRDlqLLZivS6iSVXfbdP57znM8fz+V9H9Pg
+SHmIOofD2UDj/8zLEsg5HCGKzczn2cUTSMU77Hp0hZgjCY0QUEffLxNVmQtR
+MRJ9w4C6m7tMm10vxJ3uNztG9hDk/bikrTFbiDyu7O5pan6shcN+Sys882i+
++FFBkCPQMdlvKcK+S3tmXYwjKNbWmDPpI0Zpjafx/BiC6u/aQ5SvrLE3f/O2
+7EiCoVeVSsP1qyC7vOBgwjaC4/4595ILV4P5Y1lESgiBwMbV89xSGxQcOia1
+ZglGs8y6FYdsUc3Pynf0Jeha+jLogCbAFxlpcrwIXu9c26BytcOYyqey350g
+M/oXg7AECX6d6XXS1IWgRrDj3JZme7D7kw25jgThRbIVdaNS/K3UWL5RQuC3
+75yF1nwHEL7+N7dsCVo0I9waAx1R/LhkUf9qgpve0pg7P8lQAaNLnisIbH2T
+Hlh2OaH0pMv3CiuCt82SrOy565GY8XFWw1KC5YO6ci+JCy6tOvEDa0H3b3B2
+jErdgNJhPZMqUwIHz8w1L2tdobvIvM/HhEC/wC5YOeUG8ULfLqUhgVbpGoV9
+oTvsq7/eKdIj6Avote351gOvMltXfqVDMPiuYsG8Pg/0uvvsTuMS/BbITUzb
+LUeyKiw4ZAaBpfqSjM8zGQzGDUwGTqP1ifHXDcoY5FgUi2dPMSC9TFgQffdY
+Sny4zgQDDZ0gkfcggfLY9MnbHxn4KqwuyFM9EVmqn5H/nkFc48GiOBMvjJy6
+lnprhEHHU+1a5yYvSGOcX5x9w+DDU1OZ06aN8N/OdeoaZHCZN3bE6e1GCG3N
+PvNfMKjk/zM8fnQTOs/K1CwGGMRqpt99YO6NwCnTQkUfg/jODS3eKm8sjj6z
+IuURA6e4XFutYB9ELTPiPX1I+7kWh94Y90Ee7/oY6WDgw/mzwjzPFzmP686n
+tDFoyyjbrRT74Uzjc3d1FYOEiRJmtMsPczwy5OtaGLTkbh60ivOHn7Wo6Hgz
+g1690vFTWgEY2n76uLCBgWA736y6KgCFkXfL0q/S+QX8+2OyQDTUpVtb1TFQ
+m/lcYNMfiM7JXcVDlxlMFA/JDcDCPDTtU1gV/a+VF+6VpLOI2MXJFFxkwKr5
+Wn86wiLVNEmwgHprOzfX6SgLz2cFt7Wpo0LCg4YzWLjF1Ey9L2dw+KTogzib
+pfutjbtCXT9Wa3S9gAVPWJ7sQK1f+/uWhzUs/AOm6QbROxonRavM6lj06Bo3
+yan5rubC2HoWW9XaI6TUgsGUccNrLOZHzbi3mFo61/lwQBOLE3+1Z41coPNj
+Oypft9J699Pr9lIrJAf0bNpY2ByK+hBOnTh7+Z4j7Sxcjr0sD6ROK8mSWHWw
+eDeav9CeuqDbqyu6iwXjFqCpQV1SNGPtrW5qZ55q4jyD8oj6fIMeFsMDm1Pe
+UtdPNw692suCbXqk/oC6obO1jfuYxed/vzTfoL6ZnyD2f8Ki5NqVA0rq1m2C
+7Ip+Fi3veZIS6vurnnyZGmBR//OsabnU/wFo3B8t
+       "]]}}},
+   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+   Axes->{True, True},
+   AxesLabel->{None, None},
+   AxesOrigin->{15.6, 0},
+   DisplayFunction->Identity,
+   Frame->{{False, True}, {False, True}},
+   FrameLabel->{{
+      FormBox["\"\"", TraditionalForm], 
+      FormBox[
+       RotationBox[
+       "\"\\!\\(\\*SubscriptBox[\\(N\\), \\(Monitor\\)]\\) (\[Cross]10k)\"", 
+        BoxRotation -> 3.141592653589793], TraditionalForm]}, {
+      FormBox["\"\"", TraditionalForm], 
+      FormBox["\"\"", TraditionalForm]}},
+   FrameStyle->{None, None, {
+      RGBColor[1, 0, 0], 
+      Thickness[0.005]}, {
+      RGBColor[1, 0, 0], 
+      Thickness[0.005]}},
+   FrameTicks->
+    FrontEndValueCache[{{CustomTicks`LinTicks, Charting`ScaledFrameTicks[
+        CustomTicks`LinTicks[
+         SlotSequence[1]], {Identity, Identity}]& }, {
+      CustomTicks`LinTicks, Charting`ScaledFrameTicks[
+        CustomTicks`LinTicks[
+         SlotSequence[1]], {Identity, Identity}]& }}, {{{{0., 
+         FormBox["\"  0\"", TraditionalForm], {0.0125, 0.}, {}}, {20., 
+         FormBox["\" 20\"", TraditionalForm], {0.0125, 0.}, {}}, {40., 
+         FormBox["\" 40\"", TraditionalForm], {0.0125, 0.}, {}}, {60., 
+         FormBox["\" 60\"", TraditionalForm], {0.0125, 0.}, {}}, {80., 
+         FormBox["\" 80\"", TraditionalForm], {0.0125, 0.}, {}}, {100., 
+         FormBox["\"100\"", TraditionalForm], {0.0125, 0.}, {}}, {5., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {10., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {15., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {25., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {30., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {35., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {45., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {50., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {55., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {65., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {70., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {75., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {85., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {90., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {95., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}}, {{0., 
+         FormBox["\"  0\"", TraditionalForm], {0.0125, 0.}, {}}, {20., 
+         FormBox["\" 20\"", TraditionalForm], {0.0125, 0.}, {}}, {40., 
+         FormBox["\" 40\"", TraditionalForm], {0.0125, 0.}, {}}, {60., 
+         FormBox["\" 60\"", TraditionalForm], {0.0125, 0.}, {}}, {80., 
+         FormBox["\" 80\"", TraditionalForm], {0.0125, 0.}, {}}, {100., 
+         FormBox["\"100\"", TraditionalForm], {0.0125, 0.}, {}}, {5., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {10., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {15., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {25., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {30., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {35., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {45., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {50., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {55., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {65., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {70., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {75., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {85., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {90., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {95., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}}}, {{{20., 
+         FormBox["\" 20\"", TraditionalForm], {0.0125, 0.}, {}}, {40., 
+         FormBox["\" 40\"", TraditionalForm], {0.0125, 0.}, {}}, {60., 
+         FormBox["\" 60\"", TraditionalForm], {0.0125, 0.}, {}}, {80., 
+         FormBox["\" 80\"", TraditionalForm], {0.0125, 0.}, {}}, {100., 
+         FormBox["\"100\"", TraditionalForm], {0.0125, 0.}, {}}, {120., 
+         FormBox["\"120\"", TraditionalForm], {0.0125, 0.}, {}}, {25., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {30., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {35., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {45., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {50., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {55., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {65., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {70., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {75., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {85., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {90., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {95., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {105., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {110., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {115., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {15., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {125., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {130., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {135., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}}, {{20., 
+         FormBox["\" 20\"", TraditionalForm], {0.0125, 0.}, {}}, {40., 
+         FormBox["\" 40\"", TraditionalForm], {0.0125, 0.}, {}}, {60., 
+         FormBox["\" 60\"", TraditionalForm], {0.0125, 0.}, {}}, {80., 
+         FormBox["\" 80\"", TraditionalForm], {0.0125, 0.}, {}}, {100., 
+         FormBox["\"100\"", TraditionalForm], {0.0125, 0.}, {}}, {120., 
+         FormBox["\"120\"", TraditionalForm], {0.0125, 0.}, {}}, {25., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {30., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {35., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {45., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {50., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {55., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {65., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {70., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {75., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {85., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {90., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {95., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {105., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {110., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {115., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {15., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {125., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {130., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}, {135., 
+         FormBox["\"\"", TraditionalForm], {0.0075, 0.}, {}}}}}],
+   FrameTicksStyle->Bold,
+   GridLines->{Automatic, Automatic},
+   GridLinesStyle->Directive[
+     GrayLevel[0.5, 0.4]],
+   ImagePadding->125,
+   ImageSize->{1000},
+   LabelStyle->{38, 
+     GrayLevel[0], Bold},
+   Method->{},
+   PlotRange->{{15, 135}, {0, 100}},
+   PlotRangeClipping->True,
+   PlotRangePadding->{{0, 0}, {0, 0}},
+   Ticks->{Automatic, Automatic},
+   TicksStyle->Directive[FontSize -> 40]]},
+  ImageSize->1200]], "Output",
+ CellChangeTimes->{{3.714895070188527*^9, 3.71489513325438*^9}, 
+   3.7148951673549166`*^9, 3.7150163189572353`*^9, 3.7150173886835265`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"nlmmon", "[", "\"\<ParameterTable\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"nlmmon", "[", "\"\<ANOVATable\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.7148951894281735`*^9, 3.7148951922064466`*^9}, {
+  3.71501634528963*^9, 3.715016381006085*^9}, {3.71501669785013*^9, 
+  3.7150167028184433`*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[GridBox[{
+     {"\<\"\"\>", "\<\"Estimate\"\>", "\<\"Standard Error\"\>", "\<\"t\
+\[Hyphen]Statistic\"\>", "\<\"P\[Hyphen]Value\"\>"},
+     {"aa", "73.42744959494604`", "22.544006158642645`", 
+      "3.2570719275995375`", "0.0014700445212872694`"},
+     {"bb", "9.013030193037023`", "21.66816166197286`", "0.4159573079452647`",
+       "0.6781967638683689`"},
+     {"cc", "0.004042252103345507`", "0.01358229448838059`", 
+      "0.2976118730751701`", "0.76652274107098`"}
+    },
+    AutoDelete->False,
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+    GridBoxDividers->{
+     "ColumnsIndexed" -> {2 -> GrayLevel[0.7]}, 
+      "RowsIndexed" -> {2 -> GrayLevel[0.7]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{
+     "ColumnsIndexed" -> {2 -> 1}, "RowsIndexed" -> {2 -> 0.75}}],
+   "Grid"], "DialogStyle",
+  StripOnInput->False]], "Output",
+ CellChangeTimes->{{3.7150163515622406`*^9, 3.715016381464413*^9}, 
+   3.715016703531495*^9, 3.7150173913738394`*^9}],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[GridBox[{
+     {"\<\"\"\>", "\<\"DF\"\>", "\<\"SS\"\>", "\<\"MS\"\>"},
+     {"\<\"Model\"\>", "3", "777412.9864251289`", "259137.66214170962`"},
+     {"\<\"Error\"\>", "118", "570.056433771286`", "4.830986726875305`"},
+     {"\<\"Uncorrected Total\"\>", "121", "777983.0428589002`", ""},
+     {"\<\"Corrected Total\"\>", "120", "678.628677186281`", ""}
+    },
+    AutoDelete->False,
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+    GridBoxDividers->{
+     "ColumnsIndexed" -> {2 -> GrayLevel[0.7]}, 
+      "RowsIndexed" -> {2 -> GrayLevel[0.7]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{
+     "ColumnsIndexed" -> {2 -> 1}, "RowsIndexed" -> {2 -> 0.75}}],
+   "Grid"], "DialogStyle",
+  StripOnInput->False]], "Output",
+ CellChangeTimes->{{3.7150163515622406`*^9, 3.715016381464413*^9}, 
+   3.715016703531495*^9, 3.7150173913853483`*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ptdatratio2", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{"ptdatratio", ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"#", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}], ">", ".115"}], ")"}], "&&", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"#", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "<", ".14"}], ")"}]}], ")"}], 
+      "&"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rmsptdatratio", "=", 
+   RowBox[{"Mean", "[", 
+    RowBox[{
+     RowBox[{"ptdatratio2", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], "[", 
+     RowBox[{"[", 
+      RowBox[{";;", ",", "1"}], "]"}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sdptdatratio", "=", 
+   RowBox[{"StandardDeviation", "[", 
+    RowBox[{
+     RowBox[{"ptdatratio2", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], "[", 
+     RowBox[{"[", 
+      RowBox[{";;", ",", "1"}], "]"}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"errptsptres", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ptdatratio2", "[", 
+      RowBox[{"[", 
+       RowBox[{";;", ",", "2"}], "]"}], "]"}], "[", 
+     RowBox[{"[", 
+      RowBox[{";;", ",", "1"}], "]"}], "]"}], "-", "rmsptdatratio"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"inset", "=", 
+   RowBox[{"Show", "[", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Histogram", "[", 
+       RowBox[{"errptsptres", ",", " ", 
+        RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<(\!\(\*SubscriptBox[\(N\), \(Up\)]\) + \
+\!\(\*SubscriptBox[\(N\), \(Down\)]\)) / (\!\(\*SubscriptBox[\(N\), \(Monitor\
+\)]\)) Residual\>\"", ",", "\"\<#\>\""}], "}"}]}], ",", 
+        RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "0.025"}], ",", "0.025"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "2000"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"TicksStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+        RowBox[{"LabelStyle", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"14", ",", "Black", ",", "Bold"}], "}"}]}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", 
+         RowBox[{"{", "300", "}"}]}]}], "]"}], ",", 
+      RowBox[{"Plot", "[", 
+       RowBox[{
+        RowBox[{"20", 
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"0", ",", "sdptdatratio"}], "]"}], ",", "x"}], "]"}]}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", 
+          RowBox[{"-", "0.025"}], ",", "0.025"}], "}"}], ",", 
+        RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "0.025"}], ",", "0.025"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "2000"}], "}"}]}], "}"}]}], ",", " ", 
+        RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+        RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<(\!\(\*SubscriptBox[\(N\), \(Up\)]\) + \
+\!\(\*SubscriptBox[\(N\), \(Down\)]\)) / (\!\(\*SubscriptBox[\(N\), \(Monitor\
+\)]\)) Residual\>\"", ",", "\"\<#\>\""}], "}"}]}], ",", 
+        RowBox[{"TicksStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+        RowBox[{"LabelStyle", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"14", ",", "Black", ",", "Bold"}], "}"}]}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", 
+         RowBox[{"{", "300", "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"EDAListPlot", "[", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"HistogramList", "[", "errptsptres", "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "[", 
+              RowBox[{"[", "k", "]"}], "]"}], "-", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"HistogramList", "[", "errptsptres", "]"}], "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "-", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"HistogramList", "[", "errptsptres", "]"}], "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], "[", 
+                 RowBox[{"[", "2", "]"}], "]"}]}], ")"}], "/", "2"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"HistogramList", "[", "errptsptres", "]"}], "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "[", 
+               RowBox[{"[", "k", "]"}], "]"}], ",", 
+              RowBox[{"Sqrt", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"HistogramList", "[", "errptsptres", "]"}], "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "[", 
+                RowBox[{"[", "k", "]"}], "]"}], "]"}]}], "}"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", "1", ",", 
+            RowBox[{
+             RowBox[{"Dimensions", "[", 
+              RowBox[{
+               RowBox[{"HistogramList", "[", "errptsptres", "]"}], "[", 
+               RowBox[{"[", "2", "]"}], "]"}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "0.025"}], ",", "0.025"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "2000"}], "}"}]}], "}"}]}], ",", " ", 
+        RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<(\!\(\*SubscriptBox[\(N\), \(Up\)]\) + \
+\!\(\*SubscriptBox[\(N\), \(Down\)]\)) / (\!\(\*SubscriptBox[\(N\), \(Monitor\
+\)]\)) Residual\>\"", ",", "\"\<#\>\""}], "}"}]}], ",", 
+        RowBox[{"TicksStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"FontSize", "\[Rule]", "40"}], "]"}]}], ",", 
+        RowBox[{"LabelStyle", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"14", ",", "Black", ",", "Bold"}], "}"}]}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", 
+         RowBox[{"{", "300", "}"}]}]}], "]"}]}], "\[IndentingNewLine]", "}"}],
+     "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{3.714892600474353*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"URLFetch", "[", 
+  "\"\<https://nedmpsi.atlassian.net/wiki/spaces/nedmcoll/pages/114357200/\
+NStar+data+summary+September+2017\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.715069669988276*^9, 3.7150696967197638`*^9}}],
+
+Cell[BoxData["\<\"<!DOCTYPE html><html lang=\\\"en\\\"><head><meta charset=\\\
+\"utf-8\\\"><meta name=\\\"viewport\\\" \
+content=\\\"width=device-width,initial-scale=1\\\"><link rel=\\\"shortcut \
+icon\\\" href=\\\"https://cpfs-cdn.atlassian.com/assets/shared/id-summit/id-\
+summit-aa-favicon.ico\\\"><title>Atlassian account</title><link \
+href=\\\"https://common-admin-cdn.atlassian.com/atlassian-id/front-end/1.2.34/\
+static/css/main.643280c9.css\\\" rel=\\\"stylesheet\\\"></head><body \
+data-app-state=\\\"{&quot;contextPath&quot;:&quot;&quot;,&quot;appConfig&quot;\
+:{&quot;auth0Config&quot;:{&quot;clientId&quot;:&quot;\
+tDP5by46cc3gEck7d2vbHZsqsfrDK6t9&quot;,&quot;tenant&quot;:&quot;atlassian-\
+account-prod&quot;,&quot;domain&quot;:&quot;auth.atlassian.com&quot;,&quot;\
+tokenIssuer&quot;:&quot;https://atlassian-account-prod.pus2.auth0.com&quot;,&\
+quot;callbackUrl&quot;:&quot;https://id.atlassian.com/login/callback&quot;},&\
+quot;confluenceAppId&quot;:&quot;1006971684&quot;,&quot;isSamlEnabled&quot;:\
+true,&quot;recaptchaKeySite&quot;:&quot;\
+6LewHQcTAAAAAJgaYVKlQOahz4gnQME8wqUA0z0J&quot;,&quot;jiraAppId&quot;:&quot;\
+1006972087&quot;,&quot;recaptchaEnable&quot;:true,&quot;isGoogleAuthEnabled&\
+quot;:true,&quot;googleAuthClientId&quot;:&quot;596149463257-\
+9oquqfivs9on8t8erq23c8qso6vk3cp1.apps.googleusercontent.com&quot;},&quot;\
+featureFlags&quot;:{&quot;aid_signup.adg3.enabled&quot;:&quot;true&quot;,&\
+quot;aid_signup.auth0.frontend.login.enabled&quot;:&quot;true&quot;,&quot;\
+kermit.reloaded&quot;:&quot;true&quot;},&quot;csrfToken&quot;:&quot;\
+369ab5235197d2121b468b0c3bc1a9a8a8377433&quot;,&quot;microbranding&quot;:{&\
+quot;isEmbedded&quot;:&quot;false&quot;}}\\\"><div \
+id=\\\"root\\\"></div><script>var \
+mfaServerUrl=\\\"\\\",ticket=\\\"\\\",requestToken=\\\"\\\",postActionURL=\\\"\
+\\\",userData={userId:\\\"\\\",email:\\\"\\\",friendlyUserId:\\\"\\\",tenant:\
+\\\"\\\",tenantFriendlyName:\\\"\\\"},globalTrackingId=\\\"\\\"</script><\
+script type=\\\"text/javascript\\\" \
+src=\\\"https://common-admin-cdn.atlassian.com/atlassian-id/front-end/1.2.34/\
+static/js/main.b24072ff.js\\\"></script></body></html>\"\>"], "Output",
+ CellChangeTimes->{{3.7150696897169547`*^9, 3.715069702448208*^9}}]
+}, Open  ]]
+},
+WindowSize->{1600, 817},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 4183, 100, 452, "Input"],
+Cell[CellGroupData[{
+Cell[4788, 126, 560, 13, 23, "Print"],
+Cell[5351, 141, 524, 12, 23, "Print"],
+Cell[5878, 155, 506, 11, 23, "Print"],
+Cell[6387, 168, 526, 12, 23, "Print"],
+Cell[6916, 182, 516, 11, 23, "Print"],
+Cell[7435, 195, 439, 9, 23, "Print"],
+Cell[7877, 206, 405, 8, 23, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8331, 220, 14679, 389, 572, "Input"],
+Cell[23013, 611, 138601, 2807, 731, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[161651, 3423, 330, 6, 52, "Input"],
+Cell[161984, 3431, 1071, 23, 85, "Output"],
+Cell[163058, 3456, 953, 20, 103, "Output"]
+}, Open  ]],
+Cell[164026, 3479, 7217, 188, 292, "Input"],
+Cell[CellGroupData[{
+Cell[171268, 3671, 241, 4, 31, "Input"],
+Cell[171512, 3677, 2230, 31, 252, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
