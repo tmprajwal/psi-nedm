@@ -9,7 +9,7 @@ Print["Picture Directory: ",PicDir="/dev/shm/prajwal"];
 ];
 ftallseries3=Import[StringJoin[anDir, "/", "ftallseries3.dat"]];
 (**)
-stt=10;
+stt=50;
 endt=2000;
 scnftst=-N[1/(stt/Log[2])];
 scnend=-N[1/(endt/Log[2])];
@@ -19,10 +19,14 @@ dimcctvals=Dimensions[Table[cct,{cct,scnftst,scnend,scnint}]][[1]]
 parameters=Array[a,{dimcctvals}];
 variables=Array[x,{dimcctvals}];
 guess=Table[1,{k,1,dimcctvals}];
-bb=Table[scnftst+(k*scnint),{k,1,dimcctvals}];
+bbini = 1/RandomReal[{1/scnftst, 1/scnend}, {numsamples + 1}];
+bb = Sort[bbini, #1 > #2 &];
 f[x_,a_]:=a.Exp[x bb];
 nlmfitchk=NonlinearModelFit[ftallseries3,f[xx,parameters],Transpose[{parameters,guess}],xx];
 basechi2=Total[(nlmfitchk["FitResiduals"]/errallseries3)^2];
+Unprotect[$ProcessorCount];
+$ProcessorCount=16;
+LaunchKernels[16];
 nlmfitchktab=ParallelTable[Total[(NonlinearModelFit[ftallseries3,f[xx,parameters]-f[xx,Table[If[k==kk,parameters[[k]],0],{k,1,dimcctvals}]],Transpose[{parameters,guess}],xx]["FitResiduals"]/errallseries3)^2],{kk,1,dimcctvals}];
 Export["mTau_Laplace_info.dat",{stt,endt,numsamples,basechi2,"\n"}];
 (**)
