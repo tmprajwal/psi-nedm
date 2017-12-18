@@ -1,0 +1,258 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9148,        250]
+NotebookOptionsPosition[      8216,        227]
+NotebookOutlinePosition[      8565,        242]
+CellTagsIndexPosition[      8522,        239]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"OS", "=", "\"\<win\>\""}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"or", ",", "linux"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<ErrorBarPlots`\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<EDA`\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<CustomTicks`\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{"LinTicks", ",", 
+    RowBox[{"TickLabelStep", "\[Rule]", "1"}], ",", 
+    RowBox[{"MajorTickLength", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"0.0125", ",", "0"}], "}"}]}], ",", 
+    RowBox[{"MinorTickLength", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"0.0075", ",", "0"}], "}"}]}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"OS", "\[Equal]", "\"\<win\>\""}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Working Directory: \>\"", ",", 
+       RowBox[{
+       "descDir", "=", 
+        "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\daq-tools-bkg-auto\\\
+\\nstar_online\>\""}]}], "]"}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(AscDir) Rawdata Directory: \>\"", ",", 
+       RowBox[{
+       "AscDir", "=", 
+        "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\rawdata\>\""}]}], 
+      "]"}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(ScrDir) Scratch Directory: \>\"", ",", 
+       RowBox[{"curDir", "=", 
+        RowBox[{
+        "SetDirectory", "[", 
+         "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\Scratch\>\"", "]"}]}]}], 
+      "]"}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(PicDir) Picture Directory: \>\"", ",", 
+       RowBox[{
+       "PicDir", "=", 
+        "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\Pictures\\\\nstar\\\
+\\runs2\>\""}]}], "]"}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(SysDir) System Directory: \>\"", ",", 
+       RowBox[{
+       "SysDir", "=", 
+        "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\system\>\""}]}], 
+      "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Rawdata on mpc1636:\>\"", ",", 
+       RowBox[{"mpcDir", "=", "\"\</xdata/nedm_data/RawData\>\""}]}], "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"seperator", "=", "\"\<\\\\\>\""}], ";"}]}], 
+   "\[IndentingNewLine]", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"OS", "\[Equal]", "\"\<axion\>\""}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Working Directory: \>\"", ",", 
+       RowBox[{
+       "descDir", "=", 
+        "\"\</home/prajwal/Dropbox/nEDM/daq-tools-bkg-auto/nstar_online\>\""}]\
+}], "]"}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(AscDir) Rawdata Directory: \>\"", ",", 
+       RowBox[{
+       "AscDir", "=", "\"\</home/prajwal/Dropbox/nEDM/rawdata\>\""}]}], "]"}],
+      ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(ScrDir) Scratch Directory: \>\"", ",", 
+       RowBox[{"curDir", "=", 
+        RowBox[{
+        "SetDirectory", "[", "\"\</home/prajwal/Dropbox/Scratch\>\"", 
+         "]"}]}]}], "]"}], ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(PicDir) Picture Directory: \>\"", ",", 
+       RowBox[{
+       "PicDir", "=", 
+        "\"\</home/prajwal/Dropbox/nEDM/Pictures/nstar/runs\>\""}]}], "]"}], 
+     ";", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<(SysDir) System Directory: \>\"", ",", 
+       RowBox[{"SysDir", "=", "\"\</home/prajwal/Dropbox/nEDM/system\>\""}]}],
+       "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Rawdata on mpc1636:\>\"", ",", 
+       RowBox[{"mpcDir", "=", "\"\</xdata/nedm_data/RawData\>\""}]}], "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"seperator", "=", "\"\</\>\""}], ";"}]}], "\[IndentingNewLine]", 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"metaStructure", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "Word", ",", "Real", ",", "Real", ",", "Word", ",", "Real", ",", "Real", 
+     ",", "Word", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", 
+     "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", 
+     ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", 
+     "Real", ",", "Word", ",", "Real", ",", "Real", ",", "Real", ",", "Real", 
+     ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", 
+     "Real", ",", "Real", ",", "Real", ",", "Word", ",", "Real", ",", "Real", 
+     ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", 
+     "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", 
+     ",", "Real", ",", "Real", ",", "Real", ",", "Word", ",", "Real", ",", 
+     "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", ",", "Real", 
+     ",", "Real", ",", "Real", ",", "Real", ",", "Real"}], "}"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.721642240480857*^9, 
+  3.721642269569461*^9}},ExpressionUUID->"8005c509-0219-4e16-86a7-\
+73980c948747"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Working Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\daq-tools-bkg-auto\\\\nstar_\
+online\"\>"}],
+  SequenceForm[
+  "Working Directory: ", 
+   "C:\\Users\\Prajwal\\Dropbox\\nEDM\\daq-tools-bkg-auto\\nstar_online"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.721642271153672*^9},ExpressionUUID->"87c84143-8ad4-4cf0-8d81-\
+e56ef925155d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(AscDir) Rawdata Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\rawdata\"\>"}],
+  SequenceForm[
+  "(AscDir) Rawdata Directory: ", 
+   "C:\\Users\\Prajwal\\Dropbox\\nEDM\\rawdata"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.7216422711546726`*^9},ExpressionUUID->"c59065c6-a828-4ab7-b63d-\
+1ae5dae2252c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(ScrDir) Scratch Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\Scratch\"\>"}],
+  SequenceForm[
+  "(ScrDir) Scratch Directory: ", "C:\\Users\\Prajwal\\Dropbox\\Scratch"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.7216422711561737`*^9},ExpressionUUID->"e2dc7e21-1a00-45ae-8bbf-\
+a7e3b95677ec"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(PicDir) Picture Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\Pictures\\\\nstar\\\\runs2\"\
+\>"}],
+  SequenceForm[
+  "(PicDir) Picture Directory: ", 
+   "C:\\Users\\Prajwal\\Dropbox\\nEDM\\Pictures\\nstar\\runs2"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.721642271157174*^9},ExpressionUUID->"ec04d94b-7c62-4460-969a-\
+2eb0376a8313"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"(SysDir) System Directory: \"\>", 
+   "\[InvisibleSpace]", \
+"\<\"C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\system\"\>"}],
+  SequenceForm[
+  "(SysDir) System Directory: ", "C:\\Users\\Prajwal\\Dropbox\\nEDM\\system"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.721642271157675*^9},ExpressionUUID->"d690193f-785e-4873-8aba-\
+40b6d871048a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Rawdata on mpc1636:\"\>", 
+   "\[InvisibleSpace]", "\<\"/xdata/nedm_data/RawData\"\>"}],
+  SequenceForm["Rawdata on mpc1636:", "/xdata/nedm_data/RawData"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.7216422711586757`*^9},ExpressionUUID->"8fe6f944-cb9d-442f-a50f-\
+515aef76f78e"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{2560, 1357},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5135, 124, 485, "Input",ExpressionUUID->"8005c509-0219-4e16-86a7-73980c948747"],
+Cell[CellGroupData[{
+Cell[5740, 150, 445, 12, 22, "Print",ExpressionUUID->"87c84143-8ad4-4cf0-8d81-e56ef925155d"],
+Cell[6188, 164, 411, 11, 22, "Print",ExpressionUUID->"c59065c6-a828-4ab7-b63d-1ae5dae2252c"],
+Cell[6602, 177, 393, 10, 22, "Print",ExpressionUUID->"e2dc7e21-1a00-45ae-8bbf-a7e3b95677ec"],
+Cell[6998, 189, 445, 12, 22, "Print",ExpressionUUID->"ec04d94b-7c62-4460-969a-2eb0376a8313"],
+Cell[7446, 203, 401, 10, 22, "Print",ExpressionUUID->"d690193f-785e-4873-8aba-40b6d871048a"],
+Cell[7850, 215, 338, 8, 22, "Print",ExpressionUUID->"8fe6f944-cb9d-442f-a50f-515aef76f78e"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
