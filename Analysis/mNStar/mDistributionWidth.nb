@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    756328,      15956]
-NotebookOptionsPosition[    753428,      15868]
-NotebookOutlinePosition[    753803,      15884]
-CellTagsIndexPosition[    753760,      15881]
+NotebookDataLength[    764670,      16145]
+NotebookOptionsPosition[    758952,      16057]
+NotebookOutlinePosition[    759333,      16073]
+CellTagsIndexPosition[    759290,      16070]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -55,8 +55,8 @@ Cell[BoxData[{
        RowBox[{"curDir", "=", 
         RowBox[{
         "SetDirectory", "[", 
-         "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\daq-tools-bkg-auto\
-\\\\nstar_online\>\"", "]"}]}]}], "]"}], ";", 
+         "\"\<C:\\\\Users\\\\Prajwal\\\\Dropbox\\\\nEDM\\\\analysis-mirror_\
+neutrons\\\\nstar_online\>\"", "]"}]}]}], "]"}], ";", 
      RowBox[{"Print", "[", 
       RowBox[{"\"\<(AscDir) Rawdata Directory: \>\"", ",", 
        RowBox[{
@@ -122,7 +122,9 @@ Cell[BoxData[{
    3.7165829953882647`*^9, 3.7165836210650625`*^9, 3.7165838277599583`*^9, {
    3.716584906717527*^9, 3.716584908146817*^9}, 3.7165850467365885`*^9, 
    3.7165868440434914`*^9, 3.7165871075813684`*^9, 3.716587986436484*^9, {
-   3.7165883335301137`*^9, 3.7165883521963387`*^9}, 3.7165892232441387`*^9}],
+   3.7165883335301137`*^9, 3.7165883521963387`*^9}, 3.7165892232441387`*^9, 
+   3.7354762497236595`*^9},ExpressionUUID->"2a9f8e22-1bdb-47ed-83bc-\
+b49a03fd2eeb"],
 
 Cell[CellGroupData[{
 
@@ -151,7 +153,9 @@ online\"\>"}],
    3.716586863010789*^9}, 3.7165871084167786`*^9, 3.716587438566525*^9, 
    3.7165879996244135`*^9, {3.716588334348568*^9, 3.716588354575699*^9}, 
    3.716589224201319*^9, 3.7165925987523613`*^9, {3.7166585994339123`*^9, 
-   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 3.716688287955546*^9}],
+   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 
+   3.716688287955546*^9},ExpressionUUID->"27860705-e486-42cd-80f8-\
+95193077595e"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -177,7 +181,9 @@ Cell[BoxData[
    3.716586863010789*^9}, 3.7165871084167786`*^9, 3.716587438566525*^9, 
    3.7165879996244135`*^9, {3.716588334348568*^9, 3.716588354575699*^9}, 
    3.716589224201319*^9, 3.7165925987523613`*^9, {3.7166585994339123`*^9, 
-   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 3.716688287957535*^9}],
+   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 
+   3.716688287957535*^9},ExpressionUUID->"0abe5da7-d206-4aad-8ca8-\
+3d7ca0d94624"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -202,7 +208,9 @@ Cell[BoxData[
    3.716586863010789*^9}, 3.7165871084167786`*^9, 3.716587438566525*^9, 
    3.7165879996244135`*^9, {3.716588334348568*^9, 3.716588354575699*^9}, 
    3.716589224201319*^9, 3.7165925987523613`*^9, {3.7166585994339123`*^9, 
-   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 3.716688287959037*^9}],
+   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 
+   3.716688287959037*^9},ExpressionUUID->"45250614-aae2-4e6b-afc2-\
+7078d6a2f778"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -228,7 +236,9 @@ Cell[BoxData[
    3.716586863010789*^9}, 3.7165871084167786`*^9, 3.716587438566525*^9, 
    3.7165879996244135`*^9, {3.716588334348568*^9, 3.716588354575699*^9}, 
    3.716589224201319*^9, 3.7165925987523613`*^9, {3.7166585994339123`*^9, 
-   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 3.716688287960538*^9}],
+   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 
+   3.716688287960538*^9},ExpressionUUID->"45755385-411a-45ad-8bdf-\
+e5834502d55d"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -253,7 +263,9 @@ Cell[BoxData[
    3.716586863010789*^9}, 3.7165871084167786`*^9, 3.716587438566525*^9, 
    3.7165879996244135`*^9, {3.716588334348568*^9, 3.716588354575699*^9}, 
    3.716589224201319*^9, 3.7165925987523613`*^9, {3.7166585994339123`*^9, 
-   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 3.716688287962039*^9}],
+   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 
+   3.716688287962039*^9},ExpressionUUID->"affac47b-06df-478a-9c97-\
+e2fccd2c7b98"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -276,7 +288,9 @@ Cell[BoxData[
    3.716586863010789*^9}, 3.7165871084167786`*^9, 3.716587438566525*^9, 
    3.7165879996244135`*^9, {3.716588334348568*^9, 3.716588354575699*^9}, 
    3.716589224201319*^9, 3.7165925987523613`*^9, {3.7166585994339123`*^9, 
-   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 3.7166882879640408`*^9}],
+   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 
+   3.7166882879640408`*^9},ExpressionUUID->"f609a964-fc19-4008-9515-\
+b02da48b803e"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -298,7 +312,9 @@ Cell[BoxData[
    3.716586863010789*^9}, 3.7165871084167786`*^9, 3.716587438566525*^9, 
    3.7165879996244135`*^9, {3.716588334348568*^9, 3.716588354575699*^9}, 
    3.716589224201319*^9, 3.7165925987523613`*^9, {3.7166585994339123`*^9, 
-   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 3.716688287965542*^9}]
+   3.7166586154373283`*^9}, 3.7166587880674634`*^9, 
+   3.716688287965542*^9},ExpressionUUID->"d3b2ae58-6073-470b-9df7-\
+ae593f8f32e8"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1275,15 +1291,16 @@ Cell[BoxData[{
    3.7165932834917784`*^9, 3.7165933160236917`*^9}, {3.7165933559198833`*^9, 
    3.7165934308419657`*^9}, {3.7165934648249073`*^9, 3.716593513838561*^9}, {
    3.716593550416403*^9, 3.716593571029696*^9}, {3.716659806396678*^9, 
-   3.7166598231675262`*^9}, {3.7166598552976966`*^9, 3.7166598596498804`*^9}}],
+   3.7166598231675262`*^9}, {3.7166598552976966`*^9, 
+   3.7166598596498804`*^9}},ExpressionUUID->"5a15ad2c-f73c-4cfc-b924-\
+2b1bc7e4a6c9"],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
-   RowBox[{"NonlinearModelFit", "::", "cvmit"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Failed to converge to the requested accuracy or precision \
-within \[NoBreak]\\!\\(100\\)\[NoBreak] iterations. \\!\\(\\*ButtonBox[\\\"\
+   RowBox[{"NonlinearModelFit", "::", "cvmit"}], "MessageName"], ":", 
+  " ", "\<\"Failed to converge to the requested accuracy or precision within \
+\[NoBreak]\\!\\(100\\)\[NoBreak] iterations. \\!\\(\\*ButtonBox[\\\"\
 \[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
 ButtonData:>\\\"paclet:ref/NonlinearModelFit\\\", ButtonNote -> \
 \\\"NonlinearModelFit::cvmit\\\"]\\)\"\>"}]], "Message", "MSG",
@@ -1295,15 +1312,16 @@ ButtonData:>\\\"paclet:ref/NonlinearModelFit\\\", ButtonNote -> \
    3.7165933808443904`*^9, 3.7165934313741837`*^9}, {3.716593487841916*^9, 
    3.7165935144970264`*^9}, 3.7165935721836205`*^9, {3.7166585997361517`*^9, 
    3.7166586155968904`*^9}, 3.716658788206061*^9, 3.716659823772369*^9, 
-   3.71665986045537*^9, 3.7166882883955245`*^9}],
+   3.71665986045537*^9, 
+   3.7166882883955245`*^9},ExpressionUUID->"35ba4efe-8735-454c-9421-\
+14300aa31c89"],
 
 Cell[BoxData[
  RowBox[{
   StyleBox[
-   RowBox[{"NonlinearModelFit", "::", "cvmit"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Failed to converge to the requested accuracy or precision \
-within \[NoBreak]\\!\\(100\\)\[NoBreak] iterations. \\!\\(\\*ButtonBox[\\\"\
+   RowBox[{"NonlinearModelFit", "::", "cvmit"}], "MessageName"], ":", 
+  " ", "\<\"Failed to converge to the requested accuracy or precision within \
+\[NoBreak]\\!\\(100\\)\[NoBreak] iterations. \\!\\(\\*ButtonBox[\\\"\
 \[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
 ButtonData:>\\\"paclet:ref/NonlinearModelFit\\\", ButtonNote -> \
 \\\"NonlinearModelFit::cvmit\\\"]\\)\"\>"}]], "Message", "MSG",
@@ -1315,7 +1333,9 @@ ButtonData:>\\\"paclet:ref/NonlinearModelFit\\\", ButtonNote -> \
    3.7165933808443904`*^9, 3.7165934313741837`*^9}, {3.716593487841916*^9, 
    3.7165935144970264`*^9}, 3.7165935721836205`*^9, {3.7166585997361517`*^9, 
    3.7166586155968904`*^9}, 3.716658788206061*^9, 3.716659823772369*^9, 
-   3.71665986045537*^9, 3.7166882884660745`*^9}],
+   3.71665986045537*^9, 
+   3.7166882884660745`*^9},ExpressionUUID->"49d566c0-5617-4f1d-b11d-\
+f59d779134ee"],
 
 Cell[BoxData[
  OverlayBox[{
@@ -3905,7 +3925,9 @@ m/hkzEg/17GE+K2y8/xup/7IaD74bZm5j+ZRxpPuid7BOuKVoVOurxZ7HONV
    3.716593381303212*^9, 3.716593431841504*^9}, {3.716593488351777*^9, 
    3.7165935150018816`*^9}, 3.71659357265345*^9, {3.7166586001809793`*^9, 
    3.7166586160389*^9}, 3.7166587885568123`*^9, 3.7166598242877345`*^9, 
-   3.716659860889803*^9, 3.71668828904989*^9}],
+   3.716659860889803*^9, 
+   3.71668828904989*^9},ExpressionUUID->"c62cfb87-d9f2-4965-9d2e-\
+9c81c2cb63af"],
 
 Cell[BoxData[
  GraphicsBox[{GraphicsComplexBox[CompressedData["
@@ -4051,8 +4073,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4103,8 +4126,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4155,8 +4179,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4207,8 +4232,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4260,8 +4286,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4312,8 +4339,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4364,8 +4392,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4417,8 +4446,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4470,8 +4500,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4522,8 +4553,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4575,8 +4607,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4628,8 +4661,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4681,8 +4715,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4733,8 +4768,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4785,8 +4821,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4837,8 +4874,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4886,11 +4924,11 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               Frame->True,
               FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
               FrameTicks->None,
-              
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4941,8 +4979,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -4993,8 +5032,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5046,8 +5086,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5098,8 +5139,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5150,8 +5192,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5202,8 +5245,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5254,8 +5298,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5307,8 +5352,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5360,8 +5406,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5413,8 +5460,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5465,8 +5513,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5517,8 +5566,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5569,8 +5619,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5622,8 +5673,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5675,8 +5727,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5728,8 +5781,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5781,8 +5835,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5834,8 +5889,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5886,8 +5942,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5939,8 +5996,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -5991,8 +6049,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6043,8 +6102,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6095,8 +6155,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6148,8 +6209,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6200,8 +6262,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6252,8 +6315,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6305,8 +6369,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6358,8 +6423,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6410,8 +6476,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6463,8 +6530,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6515,8 +6583,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6567,8 +6636,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6620,8 +6690,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6673,8 +6744,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6725,8 +6797,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6777,8 +6850,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6830,8 +6904,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6882,8 +6957,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6935,8 +7011,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -6988,8 +7065,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7040,8 +7118,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7092,8 +7171,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7144,8 +7224,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7197,8 +7278,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7249,8 +7331,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7302,8 +7385,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7354,8 +7438,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7406,8 +7491,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7459,8 +7545,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7512,8 +7599,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7565,8 +7653,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7618,8 +7707,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7671,8 +7761,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7724,8 +7815,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7777,8 +7869,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7829,8 +7922,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7881,8 +7975,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7933,8 +8028,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -7985,8 +8081,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8037,8 +8134,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8090,8 +8188,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8142,8 +8241,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8194,8 +8294,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8246,8 +8347,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8299,8 +8401,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8351,8 +8454,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8404,8 +8508,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8457,8 +8562,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8509,8 +8615,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8561,8 +8668,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8614,8 +8722,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8663,11 +8772,11 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               Frame->True,
               FrameStyle->RGBColor[0.6666666666666666, 0., 0.],
               FrameTicks->None,
-              
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8719,8 +8828,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8771,8 +8881,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8824,8 +8935,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8877,8 +8989,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8930,8 +9043,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -8982,8 +9096,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9034,8 +9149,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9087,8 +9203,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9140,8 +9257,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9193,8 +9311,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9245,8 +9364,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9298,8 +9418,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9351,8 +9472,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9404,8 +9526,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9456,8 +9579,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9509,8 +9633,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9562,8 +9687,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9614,8 +9740,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
               
               ImageSize->
                Dynamic[{
-                Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}],
+                Automatic, 
+                 1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}],
               PlotRangePadding->None],
              "RGBColor[1, 0, 0]"],
             Appearance->None,
@@ -9792,7 +9919,9 @@ J1KNkPwC3eRh4lejtIQ7fWFMOl/dV6v7anVfre6r1X21uq9WeP+/++pvQQAs
    3.716593381303212*^9, 3.716593431841504*^9}, {3.716593488351777*^9, 
    3.7165935150018816`*^9}, 3.71659357265345*^9, {3.7166586001809793`*^9, 
    3.7166586160389*^9}, 3.7166587885568123`*^9, 3.7166598242877345`*^9, 
-   3.716659860889803*^9, 3.7166882894884963`*^9}],
+   3.716659860889803*^9, 
+   3.7166882894884963`*^9},ExpressionUUID->"d54c9787-8511-4030-b68c-\
+94d83651594f"],
 
 Cell[BoxData[
  GraphicsBox[{GraphicsComplexBox[CompressedData["
@@ -9902,8 +10031,9 @@ VFJBnFXK+QNcgk/j
              
              ImageSize->
               Dynamic[{
-               Automatic, 1.35 CurrentValue["FontCapHeight"]/
-                AbsoluteCurrentValue[Magnification]}],
+               Automatic, 
+                1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}],
              PlotRangePadding->None],
             "RGBColor[1, 0, 0]"],
            Appearance->None,
@@ -10088,7 +10218,9 @@ utg6UUD/P3EiZDmhG7/O+Z3+B4l4tyJNWHN2tP5/YUdGBg==
    3.716593381303212*^9, 3.716593431841504*^9}, {3.716593488351777*^9, 
    3.7165935150018816`*^9}, 3.71659357265345*^9, {3.7166586001809793`*^9, 
    3.7166586160389*^9}, 3.7166587885568123`*^9, 3.7166598242877345`*^9, 
-   3.716659860889803*^9, 3.716688289709654*^9}],
+   3.716659860889803*^9, 
+   3.716688289709654*^9},ExpressionUUID->"01a7c224-5ea8-4cff-b8d2-\
+fe305d734091"],
 
 Cell[BoxData[
  StyleBox[
@@ -10120,7 +10252,9 @@ Cell[BoxData[
    3.716593381303212*^9, 3.716593431841504*^9}, {3.716593488351777*^9, 
    3.7165935150018816`*^9}, 3.71659357265345*^9, {3.7166586001809793`*^9, 
    3.7166586160389*^9}, 3.7166587885568123`*^9, 3.7166598242877345`*^9, 
-   3.716659860889803*^9, 3.7166882897486796`*^9}],
+   3.716659860889803*^9, 
+   3.7166882897486796`*^9},ExpressionUUID->"9cead1e3-604c-44c4-9a64-\
+0e208a626012"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -10134,7 +10268,9 @@ Cell[BoxData[
    3.716593381303212*^9, 3.716593431841504*^9}, {3.716593488351777*^9, 
    3.7165935150018816`*^9}, 3.71659357265345*^9, {3.7166586001809793`*^9, 
    3.7166586160389*^9}, 3.7166587885568123`*^9, 3.7166598242877345`*^9, 
-   3.716659860889803*^9, 3.716688289754197*^9}],
+   3.716659860889803*^9, 
+   3.716688289754197*^9},ExpressionUUID->"cac0bf29-9c6e-4a21-ab2f-\
+4991778f1499"],
 
 Cell[BoxData[
  StyleBox[
@@ -10164,7 +10300,9 @@ Cell[BoxData[
    3.716593381303212*^9, 3.716593431841504*^9}, {3.716593488351777*^9, 
    3.7165935150018816`*^9}, 3.71659357265345*^9, {3.7166586001809793`*^9, 
    3.7166586160389*^9}, 3.7166587885568123`*^9, 3.7166598242877345`*^9, 
-   3.716659860889803*^9, 3.716688289761202*^9}]
+   3.716659860889803*^9, 
+   3.716688289761202*^9},ExpressionUUID->"a359243a-0876-4f50-a5dd-\
+3218f062db10"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -10395,7 +10533,9 @@ Cell[BoxData[{
    3.7165952166096783`*^9}, {3.716595262020832*^9, 3.7165953326600647`*^9}, {
    3.7166346704230704`*^9, 3.7166346811233854`*^9}, {3.7166597533393993`*^9, 
    3.7166597667474146`*^9}, 3.716661449158292*^9, {3.7166882183464527`*^9, 
-   3.7166882220658236`*^9}, 3.7166882807642403`*^9, 3.7166884703435645`*^9}],
+   3.7166882220658236`*^9}, 3.7166882807642403`*^9, 
+   3.7166884703435645`*^9},ExpressionUUID->"7416b937-2a11-47f8-beee-\
+78c8f8d26e6d"],
 
 Cell[BoxData[
  RowBox[{"-", "0.0014893333296770864`"}]], "Output",
@@ -10435,7 +10575,8 @@ Cell[BoxData[
    3.716595332943857*^9}, {3.716658600823677*^9, 3.7166586166545353`*^9}, 
    3.7166587891547194`*^9, 3.7166597672507544`*^9, 3.716659829907172*^9, 
    3.7166598678775635`*^9, 3.7166614499038076`*^9, 3.716688289989851*^9, 
-   3.7166884719782944`*^9}],
+   3.7166884719782944`*^9},ExpressionUUID->"a6d1e5c9-5a8b-451f-a132-\
+c3e40c17c995"],
 
 Cell[BoxData["0.24132620173868477`"], "Output",
  CellChangeTimes->{
@@ -10474,7 +10615,8 @@ Cell[BoxData["0.24132620173868477`"], "Output",
    3.716595332943857*^9}, {3.716658600823677*^9, 3.7166586166545353`*^9}, 
    3.7166587891547194`*^9, 3.7166597672507544`*^9, 3.716659829907172*^9, 
    3.7166598678775635`*^9, 3.7166614499038076`*^9, 3.716688289989851*^9, 
-   3.716688471981797*^9}],
+   3.716688471981797*^9},ExpressionUUID->"3b672dd4-dd1b-4ecd-a5a3-\
+06e06b1a717d"],
 
 Cell[BoxData[
  GraphicsBox[{{
@@ -10495,7 +10637,7 @@ Cell[BoxData[
            RectangleBox[{-1., 0}, {-0.8, 1}, "RoundingRadius" -> 0]},
           
           ImageSizeCache->{{340.29099999999994`, 387.35779999999994`}, {
-           295.736990958207, 310.5117384975232}}],
+           293.736990958207, 308.5117384975232}}],
          StatusArea[#, 1]& ,
          TagBoxNote->"1"],
         StyleBox["1", {32, 
@@ -10516,7 +10658,7 @@ Cell[BoxData[
            RectangleBox[{-0.6, 0}, {-0.4, 7}, "RoundingRadius" -> 0]},
           
           ImageSizeCache->{{433.3245999999999, 480.3914}, {
-           210.38850572230993`, 310.5117384975232}}],
+           208.38850572230993`, 308.5117384975232}}],
          StatusArea[#, 7]& ,
          TagBoxNote->"7"],
         StyleBox["7", {32, 
@@ -10537,7 +10679,7 @@ Cell[BoxData[
            RectangleBox[{-0.4, 0}, {-0.2, 19}, "RoundingRadius" -> 0]},
           
           ImageSizeCache->{{479.84139999999996`, 526.9082}, {
-           39.69153525051581, 310.51173849752325`}}],
+           37.69153525051587, 308.51173849752325`}}],
          StatusArea[#, 19]& ,
          TagBoxNote->"19"],
         StyleBox["19", {32, 
@@ -10557,8 +10699,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{-0.2, 0}, {0., 31}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{526.3582, 573.425}, {-131.00543522127822`, 
-           310.5117384975233}}],
+          ImageSizeCache->{{526.3582, 573.425}, {-133.00543522127822`, 
+           308.5117384975232}}],
          StatusArea[#, 31]& ,
          TagBoxNote->"31"],
         StyleBox["31", {32, 
@@ -10578,8 +10720,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{0., 0}, {0.2, 34}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{572.875, 
-           619.9418000000001}, {-173.67967783922683`, 310.5117384975232}}],
+          ImageSizeCache->{{572.875, 619.9418000000001}, {-175.6796778392267, 
+           308.5117384975233}}],
          StatusArea[#, 34]& ,
          TagBoxNote->"34"],
         StyleBox["34", {32, 
@@ -10600,7 +10742,7 @@ Cell[BoxData[
            RectangleBox[{0.2, 0}, {0.4, 23}, "RoundingRadius" -> 0]},
           
           ImageSizeCache->{{619.3918, 
-           666.4585999999999}, {-17.207454906748865`, 310.51173849752325`}}],
+           666.4585999999999}, {-19.207454906748808`, 308.51173849752325`}}],
          StatusArea[#, 23]& ,
          TagBoxNote->"23"],
         StyleBox["23", {32, 
@@ -10620,8 +10762,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{0.4, 0}, {0.6, 2}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{665.9086, 712.9753999999999}, {281.5122434188908, 
-           310.5117384975232}}],
+          ImageSizeCache->{{665.9086, 712.9753999999999}, {279.5122434188908, 
+           308.5117384975232}}],
          StatusArea[#, 2]& ,
          TagBoxNote->"2"],
         StyleBox["2", {32, 
@@ -11454,7 +11596,8 @@ MZg7
    3.716595332943857*^9}, {3.716658600823677*^9, 3.7166586166545353`*^9}, 
    3.7166587891547194`*^9, 3.7166597672507544`*^9, 3.716659829907172*^9, 
    3.7166598678775635`*^9, 3.7166614499038076`*^9, 3.716688289989851*^9, 
-   3.7166884722390313`*^9}]
+   3.7166884722390313`*^9},ExpressionUUID->"ac93314d-a557-4c7c-b199-\
+8b453a1de0e9"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -11466,7 +11609,9 @@ Cell[BoxData[
     RowBox[{"1", ",", "2", ",", "3"}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{"4", ",", "5", ",", "6"}], "}"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.716595099414714*^9, 3.7165951142187567`*^9}}],
+ CellChangeTimes->{{3.716595099414714*^9, 
+  3.7165951142187567`*^9}},ExpressionUUID->"754c3f85-3bd4-4fa9-ad91-\
+b6605e134c21"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -11474,7 +11619,8 @@ Cell[BoxData[
   "}"}]], "Output",
  CellChangeTimes->{{3.7165951077883825`*^9, 3.7165951147101154`*^9}, {
    3.716658602297701*^9, 3.716658616894704*^9}, 3.7166587893966446`*^9, 
-   3.7166882914670115`*^9}]
+   3.7166882914670115`*^9},ExpressionUUID->"fcbdb504-3165-4ce0-a213-\
+32365e29dbdc"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -11708,7 +11854,8 @@ Residual\>\"", ",", "\"\<#\>\""}], "}"}]}], ",",
    3.7166597477811728`*^9}, {3.716659881942439*^9, 3.716659924235236*^9}, {
    3.7166599575677533`*^9, 3.7166600035753307`*^9}, 3.716661446157518*^9, {
    3.7166882373225813`*^9, 3.716688239950808*^9}, 3.716688275118863*^9, 
-   3.7166885377413583`*^9}],
+   3.7166885377413583`*^9},ExpressionUUID->"11f0dfa9-e211-44c2-bd05-\
+0672b5dc0ba0"],
 
 Cell[BoxData["0.0034902072428049558`"], "Output",
  CellChangeTimes->{{3.715527163338545*^9, 3.7155272316997066`*^9}, {
@@ -11743,7 +11890,9 @@ Cell[BoxData["0.0034902072428049558`"], "Output",
    3.716658789405151*^9, {3.7166597316007233`*^9, 3.716659748281669*^9}, 
    3.7166597828076224`*^9, {3.71665987263457*^9, 3.7166599251780653`*^9}, {
    3.716659958375519*^9, 3.7166600039348707`*^9}, 3.716661455522993*^9, 
-   3.7166882914795256`*^9, 3.7166885381928864`*^9}],
+   3.7166882914795256`*^9, 
+   3.7166885381928864`*^9},ExpressionUUID->"a4df9a53-8102-4bd8-8996-\
+ba195212647f"],
 
 Cell[BoxData["1.479567227004765`"], "Output",
  CellChangeTimes->{{3.715527163338545*^9, 3.7155272316997066`*^9}, {
@@ -11778,7 +11927,9 @@ Cell[BoxData["1.479567227004765`"], "Output",
    3.716658789405151*^9, {3.7166597316007233`*^9, 3.716659748281669*^9}, 
    3.7166597828076224`*^9, {3.71665987263457*^9, 3.7166599251780653`*^9}, {
    3.716659958375519*^9, 3.7166600039348707`*^9}, 3.716661455522993*^9, 
-   3.7166882914795256`*^9, 3.7166885381958885`*^9}],
+   3.7166882914795256`*^9, 
+   3.7166885381958885`*^9},ExpressionUUID->"289218ae-2140-4ada-b913-\
+9b1891e39941"],
 
 Cell[BoxData[
  GraphicsBox[{{
@@ -11798,8 +11949,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{-4., 0}, {-3., 2}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{386.80779999999993`, 433.8746}, {
-           283.5122434188906, 312.51173849752297`}}],
+          ImageSizeCache->{{386.8077999999999, 433.8745999999999}, {
+           281.5122434188908, 310.5117384975232}}],
          StatusArea[#, 2]& ,
          TagBoxNote->"2"],
         StyleBox["2", {32, 
@@ -11819,8 +11970,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{-3., 0}, {-2., 6}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{433.3245999999999, 480.3914}, {
-           226.61325326162589`, 312.51173849752297`}}],
+          ImageSizeCache->{{433.3245999999998, 480.3913999999999}, {
+           224.6132532616261, 310.5117384975232}}],
          StatusArea[#, 6]& ,
          TagBoxNote->"6"],
         StyleBox["6", {32, 
@@ -11840,8 +11991,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{-2., 0}, {-1., 19}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{479.84139999999996`, 526.9082}, {
-           41.691535250515585`, 312.511738497523}}],
+          ImageSizeCache->{{479.8413999999999, 526.9081999999999}, {
+           39.691535250515926`, 310.51173849752325`}}],
          StatusArea[#, 19]& ,
          TagBoxNote->"19"],
         StyleBox["19", {32, 
@@ -11861,8 +12012,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{-1., 0}, {0., 34}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{526.3582, 573.425}, {-171.67967783922705`, 
-           312.51173849752297`}}],
+          ImageSizeCache->{{526.3581999999999, 573.425}, {-173.6796778392267, 
+           310.5117384975232}}],
          StatusArea[#, 34]& ,
          TagBoxNote->"34"],
         StyleBox["34", {32, 
@@ -11882,8 +12033,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{0., 0}, {1., 28}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{572.875, 619.9418000000001}, {-86.33119260332995, 
-           312.51173849752297`}}],
+          ImageSizeCache->{{572.8749999999999, 
+           619.9417999999998}, {-88.33119260332961, 310.5117384975233}}],
          StatusArea[#, 28]& ,
          TagBoxNote->"28"],
         StyleBox["28", {32, 
@@ -11903,8 +12054,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{1., 0}, {2., 25}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{619.3918, 666.4585999999999}, {-43.65694998538146,
-            312.511738497523}}],
+          ImageSizeCache->{{619.3917999999999, 
+           666.4585999999998}, {-45.65694998538112, 310.51173849752325`}}],
          StatusArea[#, 25]& ,
          TagBoxNote->"25"],
         StyleBox["25", {32, 
@@ -11924,8 +12075,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{2., 0}, {3., 7}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{665.9086, 712.9754}, {212.3885057223097, 
-           312.51173849752297`}}],
+          ImageSizeCache->{{665.9085999999999, 712.9754}, {
+           210.38850572230993`, 310.5117384975232}}],
          StatusArea[#, 7]& ,
          TagBoxNote->"7"],
         StyleBox["7", {32, 
@@ -11945,8 +12096,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{3., 0}, {4., 1}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{712.4254, 759.4922}, {297.7369909582068, 
-           312.51173849752297`}}],
+          ImageSizeCache->{{712.4254, 759.4921999999998}, {295.736990958207, 
+           310.5117384975232}}],
          StatusArea[#, 1]& ,
          TagBoxNote->"1"],
         StyleBox["1", {32, 
@@ -11966,8 +12117,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{4., 0}, {5., 1}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{758.9422000000001, 806.009}, {297.7369909582068, 
-           312.51173849752297`}}],
+          ImageSizeCache->{{758.9421999999998, 806.0089999999999}, {
+           295.736990958207, 310.5117384975232}}],
          StatusArea[#, 1]& ,
          TagBoxNote->"1"],
         StyleBox["1", {32, 
@@ -12664,7 +12815,9 @@ Residual\"", TraditionalForm], None}},
    3.716658789405151*^9, {3.7166597316007233`*^9, 3.716659748281669*^9}, 
    3.7166597828076224`*^9, {3.71665987263457*^9, 3.7166599251780653`*^9}, {
    3.716659958375519*^9, 3.7166600039348707`*^9}, 3.716661455522993*^9, 
-   3.7166882914795256`*^9, 3.7166885384335556`*^9}]
+   3.7166882914795256`*^9, 
+   3.7166885384335556`*^9},ExpressionUUID->"59debe75-4bd6-45a6-921d-\
+cf5611aef614"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -12878,7 +13031,9 @@ Cell[BoxData[{
    3.7165953642005796`*^9, 3.716595407539458*^9}, {3.7166347061998224`*^9, 
    3.7166347114527006`*^9}, {3.716660077516594*^9, 3.7166601642046556`*^9}, 
    3.716661489598814*^9, {3.7166882547687883`*^9, 3.716688261946884*^9}, {
-   3.716688322093381*^9, 3.7166883619452167`*^9}}],
+   3.716688322093381*^9, 
+   3.7166883619452167`*^9}},ExpressionUUID->"cbcecd98-5f46-4cc5-97af-\
+1270b5f43615"],
 
 Cell[BoxData[
  RowBox[{"-", "1.31644435747025`*^-16"}]], "Output",
@@ -12892,7 +13047,8 @@ Cell[BoxData[
    3.716595408109665*^9}, {3.7166586026267624`*^9, 3.7166586171936255`*^9}, 
    3.71665878964232*^9, {3.7166600783803167`*^9, 3.716660165273245*^9}, 
    3.7166614901922226`*^9, 3.716688291735407*^9, {3.7166883245615673`*^9, 
-   3.716688362748536*^9}}],
+   3.716688362748536*^9}},ExpressionUUID->"6e65158b-c69a-41d1-b8e3-\
+ba17fd06e645"],
 
 Cell[BoxData["0.00042330116675814424`"], "Output",
  CellChangeTimes->{
@@ -12905,7 +13061,8 @@ Cell[BoxData["0.00042330116675814424`"], "Output",
    3.716595408109665*^9}, {3.7166586026267624`*^9, 3.7166586171936255`*^9}, 
    3.71665878964232*^9, {3.7166600783803167`*^9, 3.716660165273245*^9}, 
    3.7166614901922226`*^9, 3.716688291735407*^9, {3.7166883245615673`*^9, 
-   3.716688362750538*^9}}],
+   3.716688362750538*^9}},ExpressionUUID->"2e00393a-f8f8-4245-ae57-\
+90c5bc46188d"],
 
 Cell[BoxData[
  GraphicsBox[{{
@@ -12926,7 +13083,7 @@ Cell[BoxData[
            RectangleBox[{-0.0015, 0}, {-0.001, 6}, "RoundingRadius" -> 0]},
           
           ImageSizeCache->{{519.1006000000001, 575.5754000000001}, {
-           308.48622575082067`, 411.6464002925023}}],
+           309.4862257508207, 412.64640029250234`}}],
          StatusArea[#, 6]& ,
          TagBoxNote->"6"],
         StyleBox["6", {38, 
@@ -12947,7 +13104,7 @@ Cell[BoxData[
            RectangleBox[{-0.001, 0}, {-0.0005, 22}, "RoundingRadius" -> 0]},
           
           ImageSizeCache->{{575.0254000000001, 631.5002000000001}, {
-           34.85909363966988, 411.64640029250234`}}],
+           35.85909363966982, 412.6464002925024}}],
          StatusArea[#, 22]& ,
          TagBoxNote->"22"],
         StyleBox["22", {38, 
@@ -12968,7 +13125,7 @@ Cell[BoxData[
            RectangleBox[{-0.0005, 0}, {0., 30}, "RoundingRadius" -> 0]},
           
           ImageSizeCache->{{630.9502000000001, 
-           687.4250000000002}, {-101.95447241590546`, 411.64640029250245`}}],
+           687.4250000000002}, {-100.95447241590557`, 412.64640029250234`}}],
          StatusArea[#, 30]& ,
          TagBoxNote->"30"],
         StyleBox["30", {38, 
@@ -12989,7 +13146,7 @@ Cell[BoxData[
            RectangleBox[{0., 0}, {0.0005, 33}, "RoundingRadius" -> 0]},
           
           ImageSizeCache->{{686.8750000000001, 
-           743.3498000000002}, {-153.25955968674623`, 411.64640029250234`}}],
+           743.3498000000002}, {-152.25955968674634`, 412.64640029250245`}}],
          StatusArea[#, 33]& ,
          TagBoxNote->"33"],
         StyleBox["33", {38, 
@@ -13010,7 +13167,7 @@ Cell[BoxData[
            RectangleBox[{0.0005, 0}, {0.001, 21}, "RoundingRadius" -> 0]},
           
           ImageSizeCache->{{742.7998000000001, 799.2746000000001}, {
-           51.9607893966168, 411.64640029250234`}}],
+           52.96078939661675, 412.6464002925024}}],
          StatusArea[#, 21]& ,
          TagBoxNote->"21"],
         StyleBox["21", {38, 
@@ -13031,7 +13188,7 @@ Cell[BoxData[
            RectangleBox[{0.001, 0}, {0.0015, 5}, "RoundingRadius" -> 0]},
           
           ImageSizeCache->{{798.7246000000001, 855.1994000000001}, {
-           325.58792150776765`, 411.6464002925023}}],
+           326.5879215077677, 412.64640029250234`}}],
          StatusArea[#, 5]& ,
          TagBoxNote->"5"],
         StyleBox["5", {38, 
@@ -13812,7 +13969,8 @@ Residual\"", TraditionalForm], None}},
    3.716595408109665*^9}, {3.7166586026267624`*^9, 3.7166586171936255`*^9}, 
    3.71665878964232*^9, {3.7166600783803167`*^9, 3.716660165273245*^9}, 
    3.7166614901922226`*^9, 3.716688291735407*^9, {3.7166883245615673`*^9, 
-   3.716688362968692*^9}}]
+   3.716688362968692*^9}},ExpressionUUID->"203c6d76-c735-44ba-b507-\
+d68255e0720f"]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -14016,7 +14174,7 @@ Cell[BoxData[{
          RowBox[{"38", ",", "Black", ",", "Bold"}], "}"}]}], ",", 
        RowBox[{"ImageSize", "\[Rule]", 
         RowBox[{"{", "1200", "}"}]}]}], "]"}]}], "\[IndentingNewLine]", "}"}],
-    "]"}]}]}], "Input"],
+    "]"}]}]}], "Input",ExpressionUUID->"a9bd0bd0-1325-46df-9897-141d93dd3bb0"],
 
 Cell[CellGroupData[{
 
@@ -14042,7 +14200,8 @@ Cell[BoxData[{
    RowBox[{"[", "3", "]"}], "]"}], "[", 
   RowBox[{"[", "4", "]"}], "]"}], "\[IndentingNewLine]", 
  RowBox[{"ListPlot", "[", 
-  RowBox[{"nlmmon", "[", "\"\<FitResiduals\>\"", "]"}], "]"}]}], "Input"],
+  RowBox[{"nlmmon", "[", "\"\<FitResiduals\>\"", "]"}], "]"}]}], "Input",Expre\
+ssionUUID->"762465d6-3260-489a-8c15-89d0c5c9cfce"],
 
 Cell[BoxData[
  StyleBox[
@@ -14074,7 +14233,8 @@ Cell[BoxData[
  CellChangeTimes->{
   3.716587322899837*^9, 3.716587441955927*^9, 3.716588004133651*^9, {
    3.7166586031526937`*^9, 3.716658617518394*^9}, 3.716658790301894*^9, 
-   3.716688292005096*^9}],
+   3.716688292005096*^9},ExpressionUUID->"f3ff200a-c091-4d18-b9d3-\
+b1bceb35630c"],
 
 Cell[BoxData[
  StyleBox[
@@ -14098,7 +14258,8 @@ Cell[BoxData[
  CellChangeTimes->{
   3.716587322899837*^9, 3.716587441955927*^9, 3.716588004133651*^9, {
    3.7166586031526937`*^9, 3.716658617518394*^9}, 3.716658790301894*^9, 
-   3.7166882920070972`*^9}],
+   3.7166882920070972`*^9},ExpressionUUID->"4b460751-7be6-43f2-b4df-\
+795cd0b6b8ac"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -14112,7 +14273,8 @@ Cell[BoxData[
  CellChangeTimes->{
   3.716587322899837*^9, 3.716587441955927*^9, 3.716588004133651*^9, {
    3.7166586031526937`*^9, 3.716658617518394*^9}, 3.716658790301894*^9, 
-   3.716688292009087*^9}],
+   3.716688292009087*^9},ExpressionUUID->"87ddaf01-b96d-4cf9-a4c7-\
+83a68bd130f7"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -14123,7 +14285,8 @@ Cell[BoxData[
  CellChangeTimes->{
   3.716587322899837*^9, 3.716587441955927*^9, 3.716588004133651*^9, {
    3.7166586031526937`*^9, 3.716658617518394*^9}, 3.716658790301894*^9, 
-   3.7166882920146027`*^9}],
+   3.7166882920146027`*^9},ExpressionUUID->"86178b95-97d7-43f8-bcaa-\
+c81f6692f284"],
 
 Cell[BoxData[
  StyleBox[
@@ -14155,7 +14318,8 @@ Cell[BoxData[
  CellChangeTimes->{
   3.716587322899837*^9, 3.716587441955927*^9, 3.716588004133651*^9, {
    3.7166586031526937`*^9, 3.716658617518394*^9}, 3.716658790301894*^9, 
-   3.7166882920161033`*^9}],
+   3.7166882920161033`*^9},ExpressionUUID->"b8f8201c-b837-4a75-913f-\
+f80831570744"],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -14177,13 +14341,15 @@ Cell[BoxData[
  CellChangeTimes->{
   3.716587322899837*^9, 3.716587441955927*^9, 3.716588004133651*^9, {
    3.7166586031526937`*^9, 3.716658617518394*^9}, 3.716658790301894*^9, 
-   3.716688292017604*^9}],
+   3.716688292017604*^9},ExpressionUUID->"dd3f83ad-ffd5-4b0f-878a-\
+b652912bec68"],
 
 Cell[BoxData["0.06052451879028252`"], "Output",
  CellChangeTimes->{
   3.716587322899837*^9, 3.716587441955927*^9, 3.716588004133651*^9, {
    3.7166586031526937`*^9, 3.716658617518394*^9}, 3.716658790301894*^9, 
-   3.716688292022094*^9}],
+   3.716688292022094*^9},ExpressionUUID->"56db85d8-6894-47cc-bba2-\
+6ecff955ba71"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {{}, 
@@ -14239,7 +14405,8 @@ COA=
  CellChangeTimes->{
   3.716587322899837*^9, 3.716587441955927*^9, 3.716588004133651*^9, {
    3.7166586031526937`*^9, 3.716658617518394*^9}, 3.716658790301894*^9, 
-   3.716688292103709*^9}]
+   3.716688292103709*^9},ExpressionUUID->"1e6b5a4d-731c-4fbe-9450-\
+309b6ac968da"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -14257,7 +14424,9 @@ Cell[BoxData[{
   RowBox[{"[", "2", "]"}], "]"}]}], "Input",
  CellChangeTimes->{{3.7156748793524227`*^9, 3.715674910352089*^9}, {
   3.7156750421708016`*^9, 3.715675048551941*^9}, {3.7160362423473015`*^9, 
-  3.7160362441323223`*^9}, {3.71603630896087*^9, 3.716036324466443*^9}}],
+  3.7160362441323223`*^9}, {3.71603630896087*^9, 
+  3.716036324466443*^9}},ExpressionUUID->"590a0ab7-a1ab-4cff-8db6-\
+f24b66185718"],
 
 Cell[BoxData[
  RowBox[{
@@ -14279,57 +14448,60 @@ Cell[BoxData[
      RowBox[{"(", 
       RowBox[{"19.960772676841707`", "\[VeryThinSpace]", "-", 
        RowBox[{"1.6599299759702904`", " ", 
-        SqrtBox[
-         RowBox[{
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-            RowBox[{"-", "0.033975444080160046`"}], " ", "xx"}]], " ", 
-          RowBox[{"(", 
-           RowBox[{
-            RowBox[{"3119.861359497452`", " ", 
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.033975444080160046`", " ", "xx"}]]}], "+", 
+        RowBox[{"\[Sqrt]", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
             RowBox[{
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.029830237430785042`", " ", "xx"}]], " ", 
-             RowBox[{"(", 
-              RowBox[{
-               RowBox[{"-", "5241.8791062334585`"}], "-", 
-               RowBox[{"902.0332666022415`", " ", "xx"}]}], ")"}]}], "+", 
+             RowBox[{"-", "0.033975444080160046`"}], " ", "xx"}]], " ", 
+           RowBox[{"(", 
             RowBox[{
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.029626789709495036`", " ", "xx"}]], " ", 
-             RowBox[{"(", 
-              RowBox[{
-               RowBox[{"-", "5241.706204770555`"}], "+", 
-               RowBox[{"918.14022139215`", " ", "xx"}]}], ")"}]}], "+", 
-            RowBox[{
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.025481583060120036`", " ", "xx"}]], " ", 
-             RowBox[{"(", 
-              RowBox[{"4418.215220755512`", "\[VeryThinSpace]", "-", 
-               RowBox[{"13.770186354678062`", " ", "xx"}], "-", 
-               RowBox[{"132.97052678700118`", " ", 
-                SuperscriptBox["xx", "2"]}]}], ")"}]}], "+", 
-            RowBox[{
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.025685030781410042`", " ", "xx"}]], " ", 
-             RowBox[{"(", 
-              RowBox[{"2209.180332931931`", "\[VeryThinSpace]", "+", 
-               RowBox[{"759.5529184812428`", " ", "xx"}], "+", 
-               RowBox[{"65.30809697924776`", " ", 
-                SuperscriptBox["xx", "2"]}]}], ")"}]}], "+", 
-            RowBox[{
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.025278135338830027`", " ", "xx"}]], " ", 
-             RowBox[{"(", 
-              RowBox[{"2209.0348902203846`", "\[VeryThinSpace]", "-", 
-               RowBox[{"773.2726188799516`", " ", "xx"}], "+", 
-               RowBox[{"67.684776087295`", " ", 
-                SuperscriptBox["xx", "2"]}]}], ")"}]}]}], ")"}]}]]}]}], 
-      ")"}]}]}], ")"}]}]], "Output",
+             RowBox[{"3119.861359497452`", " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.033975444080160046`", " ", "xx"}]]}], "+", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.029830237430785042`", " ", "xx"}]], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "5241.8791062334585`"}], "-", 
+                RowBox[{"902.0332666022415`", " ", "xx"}]}], ")"}]}], "+", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.029626789709495036`", " ", "xx"}]], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "5241.706204770555`"}], "+", 
+                RowBox[{"918.14022139215`", " ", "xx"}]}], ")"}]}], "+", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.025481583060120036`", " ", "xx"}]], " ", 
+              RowBox[{"(", 
+               RowBox[{"4418.215220755512`", "\[VeryThinSpace]", "-", 
+                RowBox[{"13.770186354678062`", " ", "xx"}], "-", 
+                RowBox[{"132.97052678700118`", " ", 
+                 SuperscriptBox["xx", "2"]}]}], ")"}]}], "+", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.025685030781410042`", " ", "xx"}]], " ", 
+              RowBox[{"(", 
+               RowBox[{"2209.180332931931`", "\[VeryThinSpace]", "+", 
+                RowBox[{"759.5529184812428`", " ", "xx"}], "+", 
+                RowBox[{"65.30809697924776`", " ", 
+                 SuperscriptBox["xx", "2"]}]}], ")"}]}], "+", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.025278135338830027`", " ", "xx"}]], " ", 
+              RowBox[{"(", 
+               RowBox[{"2209.0348902203846`", "\[VeryThinSpace]", "-", 
+                RowBox[{"773.2726188799516`", " ", "xx"}], "+", 
+                RowBox[{"67.684776087295`", " ", 
+                 SuperscriptBox["xx", "2"]}]}], ")"}]}]}], ")"}]}], 
+          ")"}]}]}]}], ")"}]}]}], ")"}]}]], "Output",
  CellChangeTimes->{{3.716658603490416*^9, 3.7166586178266125`*^9}, 
-   3.7166587905465674`*^9, 3.7166882923309283`*^9}],
+   3.7166587905465674`*^9, 
+   3.7166882923309283`*^9},ExpressionUUID->"ea01e849-d8ea-4049-a5ad-\
+0860e13e5dbf"],
 
 Cell[BoxData[
  RowBox[{
@@ -14351,57 +14523,60 @@ Cell[BoxData[
      RowBox[{"(", 
       RowBox[{"19.960772676841707`", "\[VeryThinSpace]", "+", 
        RowBox[{"1.6599299759702904`", " ", 
-        SqrtBox[
-         RowBox[{
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-            RowBox[{"-", "0.033975444080160046`"}], " ", "xx"}]], " ", 
-          RowBox[{"(", 
-           RowBox[{
-            RowBox[{"3119.861359497452`", " ", 
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.033975444080160046`", " ", "xx"}]]}], "+", 
+        RowBox[{"\[Sqrt]", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["\[ExponentialE]", 
             RowBox[{
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.029830237430785042`", " ", "xx"}]], " ", 
-             RowBox[{"(", 
-              RowBox[{
-               RowBox[{"-", "5241.8791062334585`"}], "-", 
-               RowBox[{"902.0332666022415`", " ", "xx"}]}], ")"}]}], "+", 
+             RowBox[{"-", "0.033975444080160046`"}], " ", "xx"}]], " ", 
+           RowBox[{"(", 
             RowBox[{
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.029626789709495036`", " ", "xx"}]], " ", 
-             RowBox[{"(", 
-              RowBox[{
-               RowBox[{"-", "5241.706204770555`"}], "+", 
-               RowBox[{"918.14022139215`", " ", "xx"}]}], ")"}]}], "+", 
-            RowBox[{
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.025481583060120036`", " ", "xx"}]], " ", 
-             RowBox[{"(", 
-              RowBox[{"4418.215220755512`", "\[VeryThinSpace]", "-", 
-               RowBox[{"13.770186354678062`", " ", "xx"}], "-", 
-               RowBox[{"132.97052678700118`", " ", 
-                SuperscriptBox["xx", "2"]}]}], ")"}]}], "+", 
-            RowBox[{
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.025685030781410042`", " ", "xx"}]], " ", 
-             RowBox[{"(", 
-              RowBox[{"2209.180332931931`", "\[VeryThinSpace]", "+", 
-               RowBox[{"759.5529184812428`", " ", "xx"}], "+", 
-               RowBox[{"65.30809697924776`", " ", 
-                SuperscriptBox["xx", "2"]}]}], ")"}]}], "+", 
-            RowBox[{
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{"0.025278135338830027`", " ", "xx"}]], " ", 
-             RowBox[{"(", 
-              RowBox[{"2209.0348902203846`", "\[VeryThinSpace]", "-", 
-               RowBox[{"773.2726188799516`", " ", "xx"}], "+", 
-               RowBox[{"67.684776087295`", " ", 
-                SuperscriptBox["xx", "2"]}]}], ")"}]}]}], ")"}]}]]}]}], 
-      ")"}]}]}], ")"}]}]], "Output",
+             RowBox[{"3119.861359497452`", " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.033975444080160046`", " ", "xx"}]]}], "+", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.029830237430785042`", " ", "xx"}]], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "5241.8791062334585`"}], "-", 
+                RowBox[{"902.0332666022415`", " ", "xx"}]}], ")"}]}], "+", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.029626789709495036`", " ", "xx"}]], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "5241.706204770555`"}], "+", 
+                RowBox[{"918.14022139215`", " ", "xx"}]}], ")"}]}], "+", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.025481583060120036`", " ", "xx"}]], " ", 
+              RowBox[{"(", 
+               RowBox[{"4418.215220755512`", "\[VeryThinSpace]", "-", 
+                RowBox[{"13.770186354678062`", " ", "xx"}], "-", 
+                RowBox[{"132.97052678700118`", " ", 
+                 SuperscriptBox["xx", "2"]}]}], ")"}]}], "+", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.025685030781410042`", " ", "xx"}]], " ", 
+              RowBox[{"(", 
+               RowBox[{"2209.180332931931`", "\[VeryThinSpace]", "+", 
+                RowBox[{"759.5529184812428`", " ", "xx"}], "+", 
+                RowBox[{"65.30809697924776`", " ", 
+                 SuperscriptBox["xx", "2"]}]}], ")"}]}], "+", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{"0.025278135338830027`", " ", "xx"}]], " ", 
+              RowBox[{"(", 
+               RowBox[{"2209.0348902203846`", "\[VeryThinSpace]", "-", 
+                RowBox[{"773.2726188799516`", " ", "xx"}], "+", 
+                RowBox[{"67.684776087295`", " ", 
+                 SuperscriptBox["xx", "2"]}]}], ")"}]}]}], ")"}]}], 
+          ")"}]}]}]}], ")"}]}]}], ")"}]}]], "Output",
  CellChangeTimes->{{3.716658603490416*^9, 3.7166586178266125`*^9}, 
-   3.7166587905465674`*^9, 3.716688292551572*^9}]
+   3.7166587905465674`*^9, 
+   3.716688292551572*^9},ExpressionUUID->"ab066a3c-b0eb-44d5-a3ae-\
+bceba20edc3b"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -14737,7 +14912,9 @@ Cell[BoxData[{
       RowBox[{"ImageSize", "\[Rule]", 
        RowBox[{"{", "1000", "}"}]}]}], "]"}]}], "\[IndentingNewLine]", "}"}], 
   "]"}]}], "Input",
- CellChangeTimes->{{3.7155352021529536`*^9, 3.7155353359764776`*^9}}],
+ CellChangeTimes->{{3.7155352021529536`*^9, 
+  3.7155353359764776`*^9}},ExpressionUUID->"9ffabb71-8d7b-4f21-b1fb-\
+45ea52ad545f"],
 
 Cell[BoxData[
  RowBox[{"-", "1.448088793217275`*^-16"}]], "Output",
@@ -14746,7 +14923,9 @@ Cell[BoxData[
    3.7165835698001804`*^9, 3.716583769978772*^9, 3.7165838629518814`*^9, 
    3.716584438809906*^9, 3.7165868693129444`*^9, 3.7165874420785036`*^9, 
    3.7165880042917614`*^9, 3.7165908535662456`*^9, {3.7166586037531166`*^9, 
-   3.7166586181718655`*^9}, 3.7166587907762175`*^9, 3.7166882927138996`*^9}],
+   3.7166586181718655`*^9}, 3.7166587907762175`*^9, 
+   3.7166882927138996`*^9},ExpressionUUID->"90b129aa-8a29-4b39-bcdd-\
+35733c77cc46"],
 
 Cell[BoxData["0.0005908668379385382`"], "Output",
  CellChangeTimes->{{3.7155353260516825`*^9, 3.715535336354855*^9}, 
@@ -14754,7 +14933,9 @@ Cell[BoxData["0.0005908668379385382`"], "Output",
    3.7165835698001804`*^9, 3.716583769978772*^9, 3.7165838629518814`*^9, 
    3.716584438809906*^9, 3.7165868693129444`*^9, 3.7165874420785036`*^9, 
    3.7165880042917614`*^9, 3.7165908535662456`*^9, {3.7166586037531166`*^9, 
-   3.7166586181718655`*^9}, 3.7166587907762175`*^9, 3.7166882927154007`*^9}],
+   3.7166586181718655`*^9}, 3.7166587907762175`*^9, 
+   3.7166882927154007`*^9},ExpressionUUID->"18583cea-7605-4c28-acc4-\
+dbb13725f35f"],
 
 Cell[BoxData[
  GraphicsBox[{{
@@ -14774,8 +14955,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{-0.0015, 0}, {-0.001, 5}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{430.08180000000016`, 476.8462000000001}, {
-           259.96054368923376`, 307.6181243683987}}],
+          ImageSizeCache->{{430.7938000000002, 477.65420000000023`}, {
+           260.0987562851817, 307.8541923458987}}],
          StatusArea[#, 5]& ,
          TagBoxNote->"5"],
         StyleBox["5", {31, 
@@ -14795,8 +14976,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{-0.001, 0}, {-0.0005, 20}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{476.2962000000001, 523.0606000000002}, {
-           118.6378016517391, 307.61812436839875`}}],
+          ImageSizeCache->{{477.1042000000002, 523.9646000000002}, {
+           118.48244810303069`, 307.8541923458987}}],
          StatusArea[#, 20]& ,
          TagBoxNote->"20"],
         StyleBox["20", {31, 
@@ -14816,8 +14997,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{-0.0005, 0}, {0., 23}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{522.5106000000002, 569.2750000000001}, {
-           90.37325324424015, 307.61812436839875`}}],
+          ImageSizeCache->{{523.4146000000002, 570.2750000000003}, {
+           90.15918646660052, 307.8541923458987}}],
          StatusArea[#, 23]& ,
          TagBoxNote->"23"],
         StyleBox["23", {31, 
@@ -14837,8 +15018,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{0., 0}, {0.0005, 34}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{568.7250000000001, 615.4894}, {-13.26342424992265,
-            307.61812436839875`}}],
+          ImageSizeCache->{{569.7250000000003, 
+           616.5854000000003}, {-13.692772866976838`, 307.85419234589875`}}],
          StatusArea[#, 34]& ,
          TagBoxNote->"34"],
         StyleBox["34", {31, 
@@ -14858,8 +15039,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{0.0005, 0}, {0.001, 21}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{614.9394000000001, 661.7038000000002}, {
-           109.21628551590612`, 307.61812436839875`}}],
+          ImageSizeCache->{{616.0354000000003, 662.8958000000002}, {
+           109.04136089088732`, 307.8541923458987}}],
          StatusArea[#, 21]& ,
          TagBoxNote->"21"],
         StyleBox["21", {31, 
@@ -14879,8 +15060,8 @@ Cell[BoxData[
               Opacity[0.66]}], {}, {}], 
            RectangleBox[{0.001, 0}, {0.0015, 4}, "RoundingRadius" -> 0]},
           
-          ImageSizeCache->{{661.1538000000002, 707.9182000000001}, {
-           269.38205982506673`, 307.6181243683987}}],
+          ImageSizeCache->{{662.3458000000003, 709.2062000000002}, {
+           269.5398434973251, 307.8541923458987}}],
          StatusArea[#, 4]& ,
          TagBoxNote->"4"],
         StyleBox["4", {31, 
@@ -15715,13 +15896,17 @@ Residual\"", TraditionalForm], None}},
    3.7165835698001804`*^9, 3.716583769978772*^9, 3.7165838629518814`*^9, 
    3.716584438809906*^9, 3.7165868693129444`*^9, 3.7165874420785036`*^9, 
    3.7165880042917614`*^9, 3.7165908535662456`*^9, {3.7166586037531166`*^9, 
-   3.7166586181718655`*^9}, 3.7166587907762175`*^9, 3.7166882928745127`*^9}]
+   3.7166586181718655`*^9}, 3.7166587907762175`*^9, 
+   3.7166882928745127`*^9},ExpressionUUID->"aa4cd4d4-7989-4c6d-96d0-\
+438129f45215"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell["Extras: Appendix", "Chapter",
- CellChangeTimes->{{3.7161051906861525`*^9, 3.716105196897177*^9}}],
+ CellChangeTimes->{{3.7161051906861525`*^9, 
+  3.716105196897177*^9}},ExpressionUUID->"9925b01c-aa7c-4809-b2df-\
+f96f5a7640b1"],
 
 Cell[CellGroupData[{
 
@@ -15793,7 +15978,9 @@ Cell[BoxData[{
      RowBox[{"Dashed", ",", "Thick"}], "}"}]}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.7155359603340015`*^9, 3.715536001237359*^9}, {
   3.7155360318581567`*^9, 3.715536037198419*^9}, {3.715536076075776*^9, 
-  3.7155365277282195`*^9}, {3.715536562993307*^9, 3.7155366293427353`*^9}}],
+  3.7155365277282195`*^9}, {3.715536562993307*^9, 
+  3.7155366293427353`*^9}},ExpressionUUID->"289f08a1-ce46-4f1d-90e8-\
+0ca3f5d4c377"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {}, 
@@ -15862,14 +16049,16 @@ l/8kH/DzfzuCDwCLTP6P
    3.716583571832471*^9, 3.7165837719069176`*^9, 3.716583864821833*^9, 
    3.7165844406762457`*^9, 3.716586871150238*^9, 3.716587444172991*^9, 
    3.7165880063041906`*^9, {3.7166586058056283`*^9, 3.716658620114228*^9}, 
-   3.716658792472514*^9, 3.7166882945002413`*^9}]
+   3.716658792472514*^9, 
+   3.7166882945002413`*^9},ExpressionUUID->"aeb71a24-1fd0-478f-a88e-\
+6f0d2eeb09c1"]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{2560, 1357},
-WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+WindowSize->{1424, 901},
+WindowMargins->{{2677, Automatic}, {Automatic, 156}},
 Magnification:>1.1 Inherited,
-FrontEndVersion->"10.1 for Microsoft Windows (64-bit) (March 23, 2015)",
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -15884,82 +16073,81 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 4453, 102, 393, "Input"],
+Cell[580, 22, 4544, 104, 451, "Input",ExpressionUUID->"2a9f8e22-1bdb-47ed-83bc-b49a03fd2eeb"],
 Cell[CellGroupData[{
-Cell[5058, 128, 1482, 25, 24, "Print"],
-Cell[6543, 155, 1446, 24, 24, "Print"],
-Cell[7992, 181, 1428, 23, 24, "Print"],
-Cell[9423, 206, 1448, 24, 24, "Print"],
-Cell[10874, 232, 1438, 23, 24, "Print"],
-Cell[12315, 257, 1365, 21, 24, "Print"],
-Cell[13683, 280, 1327, 20, 24, "Print"]
+Cell[5149, 130, 1543, 27, 23, "Print",ExpressionUUID->"27860705-e486-42cd-80f8-95193077595e"],
+Cell[6695, 159, 1507, 26, 23, "Print",ExpressionUUID->"0abe5da7-d206-4aad-8ca8-3d7ca0d94624"],
+Cell[8205, 187, 1489, 25, 23, "Print",ExpressionUUID->"45250614-aae2-4e6b-afc2-7078d6a2f778"],
+Cell[9697, 214, 1509, 26, 23, "Print",ExpressionUUID->"45755385-411a-45ad-8bdf-e5834502d55d"],
+Cell[11209, 242, 1499, 25, 23, "Print",ExpressionUUID->"affac47b-06df-478a-9c97-e2fccd2c7b98"],
+Cell[12711, 269, 1426, 23, 23, "Print",ExpressionUUID->"f609a964-fc19-4008-9515-b02da48b803e"],
+Cell[14140, 294, 1388, 22, 23, "Print",ExpressionUUID->"d3b2ae58-6073-470b-9df7-ae593f8f32e8"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15059, 306, 38636, 971, 1213, "Input"],
-Cell[53698, 1279, 1068, 18, 23, "Message"],
-Cell[54769, 1299, 1068, 18, 23, "Message"],
-Cell[55840, 1319, 130510, 2588, 803, "Output"],
-Cell[186353, 3909, 253595, 5885, 822, "Output"],
-Cell[439951, 9796, 16860, 294, 822, "Output"],
-Cell[456814, 10092, 1539, 30, 91, "Output"],
-Cell[458356, 10124, 704, 12, 33, "Output"],
-Cell[459063, 10138, 1456, 28, 110, "Output"]
+Cell[15577, 322, 38697, 973, 1731, "Input",ExpressionUUID->"5a15ad2c-f73c-4cfc-b924-2b1bc7e4a6c9"],
+Cell[54277, 1297, 1116, 19, 25, "Message",ExpressionUUID->"35ba4efe-8735-454c-9421-14300aa31c89"],
+Cell[55396, 1318, 1116, 19, 25, "Message",ExpressionUUID->"49d566c0-5617-4f1d-b11d-f59d779134ee"],
+Cell[56515, 1339, 130571, 2590, 883, "Output",ExpressionUUID->"c62cfb87-d9f2-4965-9d2e-9c81c2cb63af"],
+Cell[187089, 3931, 255873, 5992, 904, "Output",ExpressionUUID->"d54c9787-8511-4030-b68c-94d83651594f"],
+Cell[442965, 9925, 16941, 297, 904, "Output",ExpressionUUID->"01a7c224-5ea8-4cff-b8d2-fe305d734091"],
+Cell[459909, 10224, 1600, 32, 100, "Output",ExpressionUUID->"9cead1e3-604c-44c4-9a64-0e208a626012"],
+Cell[461512, 10258, 765, 14, 36, "Output",ExpressionUUID->"cac0bf29-9c6e-4a21-ab2f-4991778f1499"],
+Cell[462280, 10274, 1517, 30, 121, "Output",ExpressionUUID->"a359243a-0876-4f50-a5dd-3218f062db10"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[460556, 10171, 9964, 226, 294, "Input"],
-Cell[470523, 10399, 2732, 38, 33, "Output"],
-Cell[473258, 10439, 2711, 37, 33, "Output"],
-Cell[475972, 10478, 54687, 978, 835, "Output"]
+Cell[463834, 10309, 10025, 228, 323, "Input",ExpressionUUID->"7416b937-2a11-47f8-beee-78c8f8d26e6d"],
+Cell[473862, 10539, 2789, 39, 36, "Output",ExpressionUUID->"a6d1e5c9-5a8b-451f-a132-c3e40c17c995"],
+Cell[476654, 10580, 2768, 38, 36, "Output",ExpressionUUID->"3b672dd4-dd1b-4ecd-a5a3-06e06b1a717d"],
+Cell[479425, 10620, 54742, 979, 918, "Output",ExpressionUUID->"ac93314d-a557-4c7c-b199-8b453a1de0e9"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[530696, 11461, 266, 7, 32, "Input"],
-Cell[530965, 11470, 288, 6, 33, "Output"]
+Cell[534204, 11604, 326, 9, 35, "Input",ExpressionUUID->"754c3f85-3bd4-4fa9-ad91-b6605e134c21"],
+Cell[534533, 11615, 345, 7, 36, "Output",ExpressionUUID->"fcbdb504-3165-4ce0-a213-32365e29dbdc"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[531290, 11481, 10064, 229, 294, "Input"],
-Cell[541357, 11712, 2450, 33, 33, "Output"],
-Cell[543810, 11747, 2446, 33, 33, "Output"],
-Cell[546259, 11782, 47755, 884, 831, "Output"]
+Cell[534915, 11627, 10121, 230, 323, "Input",ExpressionUUID->"11f0dfa9-e211-44c2-bd05-0672b5dc0ba0"],
+Cell[545039, 11859, 2511, 35, 36, "Output",ExpressionUUID->"a4df9a53-8102-4bd8-8996-ba195212647f"],
+Cell[547553, 11896, 2507, 35, 36, "Output",ExpressionUUID->"289218ae-2140-4ada-b913-9b1891e39941"],
+Cell[550063, 11933, 47883, 886, 914, "Output",ExpressionUUID->"59debe75-4bd6-45a6-921d-cf5611aef614"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[594051, 12671, 8790, 209, 329, "Input"],
-Cell[602844, 12882, 790, 12, 33, "Output"],
-Cell[603637, 12896, 774, 11, 33, "Output"],
-Cell[604414, 12909, 50645, 905, 1072, "Output"]
+Cell[597983, 12824, 8851, 211, 361, "Input",ExpressionUUID->"cbcecd98-5f46-4cc5-97af-1270b5f43615"],
+Cell[606837, 13037, 847, 13, 36, "Output",ExpressionUUID->"6e65158b-c69a-41d1-b8e3-ba17fd06e645"],
+Cell[607687, 13052, 831, 12, 36, "Output",ExpressionUUID->"2e00393a-f8f8-4245-ae57-90c5bc46188d"],
+Cell[608521, 13066, 50699, 906, 1179, "Output",ExpressionUUID->"203c6d76-c735-44ba-b507-d68255e0720f"]
 }, Open  ]],
-Cell[655074, 13817, 8270, 201, 329, "Input"],
+Cell[659235, 13975, 8325, 201, 361, "Input",ExpressionUUID->"a9bd0bd0-1325-46df-9897-141d93dd3bb0"],
 Cell[CellGroupData[{
-Cell[663369, 14022, 947, 22, 173, "Input"],
-Cell[664319, 14046, 1410, 30, 127, "Output"],
-Cell[665732, 14078, 1029, 22, 110, "Output"],
-Cell[666764, 14102, 559, 12, 33, "Output"],
-Cell[667326, 14116, 394, 9, 33, "Output"],
-Cell[667723, 14127, 1415, 30, 127, "Output"],
-Cell[669141, 14159, 956, 20, 109, "Output"],
-Cell[670100, 14181, 236, 4, 33, "Output"],
-Cell[670339, 14187, 2570, 54, 257, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[672946, 14246, 632, 13, 53, "Input"],
-Cell[673581, 14261, 3125, 70, 91, "Output"],
-Cell[676709, 14333, 3123, 70, 91, "Output"]
+Cell[667585, 14180, 1004, 23, 190, "Input",ExpressionUUID->"762465d6-3260-489a-8c15-89d0c5c9cfce"],
+Cell[668592, 14205, 1467, 31, 139, "Output",ExpressionUUID->"f3ff200a-c091-4d18-b9d3-b1bceb35630c"],
+Cell[670062, 14238, 1086, 23, 121, "Output",ExpressionUUID->"4b460751-7be6-43f2-b4df-795cd0b6b8ac"],
+Cell[671151, 14263, 616, 13, 36, "Output",ExpressionUUID->"87ddaf01-b96d-4cf9-a4c7-83a68bd130f7"],
+Cell[671770, 14278, 451, 10, 36, "Output",ExpressionUUID->"86178b95-97d7-43f8-bcaa-c81f6692f284"],
+Cell[672224, 14290, 1472, 31, 139, "Output",ExpressionUUID->"b8f8201c-b837-4a75-913f-f80831570744"],
+Cell[673699, 14323, 1013, 21, 119, "Output",ExpressionUUID->"dd3f83ad-ffd5-4b0f-878a-b652912bec68"],
+Cell[674715, 14346, 293, 5, 36, "Output",ExpressionUUID->"56db85d8-6894-47cc-bba2-6ecff955ba71"],
+Cell[675011, 14353, 2627, 55, 282, "Output",ExpressionUUID->"1e6b5a4d-731c-4fbe-9450-309b6ac968da"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[679869, 14408, 12640, 331, 375, "Input"],
-Cell[692512, 14741, 511, 7, 33, "Output"],
-Cell[693026, 14750, 493, 6, 33, "Output"],
-Cell[693522, 14758, 54083, 959, 827, "Output"]
+Cell[677675, 14413, 692, 15, 58, "Input",ExpressionUUID->"590a0ab7-a1ab-4cff-8db6-f24b66185718"],
+Cell[678370, 14430, 3279, 73, 100, "Output",ExpressionUUID->"ea01e849-d8ea-4049-a5ad-0860e13e5dbf"],
+Cell[681652, 14505, 3277, 73, 100, "Output",ExpressionUUID->"ab066a3c-b0eb-44d5-a3ae-bceba20edc3b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[747642, 15722, 103, 1, 79, "Chapter"],
+Cell[684966, 14583, 12700, 333, 412, "Input",ExpressionUUID->"9ffabb71-8d7b-4f21-b1fb-45ea52ad545f"],
+Cell[697669, 14918, 572, 9, 36, "Output",ExpressionUUID->"90b129aa-8a29-4b39-bcdd-35733c77cc46"],
+Cell[698244, 14929, 554, 8, 36, "Output",ExpressionUUID->"18583cea-7605-4c28-acc4-dbb13725f35f"],
+Cell[698801, 14939, 54147, 961, 909, "Output",ExpressionUUID->"aa4cd4d4-7989-4c6d-96d0-438129f45215"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[747770, 15727, 2259, 68, 153, "Input"],
-Cell[750032, 15797, 3368, 67, 250, "Output"]
+Cell[752985, 15905, 163, 3, 86, "Chapter",ExpressionUUID->"9925b01c-aa7c-4809-b2df-f96f5a7640b1"],
+Cell[CellGroupData[{
+Cell[753173, 15912, 2319, 70, 168, "Input",ExpressionUUID->"289f08a1-ce46-4f1d-90e8-0ca3f5d4c377"],
+Cell[755495, 15984, 3429, 69, 275, "Output",ExpressionUUID->"aeb71a24-1fd0-478f-a88e-6f0d2eeb09c1"]
 }, Open  ]]
 }, Open  ]]
 }
 ]
 *)
 
-(* End of internal cache information *)
