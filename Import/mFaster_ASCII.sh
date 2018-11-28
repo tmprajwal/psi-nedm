@@ -7,7 +7,7 @@
 # Warning     : Occupies all processors keep computer idle.    #
 #                                                              #
 ################################################################
-runnum=( 013146 )
+runnum=( 011433 011605 011616 011625 011645 )
 for i in "${runnum[@]}"
 do
 	./mFaster_ASCII_cmd_text.m $i
